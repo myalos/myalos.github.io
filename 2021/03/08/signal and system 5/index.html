@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="如何建站, goon的杂货店">
+    <meta name="keywords" content="Properties of Linear Time-invariant Systems, goon的杂货店">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>如何建站 | goon的杂货店</title>
+    <title>Properties of Linear Time-invariant Systems | goon的杂货店</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">如何建站</h1>
+                    <h1 class="description center-align post-title">Properties of Linear Time-invariant Systems</h1>
                 </div>
             </div>
         </div>
@@ -430,12 +430,33 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">
+                                <span class="chip bg-color">信号与系统</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
+                                <span class="chip bg-color">理论知识</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                                <span class="chip bg-color">数学</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                信号与系统
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -444,7 +465,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-18
+                    2021-03-08
                 </div>
                 
 
@@ -468,11 +489,78 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="如何建站"><a href="#如何建站" class="headerlink" title="如何建站"></a>如何建站</h4><p>本站是在github上面建的静态网站，用的是hexo模板(这个资料很多)</p>
-<p>主题是<a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery">闪烁之狐</a></p>
-<p>对于mathjax渲染问题，可能需要参考一下这篇博客<a target="_blank" rel="noopener" href="https://www.cnblogs.com/Ai-heng/p/7282110.html">链接</a></p>
-<p>有问题欢迎留言</p>
-
+                <h3 id="Lecture-5-Properties-of-Linear-Time-invariant-Systems"><a href="#Lecture-5-Properties-of-Linear-Time-invariant-Systems" class="headerlink" title="Lecture 5 Properties of Linear Time-invariant Systems"></a>Lecture 5 Properties of Linear Time-invariant Systems</h3><p>这是根据公开课视频写的笔记<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1xy4y167DD?p=5">链接</a></p>
+<h5 id="Commutative"><a href="#Commutative" class="headerlink" title="Commutative"></a>Commutative</h5><script type="math/tex; mode=display">
+x[n] * h[n] = h[n] * x[n] \\
+x(t) * h(t) = h(t) * x(t)</script><h5 id="Associative"><a href="#Associative" class="headerlink" title="Associative"></a>Associative</h5><script type="math/tex; mode=display">
+x * \{h_1 * h_2\} = \{x * h_1 \} * h_2</script><h5 id="Distributive"><a href="#Distributive" class="headerlink" title="Distributive"></a>Distributive</h5><script type="math/tex; mode=display">
+x * \{ h_1 + h_2 \} = x * h_1 + x * h_2</script><p>视频9分40秒的例子 解释了在LTI系统中commutative性质的作用</p>
+<p>We can interchange the role of input and impulse response, and from an output point of view, the output doesn’t care.</p>
+<p>视频11分钟40秒的例子 解释了在LTI系统中Associative性质的作用</p>
+<p><strong>如果我们有两个级联的LTI系统，任意方式的级联结果是一样的</strong></p>
+<p>对于非LTI系统的级联 比如—&gt;平方根—&gt;加倍—&gt; 和 —&gt;加倍—&gt;平方根—&gt; 是不一样的</p>
+<p>视频15分11秒的例子 解释了在LTI系统中Distributive性质的作用</p>
+<p><strong>总结一下 这块讲的是从卷积的性质来看LTI系统互联时的性质</strong></p>
+<h4 id="LTI系统中，其他系统属性可以关联具有系统的特定属性冲激响应"><a href="#LTI系统中，其他系统属性可以关联具有系统的特定属性冲激响应" class="headerlink" title="LTI系统中，其他系统属性可以关联具有系统的特定属性冲激响应"></a>LTI系统中，其他系统属性可以关联具有系统的特定属性冲激响应</h4><ul>
+<li><p>Memoryless</p>
+<p>$h(t - \tau)$ nonzero only at $\tau = t$  which implys $h(t) = K\delta(t)$ 和 $h[n] = K\delta[n]$</p>
+<p>视频19分22秒有图 由于我们想让冲激响应contribute something after we multiply and go through an integral, and what that says is the only thing that it can be and meet all those conditions is a scaled impulse</p>
+</li>
+<li><p>Invertibility</p>
+<p>视频21分钟有图 $y = x <em> (h </em> h^{-1}) = x$ 我觉得视频上的图有问题，$h$和$h^{-1}$之间应该是卷积符号</p>
+</li>
+<li><p>Stability</p>
+<script type="math/tex; mode=display">
+\sum_{-\infty}^{+\infty}|h[k]| < \infty \\
+\int_{-\infty}^{+\infty}|h(\tau)|d\tau < \infty</script></li>
+<li><p>Causality</p>
+<p>引入概念 zero input response of a linear system(无论是否是time invariant 结论都成立)</p>
+<p>if you put nothing into it you get nothing out of it</p>
+<p>意思是如果$x(t) = 0$对于任意t成立， 则$y(t) = 0$对于任意t成立；如果$x[n] = 0$对于任意t成立， 则$y[n] = 0$对于任意t成立 原因是对于线性系统 如果$x(t) -&gt;y(t)$ 那么$ax(t) -&gt;ay(t)$ 令$a$为0 就可以得到这个情况</p>
+<p><strong>causality这个性质说明的是系统无法预测输入（视频27分45秒）</strong></p>
+<p>对于线性系统</p>
+<p>if $x(t) = 0$ 对任意$t &lt; t_0$成立，那么$y(t) = 0$对任意$t &lt; t_0$成立， 称作initial rest</p>
+<p>对于LTI系统</p>
+<p>causality意味着$h(t) = 0$对任意$t&lt;0$成立，$h[n] = 0$对于任意$n &lt; 0$成立 因为相应的输入是$\delta(t)$和$\delta[n]$这两个在$t&lt;0$的时候 值均为0</p>
+<p>视频33分8秒 示意了 如果$h(t) = 0$对任意$t &lt; 0$成立 则系统是causality的推导</p>
+</li>
+</ul>
+<p>34分钟 举了一个例子</p>
+<p>Accumulator: $y[n] = \sum_{k = -\infty}^nx[k]$， Accumulator是一个LTI系统中$h[n] = u[n]$的例子，下面分析</p>
+<p>$\because h[n] \neq k\delta[n]$   我们可知系统是memory的</p>
+<p>$\because h[n] = 0$对于任意n &lt; 0成立   我们可知系统是causal的</p>
+<p>$\because \sum_{n = -\infty}^{+\infty}|h[n]| = \infty$ 我们可知系统是not stable的</p>
+<p>38分钟关于Accumulator的求逆 没有看懂</p>
+<p>40分钟的例子 视频里面写着 initial rest $\Rightarrow$ LTI 有点没懂</p>
+<p>视频最后的部分讲的是</p>
+<p>$\delta (t) * \delta (t) = \delta (t) $ 和</p>
+<p> $ \delta[n] *\delta[n] = \delta[n]$</p>
+<p>后者可以画图推理得到，但是前者比较tricky</p>
+<p>因为考虑到$\delta(t) = \lim_{\Delta \to 0}\delta_{\Delta}(t)$ 如果对$\delta_{\Delta}(t) * \delta_{\Delta}(t)$得到的是一个$r_{\Delta}(t)$</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+r_{\Delta}(t) = \begin{cases}
+\frac{1}{\Delta^2}t& 0 < t < \Delta \\
+\frac{1}{\Delta} - (t - \Delta) * \frac{1}{\Delta^2}& \Delta < t < 2\Delta \\
+0& otherwise
+\end{cases}
+\end{equation}</script><p>那么$\delta(t) = \lim_{\Delta \to 0}r_{\Delta}(t)$</p>
+<p>再考虑对于$\delta(t)$求导，会发现比较麻烦，老师说正确的解决方法是through a set of mathematics referred to as generalized functions</p>
+<p><strong>当我们讨论一个函数时，我们讨论的是what the value of the function is at any instant of time，当面对冲激函数的时候就出现麻烦，那么就从另一种定义operational  definition来对待函数，即not related to what the impulse is, but to what the impulse does under the operation of convolution</strong></p>
+<p><strong>SO WHAT IS IMPULSE?</strong></p>
+<p>An impulse in something which under convolution retains the function !   666</p>
+<p>意思就是impulse这个函数的定义是通过卷积来定义的，对于任意的函数，如果有一个函数和这个任意的函数卷积出来的结果不变，那么这个函数就是impulse函数</p>
+<script type="math/tex; mode=display">
+x(t) * \delta(t) = x(t) \\
+\therefore \frac{d\delta(t)}{dt} = u_1(t) \\
+x(t) * u_1(t) = \frac{dx(t)}{dt} \\
+u_2(t) = u_1(t) * u_1(t) \\
+x(t) * u_2(t) = \frac{d^2x(t)}{dt}
+u_k(t) = u_1(t) * u_1(t) * ... \quad k \ times \\
+x(t) * u_k(t) = \frac{d^kx(t)}{dt} \\
+u_0(t) = \delta(t)</script><p>同理 对积分器引入$u_{-m}(t)$的定义 mth running integral</p>
+<script type="math/tex; mode=display">
+u_k(t) * u_p(t) = u_{k + p}(t)</script>
                 
             </div>
             <hr/>
@@ -498,7 +586,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://myalos.github.io/2021/02/18/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%99/">http://myalos.github.io/2021/02/18/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%99/</a>
+                    <a href="http://myalos.github.io/2021/03/08/signal%20and%20system%205/">http://myalos.github.io/2021/03/08/signal%20and%20system%205/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -535,7 +623,19 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">
+                                    <span class="chip bg-color">信号与系统</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
+                                    <span class="chip bg-color">理论知识</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                                    <span class="chip bg-color">数学</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -762,19 +862,19 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/08/signal%20and%20system%205/">
+                <a href="/2021/03/08/signal%20and%20system%203/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Properties of Linear Time-invariant Systems">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Signals and Systems Part II">
                         
-                        <span class="card-title">Properties of Linear Time-invariant Systems</span>
+                        <span class="card-title">Signals and Systems Part II</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是奥本海姆 信号与系统第五课的学习笔记
+                            这是奥本海姆 信号与系统第三课的学习笔记
                         
                     </div>
                     <div class="publish-info">
@@ -816,7 +916,7 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2021/02/18/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%99/">
@@ -846,7 +946,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -974,6 +1073,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

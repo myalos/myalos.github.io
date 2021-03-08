@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="如何建站, goon的杂货店">
+    <meta name="keywords" content="Convolution, goon的杂货店">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>如何建站 | goon的杂货店</title>
+    <title>Convolution | goon的杂货店</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">如何建站</h1>
+                    <h1 class="description center-align post-title">Convolution</h1>
                 </div>
             </div>
         </div>
@@ -430,12 +430,33 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">
+                                <span class="chip bg-color">信号与系统</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
+                                <span class="chip bg-color">理论知识</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                                <span class="chip bg-color">数学</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                信号与系统
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -444,7 +465,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-18
+                    2021-03-08
                 </div>
                 
 
@@ -468,11 +489,64 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="如何建站"><a href="#如何建站" class="headerlink" title="如何建站"></a>如何建站</h4><p>本站是在github上面建的静态网站，用的是hexo模板(这个资料很多)</p>
-<p>主题是<a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery">闪烁之狐</a></p>
-<p>对于mathjax渲染问题，可能需要参考一下这篇博客<a target="_blank" rel="noopener" href="https://www.cnblogs.com/Ai-heng/p/7282110.html">链接</a></p>
-<p>有问题欢迎留言</p>
-
+                <h3 id="Lecture-4-Convolution"><a href="#Lecture-4-Convolution" class="headerlink" title="Lecture 4 Convolution"></a>Lecture 4 Convolution</h3><p><strong>这个笔记是根据</strong><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1xy4y167DD?p=4">奥本海姆信号与系统的视频课来写的</a></p>
+<p>如何利用time invariant 和linear属性—&gt;将一个信号分解为一组基本信号</p>
+<p>对于基本信号的选择，目的是为了能够轻松地产生输出信号</p>
+<ul>
+<li>delayed impulses  &lt;—-&gt;  Convolution</li>
+<li>complex exponential &lt;—-&gt;  Fourier analysis</li>
+</ul>
+<h4 id="将离散信号表示为冲激信号的线性组合"><a href="#将离散信号表示为冲激信号的线性组合" class="headerlink" title="将离散信号表示为冲激信号的线性组合"></a>将离散信号表示为冲激信号的线性组合</h4><script type="math/tex; mode=display">
+x[n] = 
+\begin{cases}
+c& n = 0 \\
+0& n \neq 0
+\end{cases}\\
+其中c \neq 0</script><p>对于这个信号 可以表示为$x[0] \times \delta[n]$</p>
+<p>同样可得$x[1] = x[1] \times \delta[n - 1]$还有$x[-1] = x[-1] \times \delta[n + 1]$</p>
+<p>对于任意的一个信号$x[n]$ 就可以分解为$x[n] = \sum_{k=-\infty}^{+\infty}x[k]\delta[n-k]$</p>
+<p><strong>这样表示的作用是什么？</strong></p>
+<p>如果我们是在线性系统中，那么响应是线性组合的形式（假如$\delta[n-k]$的响应是$h_k[n]$），那么</p>
+<script type="math/tex; mode=display">
+y[n] = \sum_{k=-\infty}^{+\infty}x[k]h_k[n]</script><p>如果系统是time-invariant 那么$h_k[n] = h_0[n - k]$ 将$h_0[n]$记为$h[n]$ 即为unit impulse</p>
+<p>对于LTI系统                                       $y[n] = \sum_{k=-\infty}^{+\infty}x[k]h[n-k]$</p>
+<h4 id="将连续信号表示为冲激信号的线性组合"><a href="#将连续信号表示为冲激信号的线性组合" class="headerlink" title="将连续信号表示为冲激信号的线性组合"></a>将连续信号表示为冲激信号的线性组合</h4><p>首先将连续时间信号分解为连续任意狭窄的矩形，当这些矩形的宽度变为0，会越近似于原信号，<strong>要注意的是 当每个矩形变得越来越窄就越来越多地与冲激信号对应</strong></p>
+<script type="math/tex; mode=display">
+x(t) = \begin{cases}
+x(0) \times \delta_{\Delta}(t)\times\Delta& 0 \le t \le \Delta \\
+0& otherwise
+\end{cases}</script><script type="math/tex; mode=display">
+x(t) \approx x(0)\delta_{\Delta}(t)\Delta + x(\Delta)\delta_{\Delta}(t - \Delta)\Delta + x(-\Delta)\delta_{\Delta}(t + \Delta)\Delta + ... \\
+x(t) \approx \sum_{k=-\infty}^{+\infty}x(k\Delta)\delta_{\Delta}(t - k\Delta)\Delta \\
+x(t) = \lim_{\Delta \to 0}\sum_{k=-\infty}^{+\infty}x(k\Delta)\delta_{\Delta}(t - k\Delta)\Delta \\
+= \int_{-\infty}^{+\infty}x(\tau)\delta(t - \tau)d\tau  \quad sifting \ integral</script><p>对于线性系统输出为：</p>
+<script type="math/tex; mode=display">
+y(t) = \lim_{\Delta \to 0}\sum_{k = -\infty}^{+\infty}x(k\Delta)h_{k\Delta}(t)\Delta \\
+=\int_{-\infty}^{\infty}x(\tau)h_{\tau}(t)d\tau</script><p>同样 如果系统是time invariant $h_{k\Delta} = h_0(t - k\Delta)$ 和 $h_{\tau}(t) = h_0(t - \tau)$ 可得：</p>
+<script type="math/tex; mode=display">
+y(t) = \int_{-\infty}^{+\infty}x(\tau)h(t - \tau)d\tau</script><p>由上述可知 <strong>如果我们知道了对应于t=0或者n=0的冲激响应，那么通过卷积我们能得到任意输入的输出</strong></p>
+<p><strong>我们将*符号表示卷积</strong></p>
+<script type="math/tex; mode=display">
+y[n] = \sum_{k = -\infty}^{+\infty}x[k]h[n - k] = x[n] * h[n] \\
+y(t) = \int_{-\infty}^{+\infty}x(\tau)h(t - \tau)d\tau = x(t) * h(t)</script><p>从23分钟后就是介绍离散的例子 求$x[n] = u[n]$和$h[n] = \alpha^nu[n]$的响应，将$x[n] 变为截取的u[n]$</p>
+<p>29分钟后是介绍连续的例子 $x(t) = u(t)$ 和 $h(t) = e^{-at}u(t)$ 同样也有$u(t)$的截取形式</p>
+<p>视频里面的动画来显示卷积的过程挺不错</p>
+<p>47分钟开始分析了一个连续时间卷积的例子</p>
+<script type="math/tex; mode=display">
+y(t) = \int_{-\infty}^{\infty}x(\tau)h(t - \tau)d\tau \\
+= \int_{-\infty}^{\infty}u(\tau)e^{-a(t - \tau)}u(t - \tau)d\tau</script><p>考虑区间$t &lt; 0$， 因为$u(\tau)$在$\tau$小于0时值为0 当$\tau$大于等于0时$u(t - \tau)$为0 所以积分的值为0</p>
+<p>考虑区间$t &gt; 0$ <strong>注意视频中$t = 0$的情况被忽略了，我觉得是因为重点不在$t = 0$</strong></p>
+<p>当$\tau &lt; 0$时$u(\tau)$为0， 当$\tau &gt; t$时$u(t - \tau)$为0，也就是在区间$(-\infty, 0)$ 和$(t, +\infty)$积分的值为0</p>
+<script type="math/tex; mode=display">
+\therefore \int_{-\infty}^{\infty}u(\tau)e^{-a(t - \tau)}u(t - \tau)d\tau \\
+= \int_{0}^{t}u(\tau)e^{-a(t - \tau)}u(t - \tau)d\tau  \\ 
+= \int_{0}^{t}e^{-a(t - \tau)}d\tau \\
+= \frac{1}{a}[e^{at} - 1] \\
+\therefore 
+y(t) = \begin{cases}
+0& t < 0 \\
+\frac{1}{a}{e^{at} - 1}& t > 0
+\end{cases}</script>
                 
             </div>
             <hr/>
@@ -498,7 +572,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://myalos.github.io/2021/02/18/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%99/">http://myalos.github.io/2021/02/18/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%99/</a>
+                    <a href="http://myalos.github.io/2021/03/08/signal%20and%20system%204/">http://myalos.github.io/2021/03/08/signal%20and%20system%204/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -535,7 +609,19 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">
+                                    <span class="chip bg-color">信号与系统</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
+                                    <span class="chip bg-color">理论知识</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                                    <span class="chip bg-color">数学</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -762,25 +848,78 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/08/signal%20and%20system%205/">
+                <a href="/2021/03/08/cs229%203/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Properties of Linear Time-invariant Systems">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Locally Weighted Linear Regression">
                         
-                        <span class="card-title">Properties of Linear Time-invariant Systems</span>
+                        <span class="card-title">Locally Weighted Linear Regression</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是奥本海姆 信号与系统第五课的学习笔记
+                            这是CS229 第三课的学习笔记
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/cs229/">
+                        <span class="chip bg-color">cs229</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/08/signal%20and%20system%203/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Signals and Systems Part II">
+                        
+                        <span class="card-title">Signals and Systems Part II</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            这是奥本海姆 信号与系统第三课的学习笔记
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -809,44 +948,6 @@
                     </a>
                     
                 </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/02/18/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%99/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="如何建站">
-                        
-                        <span class="card-title">如何建站</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-18
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            Goon
-                            
-                        </span>
-                    </div>
-                </div>
-
                 
             </div>
         </div>
@@ -974,6 +1075,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

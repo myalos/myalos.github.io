@@ -6,7 +6,7 @@
   <link href="http://myalos.github.io/atom.xml" rel="self"/>
   
   <link href="http://myalos.github.io/"/>
-  <updated>2021-02-18T15:10:26.710Z</updated>
+  <updated>2021-03-08T12:12:18.565Z</updated>
   <id>http://myalos.github.io/</id>
   
   <author>
@@ -17,11 +17,125 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Locally Weighted Linear Regression</title>
+    <link href="http://myalos.github.io/2021/03/08/cs229%203/"/>
+    <id>http://myalos.github.io/2021/03/08/cs229%203/</id>
+    <published>2021-03-08T11:22:21.753Z</published>
+    <updated>2021-03-08T12:12:18.565Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;Lecture-3-Locally-Weighted-Linear-Regression&quot;&gt;&lt;a href=&quot;#Lecture-3-Locally-Weighted-Linear-Regression&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="机器学习" scheme="http://myalos.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="cs229" scheme="http://myalos.github.io/tags/cs229/"/>
+    
+    <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Convolution</title>
+    <link href="http://myalos.github.io/2021/03/08/signal%20and%20system%204/"/>
+    <id>http://myalos.github.io/2021/03/08/signal%20and%20system%204/</id>
+    <published>2021-03-08T11:16:20.430Z</published>
+    <updated>2021-03-08T11:58:55.771Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;Lecture-4-Convolution&quot;&gt;&lt;a href=&quot;#Lecture-4-Convolution&quot; class=&quot;headerlink&quot; title=&quot;Lecture 4 Convolution&quot;&gt;&lt;/a&gt;Lecture 4</summary>
+        
+      
+    
+    
+    
+    <category term="信号与系统" scheme="http://myalos.github.io/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="信号与系统" scheme="http://myalos.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="理论知识" scheme="http://myalos.github.io/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/"/>
+    
+    <category term="数学" scheme="http://myalos.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Signals and Systems Part II</title>
+    <link href="http://myalos.github.io/2021/03/08/signal%20and%20system%203/"/>
+    <id>http://myalos.github.io/2021/03/08/signal%20and%20system%203/</id>
+    <published>2021-03-08T11:16:20.397Z</published>
+    <updated>2021-03-08T12:04:45.849Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;Lecture-3-Signals-and-Systems-Part-II&quot;&gt;&lt;a href=&quot;#Lecture-3-Signals-and-Systems-Part-II&quot; class=&quot;headerlink&quot; title=&quot;Lecture 3 Signals</summary>
+        
+      
+    
+    
+    
+    <category term="信号与系统" scheme="http://myalos.github.io/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="信号与系统" scheme="http://myalos.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="理论知识" scheme="http://myalos.github.io/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/"/>
+    
+    <category term="数学" scheme="http://myalos.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Properties of Linear Time-invariant Systems</title>
+    <link href="http://myalos.github.io/2021/03/08/signal%20and%20system%205/"/>
+    <id>http://myalos.github.io/2021/03/08/signal%20and%20system%205/</id>
+    <published>2021-03-08T11:16:19.903Z</published>
+    <updated>2021-03-08T12:11:31.497Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;Lecture-5-Properties-of-Linear-Time-invariant-Systems&quot;&gt;&lt;a href=&quot;#Lecture-5-Properties-of-Linear-Time-invariant-Systems&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="信号与系统" scheme="http://myalos.github.io/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="信号与系统" scheme="http://myalos.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="理论知识" scheme="http://myalos.github.io/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/"/>
+    
+    <category term="数学" scheme="http://myalos.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>如何建站</title>
     <link href="http://myalos.github.io/2021/02/18/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%99/"/>
     <id>http://myalos.github.io/2021/02/18/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%99/</id>
     <published>2021-02-18T14:58:04.092Z</published>
-    <updated>2021-02-18T15:10:26.710Z</updated>
+    <updated>2021-03-08T12:01:10.119Z</updated>
     
     
       

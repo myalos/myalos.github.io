@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="如何建站, goon的杂货店">
+    <meta name="keywords" content="Signals and Systems Part II, goon的杂货店">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>如何建站 | goon的杂货店</title>
+    <title>Signals and Systems Part II | goon的杂货店</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">如何建站</h1>
+                    <h1 class="description center-align post-title">Signals and Systems Part II</h1>
                 </div>
             </div>
         </div>
@@ -430,12 +430,33 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">
+                                <span class="chip bg-color">信号与系统</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
+                                <span class="chip bg-color">理论知识</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                                <span class="chip bg-color">数学</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                信号与系统
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -444,7 +465,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-18
+                    2021-03-08
                 </div>
                 
 
@@ -468,11 +489,87 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="如何建站"><a href="#如何建站" class="headerlink" title="如何建站"></a>如何建站</h4><p>本站是在github上面建的静态网站，用的是hexo模板(这个资料很多)</p>
-<p>主题是<a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery">闪烁之狐</a></p>
-<p>对于mathjax渲染问题，可能需要参考一下这篇博客<a target="_blank" rel="noopener" href="https://www.cnblogs.com/Ai-heng/p/7282110.html">链接</a></p>
-<p>有问题欢迎留言</p>
-
+                <h3 id="Lecture-3-Signals-and-Systems-Part-II"><a href="#Lecture-3-Signals-and-Systems-Part-II" class="headerlink" title="Lecture 3 Signals and Systems: Part II"></a>Lecture 3 Signals and Systems: Part II</h3><p>这是根据公开课视频写的笔记<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1xy4y167DD?p=3">链接</a></p>
+<h3 id="几个重要的函数"><a href="#几个重要的函数" class="headerlink" title="几个重要的函数"></a>几个重要的函数</h3><h5 id="离散的unit-step函数"><a href="#离散的unit-step函数" class="headerlink" title="离散的unit step函数"></a>离散的unit step函数</h5><script type="math/tex; mode=display">
+\begin{equation}
+u[n] = \begin{cases}
+1& n \ge 0 \\
+0& n < 0
+\end{cases}
+\end{equation}</script><h5 id="离散的unit-impulse-函数"><a href="#离散的unit-impulse-函数" class="headerlink" title="离散的unit impulse 函数"></a>离散的unit impulse 函数</h5><script type="math/tex; mode=display">
+\begin{equation}
+\delta[n] = \begin{cases}
+1& n = 0 \\
+0& otherwise
+\end{cases}
+\end{equation}</script><p>两者之间的关系是</p>
+<script type="math/tex; mode=display">
+\delta[n] = u[n] - u[n - 1] \quad (first \quad difference) \\ 
+u[n] = \sum_{m = -\infty}^{n}\delta[m] \quad (running \quad sum)</script><p>unit step sequence can be thought of as a succession of unit impulses one following another</p>
+<script type="math/tex; mode=display">
+u[n] = \delta[n] + \delta[n - 1] + \delta[n - 2] + ... \\
+u[n] = \sum_{k = 0}^{\infty}\delta[n - k]</script><h5 id="连续的unit-step函数"><a href="#连续的unit-step函数" class="headerlink" title="连续的unit step函数"></a>连续的unit step函数</h5><script type="math/tex; mode=display">
+\begin{equation}
+u(t) = \begin{cases}
+1& t > 0 \\
+0& t < 0
+\end{cases}
+\end{equation}</script><p>关于unit step函数在t = 0的定义有多种。t = 0处的定义不是重点，重点是这个函数的关键在于t = 0时 这个函数是不连续的</p>
+<p>unit step可以看作是一个approximation unit step函数取极限得到</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+u_{\Delta}(t) = \begin{cases}
+1& t > \Delta \\
+\frac{1}{\Delta}& 0 \le t \le \Delta \\
+0& t < 0
+\end{cases}
+\end{equation} \\
+u(t) = \lim_{\Delta \to 0}u_{\Delta}(t)</script><h5 id="连续的unit-impulse函数"><a href="#连续的unit-impulse函数" class="headerlink" title="连续的unit impulse函数"></a>连续的unit impulse函数</h5><p>类比unit step和unit impulse之间的关系 来定义连续的unit impulse函数</p>
+<p>unit impulse 就是 unit step的导数，由approximation unit step函数的定义来得到</p>
+<script type="math/tex; mode=display">
+\delta(t) = \frac{du(t)}{dt} \\
+\delta_{\Delta}(t) = \frac{du_{\Delta}(t)}{dt} \\
+\begin{equation}
+\delta_{\Delta}(t) = \begin{cases}
+\frac{1}{\Delta}& 0 \le t \le \Delta \\
+0& otherwise
+\end{cases}
+\end{equation} \\
+no \ matter \ what \ the \ value \ of \ \Delta \ is\ , \ the \ area \ is \ always \ equal \ to \ 1 \\
+\delta(t) = \delta_{\Delta}(t) \quad as \quad \Delta \to 0</script><p>连续时间下，unit step函数和unit impulse函数之间的关系</p>
+<script type="math/tex; mode=display">
+\delta = \frac{du(t)}{dt} \\
+u(t) = \int_{-\infty}^{t}\delta(\tau)d\tau</script><h3 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h3><p><strong>定义：a transformation from an input signal to an output signal </strong></p>
+<ul>
+<li>cascade system</li>
+<li>parallel system</li>
+<li>feedback system</li>
+</ul>
+<p>对于LTI系统，the overall system transformation is independet of the order in which the systems are cascaded</p>
+<h5 id="系统属性"><a href="#系统属性" class="headerlink" title="系统属性"></a>系统属性</h5><ul>
+<li><p>memoryless:  $y(t_0) \quad depends \ only \ on \quad x(t_0)$</p>
+<p>例如 $y(t) = x^2(t)$  和 $y[n] = x^2[n]$ 是memoryless</p>
+<p>​        $y(t) = \int_{-\infty}^{t}x^2(\tau)d\tau$ 和$y[n] = x[n - 1] \quad unit \ delay$  不是memoryless</p>
+</li>
+<li><p>invertibility(可逆性)： given the output, there is only one input</p>
+</li>
+<li><p>Causality: its response at any time only depends on values of the input prior to that time</p>
+<p>例如$y[n] = \frac{1}{3}(x[n - 1] + x[n] + x[n + 1]) $ 不是causality</p>
+<p>​        $y[n] = \frac{1}{3}(x[n - 2] + x[n - 1] + x[n])$ 是causality</p>
+</li>
+<li><p>Stability： for every bounded input the output is bounded</p>
+<p>​    feedback system的一个重要的应用是stablize unstable systems</p>
+<p>​    例如$y(t) = \int_{-\infty}^{t}u(\tau)d\tau$  输出$y(t)$ 是ramp function， ramp is unbounded because if you try to establish any bound on it,  you can always go out far enough in time</p>
+</li>
+<li><p>Time invariance: 系统 if $x(t) -&gt; y(t)$ then  $x(t - t_0) -&gt; y(t - t_0)$</p>
+<p>例如 $y(t) = sint \times x(t)$ 不是time invariance 因为当输入是$x(t-t_0)$时 输出时$sint \times x(t-t_0)$</p>
+</li>
+<li><p>Linearity: </p>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+if \quad x_1(t) -> y_1(t) \quad and \quad x_2(t) -> y_2(t) \\
+then \quad ax_t(t) + bx_2(t) -> ay_1(t) + by_2(t)</script>
                 
             </div>
             <hr/>
@@ -498,7 +595,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://myalos.github.io/2021/02/18/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%99/">http://myalos.github.io/2021/02/18/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%99/</a>
+                    <a href="http://myalos.github.io/2021/03/08/signal%20and%20system%203/">http://myalos.github.io/2021/03/08/signal%20and%20system%203/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -535,7 +632,19 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">
+                                    <span class="chip bg-color">信号与系统</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
+                                    <span class="chip bg-color">理论知识</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                                    <span class="chip bg-color">数学</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -762,19 +871,19 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/08/signal%20and%20system%205/">
+                <a href="/2021/03/08/signal%20and%20system%204/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Properties of Linear Time-invariant Systems">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Convolution">
                         
-                        <span class="card-title">Properties of Linear Time-invariant Systems</span>
+                        <span class="card-title">Convolution</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是奥本海姆 信号与系统第五课的学习笔记
+                            这是奥本海姆 信号与系统第四课的学习笔记
                         
                     </div>
                     <div class="publish-info">
@@ -816,37 +925,56 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/02/18/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%99/">
+                <a href="/2021/03/08/signal%20and%20system%205/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="如何建站">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Properties of Linear Time-invariant Systems">
                         
-                        <span class="card-title">如何建站</span>
+                        <span class="card-title">Properties of Linear Time-invariant Systems</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            这是奥本海姆 信号与系统第五课的学习笔记
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Goon
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    信号与系统
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">信号与系统</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
+                        <span class="chip bg-color">理论知识</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                        <span class="chip bg-color">数学</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -974,6 +1102,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

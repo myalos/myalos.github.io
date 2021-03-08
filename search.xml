@@ -4,11 +4,125 @@
   
     
     <entry>
+      <title>Locally Weighted Linear Regression</title>
+      <link href="2021/03/08/cs229%203/"/>
+      <url>2021/03/08/cs229%203/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Lecture-3-Locally-Weighted-Linear-Regression"><a href="#Lecture-3-Locally-Weighted-Linear-Regression" class="headerlink" title="Lecture 3 Locally Weighted Linear Regression"></a>Lecture 3 Locally Weighted Linear Regression</h3><p>这是根据<a href="https://www.bilibili.com/video/BV1JE411w7Ub?p=2">吴恩达CS229课程视频</a>的笔记</p><p>官方有一个notes，<a href="http://cs229.stanford.edu/notes2020fall/notes2020fall/cs229-notes1.pdf">链接</a></p><p>对于一个比较复杂形状的函数，自己定义函数的形式$y=f(x)$比较困难，这时可以用locally weighted logistic regression</p><ul><li><p>”Parametric” learning algorithm:</p><p>Fit fixed set of parameters $\theta_i$ to data</p></li><li><p>“Non-Parameteric” learning algorithm</p><p>Amount of data/parameters you need to keep grows(linearly) with the size of data</p><p>LWR，KNN就是Non-Parameteric的</p></li></ul><p><strong>LWR通常不外推，意思是对于在训练集两端外的预测 效果可能会不好</strong></p><p><strong>老师更倾向对于相对低维的数据集使用LWR(比如n = 2或3，有很多数据的情况)</strong></p><h4 id="Probabilistic-interpretation"><a href="#Probabilistic-interpretation" class="headerlink" title="Probabilistic interpretation"></a>Probabilistic interpretation</h4><p>这个部分是说明cost function的由来，基于一个重要假设是$y^{(i)} = \theta^\mathrm{T}x^{(i)} + \epsilon^{(i)}$ 其中$\epsilon^{(i)}$是独立同分布且服从$\mathcal{N}(0, \sigma^2)$，$\epsilon^{(i)}$代表着随机误差</p><p><strong>注意，这个假设就表示训练集中的每个数据是IID的，如果现实中数据不是IID的，那么用这个方法就不合理，可以去构建一个更复杂的模型</strong></p><p>讲义当中的公式$\mathcal{P}(y^{(i)}|x^{(i)};\theta)$里面$x^{(i)}$和$\theta$中间的分号表示$\theta$是一个参数，如果是逗号，那么说明$\theta$是一个随机变量</p><p><strong>likelihood和probability的区别</strong></p><p>视频里面是这么说的：</p><p>the likelihood of the parameters is exactly the same thing as the probability of the data就是函数形式相同，if you view this thing as a function of the parameters holding the data fixed, then we call that likelihood</p><h4 id="Classification-Problem"><a href="#Classification-Problem" class="headerlink" title="Classification Problem"></a>Classification Problem</h4><p>视频44分钟里面画了一张图，用之前的线性回归来应用于这个数据集效果是不好的，线性回归的方法是回归出一条直线，然后设置一个阈值，通过阈值进行分类(大于阈值的一类，小于阈值的另一类)</p><p>这个方法的缺陷在于，45分钟的图，如果有一个稍微偏远的数据，可能会明显改变直线，因而改变决策边界，效果不好。</p><p>我们想要一个$h_\theta(x) \in [0, 1]$  sigmoid函数 $g(x) = \frac{1}{1 + e^{-z}}$ 代入得 $h_\theta(x) = g(\theta^{\mathrm{T}}x) = \frac{1}{1 + e^{-\theta^{\mathrm{T}}x}}$</p><p><em>这里有一个假设$\mathcal{P}(y = 1 | x ; \theta) = h_\theta(x)$</em> 由于是二分类的 所以$\mathcal{P}(y = 0 | x ; \theta) = 1 - h_\theta(x)$</p><p>将这两个式子写成一个式子 $\because y \in \{0 , 1\}$</p><script type="math/tex; mode=display">\mathcal{P}(y | x ; \theta) = h(x)^y(1-h(x))^{1-y}    \quad 666</script><p><strong>要注意的是</strong> 训练的时候是用梯度上升 而不是梯度下降！</p><p><strong>选择$h_\theta(x)$的原因之一是保证likelihood function只有一个全局最大值（concave function)</strong></p><h4 id="Newton’s-method"><a href="#Newton’s-method" class="headerlink" title="Newton’s method"></a>Newton’s method</h4><p>这个方法和gradient descent的区别是 这个方法一次更新的跨度更大(视频66: 12)，视频中举例 如果用1000次gradient descent得到好的$\theta$，那么用Newton’s method 经过10次迭代就能得到好的$\theta$，不过每次迭代的代价会比较昂贵</p><p>牛顿方法旨在解决的问题是， 我们有一个函数$f$，我们想要找到一个$\theta$ 使得$f(\theta) = 0$</p><p>将牛顿方法应用到机器学习中就是用牛顿方法来找导数为0的点</p><p>视频69分钟开始 演示牛顿方法的过程，更新算法如下：</p><script type="math/tex; mode=display">\theta^{(t + 1)} := \theta^{(t)} - \frac{f(\theta^{(t)})}{f^\prime(\theta^{(t)})}</script><p>当$\theta$是一个向量的时候，$\theta \in \mathcal{R}^{n + 1}$</p><script type="math/tex; mode=display">\theta^{(t + 1)} := \theta^{(t)} + H^{-1}\nabla_\theta\mathcal{l}(\theta)</script><p>其中H是Hessian matrix $H_{ij} = \frac{\partial^2\mathcal{l}(\theta)}{\partial\theta_i\partial\theta_j}$， 这个算法的耗时地方在于对hessian matrix求逆耗时，如果拥有的参数数量10个或50个 老师推荐有这个方法</p><p>Newton’s method enjoys a property called quadratic convergence(意思是如果某一次迭代后$\theta$的误差是0.01error 再经过一次迭代之后 误差变为0.0001error) —&gt; 我没懂他说的0.01error是什么意思，emmm… 反正就是很快的</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 机器学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> cs229 </tag>
+            
+            <tag> 机器学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Convolution</title>
+      <link href="2021/03/08/signal%20and%20system%204/"/>
+      <url>2021/03/08/signal%20and%20system%204/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Lecture-4-Convolution"><a href="#Lecture-4-Convolution" class="headerlink" title="Lecture 4 Convolution"></a>Lecture 4 Convolution</h3><p><strong>这个笔记是根据</strong><a href="https://www.bilibili.com/video/BV1xy4y167DD?p=4">奥本海姆信号与系统的视频课来写的</a></p><p>如何利用time invariant 和linear属性—&gt;将一个信号分解为一组基本信号</p><p>对于基本信号的选择，目的是为了能够轻松地产生输出信号</p><ul><li>delayed impulses  &lt;—-&gt;  Convolution</li><li>complex exponential &lt;—-&gt;  Fourier analysis</li></ul><h4 id="将离散信号表示为冲激信号的线性组合"><a href="#将离散信号表示为冲激信号的线性组合" class="headerlink" title="将离散信号表示为冲激信号的线性组合"></a>将离散信号表示为冲激信号的线性组合</h4><script type="math/tex; mode=display">x[n] = \begin{cases}c& n = 0 \\0& n \neq 0\end{cases}\\其中c \neq 0</script><p>对于这个信号 可以表示为$x[0] \times \delta[n]$</p><p>同样可得$x[1] = x[1] \times \delta[n - 1]$还有$x[-1] = x[-1] \times \delta[n + 1]$</p><p>对于任意的一个信号$x[n]$ 就可以分解为$x[n] = \sum_{k=-\infty}^{+\infty}x[k]\delta[n-k]$</p><p><strong>这样表示的作用是什么？</strong></p><p>如果我们是在线性系统中，那么响应是线性组合的形式（假如$\delta[n-k]$的响应是$h_k[n]$），那么</p><script type="math/tex; mode=display">y[n] = \sum_{k=-\infty}^{+\infty}x[k]h_k[n]</script><p>如果系统是time-invariant 那么$h_k[n] = h_0[n - k]$ 将$h_0[n]$记为$h[n]$ 即为unit impulse</p><p>对于LTI系统                                       $y[n] = \sum_{k=-\infty}^{+\infty}x[k]h[n-k]$</p><h4 id="将连续信号表示为冲激信号的线性组合"><a href="#将连续信号表示为冲激信号的线性组合" class="headerlink" title="将连续信号表示为冲激信号的线性组合"></a>将连续信号表示为冲激信号的线性组合</h4><p>首先将连续时间信号分解为连续任意狭窄的矩形，当这些矩形的宽度变为0，会越近似于原信号，<strong>要注意的是 当每个矩形变得越来越窄就越来越多地与冲激信号对应</strong></p><script type="math/tex; mode=display">x(t) = \begin{cases}x(0) \times \delta_{\Delta}(t)\times\Delta& 0 \le t \le \Delta \\0& otherwise\end{cases}</script><script type="math/tex; mode=display">x(t) \approx x(0)\delta_{\Delta}(t)\Delta + x(\Delta)\delta_{\Delta}(t - \Delta)\Delta + x(-\Delta)\delta_{\Delta}(t + \Delta)\Delta + ... \\x(t) \approx \sum_{k=-\infty}^{+\infty}x(k\Delta)\delta_{\Delta}(t - k\Delta)\Delta \\x(t) = \lim_{\Delta \to 0}\sum_{k=-\infty}^{+\infty}x(k\Delta)\delta_{\Delta}(t - k\Delta)\Delta \\= \int_{-\infty}^{+\infty}x(\tau)\delta(t - \tau)d\tau  \quad sifting \ integral</script><p>对于线性系统输出为：</p><script type="math/tex; mode=display">y(t) = \lim_{\Delta \to 0}\sum_{k = -\infty}^{+\infty}x(k\Delta)h_{k\Delta}(t)\Delta \\=\int_{-\infty}^{\infty}x(\tau)h_{\tau}(t)d\tau</script><p>同样 如果系统是time invariant $h_{k\Delta} = h_0(t - k\Delta)$ 和 $h_{\tau}(t) = h_0(t - \tau)$ 可得：</p><script type="math/tex; mode=display">y(t) = \int_{-\infty}^{+\infty}x(\tau)h(t - \tau)d\tau</script><p>由上述可知 <strong>如果我们知道了对应于t=0或者n=0的冲激响应，那么通过卷积我们能得到任意输入的输出</strong></p><p><strong>我们将*符号表示卷积</strong></p><script type="math/tex; mode=display">y[n] = \sum_{k = -\infty}^{+\infty}x[k]h[n - k] = x[n] * h[n] \\y(t) = \int_{-\infty}^{+\infty}x(\tau)h(t - \tau)d\tau = x(t) * h(t)</script><p>从23分钟后就是介绍离散的例子 求$x[n] = u[n]$和$h[n] = \alpha^nu[n]$的响应，将$x[n] 变为截取的u[n]$</p><p>29分钟后是介绍连续的例子 $x(t) = u(t)$ 和 $h(t) = e^{-at}u(t)$ 同样也有$u(t)$的截取形式</p><p>视频里面的动画来显示卷积的过程挺不错</p><p>47分钟开始分析了一个连续时间卷积的例子</p><script type="math/tex; mode=display">y(t) = \int_{-\infty}^{\infty}x(\tau)h(t - \tau)d\tau \\= \int_{-\infty}^{\infty}u(\tau)e^{-a(t - \tau)}u(t - \tau)d\tau</script><p>考虑区间$t &lt; 0$， 因为$u(\tau)$在$\tau$小于0时值为0 当$\tau$大于等于0时$u(t - \tau)$为0 所以积分的值为0</p><p>考虑区间$t &gt; 0$ <strong>注意视频中$t = 0$的情况被忽略了，我觉得是因为重点不在$t = 0$</strong></p><p>当$\tau &lt; 0$时$u(\tau)$为0， 当$\tau &gt; t$时$u(t - \tau)$为0，也就是在区间$(-\infty, 0)$ 和$(t, +\infty)$积分的值为0</p><script type="math/tex; mode=display">\therefore \int_{-\infty}^{\infty}u(\tau)e^{-a(t - \tau)}u(t - \tau)d\tau \\= \int_{0}^{t}u(\tau)e^{-a(t - \tau)}u(t - \tau)d\tau  \\ = \int_{0}^{t}e^{-a(t - \tau)}d\tau \\= \frac{1}{a}[e^{at} - 1] \\\therefore y(t) = \begin{cases}0& t < 0 \\\frac{1}{a}{e^{at} - 1}& t > 0\end{cases}</script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 信号与系统 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 信号与系统 </tag>
+            
+            <tag> 理论知识 </tag>
+            
+            <tag> 数学 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Signals and Systems Part II</title>
+      <link href="2021/03/08/signal%20and%20system%203/"/>
+      <url>2021/03/08/signal%20and%20system%203/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Lecture-3-Signals-and-Systems-Part-II"><a href="#Lecture-3-Signals-and-Systems-Part-II" class="headerlink" title="Lecture 3 Signals and Systems: Part II"></a>Lecture 3 Signals and Systems: Part II</h3><p>这是根据公开课视频写的笔记<a href="https://www.bilibili.com/video/BV1xy4y167DD?p=3">链接</a></p><h3 id="几个重要的函数"><a href="#几个重要的函数" class="headerlink" title="几个重要的函数"></a>几个重要的函数</h3><h5 id="离散的unit-step函数"><a href="#离散的unit-step函数" class="headerlink" title="离散的unit step函数"></a>离散的unit step函数</h5><script type="math/tex; mode=display">\begin{equation}u[n] = \begin{cases}1& n \ge 0 \\0& n < 0\end{cases}\end{equation}</script><h5 id="离散的unit-impulse-函数"><a href="#离散的unit-impulse-函数" class="headerlink" title="离散的unit impulse 函数"></a>离散的unit impulse 函数</h5><script type="math/tex; mode=display">\begin{equation}\delta[n] = \begin{cases}1& n = 0 \\0& otherwise\end{cases}\end{equation}</script><p>两者之间的关系是</p><script type="math/tex; mode=display">\delta[n] = u[n] - u[n - 1] \quad (first \quad difference) \\ u[n] = \sum_{m = -\infty}^{n}\delta[m] \quad (running \quad sum)</script><p>unit step sequence can be thought of as a succession of unit impulses one following another</p><script type="math/tex; mode=display">u[n] = \delta[n] + \delta[n - 1] + \delta[n - 2] + ... \\u[n] = \sum_{k = 0}^{\infty}\delta[n - k]</script><h5 id="连续的unit-step函数"><a href="#连续的unit-step函数" class="headerlink" title="连续的unit step函数"></a>连续的unit step函数</h5><script type="math/tex; mode=display">\begin{equation}u(t) = \begin{cases}1& t > 0 \\0& t < 0\end{cases}\end{equation}</script><p>关于unit step函数在t = 0的定义有多种。t = 0处的定义不是重点，重点是这个函数的关键在于t = 0时 这个函数是不连续的</p><p>unit step可以看作是一个approximation unit step函数取极限得到</p><script type="math/tex; mode=display">\begin{equation}u_{\Delta}(t) = \begin{cases}1& t > \Delta \\\frac{1}{\Delta}& 0 \le t \le \Delta \\0& t < 0\end{cases}\end{equation} \\u(t) = \lim_{\Delta \to 0}u_{\Delta}(t)</script><h5 id="连续的unit-impulse函数"><a href="#连续的unit-impulse函数" class="headerlink" title="连续的unit impulse函数"></a>连续的unit impulse函数</h5><p>类比unit step和unit impulse之间的关系 来定义连续的unit impulse函数</p><p>unit impulse 就是 unit step的导数，由approximation unit step函数的定义来得到</p><script type="math/tex; mode=display">\delta(t) = \frac{du(t)}{dt} \\\delta_{\Delta}(t) = \frac{du_{\Delta}(t)}{dt} \\\begin{equation}\delta_{\Delta}(t) = \begin{cases}\frac{1}{\Delta}& 0 \le t \le \Delta \\0& otherwise\end{cases}\end{equation} \\no \ matter \ what \ the \ value \ of \ \Delta \ is\ , \ the \ area \ is \ always \ equal \ to \ 1 \\\delta(t) = \delta_{\Delta}(t) \quad as \quad \Delta \to 0</script><p>连续时间下，unit step函数和unit impulse函数之间的关系</p><script type="math/tex; mode=display">\delta = \frac{du(t)}{dt} \\u(t) = \int_{-\infty}^{t}\delta(\tau)d\tau</script><h3 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h3><p><strong>定义：a transformation from an input signal to an output signal </strong></p><ul><li>cascade system</li><li>parallel system</li><li>feedback system</li></ul><p>对于LTI系统，the overall system transformation is independet of the order in which the systems are cascaded</p><h5 id="系统属性"><a href="#系统属性" class="headerlink" title="系统属性"></a>系统属性</h5><ul><li><p>memoryless:  $y(t_0) \quad depends \ only \ on \quad x(t_0)$</p><p>例如 $y(t) = x^2(t)$  和 $y[n] = x^2[n]$ 是memoryless</p><p>​        $y(t) = \int_{-\infty}^{t}x^2(\tau)d\tau$ 和$y[n] = x[n - 1] \quad unit \ delay$  不是memoryless</p></li><li><p>invertibility(可逆性)： given the output, there is only one input</p></li><li><p>Causality: its response at any time only depends on values of the input prior to that time</p><p>例如$y[n] = \frac{1}{3}(x[n - 1] + x[n] + x[n + 1]) $ 不是causality</p><p>​        $y[n] = \frac{1}{3}(x[n - 2] + x[n - 1] + x[n])$ 是causality</p></li><li><p>Stability： for every bounded input the output is bounded</p><p>​    feedback system的一个重要的应用是stablize unstable systems</p><p>​    例如$y(t) = \int_{-\infty}^{t}u(\tau)d\tau$  输出$y(t)$ 是ramp function， ramp is unbounded because if you try to establish any bound on it,  you can always go out far enough in time</p></li><li><p>Time invariance: 系统 if $x(t) -&gt; y(t)$ then  $x(t - t_0) -&gt; y(t - t_0)$</p><p>例如 $y(t) = sint \times x(t)$ 不是time invariance 因为当输入是$x(t-t_0)$时 输出时$sint \times x(t-t_0)$</p></li><li><p>Linearity: </p></li></ul><script type="math/tex; mode=display">if \quad x_1(t) -> y_1(t) \quad and \quad x_2(t) -> y_2(t) \\then \quad ax_t(t) + bx_2(t) -> ay_1(t) + by_2(t)</script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 信号与系统 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 信号与系统 </tag>
+            
+            <tag> 理论知识 </tag>
+            
+            <tag> 数学 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Properties of Linear Time-invariant Systems</title>
+      <link href="2021/03/08/signal%20and%20system%205/"/>
+      <url>2021/03/08/signal%20and%20system%205/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Lecture-5-Properties-of-Linear-Time-invariant-Systems"><a href="#Lecture-5-Properties-of-Linear-Time-invariant-Systems" class="headerlink" title="Lecture 5 Properties of Linear Time-invariant Systems"></a>Lecture 5 Properties of Linear Time-invariant Systems</h3><p>这是根据公开课视频写的笔记<a href="https://www.bilibili.com/video/BV1xy4y167DD?p=5">链接</a></p><h5 id="Commutative"><a href="#Commutative" class="headerlink" title="Commutative"></a>Commutative</h5><script type="math/tex; mode=display">x[n] * h[n] = h[n] * x[n] \\x(t) * h(t) = h(t) * x(t)</script><h5 id="Associative"><a href="#Associative" class="headerlink" title="Associative"></a>Associative</h5><script type="math/tex; mode=display">x * \{h_1 * h_2\} = \{x * h_1 \} * h_2</script><h5 id="Distributive"><a href="#Distributive" class="headerlink" title="Distributive"></a>Distributive</h5><script type="math/tex; mode=display">x * \{ h_1 + h_2 \} = x * h_1 + x * h_2</script><p>视频9分40秒的例子 解释了在LTI系统中commutative性质的作用</p><p>We can interchange the role of input and impulse response, and from an output point of view, the output doesn’t care.</p><p>视频11分钟40秒的例子 解释了在LTI系统中Associative性质的作用</p><p><strong>如果我们有两个级联的LTI系统，任意方式的级联结果是一样的</strong></p><p>对于非LTI系统的级联 比如—&gt;平方根—&gt;加倍—&gt; 和 —&gt;加倍—&gt;平方根—&gt; 是不一样的</p><p>视频15分11秒的例子 解释了在LTI系统中Distributive性质的作用</p><p><strong>总结一下 这块讲的是从卷积的性质来看LTI系统互联时的性质</strong></p><h4 id="LTI系统中，其他系统属性可以关联具有系统的特定属性冲激响应"><a href="#LTI系统中，其他系统属性可以关联具有系统的特定属性冲激响应" class="headerlink" title="LTI系统中，其他系统属性可以关联具有系统的特定属性冲激响应"></a>LTI系统中，其他系统属性可以关联具有系统的特定属性冲激响应</h4><ul><li><p>Memoryless</p><p>$h(t - \tau)$ nonzero only at $\tau = t$  which implys $h(t) = K\delta(t)$ 和 $h[n] = K\delta[n]$</p><p>视频19分22秒有图 由于我们想让冲激响应contribute something after we multiply and go through an integral, and what that says is the only thing that it can be and meet all those conditions is a scaled impulse</p></li><li><p>Invertibility</p><p>视频21分钟有图 $y = x <em> (h </em> h^{-1}) = x$ 我觉得视频上的图有问题，$h$和$h^{-1}$之间应该是卷积符号</p></li><li><p>Stability</p><script type="math/tex; mode=display">\sum_{-\infty}^{+\infty}|h[k]| < \infty \\\int_{-\infty}^{+\infty}|h(\tau)|d\tau < \infty</script></li><li><p>Causality</p><p>引入概念 zero input response of a linear system(无论是否是time invariant 结论都成立)</p><p>if you put nothing into it you get nothing out of it</p><p>意思是如果$x(t) = 0$对于任意t成立， 则$y(t) = 0$对于任意t成立；如果$x[n] = 0$对于任意t成立， 则$y[n] = 0$对于任意t成立 原因是对于线性系统 如果$x(t) -&gt;y(t)$ 那么$ax(t) -&gt;ay(t)$ 令$a$为0 就可以得到这个情况</p><p><strong>causality这个性质说明的是系统无法预测输入（视频27分45秒）</strong></p><p>对于线性系统</p><p>if $x(t) = 0$ 对任意$t &lt; t_0$成立，那么$y(t) = 0$对任意$t &lt; t_0$成立， 称作initial rest</p><p>对于LTI系统</p><p>causality意味着$h(t) = 0$对任意$t&lt;0$成立，$h[n] = 0$对于任意$n &lt; 0$成立 因为相应的输入是$\delta(t)$和$\delta[n]$这两个在$t&lt;0$的时候 值均为0</p><p>视频33分8秒 示意了 如果$h(t) = 0$对任意$t &lt; 0$成立 则系统是causality的推导</p></li></ul><p>34分钟 举了一个例子</p><p>Accumulator: $y[n] = \sum_{k = -\infty}^nx[k]$， Accumulator是一个LTI系统中$h[n] = u[n]$的例子，下面分析</p><p>$\because h[n] \neq k\delta[n]$   我们可知系统是memory的</p><p>$\because h[n] = 0$对于任意n &lt; 0成立   我们可知系统是causal的</p><p>$\because \sum_{n = -\infty}^{+\infty}|h[n]| = \infty$ 我们可知系统是not stable的</p><p>38分钟关于Accumulator的求逆 没有看懂</p><p>40分钟的例子 视频里面写着 initial rest $\Rightarrow$ LTI 有点没懂</p><p>视频最后的部分讲的是</p><p>$\delta (t) * \delta (t) = \delta (t) $ 和</p><p> $ \delta[n] *\delta[n] = \delta[n]$</p><p>后者可以画图推理得到，但是前者比较tricky</p><p>因为考虑到$\delta(t) = \lim_{\Delta \to 0}\delta_{\Delta}(t)$ 如果对$\delta_{\Delta}(t) * \delta_{\Delta}(t)$得到的是一个$r_{\Delta}(t)$</p><script type="math/tex; mode=display">\begin{equation}r_{\Delta}(t) = \begin{cases}\frac{1}{\Delta^2}t& 0 < t < \Delta \\\frac{1}{\Delta} - (t - \Delta) * \frac{1}{\Delta^2}& \Delta < t < 2\Delta \\0& otherwise\end{cases}\end{equation}</script><p>那么$\delta(t) = \lim_{\Delta \to 0}r_{\Delta}(t)$</p><p>再考虑对于$\delta(t)$求导，会发现比较麻烦，老师说正确的解决方法是through a set of mathematics referred to as generalized functions</p><p><strong>当我们讨论一个函数时，我们讨论的是what the value of the function is at any instant of time，当面对冲激函数的时候就出现麻烦，那么就从另一种定义operational  definition来对待函数，即not related to what the impulse is, but to what the impulse does under the operation of convolution</strong></p><p><strong>SO WHAT IS IMPULSE?</strong></p><p>An impulse in something which under convolution retains the function !   666</p><p>意思就是impulse这个函数的定义是通过卷积来定义的，对于任意的函数，如果有一个函数和这个任意的函数卷积出来的结果不变，那么这个函数就是impulse函数</p><script type="math/tex; mode=display">x(t) * \delta(t) = x(t) \\\therefore \frac{d\delta(t)}{dt} = u_1(t) \\x(t) * u_1(t) = \frac{dx(t)}{dt} \\u_2(t) = u_1(t) * u_1(t) \\x(t) * u_2(t) = \frac{d^2x(t)}{dt}u_k(t) = u_1(t) * u_1(t) * ... \quad k \ times \\x(t) * u_k(t) = \frac{d^kx(t)}{dt} \\u_0(t) = \delta(t)</script><p>同理 对积分器引入$u_{-m}(t)$的定义 mth running integral</p><script type="math/tex; mode=display">u_k(t) * u_p(t) = u_{k + p}(t)</script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 信号与系统 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 信号与系统 </tag>
+            
+            <tag> 理论知识 </tag>
+            
+            <tag> 数学 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>如何建站</title>
       <link href="2021/02/18/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%99/"/>
       <url>2021/02/18/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%99/</url>
       
-        <content type="html"><![CDATA[<h4 id="如何建站"><a href="#如何建站" class="headerlink" title="如何建站"></a>如何建站</h4><p>本站是在github上面建的静态网站，用的是hexo模板(这个资料很多)</p><p>主题是<a href="https://github.com/blinkfox/hexo-theme-matery">闪烁之狐</a></p><p>有问题欢迎留言</p>]]></content>
+        <content type="html"><![CDATA[<h4 id="如何建站"><a href="#如何建站" class="headerlink" title="如何建站"></a>如何建站</h4><p>本站是在github上面建的静态网站，用的是hexo模板(这个资料很多)</p><p>主题是<a href="https://github.com/blinkfox/hexo-theme-matery">闪烁之狐</a></p><p>对于mathjax渲染问题，可能需要参考一下这篇博客<a href="https://www.cnblogs.com/Ai-heng/p/7282110.html">链接</a></p><p>有问题欢迎留言</p>]]></content>
       
       
       

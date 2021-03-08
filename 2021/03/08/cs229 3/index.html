@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="如何建站, goon的杂货店">
+    <meta name="keywords" content="Locally Weighted Linear Regression, goon的杂货店">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>如何建站 | goon的杂货店</title>
+    <title>Locally Weighted Linear Regression | goon的杂货店</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">如何建站</h1>
+                    <h1 class="description center-align post-title">Locally Weighted Linear Regression</h1>
                 </div>
             </div>
         </div>
@@ -430,12 +430,29 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/cs229/">
+                                <span class="chip bg-color">cs229</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">机器学习</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                机器学习
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -444,7 +461,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-18
+                    2021-03-08
                 </div>
                 
 
@@ -468,10 +485,43 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="如何建站"><a href="#如何建站" class="headerlink" title="如何建站"></a>如何建站</h4><p>本站是在github上面建的静态网站，用的是hexo模板(这个资料很多)</p>
-<p>主题是<a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery">闪烁之狐</a></p>
-<p>对于mathjax渲染问题，可能需要参考一下这篇博客<a target="_blank" rel="noopener" href="https://www.cnblogs.com/Ai-heng/p/7282110.html">链接</a></p>
-<p>有问题欢迎留言</p>
+                <h3 id="Lecture-3-Locally-Weighted-Linear-Regression"><a href="#Lecture-3-Locally-Weighted-Linear-Regression" class="headerlink" title="Lecture 3 Locally Weighted Linear Regression"></a>Lecture 3 Locally Weighted Linear Regression</h3><p>这是根据<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1JE411w7Ub?p=2">吴恩达CS229课程视频</a>的笔记</p>
+<p>官方有一个notes，<a target="_blank" rel="noopener" href="http://cs229.stanford.edu/notes2020fall/notes2020fall/cs229-notes1.pdf">链接</a></p>
+<p>对于一个比较复杂形状的函数，自己定义函数的形式$y=f(x)$比较困难，这时可以用locally weighted logistic regression</p>
+<ul>
+<li><p>”Parametric” learning algorithm:</p>
+<p>Fit fixed set of parameters $\theta_i$ to data</p>
+</li>
+<li><p>“Non-Parameteric” learning algorithm</p>
+<p>Amount of data/parameters you need to keep grows(linearly) with the size of data</p>
+<p>LWR，KNN就是Non-Parameteric的</p>
+</li>
+</ul>
+<p><strong>LWR通常不外推，意思是对于在训练集两端外的预测 效果可能会不好</strong></p>
+<p><strong>老师更倾向对于相对低维的数据集使用LWR(比如n = 2或3，有很多数据的情况)</strong></p>
+<h4 id="Probabilistic-interpretation"><a href="#Probabilistic-interpretation" class="headerlink" title="Probabilistic interpretation"></a>Probabilistic interpretation</h4><p>这个部分是说明cost function的由来，基于一个重要假设是$y^{(i)} = \theta^\mathrm{T}x^{(i)} + \epsilon^{(i)}$ 其中$\epsilon^{(i)}$是独立同分布且服从$\mathcal{N}(0, \sigma^2)$，$\epsilon^{(i)}$代表着随机误差</p>
+<p><strong>注意，这个假设就表示训练集中的每个数据是IID的，如果现实中数据不是IID的，那么用这个方法就不合理，可以去构建一个更复杂的模型</strong></p>
+<p>讲义当中的公式$\mathcal{P}(y^{(i)}|x^{(i)};\theta)$里面$x^{(i)}$和$\theta$中间的分号表示$\theta$是一个参数，如果是逗号，那么说明$\theta$是一个随机变量</p>
+<p><strong>likelihood和probability的区别</strong></p>
+<p>视频里面是这么说的：</p>
+<p>the likelihood of the parameters is exactly the same thing as the probability of the data就是函数形式相同，if you view this thing as a function of the parameters holding the data fixed, then we call that likelihood</p>
+<h4 id="Classification-Problem"><a href="#Classification-Problem" class="headerlink" title="Classification Problem"></a>Classification Problem</h4><p>视频44分钟里面画了一张图，用之前的线性回归来应用于这个数据集效果是不好的，线性回归的方法是回归出一条直线，然后设置一个阈值，通过阈值进行分类(大于阈值的一类，小于阈值的另一类)</p>
+<p>这个方法的缺陷在于，45分钟的图，如果有一个稍微偏远的数据，可能会明显改变直线，因而改变决策边界，效果不好。</p>
+<p>我们想要一个$h_\theta(x) \in [0, 1]$  sigmoid函数 $g(x) = \frac{1}{1 + e^{-z}}$ 代入得 $h_\theta(x) = g(\theta^{\mathrm{T}}x) = \frac{1}{1 + e^{-\theta^{\mathrm{T}}x}}$</p>
+<p><em>这里有一个假设$\mathcal{P}(y = 1 | x ; \theta) = h_\theta(x)$</em> 由于是二分类的 所以$\mathcal{P}(y = 0 | x ; \theta) = 1 - h_\theta(x)$</p>
+<p>将这两个式子写成一个式子 $\because y \in \{0 , 1\}$</p>
+<script type="math/tex; mode=display">
+\mathcal{P}(y | x ; \theta) = h(x)^y(1-h(x))^{1-y}    \quad 666</script><p><strong>要注意的是</strong> 训练的时候是用梯度上升 而不是梯度下降！</p>
+<p><strong>选择$h_\theta(x)$的原因之一是保证likelihood function只有一个全局最大值（concave function)</strong></p>
+<h4 id="Newton’s-method"><a href="#Newton’s-method" class="headerlink" title="Newton’s method"></a>Newton’s method</h4><p>这个方法和gradient descent的区别是 这个方法一次更新的跨度更大(视频66: 12)，视频中举例 如果用1000次gradient descent得到好的$\theta$，那么用Newton’s method 经过10次迭代就能得到好的$\theta$，不过每次迭代的代价会比较昂贵</p>
+<p>牛顿方法旨在解决的问题是， 我们有一个函数$f$，我们想要找到一个$\theta$ 使得$f(\theta) = 0$</p>
+<p>将牛顿方法应用到机器学习中就是用牛顿方法来找导数为0的点</p>
+<p>视频69分钟开始 演示牛顿方法的过程，更新算法如下：</p>
+<script type="math/tex; mode=display">
+\theta^{(t + 1)} := \theta^{(t)} - \frac{f(\theta^{(t)})}{f^\prime(\theta^{(t)})}</script><p>当$\theta$是一个向量的时候，$\theta \in \mathcal{R}^{n + 1}$</p>
+<script type="math/tex; mode=display">
+\theta^{(t + 1)} := \theta^{(t)} + H^{-1}\nabla_\theta\mathcal{l}(\theta)</script><p>其中H是Hessian matrix $H_{ij} = \frac{\partial^2\mathcal{l}(\theta)}{\partial\theta_i\partial\theta_j}$， 这个算法的耗时地方在于对hessian matrix求逆耗时，如果拥有的参数数量10个或50个 老师推荐有这个方法</p>
+<p>Newton’s method enjoys a property called quadratic convergence(意思是如果某一次迭代后$\theta$的误差是0.01error 再经过一次迭代之后 误差变为0.0001error) —&gt; 我没懂他说的0.01error是什么意思，emmm… 反正就是很快的</p>
 
                 
             </div>
@@ -498,7 +548,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://myalos.github.io/2021/02/18/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%99/">http://myalos.github.io/2021/02/18/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%99/</a>
+                    <a href="http://myalos.github.io/2021/03/08/cs229%203/">http://myalos.github.io/2021/03/08/cs229%203/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -535,7 +585,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/cs229/">
+                                    <span class="chip bg-color">cs229</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">机器学习</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -758,29 +816,84 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/03/08/signal%20and%20system%205/">
+                <a href="/2021/03/08/cs229%203/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Properties of Linear Time-invariant Systems">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Locally Weighted Linear Regression">
                         
-                        <span class="card-title">Properties of Linear Time-invariant Systems</span>
+                        <span class="card-title">Locally Weighted Linear Regression</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是奥本海姆 信号与系统第五课的学习笔记
+                            这是CS229 第三课的学习笔记
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/cs229/">
+                        <span class="chip bg-color">cs229</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/08/signal%20and%20system%204/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Convolution">
+                        
+                        <span class="card-title">Convolution</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            这是奥本海姆 信号与系统第四课的学习笔记
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -809,44 +922,6 @@
                     </a>
                     
                 </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/02/18/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%99/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="如何建站">
-                        
-                        <span class="card-title">如何建站</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-18
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            Goon
-                            
-                        </span>
-                    </div>
-                </div>
-
                 
             </div>
         </div>
@@ -974,6 +1049,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 
