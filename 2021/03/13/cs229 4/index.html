@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Signals and Systems Part II, goon的杂货店">
+    <meta name="keywords" content="Perceptron Generalized Linear Model, goon的杂货店">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Signals and Systems Part II | goon的杂货店</title>
+    <title>Perceptron Generalized Linear Model | goon的杂货店</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Signals and Systems Part II</h1>
+                    <h1 class="description center-align post-title">Perceptron Generalized Linear Model</h1>
                 </div>
             </div>
         </div>
@@ -432,16 +432,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">
-                                <span class="chip bg-color">信号与系统</span>
+                            <a href="/tags/cs229/">
+                                <span class="chip bg-color">cs229</span>
                             </a>
                         
-                            <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
-                                <span class="chip bg-color">理论知识</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%95%B0%E5%AD%A6/">
-                                <span class="chip bg-color">数学</span>
+                            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">机器学习</span>
                             </a>
                         
                     </div>
@@ -452,8 +448,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                信号与系统
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                机器学习
                             </a>
                         
                     </div>
@@ -465,7 +461,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-08
+                    2021-03-13
                 </div>
                 
 
@@ -489,88 +485,96 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="Lecture-3-Signals-and-Systems-Part-II"><a href="#Lecture-3-Signals-and-Systems-Part-II" class="headerlink" title="Lecture 3 Signals and Systems: Part II"></a>Lecture 3 Signals and Systems: Part II</h3><p>这是根据公开课视频写的笔记<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1xy4y167DD?p=3">链接</a></p>
-<h3 id="几个重要的函数"><a href="#几个重要的函数" class="headerlink" title="几个重要的函数"></a>几个重要的函数</h3><h5 id="离散的unit-step函数"><a href="#离散的unit-step函数" class="headerlink" title="离散的unit step函数"></a>离散的unit step函数</h5><script type="math/tex; mode=display">
-\begin{equation}
-u[n] = \begin{cases}
-1& n \ge 0 \\
-0& n < 0
-\end{cases}
-\end{equation}</script><h5 id="离散的unit-impulse-函数"><a href="#离散的unit-impulse-函数" class="headerlink" title="离散的unit impulse 函数"></a>离散的unit impulse 函数</h5><script type="math/tex; mode=display">
-\begin{equation}
-\delta[n] = \begin{cases}
-1& n = 0 \\
-0& otherwise
-\end{cases}
-\end{equation}</script><p>两者之间的关系是</p>
+                <h2 id="Lecture-4-Perceptron-Generalized-Linear-Model"><a href="#Lecture-4-Perceptron-Generalized-Linear-Model" class="headerlink" title="Lecture 4 Perceptron Generalized Linear Model"></a>Lecture 4 Perceptron Generalized Linear Model</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1JE411w7Ub?p=5">视频链接</a></p>
+<p><a target="_blank" rel="noopener" href="http://cs229.stanford.edu/notes2020fall/notes2020fall/cs229-notes1.pdf">讲义链接</a></p>
+<h3 id="Perceptron"><a href="#Perceptron" class="headerlink" title="Perceptron"></a>Perceptron</h3><p>感知机现实不怎么会用到，学这个主要是出于历史原因</p>
+<p>logistic regression用的函数是sigmoid函数 $g(z) = \frac{1}{1 + e^{-z}}$</p>
+<p>而percetron用的是$g(z) = \begin{cases} 1&amp; z \ge 0 \\0&amp;  z &lt; 0 \end{cases}$</p>
+<p>两者的更新公式都是$\theta_j := \theta_j + \alpha(y^{(i)} - h_\theta(x^{(i)}))x_j^{(i)}$</p>
+<p>其中$y^{(i)} - h_\theta(x^{(i)})$的值只可能是1或者0或者-1</p>
+<p>翻翻李航的书(第二版) P39  $y$的取值是$\{-1,1\}$，更新标准是 如果错误分类，则</p>
 <script type="math/tex; mode=display">
-\delta[n] = u[n] - u[n - 1] \quad (first \quad difference) \\ 
-u[n] = \sum_{m = -\infty}^{n}\delta[m] \quad (running \quad sum)</script><p>unit step sequence can be thought of as a succession of unit impulses one following another</p>
-<p><strong>这个知识点重要</strong></p>
+\omega \leftarrow \omega + \eta y_i x_i \\
+b \leftarrow b + \eta y_i</script><p>[9:00] 左右的视频讲的非常清楚 图画的很好</p>
+<p>感知机一般不用于实际的原因之一是这个模型没有概率解释，而且感知机无法对XOR进行分类</p>
+<h3 id="exponential-family"><a href="#exponential-family" class="headerlink" title="exponential family"></a>exponential family</h3><p>这是一类概率分布 probability density function为：</p>
 <script type="math/tex; mode=display">
-u[n] = \delta[n] + \delta[n - 1] + \delta[n - 2] + ... \\
-u[n] = \sum_{k = 0}^{\infty}\delta[n - k]</script><h5 id="连续的unit-step函数"><a href="#连续的unit-step函数" class="headerlink" title="连续的unit step函数"></a>连续的unit step函数</h5><script type="math/tex; mode=display">
-\begin{equation}
-u(t) = \begin{cases}
-1& t > 0 \\
-0& t < 0
-\end{cases}
-\end{equation}</script><p>关于unit step函数在t = 0的定义有多种。t = 0处的定义不是重点，重点是这个函数的关键在于t = 0时 这个函数是不连续的</p>
-<p>unit step可以看作是一个approximation unit step函数取极限得到</p>
+p(y;\eta) = b(y)exp(\eta^TT(y) - a(\eta))</script><p>这个公式里面$y$是数据，$\eta$是natural parameter，$T(y)$是充分统计量，$b(y)$是base measure，$a(\eta)$是log-partition（为了让这个式子积分结果为1）</p>
+<p>关于充分统计量的知识<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/41367707/answer/572628701">链接</a>  在数理统计书上的定义是 设$\theta$是总体分布中的参数，$X_1,X_2,\cdots,X_n$是来自此总体的样本，$T = T(X_1, X_2, \cdots,X_n)$是统计量，若在已知$T = t$的条件下，样本的条件分布于$\theta$无关，则称$T$为$\theta$的充分统计量</p>
+<p>Bernoulli(Binary data)  $\phi = $ probability of event</p>
+<p>其PDF为$p(y;\phi) = \phi^y(1-\phi)^{(1 - y)}$ 我们要把这个PDF massage 成exponential family的形式</p>
 <script type="math/tex; mode=display">
-\begin{equation}
-u_{\Delta}(t) = \begin{cases}
-1& t > \Delta \\
-\frac{1}{\Delta}& 0 \le t \le \Delta \\
-0& t < 0
-\end{cases}
-\end{equation} \\
-u(t) = \lim_{\Delta \to 0}u_{\Delta}(t)</script><h5 id="连续的unit-impulse函数"><a href="#连续的unit-impulse函数" class="headerlink" title="连续的unit impulse函数"></a>连续的unit impulse函数</h5><p>类比unit step和unit impulse之间的关系 来定义连续的unit impulse函数</p>
-<p>unit impulse 就是 unit step的导数，由approximation unit step函数的定义来得到</p>
+\begin{aligned}
+p(y;\phi) &= exp(log(\phi^y(1-\phi)^{(1-y)})) \\
+&= exp[log(\frac{\phi}{1-\phi})y + log(1 - \phi)]
+\end{aligned}</script><p>massage: $b(y) = 1, T(y) = y,\eta = log(\frac{\phi}{1 - \phi}) + log(1 - \phi),a(\eta) = -log(1 - \phi)$</p>
+<p>由$\eta = log(\frac{\phi}{1 - \phi})$可得$\phi = \frac{1}{1 + e^{-\eta}}$代入道$a(\eta)$中可得$a(\eta) = log(1 + e^\eta)$</p>
+<p>由上面的massage 可知Bernoulli分布是exponential 分布</p>
+<p>Gaussian（假设方差为1）</p>
+<p>其PDF为$p(y;\mu) = \frac{1}{\sqrt{2\pi}}exp(-\frac{(y - \mu)^2}{2})$把这个PDF massage成 exponential family的形式</p>
 <script type="math/tex; mode=display">
-\delta(t) = \frac{du(t)}{dt} \\
-\delta_{\Delta}(t) = \frac{du_{\Delta}(t)}{dt} \\
-\begin{equation}
-\delta_{\Delta}(t) = \begin{cases}
-\frac{1}{\Delta}& 0 \le t \le \Delta \\
-0& otherwise
-\end{cases}
-\end{equation} \\
-no \ matter \ what \ the \ value \ of \ \Delta \ is\ , \ the \ area \ is \ always \ equal \ to \ 1 \\
-\delta(t) = \delta_{\Delta}(t) \quad as \quad \Delta \to 0</script><p>连续时间下，unit step函数和unit impulse函数之间的关系</p>
-<script type="math/tex; mode=display">
-\delta = \frac{du(t)}{dt} \\
-u(t) = \int_{-\infty}^{t}\delta(\tau)d\tau</script><h3 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h3><p><strong>定义：a transformation from an input signal to an output signal </strong></p>
+p(y;\mu) = \frac{1}{\sqrt{2\pi}}e^{-\frac{y^2}{2}}exp(\mu y - \frac{1}{2}\mu^2)</script><p>其中$b(y) = \frac{1}{\sqrt{2\pi}}exp{-\frac{y^2}{2}}, T(y) = y, \eta = \mu, a(\eta) = \frac{\mu^2}{2} = \frac{\eta^2}{2}$</p>
+<p><strong>exponential family的性质</strong></p>
 <ul>
-<li>cascade system</li>
-<li>parallel system</li>
-<li>feedback system</li>
+<li>如果我们对exponential family进行MLE w.r.t. $\eta$，那么the optimization problem is concave</li>
+<li>$E[y;\eta] = \frac{\partial}{\partial\eta}a(\eta)$</li>
+<li>$Var[y;\eta] = \frac{\partial^2}{\partial \eta^2}a(\eta)$</li>
 </ul>
-<p>对于LTI系统，the overall system transformation is independet of the order in which the systems are cascaded</p>
-<h5 id="系统属性"><a href="#系统属性" class="headerlink" title="系统属性"></a>系统属性</h5><ul>
-<li><p>memoryless:  $y(t_0) \quad depends \ only \ on \quad x(t_0)$</p>
-<p>例如 $y(t) = x^2(t)$  和 $y[n] = x^2[n]$ 是memoryless</p>
-<p>​        $y(t) = \int_{-\infty}^{t}x^2(\tau)d\tau$ 和$y[n] = x[n - 1] \quad unit \ delay$  不是memoryless</p>
+<h3 id="Generalized-Linear-Models"><a href="#Generalized-Linear-Models" class="headerlink" title="Generalized Linear Models"></a>Generalized Linear Models</h3><p><strong>we can build many powerful models by choosing an appropriate family in the exponential family and kind of plugging it onto a linear model</strong></p>
+<p>对于GLM的假设</p>
+<ul>
+<li><p>$y | x;\theta \sim$ Exponential Family$(\eta)$ 对于不同的数据类型可以用不同的模型Real - Gaussian，Binary - Bernoulli，Count - Poisson，$R^+$ - Gamma, exponential，Distribution - Beta，Dirichlet 后面两个一般用于贝叶斯统计学习</p>
 </li>
-<li><p>invertibility(可逆性)： given the output, there is only one input</p>
+<li><p>$\eta = \theta^Tx \ \theta \in \mathrm{R}^n \ x \in \mathrm{R}^n$</p>
 </li>
-<li><p>Causality: its response at any time only depends on values of the input prior to that time</p>
-<p>例如$y[n] = \frac{1}{3}(x[n - 1] + x[n] + x[n + 1]) $ 不是causality</p>
-<p>​        $y[n] = \frac{1}{3}(x[n - 2] + x[n - 1] + x[n])$ 是causality</p>
-</li>
-<li><p>Stability： for every bounded input the output is bounded</p>
-<p>​    feedback system的一个重要的应用是stablize unstable systems</p>
-<p>​    例如$y(t) = \int_{-\infty}^{t}u(\tau)d\tau$  输出$y(t)$ 是ramp function， ramp is unbounded because if you try to establish any bound on it,  you can always go out far enough in time</p>
-</li>
-<li><p>Time invariance: 系统 if $x(t) -&gt; y(t)$ then  $x(t - t_0) -&gt; y(t - t_0)$</p>
-<p>例如 $y(t) = sint \times x(t)$ 不是time invariance 因为当输入是$x(t-t_0)$时 输出时$sint \times x(t-t_0)$</p>
-</li>
-<li><p>Linearity: </p>
+<li><p>Test Time: Output为$E[y|x;\theta] \Rightarrow h_\theta(x) = E[y|x;\theta]$</p>
+<p>Train Time: $\max_\theta log p(y^{(i)}, \theta^Tx^{(i)})$ 用gradient ascent</p>
 </li>
 </ul>
+<p><strong>GLMs Training</strong></p>
+<p>Learning Update Rule(所有GLMs都一样) $\theta_j := \theta_j + \alpha(y^{(i)} - h_\theta(x{(i)}))x_j^{(i)}$</p>
+<p>[52:12] 一些术语 $\eta$ - natural parameter </p>
+<p>$\mu = E[y;\eta] = g(\eta)$ Canonical Response function</p>
+<p>$\eta = g^{-1}(\mu)$ Canonical Link function</p>
+<p>[53:50] 开始讲述了three different kinds of parameterizations we have</p>
+<p>model parameters       natural parameters     canonical parameters</p>
+<p>[58:40] 有人问到如何对于输出来选择分布</p>
+<p>老师的Answer: the choice of what distribution you are going to choose is really dependent on the task that you have. So if  your task is regression where you want to output real valued numbers like price of the house then you choose a distribution over the real numbers like a Gaussian. If your task is classification, where your output is binary 0, or 1, you choose a distribution that models binary data</p>
+<h3 id="Softmax-Regression"><a href="#Softmax-Regression" class="headerlink" title="Softmax Regression"></a>Softmax Regression</h3><p>用于多个类别的分类，输出是一个one-hot vector，就是一个只有0和1构成的向量，向量里面每个位置代表着一个类，一个向量里面只有一个1其余的都是0，1所在的位置就表示输出是相应的类</p>
+<p>这部分讲义里面写的挺好</p>
+<p>softmax 输出的是所有类的一个概率分布</p>
+<p><strong>真实标签 也可以看作是一个概率分布，对于标签的类概率是1，其余类概率是0</strong></p>
+<p>我们希望两个distribution变得相近，the term for that is to minimize the cross entropy between the two distributions</p>
+<h3 id="Gaussian-Distribution"><a href="#Gaussian-Distribution" class="headerlink" title="Gaussian Distribution"></a>Gaussian Distribution</h3><p>这是官网上面关于高斯分布的材料的学习笔记，<a target="_blank" rel="noopener" href="http://cs229.stanford.edu/section/gaussians.pdf">链接part1</a>  以及 <a target="_blank" rel="noopener" href="http://cs229.stanford.edu/notes2020fall/notes2020fall/more_on_gaussians.pdf">链接part2</a></p>
+<p>对于univariate normal distribution，the coefficient $\frac{1}{\sqrt{2\pi}\sigma}$ is a constant that does not depend  on x; <strong>我们可以把它看作是为了让下面的积分为1 所存在的一个”normalization factor”</strong></p>
 <script type="math/tex; mode=display">
-if \quad x_1(t) -> y_1(t) \quad and \quad x_2(t) -> y_2(t) \\
-then \quad ax_t(t) + bx_2(t) -> ay_1(t) + by_2(t)</script>
+\frac{1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{\infty}exp(-\frac{1}{2\sigma^2}(x - \mu)^2) = 1</script><p>Proposition 1的证明在下面的Appendix A.1</p>
+<script type="math/tex; mode=display">
+\Sigma = E[(X - \mu)(X - \mu)^T] = E[XX^T] - \mu\mu^T</script><p>Proposition 2证明$\Sigma$是半正定的（这里$\Sigma$的定义是the covariance matrix corresponding to some random vector X）证明中有个等式引起了我的注意：</p>
+<script type="math/tex; mode=display">
+\sum_i\sum_jx_ix_jz_iz_j = (x^Tz)^2</script><p>x的维数要和z的维数相同</p>
+<p>假如维数为1 则$\sum_i\sum_jx_ix_jz_iz_j = x_1^2z_1^2 = (x^Tz)^2$</p>
+<p>假如维数为2 则$\sum_i\sum_jx_ix_jz_iz_j = x_1^2z_1^2 + 2x_1x_2z_1z_2 + x_2^2z_2^2 = (x1z_1 + x_2z_2)^2 = (x^Tz)^2$</p>
+<p>假如维数为k成立，那么维数为k + 1时</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum_{i = 1}^{k + 1}\sum_{j = 1}^{k + 1}x_ix_jz_iz_j  &= x_{k+1}z_{k+1}\sum_{j= 1}^{k + 1}x_jz_j +\sum_{i = 1}^k\sum_{j = 1}^{k + 1}x_ix_jz_iz_j \\
+&= x_{k+1}z_{k+1}\sum_{j= 1}^{k + 1}x_jz_j + x_{k + 1}z_{k + 1}\sum_{i = 1}^kx_iz_i + \sum_{i = 1}^k\sum_{j = 1}^kx_ix_jz_iz_j\\
+&= (x^Tz)_{k \ dimension}^2 + x_{k + 1}^2z_{k + 1}^2 + 2x_{k+1}z_{k+1}\sum_{i = 1}^kx_iz_i \\
+&= (x^Tz)_{k \ dimension}^2 + 2x_{k + 1}z_{k + 1}(x^Tz)_{k \ dimension} +  x_{k + 1}^2z_{k + 1}^2 \\
+&= ((x^Tz)_{k \ dimension}^2 + x_{k + 1}z_{k + 1})^2 \\
+&= (x^Tz)^2_{k+1 \ dimension} \quad \quad  \quad \quad \quad \quad q.e.d.
+\end{aligned}</script><p><strong>讲义里面的Shape of isocontours写的非常具有启发性</strong></p>
+<p>对于$\Sigma$是对角阵的情况：</p>
+<script type="math/tex; mode=display">
+c = \frac{1}{2\pi\sigma_1\sigma_2}exp(-\frac{1}{2\sigma_1^2(x_1 - \mu_1)^2} - \frac{1}{2\sigma_2^2}(x_2 - \mu_2)^2) \\
+log(\frac{1}{2\pi c\sigma_1\sigma_2}) = \frac{1}{2\sigma_1^2}(x_1 - \mu_1)^2 + \frac{1}{2\sigma_2^2}(x_2 - \mu_2)^2 \\
+1 = \frac{(x_1 - \mu_1)^2}{2\sigma_1^2log(\frac{1}{2\pi c\sigma_1\sigma_2})} + 
+\frac{(x_2 - \mu_2)^2}{2\sigma_2^2log(\frac{1}{2\pi c\sigma_2\sigma_2})}</script><p><strong>等高线是一个axis-aligned ellipse</strong></p>
+<p>对于$\Sigma$不是对角阵的情况：等高线是一个rotated ellipse</p>
+<p>扩展到n维的情况 图形称作为ellipsoids</p>
+<p><strong>Appendix A.2非常棒</strong></p>
+
                 
             </div>
             <hr/>
@@ -596,7 +600,7 @@ then \quad ax_t(t) + bx_2(t) -> ay_1(t) + by_2(t)</script>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://myalos.github.io/2021/03/08/signal%20and%20system%203/">http://myalos.github.io/2021/03/08/signal%20and%20system%203/</a>
+                    <a href="http://myalos.github.io/2021/03/13/cs229%204/">http://myalos.github.io/2021/03/13/cs229%204/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -634,16 +638,12 @@ then \quad ax_t(t) + bx_2(t) -> ay_1(t) + by_2(t)</script>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">
-                                    <span class="chip bg-color">信号与系统</span>
+                                <a href="/tags/cs229/">
+                                    <span class="chip bg-color">cs229</span>
                                 </a>
                             
-                                <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
-                                    <span class="chip bg-color">理论知识</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%95%B0%E5%AD%A6/">
-                                    <span class="chip bg-color">数学</span>
+                                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">机器学习</span>
                                 </a>
                             
                         </div>
@@ -872,24 +872,24 @@ then \quad ax_t(t) + bx_2(t) -> ay_1(t) + by_2(t)</script>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/08/signal%20and%20system%204/">
+                <a href="/2021/03/14/signal%20and%20system%206/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Convolution">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Systems Represented by Differential and Difference Equations">
                         
-                        <span class="card-title">Convolution</span>
+                        <span class="card-title">Systems Represented by Differential and Difference Equations</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是奥本海姆 信号与系统第四课的学习笔记
+                            这是奥本海姆 信号与系统第六课的学习笔记
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-14
                         </span>
                         <span class="publish-author">
                             
@@ -929,19 +929,19 @@ then \quad ax_t(t) + bx_2(t) -> ay_1(t) + by_2(t)</script>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/08/signal%20and%20system%205/">
+                <a href="/2021/03/08/cs229%203/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Properties of Linear Time-invariant Systems">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Locally Weighted Linear Regression">
                         
-                        <span class="card-title">Properties of Linear Time-invariant Systems</span>
+                        <span class="card-title">Locally Weighted Linear Regression</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是奥本海姆 信号与系统第五课的学习笔记
+                            这是CS229 第三课的学习笔记
                         
                     </div>
                     <div class="publish-info">
@@ -952,8 +952,8 @@ then \quad ax_t(t) + bx_2(t) -> ay_1(t) + by_2(t)</script>
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                    信号与系统
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
                                 </a>
                             
                             
@@ -963,16 +963,12 @@ then \quad ax_t(t) + bx_2(t) -> ay_1(t) + by_2(t)</script>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">
-                        <span class="chip bg-color">信号与系统</span>
+                    <a href="/tags/cs229/">
+                        <span class="chip bg-color">cs229</span>
                     </a>
                     
-                    <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
-                        <span class="chip bg-color">理论知识</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E5%AD%A6/">
-                        <span class="chip bg-color">数学</span>
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
                     </a>
                     
                 </div>

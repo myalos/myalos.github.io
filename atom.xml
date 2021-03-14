@@ -6,7 +6,7 @@
   <link href="http://myalos.github.io/atom.xml" rel="self"/>
   
   <link href="http://myalos.github.io/"/>
-  <updated>2021-03-08T12:12:18.565Z</updated>
+  <updated>2021-03-14T07:55:53.827Z</updated>
   <id>http://myalos.github.io/</id>
   
   <author>
@@ -17,11 +17,67 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Systems Represented by Differential and Difference Equations</title>
+    <link href="http://myalos.github.io/2021/03/14/signal%20and%20system%206/"/>
+    <id>http://myalos.github.io/2021/03/14/signal%20and%20system%206/</id>
+    <published>2021-03-14T07:56:14.916Z</published>
+    <updated>2021-03-14T07:55:53.827Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Lecture-6-System-Represented-by-Differential-and-Difference-Equations&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="信号与系统" scheme="http://myalos.github.io/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="信号与系统" scheme="http://myalos.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="理论知识" scheme="http://myalos.github.io/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/"/>
+    
+    <category term="数学" scheme="http://myalos.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Perceptron Generalized Linear Model</title>
+    <link href="http://myalos.github.io/2021/03/13/cs229%204/"/>
+    <id>http://myalos.github.io/2021/03/13/cs229%204/</id>
+    <published>2021-03-13T06:38:52.915Z</published>
+    <updated>2021-03-13T11:12:45.308Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Lecture-4-Perceptron-Generalized-Linear-Model&quot;&gt;&lt;a href=&quot;#Lecture-4-Perceptron-Generalized-Linear-Model&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="机器学习" scheme="http://myalos.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="cs229" scheme="http://myalos.github.io/tags/cs229/"/>
+    
+    <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Locally Weighted Linear Regression</title>
     <link href="http://myalos.github.io/2021/03/08/cs229%203/"/>
     <id>http://myalos.github.io/2021/03/08/cs229%203/</id>
     <published>2021-03-08T11:22:21.753Z</published>
-    <updated>2021-03-08T12:12:18.565Z</updated>
+    <updated>2021-03-12T00:23:44.174Z</updated>
     
     
       
@@ -77,7 +133,7 @@
     <link href="http://myalos.github.io/2021/03/08/signal%20and%20system%203/"/>
     <id>http://myalos.github.io/2021/03/08/signal%20and%20system%203/</id>
     <published>2021-03-08T11:16:20.397Z</published>
-    <updated>2021-03-08T12:04:45.849Z</updated>
+    <updated>2021-03-13T12:52:30.961Z</updated>
     
     
       

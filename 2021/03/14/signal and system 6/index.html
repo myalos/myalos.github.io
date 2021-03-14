@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Signals and Systems Part II, goon的杂货店">
+    <meta name="keywords" content="Systems Represented by Differential and Difference Equations, goon的杂货店">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Signals and Systems Part II | goon的杂货店</title>
+    <title>Systems Represented by Differential and Difference Equations | goon的杂货店</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Signals and Systems Part II</h1>
+                    <h1 class="description center-align post-title">Systems Represented by Differential and Difference Equations</h1>
                 </div>
             </div>
         </div>
@@ -465,7 +465,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-08
+                    2021-03-14
                 </div>
                 
 
@@ -489,88 +489,73 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="Lecture-3-Signals-and-Systems-Part-II"><a href="#Lecture-3-Signals-and-Systems-Part-II" class="headerlink" title="Lecture 3 Signals and Systems: Part II"></a>Lecture 3 Signals and Systems: Part II</h3><p>这是根据公开课视频写的笔记<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1xy4y167DD?p=3">链接</a></p>
-<h3 id="几个重要的函数"><a href="#几个重要的函数" class="headerlink" title="几个重要的函数"></a>几个重要的函数</h3><h5 id="离散的unit-step函数"><a href="#离散的unit-step函数" class="headerlink" title="离散的unit step函数"></a>离散的unit step函数</h5><script type="math/tex; mode=display">
-\begin{equation}
-u[n] = \begin{cases}
-1& n \ge 0 \\
-0& n < 0
-\end{cases}
-\end{equation}</script><h5 id="离散的unit-impulse-函数"><a href="#离散的unit-impulse-函数" class="headerlink" title="离散的unit impulse 函数"></a>离散的unit impulse 函数</h5><script type="math/tex; mode=display">
-\begin{equation}
-\delta[n] = \begin{cases}
-1& n = 0 \\
-0& otherwise
-\end{cases}
-\end{equation}</script><p>两者之间的关系是</p>
+                <h2 id="Lecture-6-System-Represented-by-Differential-and-Difference-Equations"><a href="#Lecture-6-System-Represented-by-Differential-and-Difference-Equations" class="headerlink" title="Lecture 6 System Represented by Differential and Difference Equations"></a>Lecture 6 System Represented by Differential and Difference Equations</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1xy4y167DD?p=6">视频链接</a> 对应于书上的2.4的内容</p>
+<p>A particularly important set of systems, which are linear and time-invariant, are those that are represented by linear constant-coefficient differential equations in continuous time or linear constant-coefficient difference equations in discrete time</p>
+<h3 id="n阶线性常系数微分方程的定义："><a href="#n阶线性常系数微分方程的定义：" class="headerlink" title="n阶线性常系数微分方程的定义："></a>n阶线性常系数微分方程的定义：</h3><script type="math/tex; mode=display">
+\sum_{k = 0}^Na_k\frac{d^ky(t)}{dt^k} = \sum_{k = 0}^Mb_k\frac{d^kx(t)}{dt^k}  \tag{1}</script><p> 常系数表示系数都是常数（不随时间变化），被称为线性是因为对应于linear combination of these derivatives, not because it corresponds to a linear system</p>
+<p><strong>这个方程可能会也可能不会对应于线性系统</strong></p>
+<h3 id="n阶线性常系数差分方程的定义："><a href="#n阶线性常系数差分方程的定义：" class="headerlink" title="n阶线性常系数差分方程的定义："></a>n阶线性常系数差分方程的定义：</h3><script type="math/tex; mode=display">
+\sum_{k=0}^Na_ky[n-k] = \sum_{k=0}^Mb_kx[n-k] \tag{2}</script><h3 id="n阶线性常系数微分方程的解法："><a href="#n阶线性常系数微分方程的解法：" class="headerlink" title="n阶线性常系数微分方程的解法："></a>n阶线性常系数微分方程的解法：</h3><p><strong>方程相对应的Homogeneous Equation定义如下，其解为$y_h(t)$</strong></p>
 <script type="math/tex; mode=display">
-\delta[n] = u[n] - u[n - 1] \quad (first \quad difference) \\ 
-u[n] = \sum_{m = -\infty}^{n}\delta[m] \quad (running \quad sum)</script><p>unit step sequence can be thought of as a succession of unit impulses one following another</p>
-<p><strong>这个知识点重要</strong></p>
+\sum_{k = 0}^Na_k\frac{d^ky_h(t)}{dt^k} = 0 \tag{3}</script><p>给定输入$x(t)$，如果$y_p(t)$满足方程$(1)$ 那么$y_p(t) + y_h(t)$也会满足方程$(1)$ </p>
+<p>通常称$y_p(t)$为Particular solution，$y_h(t)$为Homogeneous solution</p>
+<p>所以方程$(1)$并非是a unique specification of the system.</p>
+<h3 id="n阶线性齐次常系数微分方程的解法："><a href="#n阶线性齐次常系数微分方程的解法：" class="headerlink" title="n阶线性齐次常系数微分方程的解法："></a>n阶线性齐次常系数微分方程的解法：</h3><p>“guess” solution of the form $y_h(t) = Ae^{st}$ 把这个代入到$(3)$中得</p>
 <script type="math/tex; mode=display">
-u[n] = \delta[n] + \delta[n - 1] + \delta[n - 2] + ... \\
-u[n] = \sum_{k = 0}^{\infty}\delta[n - k]</script><h5 id="连续的unit-step函数"><a href="#连续的unit-step函数" class="headerlink" title="连续的unit step函数"></a>连续的unit step函数</h5><script type="math/tex; mode=display">
-\begin{equation}
-u(t) = \begin{cases}
-1& t > 0 \\
-0& t < 0
-\end{cases}
-\end{equation}</script><p>关于unit step函数在t = 0的定义有多种。t = 0处的定义不是重点，重点是这个函数的关键在于t = 0时 这个函数是不连续的</p>
-<p>unit step可以看作是一个approximation unit step函数取极限得到</p>
+\sum_{k=0}^Na_kAs^ke^{st} = 0 \label{4}\tag{4} \\</script><script type="math/tex; mode=display">
+\because e^{st} \ne 0, A \ne 0 \quad \therefore \sum_{k=0}^Na_ks^k = 0 \quad N \ roots \ s_i \quad i = 1,\cdots,N \tag{5}</script><script type="math/tex; mode=display">
+y_h(t) = A_1e^{s_1t} + A_2e^{s_2t} + \cdots + A_Ne^{s_Nt} \tag{6}</script><p>通过方程$(5)$能得到得是N个s得值 但是常数$N$以及$A_1,\cdots,A_N$是不确定的</p>
+<p>我们要解出这些常数 就需要N auxiliary conditions, 例如</p>
 <script type="math/tex; mode=display">
-\begin{equation}
-u_{\Delta}(t) = \begin{cases}
-1& t > \Delta \\
-\frac{1}{\Delta}& 0 \le t \le \Delta \\
-0& t < 0
-\end{cases}
-\end{equation} \\
-u(t) = \lim_{\Delta \to 0}u_{\Delta}(t)</script><h5 id="连续的unit-impulse函数"><a href="#连续的unit-impulse函数" class="headerlink" title="连续的unit impulse函数"></a>连续的unit impulse函数</h5><p>类比unit step和unit impulse之间的关系 来定义连续的unit impulse函数</p>
-<p>unit impulse 就是 unit step的导数，由approximation unit step函数的定义来得到</p>
-<script type="math/tex; mode=display">
-\delta(t) = \frac{du(t)}{dt} \\
-\delta_{\Delta}(t) = \frac{du_{\Delta}(t)}{dt} \\
-\begin{equation}
-\delta_{\Delta}(t) = \begin{cases}
-\frac{1}{\Delta}& 0 \le t \le \Delta \\
-0& otherwise
-\end{cases}
-\end{equation} \\
-no \ matter \ what \ the \ value \ of \ \Delta \ is\ , \ the \ area \ is \ always \ equal \ to \ 1 \\
-\delta(t) = \delta_{\Delta}(t) \quad as \quad \Delta \to 0</script><p>连续时间下，unit step函数和unit impulse函数之间的关系</p>
-<script type="math/tex; mode=display">
-\delta = \frac{du(t)}{dt} \\
-u(t) = \int_{-\infty}^{t}\delta(\tau)d\tau</script><h3 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h3><p><strong>定义：a transformation from an input signal to an output signal </strong></p>
+y(t), \frac{dy(t)}{dt},\cdots,\frac{d^{N - 1}y(t)}{dt^{N-1}} \ at \ t = t_0</script><p>取决于这些auxiliary conditions，the system may or may not correspond to a linear system</p>
 <ul>
-<li>cascade system</li>
-<li>parallel system</li>
-<li>feedback system</li>
+<li>Linear system $\iff$ auxiliary conditions = 0</li>
+<li>Causal LTI $\iff$ initial rest： if $x(t) = 0$ for $t &lt; t_0$ then $y(t) = 0$ for $t &lt; t_0$</li>
 </ul>
-<p>对于LTI系统，the overall system transformation is independet of the order in which the systems are cascaded</p>
-<h5 id="系统属性"><a href="#系统属性" class="headerlink" title="系统属性"></a>系统属性</h5><ul>
-<li><p>memoryless:  $y(t_0) \quad depends \ only \ on \quad x(t_0)$</p>
-<p>例如 $y(t) = x^2(t)$  和 $y[n] = x^2[n]$ 是memoryless</p>
-<p>​        $y(t) = \int_{-\infty}^{t}x^2(\tau)d\tau$ 和$y[n] = x[n - 1] \quad unit \ delay$  不是memoryless</p>
-</li>
-<li><p>invertibility(可逆性)： given the output, there is only one input</p>
-</li>
-<li><p>Causality: its response at any time only depends on values of the input prior to that time</p>
-<p>例如$y[n] = \frac{1}{3}(x[n - 1] + x[n] + x[n + 1]) $ 不是causality</p>
-<p>​        $y[n] = \frac{1}{3}(x[n - 2] + x[n - 1] + x[n])$ 是causality</p>
-</li>
-<li><p>Stability： for every bounded input the output is bounded</p>
-<p>​    feedback system的一个重要的应用是stablize unstable systems</p>
-<p>​    例如$y(t) = \int_{-\infty}^{t}u(\tau)d\tau$  输出$y(t)$ 是ramp function， ramp is unbounded because if you try to establish any bound on it,  you can always go out far enough in time</p>
-</li>
-<li><p>Time invariance: 系统 if $x(t) -&gt; y(t)$ then  $x(t - t_0) -&gt; y(t - t_0)$</p>
-<p>例如 $y(t) = sint \times x(t)$ 不是time invariance 因为当输入是$x(t-t_0)$时 输出时$sint \times x(t-t_0)$</p>
-</li>
-<li><p>Linearity: </p>
-</li>
-</ul>
+<p>例：$\frac{dy(t)}{dt} + ay(t) = x(t)$ 其对应的齐次方程为$\frac{dy_h(t)}{dt} + ay_h(t) = 0 \tag{7}$</p>
+<p>猜测解为$y_h(t)  = Ae^{st}$ 代入得 $Ase^{st} + aAe^{st} = 0$ 化简得$s + a = 0$</p>
+<p>得$y_h(t) = Ae^{-at}$</p>
+<p>假设给定特定得输入为$x(t) = ku(t)$ 则$x(1) = k$ 代入微分方程得$\frac{dy(t)}{dt} + ay(t) = ku(t)$</p>
+<p>解得相应的特解为$y_p = \frac{k}{a}[1 - e^{-at}]u(t)$</p>
+<p>对于该微分方程的a family of solutions 为$y(t) = \frac{k}{a}[1 - e^{-at}]u(t) + Ae^{-at}$</p>
+<p>求出A的值要auxiliary conditions，对于initial rest的条件 $\Rightarrow$ Causal, LTI $\Rightarrow$ $y(t) = \frac{k}{a}[1 - e^{-at}]u(t)$</p>
+<p><strong>求冲激响应 这个知识点重要</strong></p>
+<p>对于LTI系统 级联的顺序无关紧要</p>
 <script type="math/tex; mode=display">
-if \quad x_1(t) -> y_1(t) \quad and \quad x_2(t) -> y_2(t) \\
-then \quad ax_t(t) + bx_2(t) -> ay_1(t) + by_2(t)</script>
+u(t) \rightarrow \boxed{\frac{d}{dt}} \rightarrow \boxed{h(t)} \rightarrow h(t)</script><p>上面的系统与下面等效</p>
+<script type="math/tex; mode=display">
+u(t) \rightarrow \boxed{h(t)}  \rightarrow \boxed{\frac{d}{dt}}  \rightarrow h(t)</script><p>上面的中间结果为$\delta(t)$，下面的中间结果为$s(t) = \frac{1}{a}[1 - e^{-at}]u(t)$ 所以求$h(t)$ 就可以直接对$s(t)$求导</p>
+<p>解得$h(t) = \frac{s(t)}{dt} = u(t)\frac{d}{dt}\frac{1}{a}[1 - e^{-at}] + \frac{1}{a}[1 - e^{-at}]\frac{d}{dt}u(t) = e^{-at}u(t) + \frac{1}{a}[1 - e^{-at}]\delta(t)$</p>
+<p>当$t \ne 0$时 $\delta(t)$为0， 得$h(t) = e^{-at}u(t)$  当$t = 0时$ $1 - e^{-at} = 0$ 所以无论$t$取什么值，右边的都为0</p>
+<p>由之前的知识知 如果该系统是稳定的， 那么$a &gt; 0$</p>
+<h3 id="n阶线性常系数差分方程的解法："><a href="#n阶线性常系数差分方程的解法：" class="headerlink" title="n阶线性常系数差分方程的解法："></a>n阶线性常系数差分方程的解法：</h3><p>与连续的情况类似 齐次方程为</p>
+<script type="math/tex; mode=display">
+\sum_{k = 0}^N a_ky_h[n - k] = 0 \quad (Homogeneous \ Equation) \tag{8}</script><p>给定输入$x[n]$，如果$y_p[n]$满足方程$(8)$ 那么$y_p[n] + y_h[n]$也会满足方程$(1)$ </p>
+<p>通常称$y_p[n]$为Particular solution，$y_h[n]$为Homogeneous solution</p>
+<h3 id="n阶线性齐次常系数微分方程的解法：-1"><a href="#n阶线性齐次常系数微分方程的解法：-1" class="headerlink" title="n阶线性齐次常系数微分方程的解法："></a>n阶线性齐次常系数微分方程的解法：</h3><p>“guess” solution of the form $y[n] = Az^n$ 代入到方程$(8)$得$\sum_{k = 0}^Na_kAz^nz^{-k} = 0$</p>
+<p>同样$\because A \ne 0，z \ne 0$ 我们得到$\sum_{k = 0}^Na_kz^{-k} = 0$ N roots $z_1, z_2, \cdots, z_N$</p>
+<p>最终的解是$y_h[n] = A_1z_1^n + \cdots + A_Nz_N^n$</p>
+<p>我们要解出这些常数 就需要N auxiliary conditions, 例如</p>
+<script type="math/tex; mode=display">
+y[n_o], y[n_o - 1], y[n_o - 2],\cdots,y[n_o - N + 1]</script><p>取决于这些auxiliary conditions，the system may or may not correspond to a linear system</p>
+<ul>
+<li>Linear system $\iff$ auxiliary conditions = 0</li>
+<li>Causal LTI $\iff$ initial rest： if $x[n] = 0$ for $n &lt; n_o$ then $y[t] = 0$ for $n &lt; n_o$</li>
+</ul>
+<p>微分方程和差分方程很类似， 某些情况下，差分方程更容易处理</p>
+<p>假设系统是causal的：</p>
+<p>对于方程$(2)$的解，$y[n] = \frac{1}{a_o} \{  \sum_{k = 0}^Mb_kx[n - k] - \sum_{k = 1}^Na_ky[n - k] \}$</p>
+<p>如果我们知道$x[n]$和$y[n_o - 1], y[n_o - 2], \cdots, y[n_o - N]$ 那么我可以求得$y[n_o]$继而可以求$y[n_o + 1]$</p>
+<p>例 $y[n] - ay[n - 1] = x[n]$ $\Rightarrow$ $y[n] = x[n] + ay[n - 1] \tag{9}$</p>
+<p>causal LTI $\iff$ Initial Rest  假设输入$x[n] = \delta[n]$ 代入得$h[n] = \delta[n] + ah[n - 1]$</p>
+<p>$h[n] = 0$ 对于$n &lt; 0$ 然后$n = 0$ 代入得$h[0] = 0$ 继续得$h[1] = a, h[2] = a^2$</p>
+<p>如果是这个系统是稳定话 $\iff |a| &lt; 1$</p>
+<p>求解齐次方程的解 $y_h[n]$  令$y_h[n] = Az^n$ 代入得$Az^n - aAz^{n - 1} \Rightarrow 1 - az^{-1} = 0 \Rightarrow a = z$</p>
+<p>$\Rightarrow y_h[n] = Aa^n$  所以对与这个系统$\delta[n] \rightarrow a^nu[n] + Aa^n$</p>
+<p>如果系统是causal的LTI 那么$A = 0$</p>
+<p>[32:04] 将方程$(9)$画成图，这个图是一个反馈系统 [33:49] 画的是方程$(2)$对应的图</p>
+<p>接下来的是将连续的情况画成图</p>
+
                 
             </div>
             <hr/>
@@ -596,7 +581,7 @@ then \quad ax_t(t) + bx_2(t) -> ay_1(t) + by_2(t)</script>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://myalos.github.io/2021/03/08/signal%20and%20system%203/">http://myalos.github.io/2021/03/08/signal%20and%20system%203/</a>
+                    <a href="http://myalos.github.io/2021/03/14/signal%20and%20system%206/">http://myalos.github.io/2021/03/14/signal%20and%20system%206/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -868,29 +853,30 @@ then \quad ax_t(t) + bx_2(t) -> ay_1(t) + by_2(t)</script>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/03/08/signal%20and%20system%204/">
+                <a href="/2021/03/14/signal%20and%20system%206/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Convolution">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Systems Represented by Differential and Difference Equations">
                         
-                        <span class="card-title">Convolution</span>
+                        <span class="card-title">Systems Represented by Differential and Difference Equations</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是奥本海姆 信号与系统第四课的学习笔记
+                            这是奥本海姆 信号与系统第六课的学习笔记
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -903,6 +889,7 @@ then \quad ax_t(t) + bx_2(t) -> ay_1(t) + by_2(t)</script>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -929,31 +916,31 @@ then \quad ax_t(t) + bx_2(t) -> ay_1(t) + by_2(t)</script>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/08/signal%20and%20system%205/">
+                <a href="/2021/03/13/cs229%204/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Properties of Linear Time-invariant Systems">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Perceptron Generalized Linear Model">
                         
-                        <span class="card-title">Properties of Linear Time-invariant Systems</span>
+                        <span class="card-title">Perceptron Generalized Linear Model</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是奥本海姆 信号与系统第五课的学习笔记
+                            这是CS229 第四课的学习笔记
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-13
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                    信号与系统
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
                                 </a>
                             
                             
@@ -963,16 +950,12 @@ then \quad ax_t(t) + bx_2(t) -> ay_1(t) + by_2(t)</script>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">
-                        <span class="chip bg-color">信号与系统</span>
+                    <a href="/tags/cs229/">
+                        <span class="chip bg-color">cs229</span>
                     </a>
                     
-                    <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
-                        <span class="chip bg-color">理论知识</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E5%AD%A6/">
-                        <span class="chip bg-color">数学</span>
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
                     </a>
                     
                 </div>

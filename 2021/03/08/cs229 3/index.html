@@ -487,7 +487,7 @@
             <div id="articleContent">
                 <h3 id="Lecture-3-Locally-Weighted-Linear-Regression"><a href="#Lecture-3-Locally-Weighted-Linear-Regression" class="headerlink" title="Lecture 3 Locally Weighted Linear Regression"></a>Lecture 3 Locally Weighted Linear Regression</h3><p>这是根据<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1JE411w7Ub?p=2">吴恩达CS229课程视频</a>的笔记</p>
 <p>官方有一个notes，<a target="_blank" rel="noopener" href="http://cs229.stanford.edu/notes2020fall/notes2020fall/cs229-notes1.pdf">链接</a></p>
-<p>对于一个比较复杂形状的函数，自己定义函数的形式$y=f(x)$比较困难，这时可以用locally weighted logistic regression</p>
+<p>对于一个比较复杂形状的函数，自己定义函数的形式$y=f(x)$比较困难，这时可以用locally weighted linear regression</p>
 <ul>
 <li><p>”Parametric” learning algorithm:</p>
 <p>Fit fixed set of parameters $\theta_i$ to data</p>
@@ -511,8 +511,22 @@
 <p><em>这里有一个假设$\mathcal{P}(y = 1 | x ; \theta) = h_\theta(x)$</em> 由于是二分类的 所以$\mathcal{P}(y = 0 | x ; \theta) = 1 - h_\theta(x)$</p>
 <p>将这两个式子写成一个式子 $\because y \in \{0 , 1\}$</p>
 <script type="math/tex; mode=display">
-\mathcal{P}(y | x ; \theta) = h(x)^y(1-h(x))^{1-y}    \quad 666</script><p><strong>要注意的是</strong> 训练的时候是用梯度上升 而不是梯度下降！</p>
+\mathcal{P}(y | x ; \theta) = h(x)^y(1-h(x))^{1-y}    \quad 666</script><p>对这个概率分布，we can write down the likelihood of the parameters as:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+L(\theta) &= p(\vec{y}|X,\theta) \\
+&= \prod_{i = 1}^n p(y^{(i)}|x^{(i)};\theta) \\
+&= \prod_{i = 1}^n (h_\theta(x^{(i)}))^{y^{(i)}}(1 - h_\theta(x^{(i)}))^{(1 - y^{(i)})}
+\end{aligned}</script><p>maximize the log likelihood:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\ell(\theta) &= logL(\theta) \\
+&=  \sum_{i = 1}^n y^{(i)}logh(x^{(i)}) + (1 - y^{(i)})log(1 - h(x^{(i)}))
+\end{aligned}</script><p><strong>要注意的是</strong> 训练的时候是用梯度上升 而不是梯度下降！</p>
 <p><strong>选择$h_\theta(x)$的原因之一是保证likelihood function只有一个全局最大值（concave function)</strong></p>
+<p>对于logistics regression的常见问题</p>
+<p><a target="_blank" rel="noopener" href="https://towardsdatascience.com/why-not-mse-as-a-loss-function-for-logistic-regression-589816b5e03c">为什么logistics regression不采用MSE作为Loss Function</a></p>
+<p>总结一下就是<strong>MSE doesn’t strongly penalize misclassifications</strong>和<strong>MSE loss function for logistic regression is non-convex</strong></p>
 <h4 id="Newton’s-method"><a href="#Newton’s-method" class="headerlink" title="Newton’s method"></a>Newton’s method</h4><p>这个方法和gradient descent的区别是 这个方法一次更新的跨度更大(视频66: 12)，视频中举例 如果用1000次gradient descent得到好的$\theta$，那么用Newton’s method 经过10次迭代就能得到好的$\theta$，不过每次迭代的代价会比较昂贵</p>
 <p>牛顿方法旨在解决的问题是， 我们有一个函数$f$，我们想要找到一个$\theta$ 使得$f(\theta) = 0$</p>
 <p>将牛顿方法应用到机器学习中就是用牛顿方法来找导数为0的点</p>
@@ -816,30 +830,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/08/cs229%203/">
+                <a href="/2021/03/13/cs229%204/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Locally Weighted Linear Regression">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Perceptron Generalized Linear Model">
                         
-                        <span class="card-title">Locally Weighted Linear Regression</span>
+                        <span class="card-title">Perceptron Generalized Linear Model</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是CS229 第三课的学习笔记
+                            这是CS229 第四课的学习笔记
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-13
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -852,7 +865,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
