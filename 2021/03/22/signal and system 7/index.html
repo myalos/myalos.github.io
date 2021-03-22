@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Systems Represented by Differential and Difference Equations, goon的杂货店">
+    <meta name="keywords" content="Continuous-Time Fourier Series, goon的杂货店">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Systems Represented by Differential and Difference Equations | goon的杂货店</title>
+    <title>Continuous-Time Fourier Series | goon的杂货店</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Systems Represented by Differential and Difference Equations</h1>
+                    <h1 class="description center-align post-title">Continuous-Time Fourier Series</h1>
                 </div>
             </div>
         </div>
@@ -465,7 +465,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-14
+                    2021-03-22
                 </div>
                 
 
@@ -489,72 +489,69 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Lecture-6-System-Represented-by-Differential-and-Difference-Equations"><a href="#Lecture-6-System-Represented-by-Differential-and-Difference-Equations" class="headerlink" title="Lecture 6 System Represented by Differential and Difference Equations"></a>Lecture 6 System Represented by Differential and Difference Equations</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1xy4y167DD?p=6">视频链接</a> 对应于书上的2.4的内容</p>
-<p>A particularly important set of systems, which are linear and time-invariant, are those that are represented by linear constant-coefficient differential equations in continuous time or linear constant-coefficient difference equations in discrete time</p>
-<h3 id="n阶线性常系数微分方程的定义："><a href="#n阶线性常系数微分方程的定义：" class="headerlink" title="n阶线性常系数微分方程的定义："></a>n阶线性常系数微分方程的定义：</h3><script type="math/tex; mode=display">
-\sum_{k = 0}^Na_k\frac{d^ky(t)}{dt^k} = \sum_{k = 0}^Mb_k\frac{d^kx(t)}{dt^k}  \tag{1}</script><p> 常系数表示系数都是常数（不随时间变化），被称为线性是因为对应于linear combination of these derivatives, not because it corresponds to a linear system</p>
-<p><strong>这个方程可能会也可能不会对应于线性系统</strong></p>
-<h3 id="n阶线性常系数差分方程的定义："><a href="#n阶线性常系数差分方程的定义：" class="headerlink" title="n阶线性常系数差分方程的定义："></a>n阶线性常系数差分方程的定义：</h3><script type="math/tex; mode=display">
-\sum_{k=0}^Na_ky[n-k] = \sum_{k=0}^Mb_kx[n-k] \tag{2}</script><h3 id="n阶线性常系数微分方程的解法："><a href="#n阶线性常系数微分方程的解法：" class="headerlink" title="n阶线性常系数微分方程的解法："></a>n阶线性常系数微分方程的解法：</h3><p><strong>方程相对应的Homogeneous Equation定义如下，其解为$y_h(t)$</strong></p>
+                <h2 id="Lecture-7-Continuous-Time-Fourier-Series"><a href="#Lecture-7-Continuous-Time-Fourier-Series" class="headerlink" title="Lecture 7 Continuous-Time Fourier Series"></a>Lecture 7 Continuous-Time Fourier Series</h2><p>在一个线性系统中如果输入可被分解为a linear combination of basic input，with each of these basic inputs generating an associated output</p>
 <script type="math/tex; mode=display">
-\sum_{k = 0}^Na_k\frac{d^ky_h(t)}{dt^k} = 0 \tag{3}</script><p>给定输入$x(t)$，如果$y_p(t)$满足方程$(1)$ 那么$y_p(t) + y_h(t)$也会满足方程$(1)$ </p>
-<p>通常称$y_p(t)$为Particular solution，$y_h(t)$为Homogeneous solution</p>
-<p>所以方程$(1)$并非是a unique specification of the system.</p>
-<h3 id="n阶线性齐次常系数微分方程的解法："><a href="#n阶线性齐次常系数微分方程的解法：" class="headerlink" title="n阶线性齐次常系数微分方程的解法："></a>n阶线性齐次常系数微分方程的解法：</h3><p>“guess” solution of the form $y_h(t) = Ae^{st}$ 把这个代入到$(3)$中得</p>
+x(t) = a_1\phi_1(t) + a_2\phi_2(t) + \cdots \\
+\phi_k(t) \rightarrow \psi_k(t) \quad and \ system\ is \ linear \\
+Then:y(t) = a_1\psi_1(t) + a_2\psi_2(t) + \cdots</script><p><strong>对于基本信号$\phi_k(t)$的选择 首先是a broad class of signals could be represented in terms of these basic inputs 其次是 the response to these basic inputs is easy to compute.</strong></p>
+<p><strong>核心的两个性质</strong></p>
+<p>在LTI系统中我们的选择是</p>
+<p>C-T: $\phi_k(t) = \delta(t - k\Delta)$  和 $\psi_k(t) = h(t - k\Delta) \Rightarrow$ Convolution Integral</p>
+<p>D-T: $\phi_k[n] = \delta[n - k]$ 和$\psi_k[n] = h[n - k] \Rightarrow$ Convolution Sum</p>
+<p>新的building blocks是complex exponentials$($ 拥有上述两个性质 $)$ </p>
+<p>$\phi_k(t) = e^{s_kt}$  $s_k$ 是complex， $\phi_k[n]$ = $z_k^n$  $z_k$ 是complex</p>
+<p><strong>Fourier Analysis:</strong></p>
+<p>C-T: $s_k = j\omega_k$      $\phi_k(t) = e^{j\omega_kt}$  </p>
+<p>D-T: $|z_k| = 1$        $\phi_k[n] = e^{j\Omega_kn}$</p>
+<p>这里对于$s_k$ 和 $z_k$ 是复数的特殊情况</p>
+<p><strong>一般性的化 $s_k$ complex $\Rightarrow$ Laplace transforms   $z_k$ complex $\Rightarrow$ z-transforms</strong></p>
+<h3 id="Eigenfunction-property-of-this-particular-set-of-building-blocks"><a href="#Eigenfunction-property-of-this-particular-set-of-building-blocks" class="headerlink" title="Eigenfunction property of this particular set of building blocks"></a>Eigenfunction property of this particular set of building blocks</h3><script type="math/tex; mode=display">
+e^{j\omega_kt} \rightarrow H(\omega_k)e^{j\omega_kt} \\
+e^{j\omega_kt} \rightarrow \int_{-\infty}^{+\infty}h(\tau)e^{j\omega_k(t - \tau)}d\tau \\
+=e^{j\omega_kt}\int_{-\infty}^{+\infty}h(\tau)e^{-j\omega_k\tau}d\tau \\
+= e^{j\omega_kt}H(\omega_k)</script><p>we put in a complex exponential, we get out a complex exponential of the same frequency, multiplied by a complex constant. <strong>这就是所谓的eigenfunction property</strong></p>
+<p>即输入和输出看起来除了振幅变化之外 其余完全一样，the change amplitude being the eigenvalue</p>
+<p>称$e^{j\omega_kt}$为eigenfunction  称$H(w_k)$为eigenvalue</p>
+<h3 id="Periodic-Signals-Fourier-Series"><a href="#Periodic-Signals-Fourier-Series" class="headerlink" title="Periodic Signals: Fourier Series"></a>Periodic Signals: Fourier Series</h3><script type="math/tex; mode=display">
+x(t) = x(t + T_0) \quad T_0 \ is \ period \\
+w_0 = \frac{2\pi}{T_0} = 2\pi f_0</script><p>对于$e^{j\omega_0t}$ 的基本周期就是$T_0$，谐波相关的复指数是(虽然$T_0$也是周期，但是它们的基本周期更短) 如$e^{jk\omega_0t}$ 其周期为$\frac{T_0}{k} = \frac{2\pi}{k\omega_0}$  随着k的变化 这些complex exponentials 称作为harmonically related </p>
+<p>傅里叶级数（一个非常普通的周期函数可以表示成谐波相关的复指数信号的线性组合）</p>
 <script type="math/tex; mode=display">
-\sum_{k=0}^Na_kAs^ke^{st} = 0 \label{4}\tag{4} \\</script><script type="math/tex; mode=display">
-\because e^{st} \ne 0, A \ne 0 \quad \therefore \sum_{k=0}^Na_ks^k = 0 \quad N \ roots \ s_i \quad i = 1,\cdots,N \tag{5}</script><script type="math/tex; mode=display">
-y_h(t) = A_1e^{s_1t} + A_2e^{s_2t} + \cdots + A_Ne^{s_Nt} \tag{6}</script><p>通过方程$(5)$能得到得是N个s得值 但是常数$N$以及$A_1,\cdots,A_N$是不确定的</p>
-<p>我们要解出这些常数 就需要N auxiliary conditions, 例如</p>
-<script type="math/tex; mode=display">
-y(t), \frac{dy(t)}{dt},\cdots,\frac{d^{N - 1}y(t)}{dt^{N-1}} \ at \ t = t_0</script><p>取决于这些auxiliary conditions，the system may or may not correspond to a linear system</p>
+x(t) = \sum_{k = -\infty}^{+\infty}a_ke^{jk\omega_0t} \tag{1}</script><p> 对于这个级数我们有两个问题</p>
 <ul>
-<li>Linear system $\iff$ auxiliary conditions = 0</li>
-<li>Causal LTI $\iff$ initial rest： if $x(t) = 0$ for $t &lt; t_0$ then $y(t) = 0$ for $t &lt; t_0$</li>
+<li>我们如何确定傅里叶级数的系数$a_k$</li>
+<li>how broad a class of signals can be represented this way</li>
 </ul>
-<p>例：$\frac{dy(t)}{dt} + ay(t) = x(t)$ 其对应的齐次方程为$\frac{dy_h(t)}{dt} + ay_h(t) = 0 \tag{7}$</p>
-<p>猜测解为$y_h(t)  = Ae^{st}$ 代入得 $Ase^{st} + aAe^{st} = 0$ 化简得$s + a = 0$</p>
-<p>得$y_h(t) = Ae^{-at}$</p>
-<p>假设给定特定得输入为$x(t) = ku(t)$ 则$x(1) = k$ 代入微分方程得$\frac{dy(t)}{dt} + ay(t) = ku(t)$</p>
-<p>解得相应的特解为$y_p = \frac{k}{a}[1 - e^{-at}]u(t)$</p>
-<p>对于该微分方程的a family of solutions 为$y(t) = \frac{k}{a}[1 - e^{-at}]u(t) + Ae^{-at}$</p>
-<p>求出A的值要auxiliary conditions，对于initial rest的条件 $\Rightarrow$ Causal, LTI $\Rightarrow$ $y(t) = \frac{k}{a}[1 - e^{-at}]u(t)$</p>
-<p><strong>求冲激响应 这个知识点重要</strong></p>
-<p>对于LTI系统 级联的顺序无关紧要</p>
+<p>傅里叶级数也有其他的表现形式 trigonometric form:</p>
 <script type="math/tex; mode=display">
-u(t) \rightarrow \boxed{\frac{d}{dt}} \rightarrow \boxed{h(t)} \rightarrow h(t)</script><p>上面的系统与下面等效</p>
+a_k = A_ke^{j\theta_k} = B_k + jC_k \\
+e^{jk\omega_0t} = cosk\omega_0t + jsink\omega_0t \\</script><p>然后老师写了下面的式子，至于怎么从$(1)$得到下面的式子 我没弄明白</p>
 <script type="math/tex; mode=display">
-u(t) \rightarrow \boxed{h(t)}  \rightarrow \boxed{\frac{d}{dt}}  \rightarrow h(t)</script><p>上面的中间结果为$\delta(t)$，下面的中间结果为$s(t) = \frac{1}{a}[1 - e^{-at}]u(t)$ 所以求$h(t)$ 就可以直接对$s(t)$求导</p>
-<p>解得$h(t) = \frac{s(t)}{dt} = u(t)\frac{d}{dt}\frac{1}{a}[1 - e^{-at}] + \frac{1}{a}[1 - e^{-at}]\frac{d}{dt}u(t) = e^{-at}u(t) + \frac{1}{a}[1 - e^{-at}]\delta(t)$</p>
-<p>当$t \ne 0$时 $\delta(t)$为0， 得$h(t) = e^{-at}u(t)$  当$t = 0时$ $1 - e^{-at} = 0$ 所以无论$t$取什么值，右边的都为0</p>
-<p>由之前的知识知 如果该系统是稳定的， 那么$a &gt; 0$</p>
-<h3 id="n阶线性常系数差分方程的解法："><a href="#n阶线性常系数差分方程的解法：" class="headerlink" title="n阶线性常系数差分方程的解法："></a>n阶线性常系数差分方程的解法：</h3><p>与连续的情况类似 齐次方程为</p>
+x(t) = a_0 + 2\sum_{k = 1}^\infty A_kcos(k\omega_0t + \theta_k) \\
+= a_0 + 2\sum_{k = 1}^\infty [B_kcosk\omega_0t -C_ksink\omega_0t]</script><p>注意到：</p>
 <script type="math/tex; mode=display">
-\sum_{k = 0}^N a_ky_h[n - k] = 0 \quad (Homogeneous \ Equation) \tag{8}</script><p>给定输入$x[n]$，如果$y_p[n]$满足方程$(8)$ 那么$y_p[n] + y_h[n]$也会满足方程$(1)$ </p>
-<p>通常称$y_p[n]$为Particular solution，$y_h[n]$为Homogeneous solution</p>
-<h3 id="n阶线性齐次常系数微分方程的解法：-1"><a href="#n阶线性齐次常系数微分方程的解法：-1" class="headerlink" title="n阶线性齐次常系数微分方程的解法："></a>n阶线性齐次常系数微分方程的解法：</h3><p>“guess” solution of the form $y[n] = Az^n$ 代入到方程$(8)$得$\sum_{k = 0}^Na_kAz^nz^{-k} = 0$</p>
-<p>同样$\because A \ne 0，z \ne 0$ 我们得到$\sum_{k = 0}^Na_kz^{-k} = 0$ N roots $z_1, z_2, \cdots, z_N$</p>
-<p>最终的解是$y_h[n] = A_1z_1^n + \cdots + A_Nz_N^n$</p>
-<p>我们要解出这些常数 就需要N auxiliary conditions, 例如</p>
+\int_{T_0}e^{jm\omega_0t}dt = \begin{cases}
+T_0& m = 0 \\
+0& m \ne 0
+\end{cases} \\
+\because \int_{T_0}e^{jm\omega_0t}dt = \int_{T_0}cosm\omega_0tdt + j\int_{T_0}sinm\omega_0tdt = 0 + 0j = 0 \ for \ m\ne0</script><p>根据这个性质：</p>
 <script type="math/tex; mode=display">
-y[n_o], y[n_o - 1], y[n_o - 2],\cdots,y[n_o - N + 1]</script><p>取决于这些auxiliary conditions，the system may or may not correspond to a linear system</p>
-<ul>
-<li>Linear system $\iff$ auxiliary conditions = 0</li>
-<li>Causal LTI $\iff$ initial rest： if $x[n] = 0$ for $n &lt; n_o$ then $y[t] = 0$ for $n &lt; n_o$</li>
-</ul>
-<p>微分方程和差分方程很类似， 某些情况下，差分方程更容易处理</p>
-<p>假设系统是causal的：</p>
-<p>对于方程$(2)$的解，$y[n] = \frac{1}{a_o} \{  \sum_{k = 0}^Mb_kx[n - k] - \sum_{k = 1}^Na_ky[n - k] \}$</p>
-<p>如果我们知道$x[n]$和$y[n_o - 1], y[n_o - 2], \cdots, y[n_o - N]$ 那么我可以求得$y[n_o]$继而可以求$y[n_o + 1]$</p>
-<p>例 $y[n] - ay[n - 1] = x[n]$ $\Rightarrow$ $y[n] = x[n] + ay[n - 1] \tag{9}$</p>
-<p>causal LTI $\iff$ Initial Rest  假设输入$x[n] = \delta[n]$ 代入得$h[n] = \delta[n] + ah[n - 1]$</p>
-<p>$h[n] = 0$ 对于$n &lt; 0$ 然后$n = 0$ 代入得$h[0] = 0$ 继续得$h[1] = a, h[2] = a^2$</p>
-<p>如果是这个系统是稳定话 $\iff |a| &lt; 1$</p>
-<p>求解齐次方程的解 $y_h[n]$  令$y_h[n] = Az^n$ 代入得$Az^n - aAz^{n - 1} \Rightarrow 1 - az^{-1} = 0 \Rightarrow a = z$</p>
-<p>$\Rightarrow y_h[n] = Aa^n$  所以对与这个系统$\delta[n] \rightarrow a^nu[n] + Aa^n$</p>
-<p>如果系统是causal的LTI 那么$A = 0$</p>
-<p>[32:04] 将方程$(9)$画成图，这个图是一个反馈系统 [33:49] 画的是方程$(2)$对应的图</p>
-<p>接下来的是将连续的情况画成图</p>
+\int_{T_0}x(t)e^{jn\omega_0t}dt = \int_{T_0}e^{-jn\omega_0t}\sum_{k=-\infty}^{+\infty}a_ke^{jk\omega_0t}dt \\
+= \sum_{k = -\infty}^{+\infty}a_k\int_{T_0}e^{-j(k - n)\omega_0t}dt \\
+= \begin{cases}
+T_0& if \ k = n \\
+0& if \ k \ne n
+\end{cases} \\
+\therefore \frac{1}{T_0}\int_{T_0}x(t)e^{-jn\omega_0t} = a_n \quad analysis \ equation</script><p>我们称方程$(1)$ 为synthesis equation</p>
+<p>例子[25:00] antisymmetric periodic square wave</p>
+<p>得到的傅里叶系数$a_0 = 0, a_k = \frac{1}{j\pi k}(1 - (-1)^k)$ 是纯虚数 和 odd sequence 即$a_k = -a_{-k}$</p>
+<p>表示成三角级数: **注意因为$a_k$是纯虚数，乘上$j$之后就变成实数</p>
+<script type="math/tex; mode=display">
+x(t) = a_0 + \sum_{k = 1}^{+\infty} 2ja_ksink\omega_0t</script><p>例子 [30:40]  symmetric periodic square wave</p>
+<p>[34:00] 展示了级数是如何还原出方波函数的 利用部分和$x_N(t) = \frac{1}{2} + \sum_{k = 1}^N2a_kcosk\omega_0t$ 不断增加N的大小 来看图像是如何的</p>
+<p><strong>the low frequency terms that represent the broad time behavior, and it’s the high frequency terms that are used to build up the sharp transitions in the time domain.</strong></p>
+<p>[43:00]讲的是傅里叶级数收敛的条件</p>
+<p>[47:00] 显示了部分和随N增加，原函数与傅里叶级数部分和的误差的能量值 随N增大的变化，当N是奇数时误差能量不变，N是偶数时误差能量减小</p>
 
                 
             </div>
@@ -581,7 +578,7 @@ y[n_o], y[n_o - 1], y[n_o - 2],\cdots,y[n_o - N + 1]</script><p>取决于这些a
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://myalos.github.io/2021/03/14/signal%20and%20system%206/">http://myalos.github.io/2021/03/14/signal%20and%20system%206/</a>
+                    <a href="http://myalos.github.io/2021/03/22/signal%20and%20system%207/">http://myalos.github.io/2021/03/22/signal%20and%20system%207/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -857,25 +854,78 @@ y[n_o], y[n_o - 1], y[n_o - 2],\cdots,y[n_o - N + 1]</script><p>取决于这些a
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/22/signal%20and%20system%207/">
+                <a href="/2021/03/22/cs229%206/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Continuous-Time Fourier Series">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Support Vector Machine">
                         
-                        <span class="card-title">Continuous-Time Fourier Series</span>
+                        <span class="card-title">Support Vector Machine</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是奥本海姆 信号与系统第七课的学习笔记
+                            这是CS229 第六课的学习笔记
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="far fa-clock fa-fw icon-date"></i>2021-03-22
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/cs229/">
+                        <span class="chip bg-color">cs229</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/14/signal%20and%20system%206/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Systems Represented by Differential and Difference Equations">
+                        
+                        <span class="card-title">Systems Represented by Differential and Difference Equations</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            这是奥本海姆 信号与系统第六课的学习笔记
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -901,59 +951,6 @@ y[n_o], y[n_o - 1], y[n_o - 2],\cdots,y[n_o - N + 1]</script><p>取决于这些a
                     
                     <a href="/tags/%E6%95%B0%E5%AD%A6/">
                         <span class="chip bg-color">数学</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/03/13/cs229%204/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Perceptron Generalized Linear Model">
-                        
-                        <span class="card-title">Perceptron Generalized Linear Model</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            这是CS229 第四课的学习笔记
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-13
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    机器学习
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/cs229/">
-                        <span class="chip bg-color">cs229</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">机器学习</span>
                     </a>
                     
                 </div>

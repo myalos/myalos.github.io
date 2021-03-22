@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Systems Represented by Differential and Difference Equations, goon的杂货店">
+    <meta name="keywords" content="Support Vector Machine, goon的杂货店">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Systems Represented by Differential and Difference Equations | goon的杂货店</title>
+    <title>Support Vector Machine | goon的杂货店</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Systems Represented by Differential and Difference Equations</h1>
+                    <h1 class="description center-align post-title">Support Vector Machine</h1>
                 </div>
             </div>
         </div>
@@ -432,16 +432,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">
-                                <span class="chip bg-color">信号与系统</span>
+                            <a href="/tags/cs229/">
+                                <span class="chip bg-color">cs229</span>
                             </a>
                         
-                            <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
-                                <span class="chip bg-color">理论知识</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%95%B0%E5%AD%A6/">
-                                <span class="chip bg-color">数学</span>
+                            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">机器学习</span>
                             </a>
                         
                     </div>
@@ -452,8 +448,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                信号与系统
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                机器学习
                             </a>
                         
                     </div>
@@ -465,7 +461,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-14
+                    2021-03-22
                 </div>
                 
 
@@ -489,73 +485,79 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Lecture-6-System-Represented-by-Differential-and-Difference-Equations"><a href="#Lecture-6-System-Represented-by-Differential-and-Difference-Equations" class="headerlink" title="Lecture 6 System Represented by Differential and Difference Equations"></a>Lecture 6 System Represented by Differential and Difference Equations</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1xy4y167DD?p=6">视频链接</a> 对应于书上的2.4的内容</p>
-<p>A particularly important set of systems, which are linear and time-invariant, are those that are represented by linear constant-coefficient differential equations in continuous time or linear constant-coefficient difference equations in discrete time</p>
-<h3 id="n阶线性常系数微分方程的定义："><a href="#n阶线性常系数微分方程的定义：" class="headerlink" title="n阶线性常系数微分方程的定义："></a>n阶线性常系数微分方程的定义：</h3><script type="math/tex; mode=display">
-\sum_{k = 0}^Na_k\frac{d^ky(t)}{dt^k} = \sum_{k = 0}^Mb_k\frac{d^kx(t)}{dt^k}  \tag{1}</script><p> 常系数表示系数都是常数（不随时间变化），被称为线性是因为对应于linear combination of these derivatives, not because it corresponds to a linear system</p>
-<p><strong>这个方程可能会也可能不会对应于线性系统</strong></p>
-<h3 id="n阶线性常系数差分方程的定义："><a href="#n阶线性常系数差分方程的定义：" class="headerlink" title="n阶线性常系数差分方程的定义："></a>n阶线性常系数差分方程的定义：</h3><script type="math/tex; mode=display">
-\sum_{k=0}^Na_ky[n-k] = \sum_{k=0}^Mb_kx[n-k] \tag{2}</script><h3 id="n阶线性常系数微分方程的解法："><a href="#n阶线性常系数微分方程的解法：" class="headerlink" title="n阶线性常系数微分方程的解法："></a>n阶线性常系数微分方程的解法：</h3><p><strong>方程相对应的Homogeneous Equation定义如下，其解为$y_h(t)$</strong></p>
+                <h2 id="Lecture-6-Support-Vector-Machine"><a href="#Lecture-6-Support-Vector-Machine" class="headerlink" title="Lecture 6 Support Vector Machine"></a>Lecture 6 Support Vector Machine</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1JE411w7Ub?p=8">视频链接</a></p>
+<p><a target="_blank" rel="noopener" href="http://cs229.stanford.edu/notes2020fall/notes2020fall/cs229-notes3.pdf">讲义链接</a></p>
+<p>虽然这课叫support vector machine，但是只有最后半节课讲了support vector machine</p>
+<h3 id="Laplace-Smoothing"><a href="#Laplace-Smoothing" class="headerlink" title="Laplace Smoothing"></a>Laplace Smoothing</h3><p>如果出现了一个单词，这个单词在之前的训练集里面没有出现过，那么按照朴素贝叶斯</p>
 <script type="math/tex; mode=display">
-\sum_{k = 0}^Na_k\frac{d^ky_h(t)}{dt^k} = 0 \tag{3}</script><p>给定输入$x(t)$，如果$y_p(t)$满足方程$(1)$ 那么$y_p(t) + y_h(t)$也会满足方程$(1)$ </p>
-<p>通常称$y_p(t)$为Particular solution，$y_h(t)$为Homogeneous solution</p>
-<p>所以方程$(1)$并非是a unique specification of the system.</p>
-<h3 id="n阶线性齐次常系数微分方程的解法："><a href="#n阶线性齐次常系数微分方程的解法：" class="headerlink" title="n阶线性齐次常系数微分方程的解法："></a>n阶线性齐次常系数微分方程的解法：</h3><p>“guess” solution of the form $y_h(t) = Ae^{st}$ 把这个代入到$(3)$中得</p>
+\mathcal{P}(x_{6017} = 1 | y = 1) = \frac{0}{\# \{ y = 1\}} = 0 \\
+\mathcal{P}(x_{6017} = 1 | y = 0) = \frac{0}{\# \{ y = 0\}} = 0</script><p>从统计学上说，说一个没有看见过的事情的出现概率是0 是 一个坏主意</p>
+<p>使朴素贝叶斯崩溃的地方是 如果根据上面的式子得到的参数<script type="math/tex">\phi_{6017| y = 1} = 0</script> 和<script type="math/tex">\phi_{6017|y = 0} = 0</script></p>
+<p>用这个参数进行估计的时候，由于式子是<script type="math/tex">\prod_{i = 1}^{10000} \mathcal{P}(x_i | y)</script> 有一项为0 结果就为0</p>
+<p>进行预测<script type="math/tex">\mathcal{P}(y = 1 | x) = \frac{\mathcal{P(x|y = 1)}\mathcal{P}(y = 1)}{\mathcal{P}(x | y = 1)\mathcal{P}(y = 1) + \mathcal{P}(x | y = 0 )\mathcal{P}(y = 0)} = \frac{0}{0 + 0}</script></p>
+<p><strong>拉普拉斯平滑就是用来解决这个问题</strong></p>
+<p>老师用一个motivation来引入拉普拉斯平滑：</p>
+<p>足球队在9.12 10.10 10.17 11.21 四场球赛都输掉了 预测12.31号的足球比赛</p>
+<p>如果用MLE的方法<script type="math/tex">\mathcal{P}(x = 1) = \frac{\# '1's}{\#'1's + \#'0's} = \frac{0}{0 + 4} = 0</script></p>
+<p>拉普拉斯 就是把<script type="math/tex">\#'1'</script>和<script type="math/tex">\#'0'</script>比原来多1 那么<script type="math/tex">\mathcal{P}(x = 1) = \frac{\# '1's}{\#'1's + \#'0's} = \frac{(0 + 1)}{(0+1) + (4+1)} = \frac{1}{6}</script></p>
+<p><strong>对于more generally的情况</strong></p>
+<p>Estimate <script type="math/tex">\mathcal{P}(x = j) = \frac{\sum_{j = 1}^m1\{x^{(i)} = j\} + 1}{M + k}</script></p>
+<p>对于Naive Bayes：</p>
 <script type="math/tex; mode=display">
-\sum_{k=0}^Na_kAs^ke^{st} = 0 \label{4}\tag{4} \\</script><script type="math/tex; mode=display">
-\because e^{st} \ne 0, A \ne 0 \quad \therefore \sum_{k=0}^Na_ks^k = 0 \quad N \ roots \ s_i \quad i = 1,\cdots,N \tag{5}</script><script type="math/tex; mode=display">
-y_h(t) = A_1e^{s_1t} + A_2e^{s_2t} + \cdots + A_Ne^{s_Nt} \tag{6}</script><p>通过方程$(5)$能得到得是N个s得值 但是常数$N$以及$A_1,\cdots,A_N$是不确定的</p>
-<p>我们要解出这些常数 就需要N auxiliary conditions, 例如</p>
+\phi_{j|y = 0} = \frac{\sum_{i = 1}^m1\{x_j^{(i)} = 1,y^{(i)} = 0\} + 1}{\sum_{i = 1}^m1\{y^{(i)} = 0 \} + 2}</script><p><strong>Tips: 将连续的特征转化为离散的特征:</strong> 将连续的数值划分称若干个区间，然后对每个区间进行标注</p>
+<p>根据经验 一般将连续的feature 分成10个bucket 效果比较好</p>
+<p>用naive bayes来进行text classfication的一个缺点是 naive bayes丢掉了一个单词出现次数的信息</p>
+<p>因为每个特征<script type="math/tex">x_i \in \{0, 1\}</script> <script type="math/tex">(Multi-variate Bernoulli)</script></p>
+<p>有一种另外的表现方式 是专门用于text data的 每个特征<script type="math/tex">x_i \in \{1, \cdots, \#classes \}（Multinomial）</script> </p>
+<p>用第二种模型的出来的式子是<script type="math/tex">\mathcal{P}(x, y) = \mathcal{P}(x | y)\mathcal{P}(y) = \prod_{j = 1}^n \mathcal{P}(x_j|y)\mathcal{P}(y)</script></p>
+<p> <strong>与第一种模型的区别是 这里的n 是邮件里面的字数 而非所有单词的数量</strong></p>
+<p>参数<script type="math/tex">\phi_{k|y = 0} = \mathcal{P}(x_j = k | y = 0)</script> 其中<script type="math/tex">\mathcal{P}(x_j = k|y = 0)</script>的表示的是 如果<script type="math/tex">y = 0</script> 那么第j个单词为k的概率为<script type="math/tex">\mathcal{P}(x_j = k | y = 0)</script></p>
+<p>值得注意的是参数<script type="math/tex">\phi_{k|y=0}</script>中j并没有出现，原因是对于邮件中每个位置 第一个单词出现drugs的机会和第二个单词出现drugs的机会相同 $($drugs是随便一个单词$)$</p>
+<p>根据MLE 求得的结果为:</p>
 <script type="math/tex; mode=display">
-y(t), \frac{dy(t)}{dt},\cdots,\frac{d^{N - 1}y(t)}{dt^{N-1}} \ at \ t = t_0</script><p>取决于这些auxiliary conditions，the system may or may not correspond to a linear system</p>
-<ul>
-<li>Linear system $\iff$ auxiliary conditions = 0</li>
-<li>Causal LTI $\iff$ initial rest： if $x(t) = 0$ for $t &lt; t_0$ then $y(t) = 0$ for $t &lt; t_0$</li>
-</ul>
-<p>例：$\frac{dy(t)}{dt} + ay(t) = x(t)$ 其对应的齐次方程为$\frac{dy_h(t)}{dt} + ay_h(t) = 0 \tag{7}$</p>
-<p>猜测解为$y_h(t)  = Ae^{st}$ 代入得 $Ase^{st} + aAe^{st} = 0$ 化简得$s + a = 0$</p>
-<p>得$y_h(t) = Ae^{-at}$</p>
-<p>假设给定特定得输入为$x(t) = ku(t)$ 则$x(1) = k$ 代入微分方程得$\frac{dy(t)}{dt} + ay(t) = ku(t)$</p>
-<p>解得相应的特解为$y_p = \frac{k}{a}[1 - e^{-at}]u(t)$</p>
-<p>对于该微分方程的a family of solutions 为$y(t) = \frac{k}{a}[1 - e^{-at}]u(t) + Ae^{-at}$</p>
-<p>求出A的值要auxiliary conditions，对于initial rest的条件 $\Rightarrow$ Causal, LTI $\Rightarrow$ $y(t) = \frac{k}{a}[1 - e^{-at}]u(t)$</p>
-<p><strong>求冲激响应 这个知识点重要</strong></p>
-<p>对于LTI系统 级联的顺序无关紧要</p>
+\phi_{k|y = 0} =  \frac{\sum_{i = 1}^m1\{y^{(i)} = 0\}\sum_{j = 1}^n1\{x_j^{(i)} = k\} + 1}{\sum_{i = 1}^m1\{y^{(i)} = 0\}n_i + \# words}</script><p><strong>这个公式 分母是训练集中所有non-spam的单词和，<script type="math/tex">n_i</script>是第<script type="math/tex">i</script>个non-spam文档的单词数目, 分子是训练集中non-spam中k单词出现的个数</strong></p>
+<p>如果遇见不在words里面的单词，一种方法是直接丢弃，另一种方法是take the rare words and map them to a special token which traditionally is denoted UNK for unknown words.</p>
+<p><strong>Tips: 如果要写一个包含10000行代码的程序，一种方法是先写10000行代码 然后进行第一次编译，另一种方法是编写小模块，运行小模块然后进行测试，最后构建出程序，然后开始看看第一次遇到什么语法错误；对于机器学习也是一样 一开始建立简单模型 测试 然后看问题出在哪 然后进行改进</strong></p>
+<h3 id="Support-Vector-Machine"><a href="#Support-Vector-Machine" class="headerlink" title="Support Vector Machine"></a>Support Vector Machine</h3><p>如果要找一个非线性的边界线，支持向量机可以帮助我们找到潜在的非线性的决策边界</p>
+<p>如果用logistc regression来得到一个非线性的边界，一般用的方法是对feature进行扩展</p>
+<p>比如<script type="math/tex">x_1,x_2</script>变为<script type="math/tex">x_1,x_2,x_1^2,x_2^2,x_1x_2</script>  即原来的向量<script type="math/tex">(x_1,x_2)^T</script>变成了<script type="math/tex">\phi(x) = (x_1,x_2,x_1^2,x_2^2,x_1x_2)^T</script></p>
+<p>high dimensional features 选择这些featrues是很痛苦的一件事情</p>
+<p>如果是support vector machine的话，就能够推导出输入是特征<script type="math/tex">x_1,x_2</script>的算法，把它们映射到更高维度的features</p>
+<p>老师说 support vector machines are not as effective as neural networks for many problems, but one great property of support vector machine is turn key. You kind of just turn the key and it works and there isn’t as many parameters like the learning rate and other things that you had to fiddle with</p>
+<h4 id="Optimal-margin-classfier-separable-case"><a href="#Optimal-margin-classfier-separable-case" class="headerlink" title="Optimal margin classfier(separable case)"></a>Optimal margin classfier(separable case)</h4><p>Defn: Functional margin 对于logistic function <script type="math/tex">h_\theta(x) = g(\theta^Tx)</script> 输出的是0和1 而不是概率</p>
+<p>logistic regression的预测是</p>
+<p>if <script type="math/tex">\theta^Tx \ge 0 ( h_\theta(x) = g(\theta^Tx) \ge 0.5)</script> predict 1 otherwise predict 0</p>
+<p>If <script type="math/tex">y^{(i)} = 1</script>, hope that <script type="math/tex">\theta^Tx^{(i)} \gg 0</script>   If <script type="math/tex">y^{(i)} = 0</script>, hope that <script type="math/tex">\theta^Tx^{(i)} \ll 0</script>  这就是functional margin（没懂啊）</p>
+<p>Defn: Geometric margin</p>
+<p>就是边界线离训练数据的距离</p>
+<p>[60:00]的图 告诉我们对于线性可分的数据集，我们可以得到多个分界线 比如红色的和绿色的，SVM就是帮助我们找到绿色的分界线</p>
+<h5 id="下面是正式的定义"><a href="#下面是正式的定义" class="headerlink" title="下面是正式的定义"></a>下面是正式的定义</h5><p>Notation: labels $y\in\{-1, +1\}$ have h output value in $\{-1, +1\}$</p>
 <script type="math/tex; mode=display">
-u(t) \rightarrow \boxed{\frac{d}{dt}} \rightarrow \boxed{h(t)} \rightarrow h(t)</script><p>上面的系统与下面等效</p>
+g(z) = \begin{cases}
+1& if \ z \ge 0 \\
+-1& otherwise
+\end{cases}</script><p>Previously $h_\theta(x) = g(\theta^Tx)$ 其中$x \in \mathcal{R}^{n + 1}, x_0 = 1$</p>
+<p>在SVM中 $h_{\omega, b}(x) = g(\omega^Tx + b )$  其中$x \in \mathcal{R}^n, b \in \mathcal{R}$ drop convetions $x_0 = 1$</p>
+<p>Functional margin of hyperplane defined by $(\omega, b)$ w.r.t. $(x^{(i)}, y^{(i)})$</p>
 <script type="math/tex; mode=display">
-u(t) \rightarrow \boxed{h(t)}  \rightarrow \boxed{\frac{d}{dt}}  \rightarrow h(t)</script><p>上面的中间结果为$\delta(t)$，下面的中间结果为$s(t) = \frac{1}{a}[1 - e^{-at}]u(t)$ 所以求$h(t)$ 就可以直接对$s(t)$求导</p>
-<p>解得$h(t) = \frac{s(t)}{dt} = u(t)\frac{d}{dt}\frac{1}{a}[1 - e^{-at}] + \frac{1}{a}[1 - e^{-at}]\frac{d}{dt}u(t) = e^{-at}u(t) + \frac{1}{a}[1 - e^{-at}]\delta(t)$</p>
-<p>当$t \ne 0$时 $\delta(t)$为0， 得$h(t) = e^{-at}u(t)$  当$t = 0时$ $1 - e^{-at} = 0$ 所以无论$t$取什么值，右边的都为0</p>
-<p>由之前的知识知 如果该系统是稳定的， 那么$a &gt; 0$</p>
-<h3 id="n阶线性常系数差分方程的解法："><a href="#n阶线性常系数差分方程的解法：" class="headerlink" title="n阶线性常系数差分方程的解法："></a>n阶线性常系数差分方程的解法：</h3><p>与连续的情况类似 齐次方程为</p>
+\hat{\gamma}^{(i)} = y^{(i)}(\omega^Tx^{(i)} + b) \tag{1}</script><p>为了要large functional margin 即 如果$y^{(i)} = $1 我们想要$\omega^Tx^{(i)} + b \gg 0 $ 如果$y^{(i)} = -1$ 我们想要 $\omega^Tx^{(i)} + b \ll 0$， 由式子$(1)$ 等价于要$\gamma$非常的大</p>
+<p>functional margin w.r.t. training set $\hat{\gamma} = \min_i\hat{\gamma}^{(i)} \ i = 1,\cdots, m$</p>
+<p><strong>观察到如果将$\omega$和b 加倍 那么function margin也会加倍</strong>  所以我们要规范化长度即$||\omega|| = 1$</p>
+<p>那么$(\omega, b) \rightarrow (\frac{\omega}{||\omega||}, \frac{b}{||b||})$ 实际上 分母可以取其他的值</p>
+<h5 id="Geometric-margin："><a href="#Geometric-margin：" class="headerlink" title="Geometric margin："></a>Geometric margin：</h5><p>[73:44]的图 那张图清晰的定义了geometric margin</p>
+<p>Geometric margin of hyperplane $(\omega, b)$ w.r.t. $(x^{(i)}, y^{(i)})$ is </p>
 <script type="math/tex; mode=display">
-\sum_{k = 0}^N a_ky_h[n - k] = 0 \quad (Homogeneous \ Equation) \tag{8}</script><p>给定输入$x[n]$，如果$y_p[n]$满足方程$(8)$ 那么$y_p[n] + y_h[n]$也会满足方程$(1)$ </p>
-<p>通常称$y_p[n]$为Particular solution，$y_h[n]$为Homogeneous solution</p>
-<h3 id="n阶线性齐次常系数微分方程的解法：-1"><a href="#n阶线性齐次常系数微分方程的解法：-1" class="headerlink" title="n阶线性齐次常系数微分方程的解法："></a>n阶线性齐次常系数微分方程的解法：</h3><p>“guess” solution of the form $y[n] = Az^n$ 代入到方程$(8)$得$\sum_{k = 0}^Na_kAz^nz^{-k} = 0$</p>
-<p>同样$\because A \ne 0，z \ne 0$ 我们得到$\sum_{k = 0}^Na_kz^{-k} = 0$ N roots $z_1, z_2, \cdots, z_N$</p>
-<p>最终的解是$y_h[n] = A_1z_1^n + \cdots + A_Nz_N^n$</p>
-<p>我们要解出这些常数 就需要N auxiliary conditions, 例如</p>
+\gamma^{(i)} = \frac{y^{(i)}(\omega^Tx^{(i)} + b)}{||\omega||} \\
+\gamma^{(i)} = \frac{\hat{\gamma}^{(i)}}{||\omega||}</script><p>geometric margin w.r.t. training set $\gamma = \min_i\gamma^{(i)}$</p>
+<p><strong>那么 optimal margin classifier 就是choose $\omega, b$ to maximize $\gamma$</strong></p>
+<p>解决这个问题的方法之一是 </p>
 <script type="math/tex; mode=display">
-y[n_o], y[n_o - 1], y[n_o - 2],\cdots,y[n_o - N + 1]</script><p>取决于这些auxiliary conditions，the system may or may not correspond to a linear system</p>
-<ul>
-<li>Linear system $\iff$ auxiliary conditions = 0</li>
-<li>Causal LTI $\iff$ initial rest： if $x[n] = 0$ for $n &lt; n_o$ then $y[t] = 0$ for $n &lt; n_o$</li>
-</ul>
-<p>微分方程和差分方程很类似， 某些情况下，差分方程更容易处理</p>
-<p>假设系统是causal的：</p>
-<p>对于方程$(2)$的解，$y[n] = \frac{1}{a_o} \{  \sum_{k = 0}^Mb_kx[n - k] - \sum_{k = 1}^Na_ky[n - k] \}$</p>
-<p>如果我们知道$x[n]$和$y[n_o - 1], y[n_o - 2], \cdots, y[n_o - N]$ 那么我可以求得$y[n_o]$继而可以求$y[n_o + 1]$</p>
-<p>例 $y[n] - ay[n - 1] = x[n]$ $\Rightarrow$ $y[n] = x[n] + ay[n - 1] \tag{9}$</p>
-<p>causal LTI $\iff$ Initial Rest  假设输入$x[n] = \delta[n]$ 代入得$h[n] = \delta[n] + ah[n - 1]$</p>
-<p>$h[n] = 0$ 对于$n &lt; 0$ 然后$n = 0$ 代入得$h[0] = 0$ 继续得$h[1] = a, h[2] = a^2$</p>
-<p>如果是这个系统是稳定话 $\iff |a| &lt; 1$</p>
-<p>求解齐次方程的解 $y_h[n]$  令$y_h[n] = Az^n$ 代入得$Az^n - aAz^{n - 1} \Rightarrow 1 - az^{-1} = 0 \Rightarrow a = z$</p>
-<p>$\Rightarrow y_h[n] = Aa^n$  所以对与这个系统$\delta[n] \rightarrow a^nu[n] + Aa^n$</p>
-<p>如果系统是causal的LTI 那么$A = 0$</p>
-<p>[32:04] 将方程$(9)$画成图，这个图是一个反馈系统 [33:49] 画的是方程$(2)$对应的图</p>
-<p>接下来的是将连续的情况画成图</p>
-
+max_{\gamma, \omega, b} \gamma \\
+s.t. \frac{y^{(i)}(\omega^Tx^{(i)} + b)}{||\omega||} \ge \gamma \quad i = 1, \cdots, m</script><p>这不是一个凸优化问题 所以很难用梯度下降来解决</p>
+<p>我们把这个式子 改变一下，改成一个凸优化问题</p>
+<script type="math/tex; mode=display">
+\min_{\omega, b} ||\omega||^2 \\
+s.t. y^{(i)}(\omega^T x^{(i)} + b) \ge 1</script>
                 
             </div>
             <hr/>
@@ -581,7 +583,7 @@ y[n_o], y[n_o - 1], y[n_o - 2],\cdots,y[n_o - N + 1]</script><p>取决于这些a
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://myalos.github.io/2021/03/14/signal%20and%20system%206/">http://myalos.github.io/2021/03/14/signal%20and%20system%206/</a>
+                    <a href="http://myalos.github.io/2021/03/22/cs229%206/">http://myalos.github.io/2021/03/22/cs229%206/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -619,16 +621,12 @@ y[n_o], y[n_o - 1], y[n_o - 2],\cdots,y[n_o - N + 1]</script><p>取决于这些a
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">
-                                    <span class="chip bg-color">信号与系统</span>
+                                <a href="/tags/cs229/">
+                                    <span class="chip bg-color">cs229</span>
                                 </a>
                             
-                                <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
-                                    <span class="chip bg-color">理论知识</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%95%B0%E5%AD%A6/">
-                                    <span class="chip bg-color">数学</span>
+                                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">机器学习</span>
                                 </a>
                             
                         </div>
@@ -857,6 +855,59 @@ y[n_o], y[n_o - 1], y[n_o - 2],\cdots,y[n_o - N + 1]</script><p>取决于这些a
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/2021/03/22/cs229%207/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Kernels">
+                        
+                        <span class="card-title">Kernels</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            这是CS229 第七课的学习笔记
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-22
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/cs229/">
+                        <span class="chip bg-color">cs229</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2021/03/22/signal%20and%20system%207/">
                     <div class="card-image">
                         
@@ -873,9 +924,9 @@ y[n_o], y[n_o - 1], y[n_o - 2],\cdots,y[n_o - N + 1]</script><p>取决于这些a
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -901,59 +952,6 @@ y[n_o], y[n_o - 1], y[n_o - 2],\cdots,y[n_o - N + 1]</script><p>取决于这些a
                     
                     <a href="/tags/%E6%95%B0%E5%AD%A6/">
                         <span class="chip bg-color">数学</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/03/13/cs229%204/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Perceptron Generalized Linear Model">
-                        
-                        <span class="card-title">Perceptron Generalized Linear Model</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            这是CS229 第四课的学习笔记
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-13
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    机器学习
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/cs229/">
-                        <span class="chip bg-color">cs229</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">机器学习</span>
                     </a>
                     
                 </div>

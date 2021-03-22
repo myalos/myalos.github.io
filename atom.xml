@@ -6,7 +6,7 @@
   <link href="http://myalos.github.io/atom.xml" rel="self"/>
   
   <link href="http://myalos.github.io/"/>
-  <updated>2021-03-14T07:55:53.827Z</updated>
+  <updated>2021-03-22T14:39:09.638Z</updated>
   <id>http://myalos.github.io/</id>
   
   <author>
@@ -15,6 +15,89 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Kernels</title>
+    <link href="http://myalos.github.io/2021/03/22/cs229%207/"/>
+    <id>http://myalos.github.io/2021/03/22/cs229%207/</id>
+    <published>2021-03-22T14:37:18.438Z</published>
+    <updated>2021-03-22T14:39:09.638Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Lecture-7-Kernels&quot;&gt;&lt;a href=&quot;#Lecture-7-Kernels&quot; class=&quot;headerlink&quot; title=&quot;Lecture 7 Kernels&quot;&gt;&lt;/a&gt;Lecture 7 Kernels&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="机器学习" scheme="http://myalos.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="cs229" scheme="http://myalos.github.io/tags/cs229/"/>
+    
+    <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Support Vector Machine</title>
+    <link href="http://myalos.github.io/2021/03/22/cs229%206/"/>
+    <id>http://myalos.github.io/2021/03/22/cs229%206/</id>
+    <published>2021-03-22T14:37:18.407Z</published>
+    <updated>2021-03-21T03:09:13.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Lecture-6-Support-Vector-Machine&quot;&gt;&lt;a href=&quot;#Lecture-6-Support-Vector-Machine&quot; class=&quot;headerlink&quot; title=&quot;Lecture 6 Support Vector</summary>
+        
+      
+    
+    
+    
+    <category term="机器学习" scheme="http://myalos.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="cs229" scheme="http://myalos.github.io/tags/cs229/"/>
+    
+    <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Continuous-Time Fourier Series</title>
+    <link href="http://myalos.github.io/2021/03/22/signal%20and%20system%207/"/>
+    <id>http://myalos.github.io/2021/03/22/signal%20and%20system%207/</id>
+    <published>2021-03-22T14:37:01.144Z</published>
+    <updated>2021-03-22T14:36:42.088Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Lecture-7-Continuous-Time-Fourier-Series&quot;&gt;&lt;a href=&quot;#Lecture-7-Continuous-Time-Fourier-Series&quot; class=&quot;headerlink&quot; title=&quot;Lecture 7</summary>
+        
+      
+    
+    
+    
+    <category term="信号与系统" scheme="http://myalos.github.io/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="信号与系统" scheme="http://myalos.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="理论知识" scheme="http://myalos.github.io/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/"/>
+    
+    <category term="数学" scheme="http://myalos.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>Systems Represented by Differential and Difference Equations</title>
@@ -50,7 +133,7 @@
     <link href="http://myalos.github.io/2021/03/13/cs229%204/"/>
     <id>http://myalos.github.io/2021/03/13/cs229%204/</id>
     <published>2021-03-13T06:38:52.915Z</published>
-    <updated>2021-03-13T11:12:45.308Z</updated>
+    <updated>2021-03-15T04:38:21.437Z</updated>
     
     
       

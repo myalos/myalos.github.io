@@ -543,7 +543,7 @@ p(y;\mu) = \frac{1}{\sqrt{2\pi}}e^{-\frac{y^2}{2}}exp(\mu y - \frac{1}{2}\mu^2)<
 <h3 id="Softmax-Regression"><a href="#Softmax-Regression" class="headerlink" title="Softmax Regression"></a>Softmax Regression</h3><p>用于多个类别的分类，输出是一个one-hot vector，就是一个只有0和1构成的向量，向量里面每个位置代表着一个类，一个向量里面只有一个1其余的都是0，1所在的位置就表示输出是相应的类</p>
 <p>这部分讲义里面写的挺好</p>
 <p>softmax 输出的是所有类的一个概率分布</p>
-<p><strong>真实标签 也可以看作是一个概率分布，对于标签的类概率是1，其余类概率是0</strong></p>
+<h4 id="666-one-hot-vector-可以看作是一个概率分布"><a href="#666-one-hot-vector-可以看作是一个概率分布" class="headerlink" title="666 one-hot vector 可以看作是一个概率分布"></a>666 one-hot vector 可以看作是一个概率分布</h4><p><strong>真实标签 也可以看作是一个概率分布，对于标签的类概率是1，其余类概率是0</strong> </p>
 <p>我们希望两个distribution变得相近，the term for that is to minimize the cross entropy between the two distributions</p>
 <h3 id="Gaussian-Distribution"><a href="#Gaussian-Distribution" class="headerlink" title="Gaussian Distribution"></a>Gaussian Distribution</h3><p>这是官网上面关于高斯分布的材料的学习笔记，<a target="_blank" rel="noopener" href="http://cs229.stanford.edu/section/gaussians.pdf">链接part1</a>  以及 <a target="_blank" rel="noopener" href="http://cs229.stanford.edu/notes2020fall/notes2020fall/more_on_gaussians.pdf">链接part2</a></p>
 <p>对于univariate normal distribution，the coefficient $\frac{1}{\sqrt{2\pi}\sigma}$ is a constant that does not depend  on x; <strong>我们可以把它看作是为了让下面的积分为1 所存在的一个”normalization factor”</strong></p>
