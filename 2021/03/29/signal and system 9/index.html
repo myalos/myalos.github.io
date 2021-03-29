@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Kernels, goon的杂货店">
+    <meta name="keywords" content="Fourier Transform Properties, goon的杂货店">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Kernels | goon的杂货店</title>
+    <title>Fourier Transform Properties | goon的杂货店</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Kernels</h1>
+                    <h1 class="description center-align post-title">Fourier Transform Properties</h1>
                 </div>
             </div>
         </div>
@@ -432,12 +432,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/cs229/">
-                                <span class="chip bg-color">cs229</span>
+                            <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">
+                                <span class="chip bg-color">信号与系统</span>
                             </a>
                         
-                            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                                <span class="chip bg-color">机器学习</span>
+                            <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
+                                <span class="chip bg-color">理论知识</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                                <span class="chip bg-color">数学</span>
                             </a>
                         
                     </div>
@@ -448,8 +452,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                机器学习
+                            <a href="/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                信号与系统
                             </a>
                         
                     </div>
@@ -461,7 +465,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-22
+                    2021-03-29
                 </div>
                 
 
@@ -485,54 +489,66 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Lecture-7-Kernels"><a href="#Lecture-7-Kernels" class="headerlink" title="Lecture 7 Kernels"></a>Lecture 7 Kernels</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1JE411w7Ub?p=10">视频链接</a></p>
-<p><a target="_blank" rel="noopener" href="http://cs229.stanford.edu/notes2020fall/notes2020fall/cs229-notes3.pdf">讲义链接</a></p>
-<p><a target="_blank" rel="noopener" href="https://link.springer.com/article/10.1007/BF00994018">SVM论文链接</a></p>
-<p>感觉关于SVM的数学对于我来说还是挺硬核的</p>
-<h3 id="视频笔记"><a href="#视频笔记" class="headerlink" title="视频笔记"></a>视频笔记</h3><p>这节课的主要内容是 <strong>optimization problem, representer theorem, kernels, examples of kernel</strong></p>
-<p>optimal margin classifier plus kernels —-&gt; Support Vector Machine</p>
-<p>关于上次课所讲的optimal margin classifer的优化式子为</p>
+                <h2 id="Fourier-Transform-Properties"><a href="#Fourier-Transform-Properties" class="headerlink" title="Fourier Transform Properties"></a>Fourier Transform Properties</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1xy4y167DD?p=9">视频链接</a></p>
+<p><strong>Continuous —- Time Fourier Transform</strong></p>
 <script type="math/tex; mode=display">
-max_{\gamma, \omega, b} \gamma \\
-s.t. \frac{y^{(i)}(\omega^Tx^{(i)} + b)}{||\omega||} \ge \gamma \quad i = 1, \cdots, m</script><p><strong>下面的限制 表示 每个训练数据的geometric margin 都要比$\gamma$大</strong></p>
-<p>因为同时对$\omega$和$b$进行常数倍乘，直线$\omega^Tx^{(i)} + b$是不会变的，我们可以设置$||\omega|| = \frac{1}{\gamma}$  六六六，得到</p>
+x(t) = \frac{1}{2\pi}\int_{-\infty}^{+\infty}X(\omega)e^{j\omega t}d\omega \quad \quad  sysnthesis \\
+X(\omega) = \int_{-\infty}^{+\infty}x(t)e^{-j\omega t}dt \quad \quad analysis</script><h3 id="Symmetry"><a href="#Symmetry" class="headerlink" title="Symmetry"></a>Symmetry</h3><script type="math/tex; mode=display">
+x(t) \ real \ \ \Rightarrow \ X(-\omega) = X^*(\omega) \\
+ReX(\omega) = ReX(-\omega) \quad |X(\omega)| = |X(-\omega)| \quad</script><p>the real part is an even function of frequency, and the magnitude is an even function of frequency</p>
 <script type="math/tex; mode=display">
-\max \frac{1}{||\omega||} \\
-s.t. y^{(i)}(\omega^Tx^{(i)} + b)\gamma \ge \gamma</script><p>等价于</p>
+Im X(\omega) = -ImX(-\omega) \quad \angle X(\omega) = -\angle X(-\omega)</script><p>the imaginary part is an odd function of frequency, and the phase angle is an odd function of frequency</p>
+<h3 id="Time-and-frequency-scaling"><a href="#Time-and-frequency-scaling" class="headerlink" title="Time and frequency scaling"></a>Time and frequency scaling</h3><script type="math/tex; mode=display">
+if \ x(t) \iff X(\omega) \quad then \quad x(at) \iff \frac{1}{|a|}X(\frac{\omega}{a})</script><p><strong>如果以两倍的速度播放磁带，意味着2倍线性压缩时间轴，然而实际发生的是频率变成2倍</strong></p>
+<p>[09:07]实验展示非常好</p>
+<h3 id="duality-relationship"><a href="#duality-relationship" class="headerlink" title="duality relationship"></a>duality relationship</h3><p>看最开始的synthesis equation 和 analysis equation</p>
+<p>如果$X(\omega)$是时间信号$x(t)$的傅里叶变换，那么$x(t) = \frac{1}{2\pi}\int_{-\infty}^{\infty}X(\omega)e^{j\omega t} d\omega$  非常像傅里叶变换 变换的是$X(-\omega)$，再加上一个额外的因子$\frac{1}{2\pi}$  即我们可得对偶性</p>
 <script type="math/tex; mode=display">
-min_{\omega,b} \frac{1}{2} ||\omega||^2 \\
-s.t. y^{(i)}(\omega^Tx^{(i)} + b) \ge 1 \quad i = 1, \cdots, m \tag{1}</script><p><strong>关于Kernels的部分 讲义写的非常好了</strong> $($这个思想贼棒$)$</p>
-<p>假设 $\omega = \sum_{i  = 1}^m \alpha_i y^{(i)}x^{(i)}$ !!! 这个假设能让我们设计出可以有效解决高维特征的算法</p>
-<p><strong>有一个叫做representer的定理 表示做出这个假设 我们不会损失任何性能</strong></p>
-<p>假设成立时，通过$($batch $)$gradient descent来更新$\omega$，无论更新多少次，$\omega$永远都可以被$x^{(i)}$线性表示</p>
-<p>这个可以用数学归纳法证明出来， 具体参考讲义里面的内容</p>
-<p>根据这个假设来改写方程$(1)$</p>
+x(t) \iff X(\omega) \quad \quad X(t) \iff 2\pi x(-\omega)</script><p><strong>这个性质非常重要！</strong> 对于离散傅里叶变换 这个性质是没有的 [15:00]显示了例子</p>
+<h3 id="Parseval’s-relation"><a href="#Parseval’s-relation" class="headerlink" title="Parseval’s relation:"></a>Parseval’s relation:</h3><script type="math/tex; mode=display">
+\int_{-\infty}^{+\infty}|x(t)|^2dt = \frac{1}{2\pi}\int_{-\infty}^{+\infty}|X(\omega)|^2d\omega \\
+\frac{1}{T_0}\int_{T_0}|\widetilde{x}(t)|^2dt = \sum_{-\infty}^{+\infty}|a_k|^2</script><p>下面这个式子 是对于周期信号，由于周期信号的能量是无穷大，所以对于周期信号 只考虑一个周期的能力，$\widetilde{x}(t)$是一个周期的信号</p>
+<h3 id="Time-shifting"><a href="#Time-shifting" class="headerlink" title="Time shifting:"></a>Time shifting:</h3><script type="math/tex; mode=display">
+x(t - t_0) \iff e^{-j\omega t_0}X(\omega)</script><p>右边的$e^{j\omega t_0}$的幅度为1，并且有一个与频率成线性关系的相位</p>
+<p>即 a time shift corresponds to a linear change in phase and frequency</p>
+<h3 id="Differentiation"><a href="#Differentiation" class="headerlink" title="Differentiation:"></a>Differentiation:</h3><script type="math/tex; mode=display">
+\frac{dx(t)}{dt} \iff j\omega X(\omega)</script><h3 id="Integration"><a href="#Integration" class="headerlink" title="Integration:"></a>Integration:</h3><script type="math/tex; mode=display">
+\int_{-\infty}^tx(\tau)d\tau \iff \frac{1}{j\omega}X(\omega) + \pi X(0)\delta(\omega)</script><p>因为对函数求导的时候会把常数项给消掉，所以在积分性质中 就尝试把常数项带回来 所以后面加上$\pi X(0)\delta(\omega)$</p>
+<h3 id="Linearity"><a href="#Linearity" class="headerlink" title="Linearity:"></a>Linearity:</h3><script type="math/tex; mode=display">
+ax_1(t) + bx_2(t)  \iff aX_1(\omega) +bX_2(\omega)</script><p>老师说 这四个性质 for the most part, apply both to Fourier series and Fourier transforms, because what we’ve done is to incorporate the Fourier series within the framework of the Fourier transform.</p>
+<h3 id="Two-addtional-major-properties-convolution-property-and-modulation-property"><a href="#Two-addtional-major-properties-convolution-property-and-modulation-property" class="headerlink" title="Two addtional major properties: convolution property and modulation property"></a>Two addtional major properties: convolution property and modulation property</h3><p><strong>the convolution property forms the mathematical and conceptual basis for the whole notion of filtering</strong></p>
 <script type="math/tex; mode=display">
-\min_\alpha \frac{1}{2}(\sum_{i = 1}^m\alpha_iy^{(i)}x^{(i)})^T(\sum_{j = 1}^m\alpha_jy^{(j)}x^{(j)}) \\
-= \min_\alpha \frac{1}{2}\sum_i\sum_j\alpha_i\alpha_jy^{(i)}y^{(j)}(x^{(i)})^Tx^{(j)} \\
-denote \quad (x^{(i)})^Tx^{(j)} \ as \ \langle x^{(i)},x^{(j)}\rangle \\
-s.t. \quad y^{(i)}((\sum_j\alpha_jy^{(j)}x^{(j)})^Tx^{(i)} + b) \ge 1 \\
-y^{(i)}(\sum_j\alpha_jy^{(j)}\langle x^{(j)}, x^{(i)}\rangle + b) \ge 1 \tag2</script><p>如果能计算$\langle x^{(j)}, x^{(i)} \rangle$  那么就能处理高维特征向量的情况</p>
-<p>$(2)$可以继续改写，通过dual optimization，得到 讲义中的方程$(24)$ </p>
-<p>进行预测 就是</p>
+h(t) * x(t) \iff H(\omega)X(\omega)</script><p>LTI中，对于输入信号是$\delta(t)$ 冲激响应是$h(t)$ 由于$\delta(t)$的傅里叶变换是常数1，所以输出信号的傅里叶变换是$H(\omega)$</p>
+<p>对于卷积性质的更直观的解释是：（这个解释来源于冲激响应的傅里叶变换和频率响应之间的关系）</p>
+<p>LTI中 如果输入信号是$e^{j\omega_0 t}$ 那么输出信号是$e^{j\omega_0 t}H(\omega_0)$ 这里的$H(\omega_0)$被称为频率响应 这个频率响应就是冲激响应的傅里叶变换</p>
+<p>老师说 “the synthesis equation tells us how to decompose x of t as a linear combination of complex exponentials. What are the complex amplitudes of those complex exponentials? The complex amplitude of those complex exponentials is $X(\omega)$ [参考26:53的图] or proportional to x of omega $(2\pi X(\omega)d\omega)$,  as this signal goes through this linear time invariant system, what happens to each of those exponential is each one get multiplied by the frequency response at associated frequency. What comes out is the amplitude of the complex exponentials that are used to build the output</p>
+<p>So in fact, the convolutional property simply is telling us that in terms of decomposition of the signal in terms of complex exponentials as we push that signal through a linear time invariant system, we’re separately multiplying by the frequency response the amplitudes of the exponential components used to build the input. And that sum in turn is the decomposition of the output in terms of complex exponentials.”  要尝试在概念性的程度上理解卷积特性 </p>
+<p><strong>modulation property</strong></p>
+<p>因为time domain和frequency domain是interchangeable 因为duality 这意味着</p>
+<p><strong>if we multiply in the time domain, that would correspond to convolution in the frequency domain</strong>   666</p>
 <script type="math/tex; mode=display">
-h_{\omega, b}(x) = g(\omega^Tx + b) = g((\sum_i\alpha_iy^{(i)}x^{(i)})^Tx + b) \\
- = g(\sum_i\alpha_iy^{(i)} \langle x^{(i)}, x^{(j)}\rangle + b)</script><h4 id="Kernel-trick："><a href="#Kernel-trick：" class="headerlink" title="Kernel trick："></a>Kernel trick：</h4><p>1$)$  Write algorithm in terms of $\langle x^{(i)}, x^{(j)} \rangle$ or $\langle x, z \rangle$ x和z表示不同的训练数据</p>
-<p>2$)$ Let there be mapping from $x \rightarrow \phi(x)$</p>
-<p>3$)$ Find way to compute the kernel function $K(x, z) = \phi(x)^T\phi(z)$</p>
-<p>4$)$ Replace $\langle x, z \rangle$ in algorithm with $K(x, z)$</p>
-<p>总结kernel的作用：</p>
-<p>如果训练集的特征是n维向量$x \in \mathcal{R}^n$ 将$x \rightarrow \phi(x)$ 之后维数增大，比如变成了$n^2$ 那么计算</p>
-<p>$\phi(x)^T\phi(z)$的时间复杂度就是$O(n^2)$ <strong>如果用kernel 即用$\langle x, z \rangle$来表示出$\phi(x)^T\phi(z)$ </strong>那么时间复杂度就变成了$O(n)$   用实际的例子来说明 $x = (x_1, x_2, x_3)^T , \phi(x) = (x_1x_1,x_1x_2,x_1x_3,x_2x_1,x_2x_2,x_2x_3,x_3x_1,x_3x_2,x_3x_3)^T$ 那么kernal $\mathcal{K}( x, z ) = \phi(x)^T\phi(z) = (x^Tz)^2$  [41:30] 介绍了另一个kernel $\mathcal{K}(x,z) = (x^Tz + c)^2$</p>
-<p>对于kernel $\mathcal{K}(x, z) = (x^Tz + c)^d$  计算这个kernel的时间复杂度还是$O(n)$，$\phi(x)$ has all  ${n+d\choose d}$ features of monomial up to order d</p>
-<p>[47:30] 开始是SVM with a polynomial Kernel visualization (没看懂 为什么映射到二维平面映射出的是非线性边界线) </p>
-<p>用kernel的作用是 希望能将feature映射到高维空间中，希望在低维线性不可分的数据 在高维中变得线性可分</p>
-<p>常见的几个核： Linear Kernel $\mathcal{K}(x, z) = x^Tz$   Gaussian Kernel</p>
-<p>[64:46] 如果数据有点noisy，想要找到一个复杂的非线性边界线，不希望try so hard to separate every little example that’s defined a really complicated decision boundary. So sometimes either the low-dimensional space or in the high dimensional space $\phi$， you don’t actually want the algorithms to separate out your data perfectly and then sometimes even in hight dimensional space your data may not be linearly separable.</p>
-<p>$L_1$范数soft margin SVM  式子就变成了讲义25页上面的那个式子</p>
-<p>[68:30] 举了soft margin SVM的作用 作用之一是为了解决outliner的情况 和 解决距离边界线非常近的例子</p>
-<h3 id="SVM补充"><a href="#SVM补充" class="headerlink" title="SVM补充"></a>SVM补充</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Gamer_gyt/article/details/51265347">scikit-learn之SVM算法</a></p>
-
+Modulation: \quad s(t)p(t) \iff \frac{1}{2\pi}[S(\omega)*P(\omega)] \\
+Convolution: \quad s(t)*p(t) \iff S(\omega)P(\omega)</script><p>对于modulation property 它是the entire basis for amplitude modulation systems as used almost universally in communications</p>
+<p>如果we have a signal with a certain spectrum, and we multiply by a sinusoidal signal whose Fourier transform is a set of impulses, then in a frequency domain we convolve. And that corresponds to taking the original spectrum and translating it shifting it in frequency up to the frequency of the carrier.</p>
+<h3 id="filtering的简单介绍"><a href="#filtering的简单介绍" class="headerlink" title="filtering的简单介绍"></a>filtering的简单介绍</h3><p>filtering 意思是modify separately the individual frequency components in a signal</p>
+<p>卷积特性告诉我们 如果我们看各个频率分量，它们被乘以频率响应 那么意味着 我们可以放大或减小任何一个components separately using a linear time invariant system</p>
+<p><strong>Ideal lowpass filter</strong> [29:54]的图  </p>
+<p><strong>differentiator</strong> $y(t) = \frac{dx(t)}{dt} \Rightarrow H(\omega) = j\omega $ [31:10] 图，它的作用是放大高频率 衰减低频</p>
+<p>举个例子：对于空间信号，它有高频部分和低频部分，高频对应things that are varying rapidly spatially, and low frequencies varying slowly spatially. 对[32:42]的图 进行低通滤波 就是问问视频摄像组是否可以稍微defocus it. 图像散焦[32:53] 也就是失去边缘 lost edges，edges指的是rapid variation， 我们保留的是broader slow variation.</p>
+<p>如果想要图像的边缘增强，那么我们就differentiated the image 这个会attenuate slowly varying background and amplify the rapidly varying edges.[35:15]是经过了differentiator的图</p>
+<h3 id="用傅里叶变换解线性常系数微分方程"><a href="#用傅里叶变换解线性常系数微分方程" class="headerlink" title="用傅里叶变换解线性常系数微分方程"></a>用傅里叶变换解线性常系数微分方程</h3><script type="math/tex; mode=display">
+\frac{dy(t)}{dt} + ay(t) = x(t) \\
+\Rightarrow j\omega Y(\omega) + aY(\omega) = X(\omega) \\
+\Rightarrow Y(\omega) = \frac{1}{j\omega + a}X(\omega) \\
+\Rightarrow h(t) \iff H(\omega) \\
+\Rightarrow e^{-at}u(t) \iff \frac{1}{j\omega + a}</script><p>这里用到了 differential property 和 linearity property</p>
+<p>看到$\frac{1}{j\omega + a}$的图像 是减弱高频 保持低频，之前的将图像defocus 就相当于将图像通过这个线性微分方程</p>
+<p>另一个例子：</p>
+<script type="math/tex; mode=display">
+\frac{dy(t)}{dt} + 2y(t) = e^{-t}u(t) \\
+j\omega Y(\omega) + 2Y(\omega) = \frac{1}{j\omega + 1} \\
+Y(\omega) = \frac{1}{j\omega + 2}\frac{1}{j\omega + 1} = \frac{-1}{j\omega + 2} + \frac{1}{j\omega + 1} \\
+\iff -e^{-2t}u(t) + e^{-t}u(t) = y(t)</script>
                 
             </div>
             <hr/>
@@ -558,7 +574,7 @@ h_{\omega, b}(x) = g(\omega^Tx + b) = g((\sum_i\alpha_iy^{(i)}x^{(i)})^Tx + b) \
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://myalos.github.io/2021/03/22/cs229%207/">http://myalos.github.io/2021/03/22/cs229%207/</a>
+                    <a href="http://myalos.github.io/2021/03/29/signal%20and%20system%209/">http://myalos.github.io/2021/03/29/signal%20and%20system%209/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -596,12 +612,16 @@ h_{\omega, b}(x) = g(\omega^Tx + b) = g((\sum_i\alpha_iy^{(i)}x^{(i)})^Tx + b) \
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/cs229/">
-                                    <span class="chip bg-color">cs229</span>
+                                <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">
+                                    <span class="chip bg-color">信号与系统</span>
                                 </a>
                             
-                                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                                    <span class="chip bg-color">机器学习</span>
+                                <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
+                                    <span class="chip bg-color">理论知识</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                                    <span class="chip bg-color">数学</span>
                                 </a>
                             
                         </div>
@@ -830,19 +850,19 @@ h_{\omega, b}(x) = g(\omega^Tx + b) = g((\sum_i\alpha_iy^{(i)}x^{(i)})^Tx + b) \
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/29/signal%20and%20system%209/">
+                <a href="/2021/03/29/signal%20and%20system%208/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Fourier Transform Properties">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Continuous-Time Fourier Transform">
                         
-                        <span class="card-title">Fourier Transform Properties</span>
+                        <span class="card-title">Continuous-Time Fourier Transform</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是奥本海姆 信号与系统第九课的学习笔记
+                            这是奥本海姆 信号与系统第八课的学习笔记
                         
                     </div>
                     <div class="publish-info">
@@ -887,19 +907,19 @@ h_{\omega, b}(x) = g(\omega^Tx + b) = g((\sum_i\alpha_iy^{(i)}x^{(i)})^Tx + b) \
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/22/cs229%206/">
+                <a href="/2021/03/22/cs229%207/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Support Vector Machine">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Kernels">
                         
-                        <span class="card-title">Support Vector Machine</span>
+                        <span class="card-title">Kernels</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是CS229 第六课的学习笔记
+                            这是CS229 第七课的学习笔记
                         
                     </div>
                     <div class="publish-info">

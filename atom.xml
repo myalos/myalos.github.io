@@ -6,7 +6,7 @@
   <link href="http://myalos.github.io/atom.xml" rel="self"/>
   
   <link href="http://myalos.github.io/"/>
-  <updated>2021-03-22T14:39:09.638Z</updated>
+  <updated>2021-03-27T01:28:43.000Z</updated>
   <id>http://myalos.github.io/</id>
   
   <author>
@@ -15,6 +15,64 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Continuous-Time Fourier Transform</title>
+    <link href="http://myalos.github.io/2021/03/29/signal%20and%20system%208/"/>
+    <id>http://myalos.github.io/2021/03/29/signal%20and%20system%208/</id>
+    <published>2021-03-29T02:51:42.941Z</published>
+    <updated>2021-03-27T01:28:43.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Continuous-Time-Fourier-Transform&quot;&gt;&lt;a href=&quot;#Continuous-Time-Fourier-Transform&quot; class=&quot;headerlink&quot; title=&quot;Continuous-Time Fourier</summary>
+        
+      
+    
+    
+    
+    <category term="信号与系统" scheme="http://myalos.github.io/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="信号与系统" scheme="http://myalos.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="理论知识" scheme="http://myalos.github.io/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/"/>
+    
+    <category term="数学" scheme="http://myalos.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Fourier Transform Properties</title>
+    <link href="http://myalos.github.io/2021/03/29/signal%20and%20system%209/"/>
+    <id>http://myalos.github.io/2021/03/29/signal%20and%20system%209/</id>
+    <published>2021-03-29T02:51:42.897Z</published>
+    <updated>2021-03-29T02:51:21.871Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Fourier-Transform-Properties&quot;&gt;&lt;a href=&quot;#Fourier-Transform-Properties&quot; class=&quot;headerlink&quot; title=&quot;Fourier Transform</summary>
+        
+      
+    
+    
+    
+    <category term="信号与系统" scheme="http://myalos.github.io/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="信号与系统" scheme="http://myalos.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="理论知识" scheme="http://myalos.github.io/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/"/>
+    
+    <category term="数学" scheme="http://myalos.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>Kernels</title>
