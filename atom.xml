@@ -6,7 +6,7 @@
   <link href="http://myalos.github.io/atom.xml" rel="self"/>
   
   <link href="http://myalos.github.io/"/>
-  <updated>2021-03-27T01:28:43.000Z</updated>
+  <updated>2021-04-24T14:22:20.078Z</updated>
   <id>http://myalos.github.io/</id>
   
   <author>
@@ -15,6 +15,113 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ApproxEstimation Error</title>
+    <link href="http://myalos.github.io/2021/05/09/cs229%209/"/>
+    <id>http://myalos.github.io/2021/05/09/cs229%209/</id>
+    <published>2021-05-09T12:10:57.285Z</published>
+    <updated>2021-04-24T14:22:20.078Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Lecture-9-ApproxEstimation-Error&quot;&gt;&lt;a href=&quot;#Lecture-9-ApproxEstimation-Error&quot; class=&quot;headerlink&quot; title=&quot;Lecture 9 ApproxEstimation</summary>
+        
+      
+    
+    
+    
+    <category term="机器学习" scheme="http://myalos.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="cs229" scheme="http://myalos.github.io/tags/cs229/"/>
+    
+    <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Data Splits, Models &amp; Cross-Validation</title>
+    <link href="http://myalos.github.io/2021/05/09/cs229%208/"/>
+    <id>http://myalos.github.io/2021/05/09/cs229%208/</id>
+    <published>2021-05-09T12:10:57.279Z</published>
+    <updated>2021-04-10T03:03:42.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Lecture-8-Data-Splits-Models-amp-Cross-Validation&quot;&gt;&lt;a href=&quot;#Lecture-8-Data-Splits-Models-amp-Cross-Validation&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="机器学习" scheme="http://myalos.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="cs229" scheme="http://myalos.github.io/tags/cs229/"/>
+    
+    <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Introduction to Neural Networks</title>
+    <link href="http://myalos.github.io/2021/05/09/cs229%2011/"/>
+    <id>http://myalos.github.io/2021/05/09/cs229%2011/</id>
+    <published>2021-05-09T12:10:57.271Z</published>
+    <updated>2021-04-22T09:05:55.883Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Lecture-11-amp-12-Neural-Networks&quot;&gt;&lt;a href=&quot;#Lecture-11-amp-12-Neural-Networks&quot; class=&quot;headerlink&quot; title=&quot;Lecture 11&amp;amp;12 Neural</summary>
+        
+      
+    
+    
+    
+    <category term="机器学习" scheme="http://myalos.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="cs229" scheme="http://myalos.github.io/tags/cs229/"/>
+    
+    <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS基础</title>
+    <link href="http://myalos.github.io/2021/05/09/css1/"/>
+    <id>http://myalos.github.io/2021/05/09/css1/</id>
+    <published>2021-05-09T12:09:58.746Z</published>
+    <updated>2021-05-09T12:09:20.533Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;这是学堂在线上面的前端课程&lt;a href=&quot;https://www.xuetangx.com/search?query=%E5%89%8D%E7%AB%AF&amp;amp;page=1&quot;&gt;课程链接&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;CSS基础&quot;&gt;&lt;a href=&quot;#CSS基础&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="http://myalos.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="CSS" scheme="http://myalos.github.io/tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>Continuous-Time Fourier Transform</title>
@@ -218,7 +325,7 @@
     <link href="http://myalos.github.io/2021/03/08/cs229%203/"/>
     <id>http://myalos.github.io/2021/03/08/cs229%203/</id>
     <published>2021-03-08T11:22:21.753Z</published>
-    <updated>2021-03-12T00:23:44.174Z</updated>
+    <updated>2021-04-04T02:50:52.843Z</updated>
     
     
       

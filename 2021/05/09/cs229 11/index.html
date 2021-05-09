@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Continuous-Time Fourier Transform, goon的杂货店">
+    <meta name="keywords" content="Introduction to Neural Networks, goon的杂货店">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Continuous-Time Fourier Transform | goon的杂货店</title>
+    <title>Introduction to Neural Networks | goon的杂货店</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Continuous-Time Fourier Transform</h1>
+                    <h1 class="description center-align post-title">Introduction to Neural Networks</h1>
                 </div>
             </div>
         </div>
@@ -432,16 +432,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">
-                                <span class="chip bg-color">信号与系统</span>
+                            <a href="/tags/cs229/">
+                                <span class="chip bg-color">cs229</span>
                             </a>
                         
-                            <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
-                                <span class="chip bg-color">理论知识</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%95%B0%E5%AD%A6/">
-                                <span class="chip bg-color">数学</span>
+                            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">机器学习</span>
                             </a>
                         
                     </div>
@@ -452,8 +448,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                信号与系统
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                机器学习
                             </a>
                         
                     </div>
@@ -465,7 +461,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-29
+                    2021-05-09
                 </div>
                 
 
@@ -489,43 +485,83 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Continuous-Time-Fourier-Transform"><a href="#Continuous-Time-Fourier-Transform" class="headerlink" title="Continuous-Time Fourier Transform"></a>Continuous-Time Fourier Transform</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1xy4y167DD?p=8">视频地址</a></p>
-<h3 id="用复指数信号的线性组合来表示非周期信号"><a href="#用复指数信号的线性组合来表示非周期信号" class="headerlink" title="用复指数信号的线性组合来表示非周期信号"></a>用复指数信号的线性组合来表示非周期信号</h3><p>对于一个非周期信号，基于这个信号来建立周期信号，就是把原来的信号重复一下，</p>
-<p>形成周期为$T_0$的周期信号，图片参考视频[03:22]的图片</p>
-<p>这个周期信号在一个周期内是和非周期信号是相同的，<strong>当周期$T_0$趋近于无穷时，周期信号变成了非周期信号</strong> </p>
-<p><strong>核心思想</strong>：用傅里叶级数来表示这个周期信号，然后让周期趋近于无穷，得到的就是非周期信号的傅里叶变换</p>
+                <h2 id="Lecture-11-amp-12-Neural-Networks"><a href="#Lecture-11-amp-12-Neural-Networks" class="headerlink" title="Lecture 11&amp;12 Neural Networks"></a>Lecture 11&amp;12 Neural Networks</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1JE411w7Ub?p=14">视频链接</a></p>
+<h3 id="将逻辑回归解释为一种特殊的神经网络"><a href="#将逻辑回归解释为一种特殊的神经网络" class="headerlink" title="将逻辑回归解释为一种特殊的神经网络"></a>将逻辑回归解释为一种特殊的神经网络</h3><p>视频前40分钟 是讲这个部分的</p>
+<p><strong>将logistics regression作为神经网络的intuitive 我觉得挺好的</strong></p>
+<p>目标1是对一张图来进行分类，判断是不是猫，假设图片是64*64大小 把图片展成向量 变成12288维向量，用logistics regression进行训练$\hat{y} = \sigma(\theta^Tx) = \sigma(wx + b)$</p>
+<p>训练的步骤是:</p>
+<ul>
+<li>初始化w和b</li>
+<li>找到w和b的最优值</li>
+<li>用$\hat{y} = \sigma(wx + b)$来进行预测</li>
+</ul>
+<p>对于神经网络里面的神经元 我们定义是linear + activation</p>
+<p>对于模型 我们的定义是 architecture + parameters</p>
+<p>目标2 对于图片进行三分类</p>
+<p>把一个神经元 扩展成3个神经元 分别计算$\hat{y_i} = a^{[1]}_i = \sigma(w_i^{[1]}x + b_i^{[1]}) \ \ i = 1,2,3$</p>
+<p>上标1 代表layer 1，对于第一类的表示为$(1, 0, 0)$ 第二类的表示为$(0, 1, 0)$ 第三类的表示为$(0, 0, 1)$ </p>
+<p>训练方法同上，三个神经元之间没有联系，可以独立的训练这三个神经元；这个模型robust</p>
+<p>目标3 加上约束 图片上只有一个动物 softmax multi-class regression</p>
+<p>对于softmax 其损失函数为cross-entropy loss $\mathcal{L} = -\sum_{k = 1}^3y_klog\hat{y_k}$</p>
+<h3 id="Neural-Networks"><a href="#Neural-Networks" class="headerlink" title="Neural Networks"></a>Neural Networks</h3><p>这个部分对应视频的后40分钟</p>
+<p>对于之前分辨一个图片是否是猫的图片 用了一个3 layers的网络</p>
+<p>layer denotes neurons that are not connected to each other 一层神经元</p>
+<p>在这个三层的网络单中[45:44]的图，第一层are going to understand the fundamental concepts of the image which is the edges. Then what’s gonna happen is that these neurons are going to communicate what they found on the image to the next layer’s neuron.</p>
+<p><strong>end to end learning</strong>: we have an input, a ground truth and we don’t constrain the network in the middle i.e. we are just training based on the input and the output</p>
+<p>视频中介绍的向量化的式子：</p>
 <script type="math/tex; mode=display">
-\widetilde{x}(t) = x(t) \quad for \ |t| <\frac{T_0}{2} \\
-\widetilde{x}(t) = \sum_{k = -\infty}^{\infty}a_ke^{jk\omega_0t} \quad \quad \omega_0 = \frac{2\pi}{T_0} \\
-a_k = \frac{1}{T_0}\int_{-\frac{T_0}{2}}^{\frac{T_0}{2}}\widetilde{x}(t)e^{-jk\omega_0t}dt \\
-a_k = \frac{1}{T_0}\int_{-\infty}^{+\infty}x(t)e^{-jk\omega_0t}dt \\</script><p>Define: $X(\omega) \triangleq \int_{-\infty}^{+\infty}x(t)e^{-j\omega t}dt \tag{1}$       Then: $T_0a_k = X(\omega)\bigg|_{\omega = k\omega_0} \tag{*}$</p>
-<p>$X(\omega)$ is the envelope$($ 包络函数 $)$ of $T_0a_k$ ； 这告诉了我们如何通过对包络函数的sample来建立周期信号的傅里叶级数系数</p>
+Z^{[1]} = W^{[1]}X + b^{[1]}</script><p>m个训练数据 输入feature的维度是n 其中Z的shape是$(3, m)$ W的shape是$(n, m)$，b的维度是$(3, 1)$</p>
+<h3 id="Backpropagation"><a href="#Backpropagation" class="headerlink" title="Backpropagation"></a>Backpropagation</h3><p>下面的公式 是根据一个三层全连接神经网络 其中第一层3个神经元 第二层2个神经元 最后一层1个神经元</p>
+<p>用batch of examples，而非single example，原因是我们想要vectorization</p>
 <script type="math/tex; mode=display">
-\widetilde{x}(t) = \sum_{k = -\infty}^{+\infty}a_ke^{jk\omega_0t} = \sum_{k = -\infty}^{+\infty}\frac{1}{T_0}X(k\omega_0)e^{jk\omega_0t} \\
-\widetilde{x}(t) = \frac{1}{2\pi}\sum_{k = -\infty}^{+\infty}X(k\omega_0)e^{jk\omega_0t}\omega_0 \\
-As \ T_0 \rightarrow \infty, \\
-\omega_0 \rightarrow0,\widetilde{x}(t) \rightarrow x(t), \omega_0 \rightarrow d\omega, \Sigma \rightarrow \int \\</script><p>则得到 $x(t) = \frac{1}{2\pi}\int_{-\infty}^{+\infty}X(\omega)e^{j\omega t}d\omega \tag{2}$</p>
-<p>方程$(1)$ 称为analysis equation   也成为傅里叶变换                       方程$(2)$称为synthesis equation</p>
-<p>[11:00]开始的图示说明非常棒！！</p>
-<p>$x(t)$和$X(\omega)$的关系是一一对应，即使$x(t)$是实函数，$X(\omega)$也是复函数</p>
-<p>$X(\omega) = Re\{ X(\omega) \} + j Im \{  X(\omega) \} = |X(\omega)|e^{j\angle X(\omega)}$</p>
-<h3 id="傅里叶变换的例子"><a href="#傅里叶变换的例子" class="headerlink" title="傅里叶变换的例子"></a>傅里叶变换的例子</h3><p>对于函数$x(t) = e^{-at}u(t)$ 其傅里叶变换是</p>
-<p>$X(\omega) = \int_{-\infty}^{+\infty}x(t)e^{-j\omega t}dt = \int_{0}^{+\infty}e^{-at}e^{-j\omega t}dt = \int_{0}^{+\infty}e^{-t(a + j\omega)}dt = \frac{1}{a + j\omega}e^{-(a + j\omega)t}\bigg|^\infty_0$</p>
-<p>当$a &gt; 0$ 积分求$t = +\infty$时 式子为0，当$t = 0$时 式子为$\frac{1}{a + j\omega}$   可得$e^{-at}u(t)$对应的傅里叶变换是$\frac{1}{a + j\omega}$</p>
-<p>[18:30] 展示了 该函数与其傅里叶变换形成的函数的图像(有振幅的图，有幅度的图)</p>
-<p>[21:30] 展示了该图像的波特图版本 振幅是$20log_{10}X(\omega)\triangleq decibels \ (dB)$ 横坐标是频率的对数，对于横坐标上面等距离移动，每次移动频率变为原来的10倍</p>
-<p>由于横坐标是对数，所以对应的频率是大于0的频率，但是由于傅里叶变换出的函数的性质 我们可以推测出频率为负时的图像的样子</p>
-<p><strong>Fourier Series coefficients equal $\frac{1}{T_0}$ times samples of Fourier transform of one period</strong></p>
-<p>也就是说 对于之前求周期信号的傅里叶级数 我们可以考虑求一个周期的傅里叶变换[25:30]</p>
-<p>可以可以！</p>
-<h3 id="将傅里叶变换和傅里叶级数用一个通用框架来表示"><a href="#将傅里叶变换和傅里叶级数用一个通用框架来表示" class="headerlink" title="将傅里叶变换和傅里叶级数用一个通用框架来表示"></a>将傅里叶变换和傅里叶级数用一个通用框架来表示</h3><p>观察傅里叶级数和傅里叶变换的synthesis equation 我们可以发现</p>
-<p>$\widetilde{x}(t)$的傅里叶级数是$a_k$  $\widetilde{x}(t)$的傅里叶变换是$\widetilde{X}(\omega)$ </p>
-<p>则$\widetilde{X}(\omega) \triangleq \sum_{-\infty}^{\infty}2\pi a_k \delta(\omega - k\omega_0) \tag{3}$</p>
+cost \ function: \mathcal{J}(\hat{y}, y) = \frac{1}{m}\sum_{i = 1}^m\mathcal{L}^{(i)}(\hat{y}, y) \\
+with: \ \mathcal{L}^{(i)} = -[y^{(i)}log\hat{y}^{(i)} + (1 - y^{(i)})log(1 - \hat{y}^{(i)}))] \\
+Update: \ \omega^{[l]} = \omega^{[l]} - \alpha\frac{\partial y}{\partial \omega^{[l]}}</script><p>反向来计算导数：</p>
 <script type="math/tex; mode=display">
-\widetilde{x}(t) = \frac{1}{2\pi}\int_{-\infty}^{+\infty}\widetilde{X}(\omega)e^{j\omega t}d\omega \\
-= \frac{1}{2\pi}\sum_{k = -\infty}^{+\infty}2\pi a_k \int_{-\infty}^{+\infty}\delta(\omega - k\omega_0)e^{-j\omega t}d\omega</script><h2 id="通用框架的例子"><a href="#通用框架的例子" class="headerlink" title="通用框架的例子"></a>通用框架的例子</h2><p>symmetric square wave     666哇</p>
-<p>还讲了一个$x(t) = \delta(t)$的例子 $x(t)$的傅里叶变换是常数，</p>
-<p>对于周期函数$\widetilde{x}(t) = \sum_{k = -\infty}^{+\infty}\delta(t - kT_0)$ 其对应的傅里叶变换$\widetilde{X}(\omega)$  这函数是怎么得到的 没有弄明白</p>
+\frac{\partial \mathcal{L}}{\partial \omega^{[3]}} = -[y^{(i)}\frac{\partial}{\partial\omega^{[3]}}(log\sigma(\omega^{[3]}a^{[2]} + b^{[3]})) + (1 - y^{(i)})\frac{\partial}{\partial\omega^{[3]}}(log(1 - \sigma(\omega^{[3]}a^{[2]} + b^{[3]})))] \\
+= -[y^{(i)}\frac{1}{a^{[3]}}a^{[3]}(1 - a^{[3]})(a^{[2]})^T +(1-y^{(i)})\frac{1}{1 - a^{[2]}}(-1)a^{[3]}(1 - a^{[3]})(a^{[2]})^T \\
+= -[y^{(i)}(1 - a^{[3]})(a^{[2]})^T - (1 - y^{(i)})a^{[3]}(a^{[2]})^T] \\
+= -[y^{(i)}(a^{[2]})^T - a^{[3]}(a^{[2]})^T] = -(y^{(i)} - a^{[3]})(a^{[2]})^T \\
+\therefore \frac{\partial \mathcal{J}}{\partial \omega^{[3]}} = -\frac{1}{m}\sum_{i = 1}^m(y^{(i)} - a^{[3]})(a^{[2]})^T</script><p>反向传播到$\omega^{[2]}$</p>
+<script type="math/tex; mode=display">
+\frac{\partial \mathcal{L}}{\partial \omega^{[2]}} = \frac{\partial \mathcal{L}}{\partial a^{[3]}}\frac{\partial a^{[3]}}{\partial z^{[3]}}\frac{\partial z^{[3]}}{\partial a^{[2]}}\frac{\partial a^{[2]}}{\partial z^{[2]}}\frac{\partial z^{[2]}}{\partial \omega^{[2]}}</script><p>用之前算的结果来加速这个式子的算法</p>
+<script type="math/tex; mode=display">
+\because \frac{\partial \mathcal{L}}{\partial \omega^{[1]}} = \frac{\partial \mathcal{L}}{\partial z^{[3]}}\frac{\partial z^{[3]}}{\partial \omega^{[3]}}=
+-(y^{(i)} - a^{[3]})(a^{[2]})^T \ \ \frac{\partial z^{[3]}}{\partial \omega^{[3]}} = (a^{[2]})^T
+\\ 
+\therefore \frac{\partial \mathcal{L}}{\partial a^{[3]}}\frac{\partial a^{[3]}}{\partial z^{[3]}} = a^{[3]} - y^{(i)} \\
+\frac{\partial z^{[3]}}{\partial a^{[2]}} = (\omega^{[3]})^T \ \ \frac{\partial a^{[2]}}{\partial z^{[2]}} = a^{[2]}(1 - a^{[2]}) \ \ \frac{\partial z^{[2]}}{\partial \omega^{[2]}} = (a^{[1]})^T \\
+\therefore \frac{\partial \mathcal{L}}{\partial\omega^{[2]}} = (a^{[3]} - y^{(i)})(\omega^{[3]})^Ta^{[2]}(1 - a^{[2]})(a^{[1]})^T</script><p>注意 $\frac{\partial z^{[3]}}{\partial a^{[2]}}\frac{\partial a^{[2]}}{\partial z^{[2]}}$ 因为$a^{[2]}$和$z^{[2]}$两个都是$(2, 1)$向量  所以导数也是$(2, 1)$向量 它们之间的乘法应该是点乘</p>
+<h3 id="Improving-NN"><a href="#Improving-NN" class="headerlink" title="Improving NN"></a>Improving NN</h3><ul>
+<li><p>Activation function</p>
+<p>sigmoid， ReLU， tanh</p>
+<p>Q: Why we need activation function ?  A: to get nonlinearity</p>
+</li>
+<li><p>Initialization method 优势在于方便optimization</p>
+<p>对于输入数据为$(x_1, x_2)^T$  令新的数据$x_i^{(i)} = x_i^{(i)} - \mu_i$ 其中$\mu = \frac{1}{m}\sum_{i = 1}^m x^{(i)}$</p>
+<p>然后令$\sigma^2 = \frac{1}{m}\sum_{i = 1}^m(x^{(i)})^2$  取$\tilde{x_i} = \frac{x^{(i)}}{\sigma}$</p>
+<p>注意$\mu$和$\sigma$是根据训练集里面计算的，对于测试集也用这两个参数</p>
+</li>
+<li><p>Vanishing， Exploding gradients</p>
+<p>[55:00]举了一个例子，说明随着网络的层数增加，矩阵相乘的error也会增加，有可能gradients是一个超级大的值 或者是非常小的值 权值初始化在1左右是非常好的</p>
+<p>一个神经元的输入为n， n越大$w_i$越小，$\frac{1}{n}$的初始化时非常好的，</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randn<span class="token punctuation">(</span>shape<span class="token punctuation">)</span><span class="token operator">*</span>np<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">/</span> n<span class="token punctuation">)</span> <span class="token comment">#对于sigmoid函数 这个初始化效果很好</span>
+np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randn<span class="token punctuation">(</span>shape<span class="token punctuation">)</span><span class="token operator">*</span>np<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">/</span> n<span class="token punctuation">)</span> <span class="token comment">#对于ReLU函数 这个初始化效果很好</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>上面的n 时 $n^{[l - 1]}$</p>
+</li>
+<li><p>其它Initialization</p>
+<p>Xavier Initialization $W^{[l]} \sim \sqrt{\frac{1}{n^{[l - 1]}}}$   for tanh     He Initialization $W^{[l]} \sim \sqrt{\frac{2}{n^{[l]} + n^{[l - 1]}}}$</p>
+</li>
+<li><p>Optimization</p>
+<p>mini-batch algorithm</p>
+</li>
+<li><p>Momentum algorithm</p>
+<p>Assume you have the loss that is very extended in one direction. [72:00]有示例</p>
+<p>What momentum is going to say is look at the past updates that you did and try to consider these past updates in order to find the right way to go</p>
+<script type="math/tex; mode=display">
+v = \beta v + (1 - \beta)\frac{\partial \mathcal{L}}{\partial \omega} \\
+\omega = \omega - \alpha v</script></li>
+</ul>
 
                 
             </div>
@@ -552,7 +588,7 @@ As \ T_0 \rightarrow \infty, \\
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://myalos.github.io/2021/03/29/signal%20and%20system%208/">http://myalos.github.io/2021/03/29/signal%20and%20system%208/</a>
+                    <a href="http://myalos.github.io/2021/05/09/cs229%2011/">http://myalos.github.io/2021/05/09/cs229%2011/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -590,16 +626,12 @@ As \ T_0 \rightarrow \infty, \\
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">
-                                    <span class="chip bg-color">信号与系统</span>
+                                <a href="/tags/cs229/">
+                                    <span class="chip bg-color">cs229</span>
                                 </a>
                             
-                                <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
-                                    <span class="chip bg-color">理论知识</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%95%B0%E5%AD%A6/">
-                                    <span class="chip bg-color">数学</span>
+                                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">机器学习</span>
                                 </a>
                             
                         </div>
@@ -828,6 +860,59 @@ As \ T_0 \rightarrow \infty, \\
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/2021/05/09/cs229%208/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Data Splits, Models &amp; Cross-Validation">
+                        
+                        <span class="card-title">Data Splits, Models &amp; Cross-Validation</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            这是CS229 第八课的学习笔记
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-09
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/cs229/">
+                        <span class="chip bg-color">cs229</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2021/05/09/css1/">
                     <div class="card-image">
                         
@@ -844,9 +929,9 @@ As \ T_0 \rightarrow \infty, \\
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -864,63 +949,6 @@ As \ T_0 \rightarrow \infty, \\
                     
                     <a href="/tags/CSS/">
                         <span class="chip bg-color">CSS</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/03/29/signal%20and%20system%209/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Fourier Transform Properties">
-                        
-                        <span class="card-title">Fourier Transform Properties</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            这是奥本海姆 信号与系统第九课的学习笔记
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-29
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                    信号与系统
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">
-                        <span class="chip bg-color">信号与系统</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
-                        <span class="chip bg-color">理论知识</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E5%AD%A6/">
-                        <span class="chip bg-color">数学</span>
                     </a>
                     
                 </div>

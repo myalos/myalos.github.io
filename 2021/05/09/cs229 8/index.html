@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Continuous-Time Fourier Transform, goon的杂货店">
+    <meta name="keywords" content="Data Splits, Models &amp; Cross-Validation, goon的杂货店">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Continuous-Time Fourier Transform | goon的杂货店</title>
+    <title>Data Splits, Models &amp; Cross-Validation | goon的杂货店</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Continuous-Time Fourier Transform</h1>
+                    <h1 class="description center-align post-title">Data Splits, Models &amp; Cross-Validation</h1>
                 </div>
             </div>
         </div>
@@ -432,16 +432,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">
-                                <span class="chip bg-color">信号与系统</span>
+                            <a href="/tags/cs229/">
+                                <span class="chip bg-color">cs229</span>
                             </a>
                         
-                            <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
-                                <span class="chip bg-color">理论知识</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%95%B0%E5%AD%A6/">
-                                <span class="chip bg-color">数学</span>
+                            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">机器学习</span>
                             </a>
                         
                     </div>
@@ -452,8 +448,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                信号与系统
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                机器学习
                             </a>
                         
                     </div>
@@ -465,7 +461,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-29
+                    2021-05-09
                 </div>
                 
 
@@ -489,43 +485,38 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Continuous-Time-Fourier-Transform"><a href="#Continuous-Time-Fourier-Transform" class="headerlink" title="Continuous-Time Fourier Transform"></a>Continuous-Time Fourier Transform</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1xy4y167DD?p=8">视频地址</a></p>
-<h3 id="用复指数信号的线性组合来表示非周期信号"><a href="#用复指数信号的线性组合来表示非周期信号" class="headerlink" title="用复指数信号的线性组合来表示非周期信号"></a>用复指数信号的线性组合来表示非周期信号</h3><p>对于一个非周期信号，基于这个信号来建立周期信号，就是把原来的信号重复一下，</p>
-<p>形成周期为$T_0$的周期信号，图片参考视频[03:22]的图片</p>
-<p>这个周期信号在一个周期内是和非周期信号是相同的，<strong>当周期$T_0$趋近于无穷时，周期信号变成了非周期信号</strong> </p>
-<p><strong>核心思想</strong>：用傅里叶级数来表示这个周期信号，然后让周期趋近于无穷，得到的就是非周期信号的傅里叶变换</p>
+                <h2 id="Lecture-8-Data-Splits-Models-amp-Cross-Validation"><a href="#Lecture-8-Data-Splits-Models-amp-Cross-Validation" class="headerlink" title="Lecture 8 Data Splits, Models &amp; Cross-Validation"></a>Lecture 8 Data Splits, Models &amp; Cross-Validation</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1JE411w7Ub?p=11">课程视频链接</a></p>
+<p><a target="_blank" rel="noopener" href="http://cs229.stanford.edu/notes2020fall/notes2020fall/cs229-notes5.pdf">课程讲义链接</a></p>
+<p><a target="_blank" rel="noopener" href="http://cs229.stanford.edu/notes2020fall/notes2020fall/addendum_bias_variance.pdf">课程讲义链接2</a></p>
+<p>听第七课的时候官网上的讲师还是Andrew Ng， 今天上官网的时候 发现讲师变成Moses Charikar</p>
+<h3 id="Bias-and-Variance"><a href="#Bias-and-Variance" class="headerlink" title="Bias and Variance"></a>Bias and Variance</h3><p><strong>easy to learn but hard to master</strong></p>
+<p>[06:26]画了三张图，左边是underfit the data，high bias；右边是overfit the data， high variance</p>
+<p>bias在机器学习中的定义是 this learning algorithm had very strong preconceptions that the data could be fit by linear functions and this bias turns out not to be true.</p>
+<p>Regularization 用来减少overfitting的情况</p>
 <script type="math/tex; mode=display">
-\widetilde{x}(t) = x(t) \quad for \ |t| <\frac{T_0}{2} \\
-\widetilde{x}(t) = \sum_{k = -\infty}^{\infty}a_ke^{jk\omega_0t} \quad \quad \omega_0 = \frac{2\pi}{T_0} \\
-a_k = \frac{1}{T_0}\int_{-\frac{T_0}{2}}^{\frac{T_0}{2}}\widetilde{x}(t)e^{-jk\omega_0t}dt \\
-a_k = \frac{1}{T_0}\int_{-\infty}^{+\infty}x(t)e^{-jk\omega_0t}dt \\</script><p>Define: $X(\omega) \triangleq \int_{-\infty}^{+\infty}x(t)e^{-j\omega t}dt \tag{1}$       Then: $T_0a_k = X(\omega)\bigg|_{\omega = k\omega_0} \tag{*}$</p>
-<p>$X(\omega)$ is the envelope$($ 包络函数 $)$ of $T_0a_k$ ； 这告诉了我们如何通过对包络函数的sample来建立周期信号的傅里叶级数系数</p>
-<script type="math/tex; mode=display">
-\widetilde{x}(t) = \sum_{k = -\infty}^{+\infty}a_ke^{jk\omega_0t} = \sum_{k = -\infty}^{+\infty}\frac{1}{T_0}X(k\omega_0)e^{jk\omega_0t} \\
-\widetilde{x}(t) = \frac{1}{2\pi}\sum_{k = -\infty}^{+\infty}X(k\omega_0)e^{jk\omega_0t}\omega_0 \\
-As \ T_0 \rightarrow \infty, \\
-\omega_0 \rightarrow0,\widetilde{x}(t) \rightarrow x(t), \omega_0 \rightarrow d\omega, \Sigma \rightarrow \int \\</script><p>则得到 $x(t) = \frac{1}{2\pi}\int_{-\infty}^{+\infty}X(\omega)e^{j\omega t}d\omega \tag{2}$</p>
-<p>方程$(1)$ 称为analysis equation   也成为傅里叶变换                       方程$(2)$称为synthesis equation</p>
-<p>[11:00]开始的图示说明非常棒！！</p>
-<p>$x(t)$和$X(\omega)$的关系是一一对应，即使$x(t)$是实函数，$X(\omega)$也是复函数</p>
-<p>$X(\omega) = Re\{ X(\omega) \} + j Im \{  X(\omega) \} = |X(\omega)|e^{j\angle X(\omega)}$</p>
-<h3 id="傅里叶变换的例子"><a href="#傅里叶变换的例子" class="headerlink" title="傅里叶变换的例子"></a>傅里叶变换的例子</h3><p>对于函数$x(t) = e^{-at}u(t)$ 其傅里叶变换是</p>
-<p>$X(\omega) = \int_{-\infty}^{+\infty}x(t)e^{-j\omega t}dt = \int_{0}^{+\infty}e^{-at}e^{-j\omega t}dt = \int_{0}^{+\infty}e^{-t(a + j\omega)}dt = \frac{1}{a + j\omega}e^{-(a + j\omega)t}\bigg|^\infty_0$</p>
-<p>当$a &gt; 0$ 积分求$t = +\infty$时 式子为0，当$t = 0$时 式子为$\frac{1}{a + j\omega}$   可得$e^{-at}u(t)$对应的傅里叶变换是$\frac{1}{a + j\omega}$</p>
-<p>[18:30] 展示了 该函数与其傅里叶变换形成的函数的图像(有振幅的图，有幅度的图)</p>
-<p>[21:30] 展示了该图像的波特图版本 振幅是$20log_{10}X(\omega)\triangleq decibels \ (dB)$ 横坐标是频率的对数，对于横坐标上面等距离移动，每次移动频率变为原来的10倍</p>
-<p>由于横坐标是对数，所以对应的频率是大于0的频率，但是由于傅里叶变换出的函数的性质 我们可以推测出频率为负时的图像的样子</p>
-<p><strong>Fourier Series coefficients equal $\frac{1}{T_0}$ times samples of Fourier transform of one period</strong></p>
-<p>也就是说 对于之前求周期信号的傅里叶级数 我们可以考虑求一个周期的傅里叶变换[25:30]</p>
-<p>可以可以！</p>
-<h3 id="将傅里叶变换和傅里叶级数用一个通用框架来表示"><a href="#将傅里叶变换和傅里叶级数用一个通用框架来表示" class="headerlink" title="将傅里叶变换和傅里叶级数用一个通用框架来表示"></a>将傅里叶变换和傅里叶级数用一个通用框架来表示</h3><p>观察傅里叶级数和傅里叶变换的synthesis equation 我们可以发现</p>
-<p>$\widetilde{x}(t)$的傅里叶级数是$a_k$  $\widetilde{x}(t)$的傅里叶变换是$\widetilde{X}(\omega)$ </p>
-<p>则$\widetilde{X}(\omega) \triangleq \sum_{-\infty}^{\infty}2\pi a_k \delta(\omega - k\omega_0) \tag{3}$</p>
-<script type="math/tex; mode=display">
-\widetilde{x}(t) = \frac{1}{2\pi}\int_{-\infty}^{+\infty}\widetilde{X}(\omega)e^{j\omega t}d\omega \\
-= \frac{1}{2\pi}\sum_{k = -\infty}^{+\infty}2\pi a_k \int_{-\infty}^{+\infty}\delta(\omega - k\omega_0)e^{-j\omega t}d\omega</script><h2 id="通用框架的例子"><a href="#通用框架的例子" class="headerlink" title="通用框架的例子"></a>通用框架的例子</h2><p>symmetric square wave     666哇</p>
-<p>还讲了一个$x(t) = \delta(t)$的例子 $x(t)$的傅里叶变换是常数，</p>
-<p>对于周期函数$\widetilde{x}(t) = \sum_{k = -\infty}^{+\infty}\delta(t - kT_0)$ 其对应的傅里叶变换$\widetilde{X}(\omega)$  这函数是怎么得到的 没有弄明白</p>
+min_\theta \frac{1}{2}\sum_{i = 1}^m ||y^{(i)} - \theta^Tx^{(i)}||^2 + \frac{\lambda}{2}||\theta||^2</script><p>其中$\frac{\lambda}{2}||\theta||^2$是正则项</p>
+<p>对于SVM，通过核函数可以映射到无限维，为啥SVM没有明显的过拟合呢，老师说理由比较复杂，简单来说就是目标函数$||\omega||^2$有着和正则化相似的效果 </p>
+<p>至于使用$\frac{\lambda}{2}||\theta||^2$ 而非 $\sum_j \lambda_j\theta_j$ 是因为会使训练的参数变得很多</p>
+<p>PS： 对于不同的features 每个features的范围会不同，我们需要把features normalization到同一个范围下 比如$[0, 1]$ 这个范围 通过$(x - min) / (max - min)$</p>
+<h3 id="Train-Dev-Test-sets"><a href="#Train-Dev-Test-sets" class="headerlink" title="Train/Dev/Test sets"></a>Train/Dev/Test sets</h3><p>对于10000个训练数据，我们要进行超参数的选择的话</p>
+<p>$S_{train}, S_{dev}, S_{test}$ 其中dev 表示development，train each model（option for degree of polynomial 或者不同的正则系数等等) on $S_{train}$，get some hypothesis $h$ and measure erroe on $S_{dev}$ and pick model with lowest error on $S_{dev}$ </p>
+<p>传统的划分方法是60% train, 20% dev, 20% test, 对于数据集很大的情况 这个比例会变化，可能是90% train， 5% dev，5% test</p>
+<p>对于少量的训练数据，比如100个训练数据，用K-fold  k为10是typical choice</p>
+<p>假如对于k为5的情况，就是把100个数据集分为五个不同的子集，接着要做的是</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">For i &#x3D; 1, ... ,k
+	Train parameters on k - 1 pieces;
+	Test on remaining one piece;
+Average k on test errors
+
+Optional: Refit model on 100% of data<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如果对于更小的数据集 比如m = 20</p>
+<p>Leave-one-out 即设K = m 缺点是计算量很大 老师用这个方法 只在m小于等于100的情况下</p>
+<p>老师推荐了 mlyearning.org这个网站 这里有进一步讨论 如果训练集和测试集是不同的分布</p>
+<h3 id="Feature-Selection"><a href="#Feature-Selection" class="headerlink" title="Feature Selection"></a>Feature Selection</h3><p>a special case of model selection</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">start with F &#x3D; 空
+Repeat:
+	1) Try to add each feature i to F, and see which single-feature addition most improves dev set performance
+	2) Add that feature to F<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -552,7 +543,7 @@ As \ T_0 \rightarrow \infty, \\
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://myalos.github.io/2021/03/29/signal%20and%20system%208/">http://myalos.github.io/2021/03/29/signal%20and%20system%208/</a>
+                    <a href="http://myalos.github.io/2021/05/09/cs229%208/">http://myalos.github.io/2021/05/09/cs229%208/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -590,16 +581,12 @@ As \ T_0 \rightarrow \infty, \\
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">
-                                    <span class="chip bg-color">信号与系统</span>
+                                <a href="/tags/cs229/">
+                                    <span class="chip bg-color">cs229</span>
                                 </a>
                             
-                                <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
-                                    <span class="chip bg-color">理论知识</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%95%B0%E5%AD%A6/">
-                                    <span class="chip bg-color">数学</span>
+                                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">机器学习</span>
                                 </a>
                             
                         </div>
@@ -828,19 +815,19 @@ As \ T_0 \rightarrow \infty, \\
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/05/09/css1/">
+                <a href="/2021/05/09/cs229%209/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="CSS基础">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="ApproxEstimation Error">
                         
-                        <span class="card-title">CSS基础</span>
+                        <span class="card-title">ApproxEstimation Error</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是CSS的学习笔记
+                            这是CS229 第九课的学习笔记
                         
                     </div>
                     <div class="publish-info">
@@ -851,8 +838,8 @@ As \ T_0 \rightarrow \infty, \\
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    前端
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
                                 </a>
                             
                             
@@ -862,8 +849,12 @@ As \ T_0 \rightarrow \infty, \\
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CSS/">
-                        <span class="chip bg-color">CSS</span>
+                    <a href="/tags/cs229/">
+                        <span class="chip bg-color">cs229</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
                     </a>
                     
                 </div>
@@ -877,31 +868,31 @@ As \ T_0 \rightarrow \infty, \\
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/29/signal%20and%20system%209/">
+                <a href="/2021/05/09/cs229%2011/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Fourier Transform Properties">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Introduction to Neural Networks">
                         
-                        <span class="card-title">Fourier Transform Properties</span>
+                        <span class="card-title">Introduction to Neural Networks</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是奥本海姆 信号与系统第九课的学习笔记
+                            这是CS229 第十一,十二课的学习笔记
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-09
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                    信号与系统
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
                                 </a>
                             
                             
@@ -911,16 +902,12 @@ As \ T_0 \rightarrow \infty, \\
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">
-                        <span class="chip bg-color">信号与系统</span>
+                    <a href="/tags/cs229/">
+                        <span class="chip bg-color">cs229</span>
                     </a>
                     
-                    <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
-                        <span class="chip bg-color">理论知识</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E5%AD%A6/">
-                        <span class="chip bg-color">数学</span>
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
                     </a>
                     
                 </div>
