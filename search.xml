@@ -4,6 +4,87 @@
   
     
     <entry>
+      <title>EM Algorithm Factor Analysis</title>
+      <link href="2021/05/22/cs229%2015/"/>
+      <url>2021/05/22/cs229%2015/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Lecture-15-EM-Algorithm-Factor-Analysis"><a href="#Lecture-15-EM-Algorithm-Factor-Analysis" class="headerlink" title="Lecture 15 EM Algorithm Factor Analysis"></a>Lecture 15 EM Algorithm Factor Analysis</h2><p>这一章会讲到Factor analysis 这个模型对于高维少量的数据也有用</p><p>前12分钟 用上一节课讲的EM算法 来推GMM算法 每个参数是怎么更新的，M步对函数求偏导</p><h3 id="Factor-Analysis"><a href="#Factor-Analysis" class="headerlink" title="Factor Analysis"></a>Factor Analysis</h3><p>在这个模型中$z^{(i)}$不是离散的，$z^{(i)}$是连续的，而且$z^{(i)}$是高斯分布的</p><p><strong>再回顾一下上节课讲的EM算法</strong></p><p>定义$J(\theta, Q) = \sum_i\sum_{z^{(i)}}Q_i(z^{(i)})log\frac{P(x^{(i)}, z^{(i)};\theta)}{Q_i(z^{(i)})}$</p><p>由上节课 我们知道$l(\theta) \ge J(\theta, Q)$ for any $\theta, Q$ ， 另一种角度来看EM算法</p><p>E步 ：Maximize $J$ w.r.t. $Q$  即选Q让等号成立             M步 ：Maximize $J$ w.r.t. $\theta$</p><p>EM算法也被称作为 a coordinate ascent algorithm relative to this cost function $J$</p><p>老师举了个例子 n = 2 m = 100的时候 [18:30]图，两个高斯混合就够了，即$m &gt;&gt; n$的时候用GMM效果是很好的，<strong>如果$m \approx n$ 或者 $m &lt;&lt; n$的时候</strong>  比如 m = 30 n = 100</p><p>model a single Gaussian: $X \sim N(\mu, \Sigma)$   MLE: $\mu = \frac{1}{m}\sum_ix^{(i)}$ $\Sigma = \frac{1}{m}\sum_{i = 1}^m(x^{(i)} - \mu)(x^{(i)} - \mu)^T$</p><p>If $m \le n$, the $\Sigma$ will be <strong>singular</strong> 那么概率密度里面$\frac{1}{|\Sigma|^\frac{1}{2}}$就会无定义 而且对于指数项里面的$\Sigma^{-1}$也无法求, MLE失效，举了个二维空间 两个训练样本的例子，训练出来的高斯模型的轮廓将是infinitely skinny</p><p>Factorial analysis 最早出现于心理学研究中 研究100 psychological attributes 研究对象是30人</p><p>针对这个问题的想到解决方法：</p><ul><li>Constrain $\Sigma$ to be diagonal 这个模型是假设所有的特征都是不想关的，这不是一个好的假设</li><li>Constrain $\Sigma$ to be $\sigma^2I$  这个模型更糟</li></ul><p>$z \sim N(0, I),\  z \in R^d \ (d &lt; n)$  举个例子 d = 3 m = 30 n = 100</p><p>我们假设 $X = \mu + \Lambda z + \epsilon$  其中 $\epsilon \sim N(0, \Phi)$   这个模型中 每个参数为</p><script type="math/tex; mode=display">\mu \in R^n, \Lambda \in R^{n\times d},\Phi \in R^{n \times n} \ diagonal</script><p>那么 $x | z \sim N(\mu + \Lambda z, \Phi)$</p><p>d为d个main driving factors affecting the temperature of this room</p><p>老师用100个sensor测学校温度的例子来说明 这个模型，$\Phi$为对角线 说明每个sensor的噪声是相互独立的</p><p>老师举了两个例子 第一个例子 d = 1 n = 2 m = 7  第二个例子 d = 2 n = 3 m = 5</p><p>感觉有点降维的味道 第二个例子说明大部分的数据会集中在 线性变换后的平面附近，二维在三维线性变换 构成的是平面，但也可以是距离平面有点的远的地方，只要方差比较大，每一维的方差是不一样的</p><h3 id="The-derivation-of-EM-for-factor-analysis"><a href="#The-derivation-of-EM-for-factor-analysis" class="headerlink" title="The derivation of EM for factor analysis"></a>The derivation of EM for factor analysis</h3><p>推理比较tricky 视频最后30分钟 推导公式中比较tricky的部分 这要看讲义 光看视频看不懂 一脸懵逼</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 机器学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> cs229 </tag>
+            
+            <tag> 机器学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Expectation-Maximization Algorithms</title>
+      <link href="2021/05/22/cs229%2014/"/>
+      <url>2021/05/22/cs229%2014/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://www.bilibili.com/video/BV1JE411w7Ub?p=19">视频链接</a></p><h2 id="Lecture-14-Expectation-Maximization-Algorithms"><a href="#Lecture-14-Expectation-Maximization-Algorithms" class="headerlink" title="Lecture 14 Expectation-Maximization Algorithms"></a>Lecture 14 Expectation-Maximization Algorithms</h2><h3 id="K-means"><a href="#K-means" class="headerlink" title="K-means"></a>K-means</h3><p>[2:45] 开始演示了K-means的动画</p><p>Data $\{x^{(1)},x^{(2)},x^{(3)},,\cdots,x^{(m)}\}$</p><p>step 1 Initialize cluster centroids  $\mu_1,\cdots,\mu_k$ randomly，对于高维数据 一般是随机选k个训练样本，把这k个样本做为质心</p><p>step 2 Repeat until convergence</p><ul><li><p>Set $c^{(i)} := argmin_j ||x^{(i)} - \mu_j||^2$</p></li><li><p>For $j = 1, \cdots, k$</p><p>​    $\mu_j := \frac{\sum_{i = 1}^m 1\{c^{(i)} = j \} x^{(i)}}{\sum_{i = 1}^m i\{c^{(i) }= j\}}$</p></li></ul><p>这个算法是会收敛的</p><p>这个算法的cost function是$j(c,\mu) = \sum_{i = 1}^m || x^{(i)} - \mu_{c^{(i)}}||^2$</p><p>K-means 会收敛到局部最小值， 所以要多多初始化几次 选最好的一次</p><h3 id="Density-estimation"><a href="#Density-estimation" class="headerlink" title="Density estimation"></a>Density estimation</h3><p>可用于anomaly detection， model $p(x)$ 如果一个样本 $p(x) &lt; \epsilon$ 那么这个样本就是异常</p><p>the mixture of Gaussians model [21:03] 有图形，motivation就是anomaly detection</p><p>老师举了一个一维的例子，这个算法很像GDA，但是GMM不知道每个示例是属于哪个高斯的</p><p>EM算法能让我们尽管不知道每个样本是来自哪个高斯也能fit a model</p><p>Suppose there is a latent random variable $z$ and $x^{(i)},z^{(i)} $ </p><script type="math/tex; mode=display">P(x^{(i)}, z^{(i)}) = P(x^{(i)} | z^{(i)})P(z^{(i)})</script><p>where $z^{(i)} \sim Multinomial(\phi)$  $x^{(i)} | z^{(i)} = j \sim N(\mu_j, \Sigma_j)$</p><p>If we knew the $z^{(i)}$’s, we can use MLE  这就是GDA了</p><p><strong>E-step</strong> Guess value of $z^{(i)}$’s</p><p>Set $w^{(i)}_j = P(z^{(i)}) = j |x^{(i)}; \phi, \mu, \Sigma) = \frac{P(x^{(i)}|z^{(i)} = j)P(z^{(i) = j})}{\sum_{i = 1}^k p(x^{(i)}|z^{(i)} = l)P(z^{(i)} = l)}$</p><p>$w^{(i)}_j$ is  how much $x^{(i)}$ is assigned to the $\mu_j$ Gaussian</p><p>where $P(x^{(i)}|z^{(i)} = j) \sim N(\mu_j, \Sigma_j)$ and $P(z^{(i)} = j) = \phi_j$</p><p><strong>M-step</strong> 用E步里面得到的$w^{(i)}_j$来计算$\phi_j$和$\mu_j$和$\Sigma_j$</p><p><strong>发现没</strong> 这个很像K-means的过程！<strong>EM算法是一个框架</strong></p><p>当EM算法结束，就有了$P(x, z)$的联合分布 那么x的概率就是</p><script type="math/tex; mode=display">P(x) = \sum_kP(x, z)</script><p><strong>666</strong></p><h3 id="EM推理"><a href="#EM推理" class="headerlink" title="EM推理"></a>EM推理</h3><p><strong>Jensen’s inequality</strong></p><p>Let $f$ be a convex function e.g. $f^{\prime\prime}(x) \ge 0$</p><p>Let $X$ be a random variable Then $f(E[X]) \le E[f(X)]$</p><p>如果$f^{\prime\prime}(x) &gt; 0$ 那么$E[f(x)] = f(E[x]) \iff X \ is \ a\ constant$</p><p>如果$f$是一个strictly convex function 那么意思是$f$是一条直线</p><p>Have model for $P(x, z; \theta)$ Only observe $x$ , $\{x^{(1)}, x^{(2)}, \cdots, x^{(m)}\}$</p><script type="math/tex; mode=display">l(\theta) = \sum_{i = 1}^m logP(x^{(i)}; \theta) = \sum_{i = 1}^mlog\sum_{z(i)}P(x^{(i)},z^{(i)};\theta) \tag{1}</script><p>want to find $argmax_\theta l(\theta)$</p><p>图[61:37]E步是构造一个下界函数 即绘制绿色曲线，M步是找到这个曲线的最大值； 这个动画非常棒</p><p>EM算法可能会收敛于局部最优值，需要进行多次初始化 取最佳 就可以得到全局最优值 </p><p>1式继续变化得</p><script type="math/tex; mode=display">=\sum_i log\sum_{z^{(i)}}Q_i(z^{(i)})\frac{P(x^{(i)}, z^{(i)}; \theta)}{Q_i(z^{(i)})}</script><p>where $Q_i(z^{(i)})$是概率分布 i.e. $\sum_{z^{(i)}}Q_i(z^{(i)}) = 1$</p><p>继续化简</p><script type="math/tex; mode=display">= \sum_ilogE_{z^{(i)}\sim Q_i}[\frac{P(x^{(i)},z^{(i)};\theta)}{Q_i(z^{(i)})}] \ge \sum_iE_{z^{(i)}\sim Q_i}[log\frac{P(x^{(i)},z^{(i)};\theta)}{Q_i(z^{(i)})}]</script><script type="math/tex; mode=display">= \sum_i \sum_{z^{(i)}}Q_i(z^{(i)})log\frac{P(x^{(i)},z^{(i)};\theta)}{Q_i(z^{(i)})} \tag{3}</script><p>对于3式 x式固定得，z是求和得，只有$\theta$是变量 可看作是$\theta$的函数</p><p>On a given iteration of EM with parameters $\theta$, we want:</p><script type="math/tex; mode=display">\sum_ilogE_{z^{(i)}\sim Q_i}[\frac{P(x^{(i)},z^{(i)};\theta)}{Q_i(z^{(i)})}] = \sum_iE_{z^{(i)}\sim Q_i}[log\frac{P(x^{(i)},z^{(i)};\theta)}{Q_i(z^{(i)})}]</script><p>For this to hold true 需要$\frac{P(x^{(i)},z^{(i)};\theta)}{Q_i(z^{(i)})}$ 是常数</p><p>Set $Q_i(z^{(i)})$正比于$P(x^{(i)}, z^{(i)}; \theta)$</p><p>取法就是$Q_i(z^{(i)}) = \frac{P(x^{(i)}, z^{(i)}; \theta)}{\sum_{z^{(i)}}P(x^{(i)}, z^{(i)}; \theta)} = P(z^{(i)} | x^{(i)};\theta)$</p><p>总结一下就是：</p><p>E-step : Set $Q_i(z^{(i)}) = P(z^{(i)} | x^{(i)};\theta)$</p><p>M-step: $\theta := argmax_\theta\sum_i\sum_{z^{(i)}}Q_i(z^{(i)})log\frac{P(x^{(i)},z^{(i)};\theta)}{Q_i(z^{(i)})}$</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 机器学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> cs229 </tag>
+            
+            <tag> 机器学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Debug ML Models and Error Analysis</title>
+      <link href="2021/05/22/cs229%2013/"/>
+      <url>2021/05/22/cs229%2013/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Lecture-13-Debug-ML-Models-and-Error-Analysis"><a href="#Lecture-13-Debug-ML-Models-and-Error-Analysis" class="headerlink" title="Lecture 13 Debug ML Models and Error Analysis"></a>Lecture 13 Debug ML Models and Error Analysis</h2><p>感觉这节课很重要~  PS 想到深度学习能自动提取特征就非常的nice</p><p><a href="https://www.bilibili.com/video/BV1JE411w7Ub?p=17">视频链接</a></p><h3 id="Motivating-example"><a href="#Motivating-example" class="headerlink" title="Motivating example"></a>Motivating example</h3><p>当训练出的模型 的准确率不符合预期的时候：</p><ul><li><p>Common approach: Try improving the algorithm in different ways</p><ul><li>Try getting more training examples        Fixes high variance</li><li>Try a smaller set of features         Fixes high variance</li><li>Try a larger set of features          Fixes high bias</li><li>Try changing the features: Email header vs. email body features   Fixes high bias</li><li>Run gradient descent for more iterations    Fixes optimization algorithm</li><li>Try Newton’s method                    Fixes optimization algorithm</li><li>Use a different value for $\lambda $           Fixes optimization objective</li><li>Try using another algorithm     Fixes optimization objective</li></ul><p>一般会玄学地从中选一个</p></li><li><p><strong>bias vs variance diagnostic</strong></p><ul><li>Variance: Training error will be much lower than test error</li><li>Bias: Training error will also be high</li></ul></li></ul><p>老师画的图 [14:16] 横坐标是<strong>training set size</strong> 纵坐标是<strong>error</strong></p><p>当training set个数少的时候，training error是可以为0的 比如对于线性回归，1个点或两个点 training error就为0，数据量变多的时候 training error 会跟着涨</p><p><strong>重要</strong> as you increase the training set size , you find that the gap between training and test error usually closes <strong>如果test error 和 training error 有较大的gap 那么就是high variance</strong></p><p>对于high bias的情况，training error is unacceptable high，small gap between training and test error</p><p><strong>A very small gap between the training and the test error, 当图像是这样的话，不管再获得多少数据，error基本不会变</strong> </p><p><strong>PS 对于现在batch的形式，老师的这个图是有效的吗，如何实现training set增加，比如我有1000个数据集 我想让数据集从0到1000 数据集大小为100的时候 我该怎么挑数据</strong></p><p>常见的问题  Is the algorithm converging? 就是gradient descent有没有收敛</p><p>或者是 是否在优化错误的函数</p><p>即 到底是优化的函数的锅 还是优化方法的锅</p><p>对于区分non-spam 和 spam邮件，可以会不同类型设置不同的权重，比如希望能检测出spam，希望尽量减小漏掉spam的概率，spam的cost就大一些</p><h3 id="SVM-LR-Example"><a href="#SVM-LR-Example" class="headerlink" title="SVM LR Example"></a>SVM LR Example</h3><p>An SVM outperforms logistic regression, but you really want to deploy logistic regression for your application.</p><p>Let $\theta_{SVM}$ be the parameters learned by an SVM</p><p>Let $\theta_{BLR}$ be the parameters learned by logistic regression</p><p>You care about weighted accuracy:</p><script type="math/tex; mode=display">a(\theta)  = max_\theta \sum_i \omega^{(i)}1\{ h_\theta(x^{(i)}) = y^{(i)}\}</script><p>$\theta_{SVM}$ outperforms $\theta_{BLR}$. So:  $a(\theta_{SVM}) &gt; a(\theta_{BLR})$</p><p>BLR Binary Logistic Regression tries to maximize:</p><script type="math/tex; mode=display">J(\theta) = \sum_{i = 1}^mlogp(y^{(i)}|x^{(i)},\theta) - \lambda||\theta||^2</script><p>Diagnostic: $J(\theta_{SVM}) &gt; J(\theta_{BLR}) ?$</p><p>Case 1：$a(\theta_{SVM}) &gt; a(\theta_{BLR}) \ \ J(\theta_{SVM}) &gt; J(\theta_{BLR}) $</p><p>This means that $\theta_{BLR}$ fails to maximize $J$, adn the problem is with the convergence of the algorithm. Problem is with optimization algorithm</p><p>Case 2：$a(\theta_{SVM}) &gt; a(\theta_{BLR}) \ \ J(\theta_{SVM}) \le J(\theta_{BLR}) $</p><p>This means that BLR succeeded at maximizing $J(\theta)$, But the SVM, which does worse on $J(\theta)$, actually does better on weighted accuracy $a(\theta)$.</p><p>This means that $J(\theta)$ is the wrong function to be maximizing, if you care about $a(\theta)$. Problem is with objective function of the maximization problem.</p><h3 id="自动飞行器的例子"><a href="#自动飞行器的例子" class="headerlink" title="自动飞行器的例子"></a>自动飞行器的例子</h3><p>1 Build a simulator of helicopter</p><p>2 Choose a cost function</p><p>3 Run reinforcement learning algorithm to fly helicopter in simulation, so as to try to minimize cost function</p><p>如果训练出来的$\theta_{RL}$ 比人类pilot差很多  那么要么改进模拟器 要么改进cost function 要么改进optimization algorithm</p><p>Let $\theta_{human}$ be the human control policy. If $J(\theta_{human}) &lt; J(\theta_{RL})$，then the problem is in the reinforcement learning algorithm.</p><p>If  $J(\theta_{human}) \ge J(\theta_{RL})$，then the problem is in the cost function.</p><p>Finding a good cost function is really difficult</p><h3 id="Error-Analysis-Tool"><a href="#Error-Analysis-Tool" class="headerlink" title="Error Analysis Tool"></a>Error Analysis Tool</h3><pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid">graph LRid(Camera image) --&gt; id2(Preprocessing)id2 --&gt; id3(Facedetection) --&gt;id4(Eyes Segmentation) &amp; id5(Nose segmentation) &amp; id6(Mouth segmentation) --&gt; id7(Logistic regression) --&gt; id8(Label)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>现实中的项目 涉及到多个component</p><p>How much error is attributable to each of the components ?</p><p>Plug in ground-truth for each component, and see how accuracy changes.</p><p>可以是累积式 即到检测某个模块之前的所有模块都是真实数据，也可以是非累积性的， 即测哪个哪个真实 其余非真实</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 机器学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> cs229 </tag>
+            
+            <tag> 机器学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CSS基础 III</title>
       <link href="2021/05/16/css3/"/>
       <url>2021/05/16/css3/</url>

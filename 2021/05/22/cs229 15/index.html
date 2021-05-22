@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="CSS基础 III, goon的杂货店">
+    <meta name="keywords" content="EM Algorithm Factor Analysis, goon的杂货店">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>CSS基础 III | goon的杂货店</title>
+    <title>EM Algorithm Factor Analysis | goon的杂货店</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">CSS基础 III</h1>
+                    <h1 class="description center-align post-title">EM Algorithm Factor Analysis</h1>
                 </div>
             </div>
         </div>
@@ -432,8 +432,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/CSS/">
-                                <span class="chip bg-color">CSS</span>
+                            <a href="/tags/cs229/">
+                                <span class="chip bg-color">cs229</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">机器学习</span>
                             </a>
                         
                     </div>
@@ -444,8 +448,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                前端
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                机器学习
                             </a>
                         
                     </div>
@@ -457,7 +461,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-16
+                    2021-05-22
                 </div>
                 
 
@@ -481,237 +485,32 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>这是学堂在线上面的前端课程<a target="_blank" rel="noopener" href="https://www.xuetangx.com/search?query=%E5%89%8D%E7%AB%AF&amp;page=1">课程链接</a></p>
-<h3 id="CSS-Transform"><a href="#CSS-Transform" class="headerlink" title="CSS Transform"></a>CSS Transform</h3><p>是对元素进行平移translate， 旋转rotate，缩放scale， 倾斜skew</p>
-<p><strong>transform不会的对其它元素布局产生影响</strong></p>
-<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.emoji</span><span class="token punctuation">&#123;</span>
-    <span class="token property">transform</span> <span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span>100px<span class="token punctuation">,</span> 100px<span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span>
-<span class="token selector">.emoji</span><span class="token punctuation">&#123;</span>
-    <span class="token property">transform</span> <span class="token punctuation">:</span> <span class="token function">translateX</span><span class="token punctuation">(</span>100px<span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span>
-<span class="token selector">.emoji</span><span class="token punctuation">&#123;</span>
-    <span class="token property">transform</span> <span class="token punctuation">:</span> <span class="token function">translateY</span><span class="token punctuation">(</span>-1em<span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span>
-<span class="token selector">.emoji</span><span class="token punctuation">&#123;</span>
-    <span class="token property">transform</span> <span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span>100%<span class="token punctuation">,</span> 100%<span class="token punctuation">)</span> 这是移动自身大小的距离
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.emoji</span><span class="token punctuation">&#123;</span>
-    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translateX</span><span class="token punctuation">(</span>100px<span class="token punctuation">)</span>
-        	   <span class="token function">rotate</span><span class="token punctuation">(</span>90deg<span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>先延X轴移动100px  然后顺时针旋转90度</p>
-<p><strong>如果是先rotate 90度， 然后再translate 100px 那么效果不一样，因为rotate 90度之后 X轴变为向下方向的了</strong></p>
-<p>还可以进行3D 变换</p>
-<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.emoji</span><span class="token punctuation">&#123;</span>
-    <span class="token property">transform</span> <span class="token punctuation">:</span> <span class="token function">perspective</span><span class="token punctuation">(</span>100px<span class="token punctuation">)</span>
-		        <span class="token function">rotateY</span><span class="token punctuation">(</span>40deg<span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>perspective 设置的是屏幕举例人眼的距离</p>
-<p>translate3d(dx, dy, dz) 最后一个是z轴方向的偏移量</p>
-<h3 id="CSS-Transition-即过渡效果"><a href="#CSS-Transition-即过渡效果" class="headerlink" title="CSS Transition 即过渡效果"></a>CSS Transition 即过渡效果</h3><p>指定从一个状态到另一个状态时如何过渡</p>
-<p>动画的意义：告诉用户发生了什么</p>
-<p>transition属性：</p>
+                <h2 id="Lecture-15-EM-Algorithm-Factor-Analysis"><a href="#Lecture-15-EM-Algorithm-Factor-Analysis" class="headerlink" title="Lecture 15 EM Algorithm Factor Analysis"></a>Lecture 15 EM Algorithm Factor Analysis</h2><p>这一章会讲到Factor analysis 这个模型对于高维少量的数据也有用</p>
+<p>前12分钟 用上一节课讲的EM算法 来推GMM算法 每个参数是怎么更新的，M步对函数求偏导</p>
+<h3 id="Factor-Analysis"><a href="#Factor-Analysis" class="headerlink" title="Factor Analysis"></a>Factor Analysis</h3><p>在这个模型中$z^{(i)}$不是离散的，$z^{(i)}$是连续的，而且$z^{(i)}$是高斯分布的</p>
+<p><strong>再回顾一下上节课讲的EM算法</strong></p>
+<p>定义$J(\theta, Q) = \sum_i\sum_{z^{(i)}}Q_i(z^{(i)})log\frac{P(x^{(i)}, z^{(i)};\theta)}{Q_i(z^{(i)})}$</p>
+<p>由上节课 我们知道$l(\theta) \ge J(\theta, Q)$ for any $\theta, Q$ ， 另一种角度来看EM算法</p>
+<p>E步 ：Maximize $J$ w.r.t. $Q$  即选Q让等号成立             M步 ：Maximize $J$ w.r.t. $\theta$</p>
+<p>EM算法也被称作为 a coordinate ascent algorithm relative to this cost function $J$</p>
+<p>老师举了个例子 n = 2 m = 100的时候 [18:30]图，两个高斯混合就够了，即$m &gt;&gt; n$的时候用GMM效果是很好的，<strong>如果$m \approx n$ 或者 $m &lt;&lt; n$的时候</strong>  比如 m = 30 n = 100</p>
+<p>model a single Gaussian: $X \sim N(\mu, \Sigma)$   MLE: $\mu = \frac{1}{m}\sum_ix^{(i)}$ $\Sigma = \frac{1}{m}\sum_{i = 1}^m(x^{(i)} - \mu)(x^{(i)} - \mu)^T$</p>
+<p>If $m \le n$, the $\Sigma$ will be <strong>singular</strong> 那么概率密度里面$\frac{1}{|\Sigma|^\frac{1}{2}}$就会无定义 而且对于指数项里面的$\Sigma^{-1}$也无法求, MLE失效，举了个二维空间 两个训练样本的例子，训练出来的高斯模型的轮廓将是infinitely skinny</p>
+<p>Factorial analysis 最早出现于心理学研究中 研究100 psychological attributes 研究对象是30人</p>
+<p>针对这个问题的想到解决方法：</p>
 <ul>
-<li>transition-property 哪个属性改变的时候 需要发生过渡</li>
-<li>transition-duration 这个过渡需要持续多长时间</li>
-<li>transition-timing-function 这个变化是匀速的 还是先快后慢 先慢后快</li>
-<li>transition-delay  发生改变的延时</li>
+<li>Constrain $\Sigma$ to be diagonal 这个模型是假设所有的特征都是不想关的，这不是一个好的假设</li>
+<li>Constrain $\Sigma$ to be $\sigma^2I$  这个模型更糟</li>
 </ul>
-<p><strong>666</strong></p>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
-    <span class="token selector">.box</span><span class="token punctuation">&#123;</span>
-        <span class="token property">height</span> <span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
-        <span class="token property">background</span> <span class="token punctuation">:</span> coral<span class="token punctuation">;</span>
-        <span class="token property">transition-property</span> <span class="token punctuation">:</span> height<span class="token punctuation">;</span>
-        <span class="token property">transition-duration</span> <span class="token punctuation">:</span> 1s<span class="token punctuation">;</span>
-        <span class="token property">transition-timing-function</span> <span class="token punctuation">:</span> linear<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token selector">.box : hover</span><span class="token punctuation">&#123;</span>
-        <span class="token property">height</span> <span class="token punctuation">:</span> 400px<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>transition: all 1s linear  任意一个属性发生变化 都会有变化效果，变化时间为1s， 匀速变化</p>
-<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.box</span><span class="token punctuation">&#123;</span>
-    <span class="token property">height</span> <span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
-    <span class="token property">background</span> <span class="token punctuation">:</span> coral<span class="token punctuation">;</span>
-    <span class="token property">transition</span> <span class="token punctuation">:</span> all 1s linear<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token selector">.box : hover</span><span class="token punctuation">&#123;</span>
-    <span class="token property">height</span> <span class="token punctuation">:</span> 400px<span class="token punctuation">;</span>
-    <span class="token property">background</span> <span class="token punctuation">:</span> green<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>也可以对于不同属性的变化 设置不同的效果</p>
-<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.box</span><span class="token punctuation">&#123;</span>
-    <span class="token property">height</span> <span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
-    <span class="token property">background</span> <span class="token punctuation">:</span> coral<span class="token punctuation">;</span>
-    <span class="token property">transition</span> <span class="token punctuation">:</span> height 500ms linear<span class="token punctuation">,</span>
-        		 background 2s linear<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>下面是设置delay</p>
-<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.box</span><span class="token punctuation">&#123;</span>
-    <span class="token property">height</span> <span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
-    <span class="token property">width</span> <span class="token punctuation">:</span> 400px<span class="token punctuation">;</span>
-    <span class="token property">background</span> <span class="token punctuation">:</span> coral<span class="token punctuation">;</span>
-    <span class="token property">transition</span> <span class="token punctuation">:</span> height 1s linear<span class="token punctuation">,</span>
-        	     width 1s linear 1s<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token selector">.box:hover</span><span class="token punctuation">&#123;</span>
-    <span class="token property">height</span> <span class="token punctuation">:</span> 400px<span class="token punctuation">;</span>
-    <span class="token property">width</span> <span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="CSS-Animation"><a href="#CSS-Animation" class="headerlink" title="CSS  Animation"></a>CSS  Animation</h3><p>实现更复杂的样式变化效果</p>
-<p>使用方法：</p>
-<ul>
-<li>定义关键帧样式</li>
-<li>应用动画到元素上</li>
-</ul>
-<p><strong>666</strong></p>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>scroll-down<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    ↓
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
-    <span class="token atrule"><span class="token rule">@keyframes</span> down</span> <span class="token punctuation">&#123;</span>
-        <span class="token selector">from</span><span class="token punctuation">&#123;</span>
-            <span class="token property">margin-top</span> <span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-            <span class="token property">opacity</span> <span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token selector">50%</span><span class="token punctuation">&#123;</span>
-            <span class="token property">margin-top</span> <span class="token punctuation">:</span> 0.5em<span class="token punctuation">;</span>
-            <span class="token property">opacity</span> <span class="token punctuation">:</span> 0.3<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token selector">to</span><span class="token punctuation">&#123;</span>
-            <span class="token property">margin-top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-            <span class="token property">opacity</span> <span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-    
-    <span class="token selector">.scroll-down</span><span class="token punctuation">&#123;</span>
-        <span class="token property">position</span><span class="token punctuation">:</span> fixed<span class="token punctuation">;</span>
-        <span class="token property">top</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
-        <span class="token property">left</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
-        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span>-50%<span class="token punctuation">,</span> 50%<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token property">font</span><span class="token punctuation">:</span> normal normal 100px/1 Helvetica<span class="token punctuation">;</span>
-        <span class="token property">color</span><span class="token punctuation">:</span> #f66<span class="token punctuation">;</span>
-        <span class="token property">animation</span><span class="token punctuation">:</span> down 1.5s ease infinite<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>animation 属性：</p>
-<ul>
-<li>animation-name 关键帧的名字</li>
-<li>animation-duration 动画的持续时间</li>
-<li>animation-timing-function 关键帧之间过渡的快慢</li>
-<li>animation-delay 动画播放的延时</li>
-<li>animation-iteration-count 动画播放的次数</li>
-<li>animation-direction 动画是正序播放还是倒叙序播放</li>
-</ul>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>beats<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    ❤
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
-    <span class="token atrule"><span class="token rule">@keyframes</span> beats</span><span class="token punctuation">&#123;</span>
-        <span class="token selector">from</span><span class="token punctuation">&#123;</span>
-            <span class="token property">transform</span> <span class="token punctuation">:</span> <span class="token function">scale</span><span class="token punctuation">(</span>1<span class="token punctuation">)</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token selector">to</span><span class="token punctuation">&#123;</span>
-            <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scale</span><span class="token punctuation">(</span>2<span class="token punctuation">)</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token selector">.beats</span><span class="token punctuation">&#123;</span>
-        <span class="token property">position</span><span class="token punctuation">:</span> fixed<span class="token punctuation">;</span>
-        <span class="token property">top</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
-        <span class="token property">left</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
-        <span class="token property">margin-top</span><span class="token punctuation">:</span> -0.5em<span class="token punctuation">;</span>
-        <span class="token property">margin-left</span><span class="token punctuation">:</span> -0.5em<span class="token punctuation">;</span>
-        <span class="token property">font</span><span class="token punctuation">:</span> normal normal 100px/1 Helvetica<span class="token punctuation">;</span>
-        <span class="token property">color</span><span class="token punctuation">:</span> #f66<span class="token punctuation">;</span>
-        <span class="token property">animation</span><span class="token punctuation">:</span> beats 1s ease infinite<span class="token punctuation">;</span>
-        <span class="token property">animation-direction</span><span class="token punctuation">:</span> alternate<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="响应式设计"><a href="#响应式设计" class="headerlink" title="响应式设计"></a>响应式设计</h3><p>响应式设计是同一个页面可以适应不同屏幕大小设备的设计方案</p>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>width = device-width, initial-scale = 1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>对于PC页面采用的视口大小 就是浏览器窗口的大小， 对于手机浏览器就不是这样，出于兼容以前PC网页的考虑，</p>
-<p>手机浏览器在布局的时候使用的视口宽度是980px，而手机浏览器的宽度一般比这个要小，所以 整个页面会被缩小，为了让手机浏览器有更好的体验，要告诉手机浏览器不要使用980px的视口大小，而是使用和设备宽度的小</p>
-<p>上面的代码就是干这个的</p>
-<p>图片尺寸设置 适应不同的宽度</p>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>...<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
-    <span class="token selector">img</span><span class="token punctuation">&#123;</span>
-        <span class="token property">max-width</span> <span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>让背景图片适应不同的宽度</p>
-<p>background-size : contain; 把图片自动缩放到容器内，把图片完整展示出来</p>
-<p>background-size : cover;  把图片缩放到覆盖整个容器的大小 某些内容会被裁切掉</p>
-<p>针对 不同屏幕尺寸 应用不同的样式 用media query</p>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html">@media screen and (min-width: 480px)&#123;
-	.box&#123;
-		font-size : 16px;
-	&#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>可以查询的media： width、height 、device-height、device-width、device-pixel-ratio、orientation</p>
-<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">body</span><span class="token punctuation">&#123;</span>
-    <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token selector">nav</span><span class="token punctuation">&#123;</span>
-    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
-    <span class="token property">background</span><span class="token punctuation">:</span> lightblue<span class="token punctuation">;</span>
-    <span class="token property">line-height</span><span class="token punctuation">:</span> 2<span class="token punctuation">;</span>
-    <span class="token property">justify-content</span><span class="token punctuation">:</span> space-around<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token atrule"><span class="token rule">@media</span> screen <span class="token keyword">and</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> 480px<span class="token punctuation">)</span></span><span class="token punctuation">&#123;</span>
-    <span class="token selector">nav</span><span class="token punctuation">&#123;</span>
-        <span class="token property">flex-direction</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>使用不同尺寸的图片 要考虑流量的问题，在手机 上不需要高分辨率的图片</p>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">srcset</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>/img/large.jpg 1200w,
-               /img/normal.jpg 800w,
-               /img/small.jpg 400w<span class="token punctuation">"</span></span>
-     <span class="token attr-name">sizes</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>(max-width: 320px) 400px,
-              (max-width: 640px) 800px,
-              1200px<span class="token punctuation">"</span></span>
-     <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>...<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>设置字体大小的套路之一</p>
-<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">html</span><span class="token punctuation">&#123;</span>
-    <span class="token property">font-size</span> <span class="token punctuation">:</span> 18px<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token selector">article h1</span><span class="token punctuation">&#123;</span>
-    <span class="token property">font-size</span> <span class="token punctuation">:</span> 2rem<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token selector">article p</span><span class="token punctuation">&#123;</span>
-    <span class="token property">font-size</span> <span class="token punctuation">:</span> 1rem<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token atrule"><span class="token rule">@media</span> screen <span class="token keyword">and</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> 480px<span class="token punctuation">)</span></span><span class="token punctuation">&#123;</span>
-    <span class="token selector">html</span><span class="token punctuation">&#123;</span>
-        <span class="token property">font-size</span><span class="token punctuation">:</span> 14px
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>里面的r 代表着root的意思</p>
-<h3 id="处理CSS的兼容性"><a href="#处理CSS的兼容性" class="headerlink" title="处理CSS的兼容性"></a>处理CSS的兼容性</h3><p>了解浏览器支持的情况</p>
-<ul>
-<li>caniuse.com</li>
-<li>MDN CSS Reference</li>
-<li>Codrops CSS Reference</li>
-<li>QuirksMode.org CSS</li>
-</ul>
-<p><strong>处理浏览器不支持的情况</strong></p>
-<p>浏览器hack原理 同一个属性，后面书写的值覆盖前面书写的值</p>
-<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">p</span><span class="token punctuation">&#123;</span>
-    <span class="token property">display</span><span class="token punctuation">:</span> table<span class="token punctuation">;</span>
-    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>对于不支持flex的浏览器就会用table </p>
-<p>条件注释</p>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token comment">&lt;!--[if IE 7]>
-	&lt;p>只能在IE 7下看到我&lt;/p>
-&lt;![endif]--></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>还可以用浏览器的怪癖 略掉</p>
+<p>$z \sim N(0, I),\  z \in R^d \ (d &lt; n)$  举个例子 d = 3 m = 30 n = 100</p>
+<p>我们假设 $X = \mu + \Lambda z + \epsilon$  其中 $\epsilon \sim N(0, \Phi)$   这个模型中 每个参数为</p>
+<script type="math/tex; mode=display">
+\mu \in R^n, \Lambda \in R^{n\times d},\Phi \in R^{n \times n} \ diagonal</script><p>那么 $x | z \sim N(\mu + \Lambda z, \Phi)$</p>
+<p>d为d个main driving factors affecting the temperature of this room</p>
+<p>老师用100个sensor测学校温度的例子来说明 这个模型，$\Phi$为对角线 说明每个sensor的噪声是相互独立的</p>
+<p>老师举了两个例子 第一个例子 d = 1 n = 2 m = 7  第二个例子 d = 2 n = 3 m = 5</p>
+<p>感觉有点降维的味道 第二个例子说明大部分的数据会集中在 线性变换后的平面附近，二维在三维线性变换 构成的是平面，但也可以是距离平面有点的远的地方，只要方差比较大，每一维的方差是不一样的</p>
+<h3 id="The-derivation-of-EM-for-factor-analysis"><a href="#The-derivation-of-EM-for-factor-analysis" class="headerlink" title="The derivation of EM for factor analysis"></a>The derivation of EM for factor analysis</h3><p>推理比较tricky 视频最后30分钟 推导公式中比较tricky的部分 这要看讲义 光看视频看不懂 一脸懵逼</p>
 
                 
             </div>
@@ -738,7 +537,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://myalos.github.io/2021/05/16/css3/">http://myalos.github.io/2021/05/16/css3/</a>
+                    <a href="http://myalos.github.io/2021/05/22/cs229%2015/">http://myalos.github.io/2021/05/22/cs229%2015/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -776,8 +575,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/CSS/">
-                                    <span class="chip bg-color">CSS</span>
+                                <a href="/tags/cs229/">
+                                    <span class="chip bg-color">cs229</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">机器学习</span>
                                 </a>
                             
                         </div>
@@ -1002,29 +805,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/05/22/cs229%2013/">
+                <a href="/2021/05/22/cs229%2015/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Debug ML Models and Error Analysis">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="EM Algorithm Factor Analysis">
                         
-                        <span class="card-title">Debug ML Models and Error Analysis</span>
+                        <span class="card-title">EM Algorithm Factor Analysis</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是CS229 第十三课的学习笔记
+                            这是CS229 第十五课的学习笔记
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1037,6 +841,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1059,31 +864,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/16/css2/">
+                <a href="/2021/05/22/cs229%2014/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="CSS基础 II">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Expectation-Maximization Algorithms">
                         
-                        <span class="card-title">CSS基础 II</span>
+                        <span class="card-title">Expectation-Maximization Algorithms</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是CSS第二部分的学习笔记
+                            这是CS229 第十四课的学习笔记
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-22
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    前端
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
                                 </a>
                             
                             
@@ -1093,8 +898,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CSS/">
-                        <span class="chip bg-color">CSS</span>
+                    <a href="/tags/cs229/">
+                        <span class="chip bg-color">cs229</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
                     </a>
                     
                 </div>
