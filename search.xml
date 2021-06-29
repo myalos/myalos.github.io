@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>GDA Naive Bayes</title>
+      <link href="2021/06/18/cs229%205/"/>
+      <url>2021/06/18/cs229%205/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Lecture-5-GDA-Naive-Bayes"><a href="#Lecture-5-GDA-Naive-Bayes" class="headerlink" title="Lecture 5 GDA Naive Bayes"></a>Lecture 5 GDA Naive Bayes</h2><p><a href="https://www.bilibili.com/video/BV1JE411w7Ub?p=7">视频链接</a></p><p><a href="http://cs229.stanford.edu/notes2020fall/notes2020fall/cs229-notes2.pdf">讲义链接</a></p><h3 id="Generative-Learning-Algorithms"><a href="#Generative-Learning-Algorithms" class="headerlink" title="Generative Learning Algorithms"></a>Generative Learning Algorithms</h3><p><strong>logistic regression 是在寻找一条直线，寻找一个将正例和负例分开的决策边界</strong></p><p>Generative Learning Algorithm没有寻找这种分离$($即并非是查看两个类然后去找到分离线$)$</p><p>而是<strong>一次查看一个类，根据这个类的所有训练数据尝试建立这个类的模型</strong>，在分类的时候，对于测试数据代入到每个类的模型之中，选择最有可能的一类。<strong>$($重要$)$</strong></p><ul><li><p>Discriminative learning algorithm：</p><p>Learn $\mathcal{P}(y|x)$ or learn $h_\theta(x)$ directly</p></li><li><p>Generative learning algorithm：</p><p>Learn $\mathcal{P}(x|y)$ 例如给定类别，what are the features likely gonna be like?</p><p>Learn $\mathcal{P}(y)$ (一般称作为class prior)</p></li></ul><p>根据Bayes rule $\mathcal{P}(y = 1 | x)  = \frac{\mathcal{P}(x | y = 1)\mathcal{P}(y = 1)}{\mathcal{P}(x)}$ 其中$\mathcal{P}(x) = \mathcal{P}(x | y = 1) \mathcal{P}(y = 1)+ \mathcal{P}(x | y = 0)\mathcal{P}(y = 0)$</p><p><strong>下面是两个generative learning algorithm的实例，一个针对continuous value features，另一个针对discrete features</strong></p><h3 id="Gaussian-Discriminant-Analysis-GDA"><a href="#Gaussian-Discriminant-Analysis-GDA" class="headerlink" title="Gaussian Discriminant Analysis$($GDA$)$"></a>Gaussian Discriminant Analysis$($GDA$)$</h3><p>假设$x \in \mathcal{R}^n$, <strong>高斯判别分析的核心假设是，我们将假定$\mathcal{P}(x|y)$服从高斯分布</strong></p><p>[10:00]开始讲多元高斯分布 讲到[19: 00]</p><p>GDA model：</p><script type="math/tex; mode=display">\mathcal{P}(x | y = 0) = \frac{1}{(2\pi)^\frac{n}{2}|\Sigma|^\frac{1}{2}}exp(-\frac{1}{2}(x - \mu_0)^T\Sigma^{-1}(x - \mu_0)) \\\mathcal{P}(x | y = 1) = \frac{1}{(2\pi)^\frac{n}{2}|\Sigma|^\frac{1}{2}}exp(-\frac{1}{2}(x - \mu_1)^T\Sigma^{-1}(x - \mu_1)))</script><p>这个模型的参数有$\mu_0,\mu_1,\Sigma,\phi$，<strong>注意模型假设这两个多元高斯分布的协方差矩阵是相同的</strong></p><p><strong>老师说可以使两个协方差矩阵不同，但是一般不这么做，一般都假设两个协方差矩阵是相同的</strong></p><p>对$\mathcal{P}(y)$进行建模，$y$取二元值，对此建模为伯努利，即$\mathcal{P}(y) = \phi^y(1 - \phi)^{1- y}$</p><p><strong>PS: 奥本海姆读$\phi$ 最后一个音节是i，吴恩达读$\phi$ 最后一个音节是ai</strong></p><h4 id="fit-parameters"><a href="#fit-parameters" class="headerlink" title="fit parameters"></a>fit parameters</h4><p>我们有训练集$\{ (x^{(i)},y^{(i)}\} \quad i = 1, \cdots, m$ 我们要做的是maximize the joint likelihood</p><script type="math/tex; mode=display">\begin{aligned}\ell(\phi, \mu_0, \mu_1, \Sigma) &= \prod_{i = 1}^{m}\mathcal{P}(x^{(i)},y^{(i)};\phi,\mu_0,\mu_1,\Sigma) \\&= \prod_{i = 1}^{m}\mathcal{P}(x^{(i)}|y^{(i)};\mu_0,\mu_1,\Sigma)\mathcal{P}(y^{(i)};\phi)\end{aligned}\tag{1}</script><p>对于discriminative learning algorithm 我们maxmize的是conditional likelihood：</p><script type="math/tex; mode=display">\ell(\theta) = \prod_{i = 1}^{m}\mathcal{P}(y^{(i)} | x^{(i)}, \theta)</script><p>对$(1)$进行最大似然估计，解得$\phi = \frac{\sum_{i = 1}^my^{(i)}}{m} = \frac{\sum_{i = 1}^m1\{y^{(i)} = 1 \}}{m}$ 其中1是一个indicator，$1\{ y^{(i)} = 1 \}$ 返回0或者1 根据里面的东西是否正确 $1\{ true \} = 1$ 和 $1\{false\} = 0$</p><p>$\mu_0 = \frac{\sum_{i = 1}^m1\{y^{(i)} = 0 \}x^{(i)}}{\sum_{i = 1}^mi\{y^{(i)}\} = 0}$ 和 $\mu_1 = \frac{\sum_{i = 1}^m1\{y^{(i)} = 1 \}x^{(i)}}{\sum_{i = 1}^mi\{y^{(i)}\} = 1}$ 从这个式子可以看出，均值的最大似然估计就是把一个类所有的数据 然后对所有的数据取均值，这个值就是均值$\mu$的最大似然估计</p><script type="math/tex; mode=display">\Sigma = \frac{1}{n}\sum_{i = 1}^n(x^{(i)} - \mu_{y^{(i)}})(x^{(i)} - \mu_{y^{(i)}})^T</script><p>用这个模型进行预测$arg\max_y\mathcal{P}(y | x)  = arg\max_y \frac{\mathcal{P}(x | y)\mathcal{P}(y)}{\mathcal{P}(x)}$ 相对于$y$ $\mathcal{P}(x)$是个常数</p><p>所以$arg\max_y\mathcal{P}(y | x)  = arg\max_y \mathcal{P}(x | y)\mathcal{P}(y)$</p><p><strong>区别argmax 和 max 两个notation </strong></p><script type="math/tex; mode=display">\min_z(z - 5)^2 = 0 \\arg\min_z(z - 5)^2 = 5</script><p>[37:20]开始讲用Logistic Regression 和 GDA 来对数据进行分类（如果GDA两个分布的协方差矩阵不相同，那么分界面可能就不是直线了</p><h4 id="与Logistic-Regression进行比较"><a href="#与Logistic-Regression进行比较" class="headerlink" title="与Logistic Regression进行比较"></a>与Logistic Regression进行比较</h4><p>这个部分讲义里面写的非常的详细</p><p>Compared to logistic regression，for a fixed $\phi, \mu_0, \mu_1, \Sigma$, lets plot $\mathcal{P}(y = 1 | x;\phi,\mu_0,\mu_1,\Sigma) $ as a function of x [43:40] 用1维的两个高斯 来举例GDA模型</p><p>核心在于<strong>GDA for a fixed $\phi, \mu_0, \mu_1, \Sigma$, lets plot $\mathcal{P}(y = 1 | x;\phi,\mu_0,\mu_1,\Sigma)$ as a function of x 是一个sigmoid函数，但是与logistic regression的sigmoid函数得到的decision boundary是不同的</strong></p><p>GDA 是一个比logistic regression <strong>更强</strong>的假设</p><p>一般做一个更强的假设，如果假设正确，那么模型就会做的很好$($即使对于非常小的数据集$)$</p><p>如果假设错误$( \mathcal{P}(x|y)$是服从泊松分布，结果得到的也是一个sigmoid函数$)$，那么模型效果就很差；对于弱的假设，模型就会更加稳定，在大数据的时代 数据很多，用logistic regression能克服模型偏弱的缺陷</p><p><strong>老师说他仍然使用GDA之类的算法的原因是 it’s actually quite computationally efficient, 因为求$\mu$就是求个加起来取平均，求个$\Sigma$就是求个矩阵乘法</strong></p><p><strong>老师说判断一个人机器学习能力 是在于对于小样本的数据集能否训练出相当好的模型</strong></p><h3 id="Naive-Bayes"><a href="#Naive-Bayes" class="headerlink" title="Naive Bayes"></a>Naive Bayes</h3><p>naive bayes是适用于$x$离散数据</p><p>naive bayes的核心假设是<strong>Assume $x_i$’s are conditionally independent given y</strong></p><script type="math/tex; mode=display">\mathcal{P}(x_1, \cdots, x_{10000}) = \mathcal{P}(x_1|y)\mathcal{P}(x_2|y) \cdots \mathcal{P}(x_{10000}|y) = \prod_{i = 1}^{10000}\mathcal{P}(x_i | y)</script><p>参数有$\phi_{j|y=1} = \mathcal{P}(x_j = 1| y = 1), \phi_{j|y=0} = \mathcal{P}(x_j = 0| y = 0), \phi_y \quad j = 1, \cdots, n$</p><p>Joint likelihood: $\ell(\phi_j, \phi_{j|y} = \prod_{i = 1}^m \mathcal{P}(x^{(i)}, y^{(i)}; \phi_y, \phi_{j|y}))$</p><p>用MLE 解得</p><script type="math/tex; mode=display">\phi_y = \frac{\sum_{i = 1}^m1\{y^{(i)} = 1\}}{m}  \\\phi_{j | y = 1} = \frac{\sum_{i = 1}^m1\{x_j^{(i)} = 1,y^{(i)} = 1\}}{\sum_{i = 1}^m1\{y^{(i)} = 1\} }</script><p>老师说对于垃圾邮件分类，logistic regression要做的比这个好，naive bayes的优点是computationally efficient</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 机器学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> cs229 </tag>
+            
+            <tag> 机器学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>EM Algorithm Factor Analysis</title>
       <link href="2021/05/22/cs229%2015/"/>
       <url>2021/05/22/cs229%2015/</url>

@@ -6,7 +6,7 @@
   <link href="http://myalos.github.io/atom.xml" rel="self"/>
   
   <link href="http://myalos.github.io/"/>
-  <updated>2021-05-22T12:32:13.175Z</updated>
+  <updated>2021-03-16T01:12:08.000Z</updated>
   <id>http://myalos.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GDA Naive Bayes</title>
+    <link href="http://myalos.github.io/2021/06/18/cs229%205/"/>
+    <id>http://myalos.github.io/2021/06/18/cs229%205/</id>
+    <published>2021-06-17T23:50:15.689Z</published>
+    <updated>2021-03-16T01:12:08.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Lecture-5-GDA-Naive-Bayes&quot;&gt;&lt;a href=&quot;#Lecture-5-GDA-Naive-Bayes&quot; class=&quot;headerlink&quot; title=&quot;Lecture 5 GDA Naive Bayes&quot;&gt;&lt;/a&gt;Lecture 5</summary>
+        
+      
+    
+    
+    
+    <category term="机器学习" scheme="http://myalos.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="cs229" scheme="http://myalos.github.io/tags/cs229/"/>
+    
+    <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>EM Algorithm Factor Analysis</title>
@@ -523,35 +550,6 @@
         
         
     <summary type="html">&lt;h3 id=&quot;Lecture-3-Signals-and-Systems-Part-II&quot;&gt;&lt;a href=&quot;#Lecture-3-Signals-and-Systems-Part-II&quot; class=&quot;headerlink&quot; title=&quot;Lecture 3 Signals</summary>
-        
-      
-    
-    
-    
-    <category term="信号与系统" scheme="http://myalos.github.io/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-    <category term="信号与系统" scheme="http://myalos.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
-    
-    <category term="理论知识" scheme="http://myalos.github.io/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/"/>
-    
-    <category term="数学" scheme="http://myalos.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Properties of Linear Time-invariant Systems</title>
-    <link href="http://myalos.github.io/2021/03/08/signal%20and%20system%205/"/>
-    <id>http://myalos.github.io/2021/03/08/signal%20and%20system%205/</id>
-    <published>2021-03-08T11:16:19.903Z</published>
-    <updated>2021-03-08T12:11:31.497Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;Lecture-5-Properties-of-Linear-Time-invariant-Systems&quot;&gt;&lt;a href=&quot;#Lecture-5-Properties-of-Linear-Time-invariant-Systems&quot;</summary>
         
       
     

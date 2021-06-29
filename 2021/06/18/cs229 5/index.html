@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="EM Algorithm Factor Analysis, goon的杂货店">
+    <meta name="keywords" content="GDA Naive Bayes, goon的杂货店">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>EM Algorithm Factor Analysis | goon的杂货店</title>
+    <title>GDA Naive Bayes | goon的杂货店</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">EM Algorithm Factor Analysis</h1>
+                    <h1 class="description center-align post-title">GDA Naive Bayes</h1>
                 </div>
             </div>
         </div>
@@ -461,7 +461,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-22
+                    2021-06-18
                 </div>
                 
 
@@ -485,32 +485,63 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Lecture-15-EM-Algorithm-Factor-Analysis"><a href="#Lecture-15-EM-Algorithm-Factor-Analysis" class="headerlink" title="Lecture 15 EM Algorithm Factor Analysis"></a>Lecture 15 EM Algorithm Factor Analysis</h2><p>这一章会讲到Factor analysis 这个模型对于高维少量的数据也有用</p>
-<p>前12分钟 用上一节课讲的EM算法 来推GMM算法 每个参数是怎么更新的，M步对函数求偏导</p>
-<h3 id="Factor-Analysis"><a href="#Factor-Analysis" class="headerlink" title="Factor Analysis"></a>Factor Analysis</h3><p>在这个模型中$z^{(i)}$不是离散的，$z^{(i)}$是连续的，而且$z^{(i)}$是高斯分布的</p>
-<p><strong>再回顾一下上节课讲的EM算法</strong></p>
-<p>定义$J(\theta, Q) = \sum_i\sum_{z^{(i)}}Q_i(z^{(i)})log\frac{P(x^{(i)}, z^{(i)};\theta)}{Q_i(z^{(i)})}$</p>
-<p>由上节课 我们知道$l(\theta) \ge J(\theta, Q)$ for any $\theta, Q$ ， 另一种角度来看EM算法</p>
-<p>E步 ：Maximize $J$ w.r.t. $Q$  即选Q让等号成立             M步 ：Maximize $J$ w.r.t. $\theta$</p>
-<p>EM算法也被称作为 a coordinate ascent algorithm relative to this cost function $J$</p>
-<p>老师举了个例子 n = 2 m = 100的时候 [18:30]图，两个高斯混合就够了，即$m &gt;&gt; n$的时候用GMM效果是很好的，<strong>如果$m \approx n$ 或者 $m &lt;&lt; n$的时候</strong>  比如 m = 30 n = 100</p>
-<p>model a single Gaussian: $X \sim N(\mu, \Sigma)$   MLE: $\mu = \frac{1}{m}\sum_ix^{(i)}$ $\Sigma = \frac{1}{m}\sum_{i = 1}^m(x^{(i)} - \mu)(x^{(i)} - \mu)^T$</p>
-<p>If $m \le n$, the $\Sigma$ will be <strong>singular</strong> 那么概率密度里面$\frac{1}{|\Sigma|^\frac{1}{2}}$就会无定义 而且对于指数项里面的$\Sigma^{-1}$也无法求, MLE失效，举了个二维空间 两个训练样本的例子，训练出来的高斯模型的轮廓将是infinitely skinny</p>
-<p>Factorial analysis 最早出现于心理学研究中 研究100 psychological attributes 研究对象是30人</p>
-<p>针对这个问题的想到解决方法：</p>
+                <h2 id="Lecture-5-GDA-Naive-Bayes"><a href="#Lecture-5-GDA-Naive-Bayes" class="headerlink" title="Lecture 5 GDA Naive Bayes"></a>Lecture 5 GDA Naive Bayes</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1JE411w7Ub?p=7">视频链接</a></p>
+<p><a target="_blank" rel="noopener" href="http://cs229.stanford.edu/notes2020fall/notes2020fall/cs229-notes2.pdf">讲义链接</a></p>
+<h3 id="Generative-Learning-Algorithms"><a href="#Generative-Learning-Algorithms" class="headerlink" title="Generative Learning Algorithms"></a>Generative Learning Algorithms</h3><p><strong>logistic regression 是在寻找一条直线，寻找一个将正例和负例分开的决策边界</strong></p>
+<p>Generative Learning Algorithm没有寻找这种分离$($即并非是查看两个类然后去找到分离线$)$</p>
+<p>而是<strong>一次查看一个类，根据这个类的所有训练数据尝试建立这个类的模型</strong>，在分类的时候，对于测试数据代入到每个类的模型之中，选择最有可能的一类。<strong>$($重要$)$</strong></p>
 <ul>
-<li>Constrain $\Sigma$ to be diagonal 这个模型是假设所有的特征都是不想关的，这不是一个好的假设</li>
-<li>Constrain $\Sigma$ to be $\sigma^2I$  这个模型更糟</li>
+<li><p>Discriminative learning algorithm：</p>
+<p>Learn $\mathcal{P}(y|x)$ or learn $h_\theta(x)$ directly</p>
+</li>
+<li><p>Generative learning algorithm：</p>
+<p>Learn $\mathcal{P}(x|y)$ 例如给定类别，what are the features likely gonna be like?</p>
+<p>Learn $\mathcal{P}(y)$ (一般称作为class prior)</p>
+</li>
 </ul>
-<p>$z \sim N(0, I),\  z \in R^d \ (d &lt; n)$  举个例子 d = 3 m = 30 n = 100</p>
-<p>我们假设 $X = \mu + \Lambda z + \epsilon$  其中 $\epsilon \sim N(0, \Phi)$   这个模型中 每个参数为</p>
+<p>根据Bayes rule $\mathcal{P}(y = 1 | x)  = \frac{\mathcal{P}(x | y = 1)\mathcal{P}(y = 1)}{\mathcal{P}(x)}$ 其中$\mathcal{P}(x) = \mathcal{P}(x | y = 1) \mathcal{P}(y = 1)+ \mathcal{P}(x | y = 0)\mathcal{P}(y = 0)$</p>
+<p><strong>下面是两个generative learning algorithm的实例，一个针对continuous value features，另一个针对discrete features</strong></p>
+<h3 id="Gaussian-Discriminant-Analysis-GDA"><a href="#Gaussian-Discriminant-Analysis-GDA" class="headerlink" title="Gaussian Discriminant Analysis$($GDA$)$"></a>Gaussian Discriminant Analysis$($GDA$)$</h3><p>假设$x \in \mathcal{R}^n$, <strong>高斯判别分析的核心假设是，我们将假定$\mathcal{P}(x|y)$服从高斯分布</strong></p>
+<p>[10:00]开始讲多元高斯分布 讲到[19: 00]</p>
+<p>GDA model：</p>
 <script type="math/tex; mode=display">
-\mu \in R^n, \Lambda \in R^{n\times d},\Phi \in R^{n \times n} \ diagonal</script><p>那么 $x | z \sim N(\mu + \Lambda z, \Phi)$</p>
-<p>d为d个main driving factors affecting the temperature of this room</p>
-<p>老师用100个sensor测学校温度的例子来说明 这个模型，$\Phi$为对角线 说明每个sensor的噪声是相互独立的</p>
-<p>老师举了两个例子 第一个例子 d = 1 n = 2 m = 7  第二个例子 d = 2 n = 3 m = 5</p>
-<p>感觉有点降维的味道 第二个例子说明大部分的数据会集中在 线性变换后的平面附近，二维在三维线性变换 构成的是平面，但也可以是距离平面有点的远的地方，只要方差比较大，每一维的方差是不一样的</p>
-<h3 id="The-derivation-of-EM-for-factor-analysis"><a href="#The-derivation-of-EM-for-factor-analysis" class="headerlink" title="The derivation of EM for factor analysis"></a>The derivation of EM for factor analysis</h3><p>推理比较tricky 视频最后30分钟 推导公式中比较tricky的部分 这要看讲义 光看视频看不懂 一脸懵逼</p>
+\mathcal{P}(x | y = 0) = \frac{1}{(2\pi)^\frac{n}{2}|\Sigma|^\frac{1}{2}}exp(-\frac{1}{2}(x - \mu_0)^T\Sigma^{-1}(x - \mu_0)) \\
+\mathcal{P}(x | y = 1) = \frac{1}{(2\pi)^\frac{n}{2}|\Sigma|^\frac{1}{2}}exp(-\frac{1}{2}(x - \mu_1)^T\Sigma^{-1}(x - \mu_1)))</script><p>这个模型的参数有$\mu_0,\mu_1,\Sigma,\phi$，<strong>注意模型假设这两个多元高斯分布的协方差矩阵是相同的</strong></p>
+<p><strong>老师说可以使两个协方差矩阵不同，但是一般不这么做，一般都假设两个协方差矩阵是相同的</strong></p>
+<p>对$\mathcal{P}(y)$进行建模，$y$取二元值，对此建模为伯努利，即$\mathcal{P}(y) = \phi^y(1 - \phi)^{1- y}$</p>
+<p><strong>PS: 奥本海姆读$\phi$ 最后一个音节是i，吴恩达读$\phi$ 最后一个音节是ai</strong></p>
+<h4 id="fit-parameters"><a href="#fit-parameters" class="headerlink" title="fit parameters"></a>fit parameters</h4><p>我们有训练集$\{ (x^{(i)},y^{(i)}\} \quad i = 1, \cdots, m$ 我们要做的是maximize the joint likelihood</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\ell(\phi, \mu_0, \mu_1, \Sigma) &= \prod_{i = 1}^{m}\mathcal{P}(x^{(i)},y^{(i)};\phi,\mu_0,\mu_1,\Sigma) \\
+&= \prod_{i = 1}^{m}\mathcal{P}(x^{(i)}|y^{(i)};\mu_0,\mu_1,\Sigma)\mathcal{P}(y^{(i)};\phi)
+\end{aligned}\tag{1}</script><p>对于discriminative learning algorithm 我们maxmize的是conditional likelihood：</p>
+<script type="math/tex; mode=display">
+\ell(\theta) = \prod_{i = 1}^{m}\mathcal{P}(y^{(i)} | x^{(i)}, \theta)</script><p>对$(1)$进行最大似然估计，解得$\phi = \frac{\sum_{i = 1}^my^{(i)}}{m} = \frac{\sum_{i = 1}^m1\{y^{(i)} = 1 \}}{m}$ 其中1是一个indicator，$1\{ y^{(i)} = 1 \}$ 返回0或者1 根据里面的东西是否正确 $1\{ true \} = 1$ 和 $1\{false\} = 0$</p>
+<p>$\mu_0 = \frac{\sum_{i = 1}^m1\{y^{(i)} = 0 \}x^{(i)}}{\sum_{i = 1}^mi\{y^{(i)}\} = 0}$ 和 $\mu_1 = \frac{\sum_{i = 1}^m1\{y^{(i)} = 1 \}x^{(i)}}{\sum_{i = 1}^mi\{y^{(i)}\} = 1}$ 从这个式子可以看出，均值的最大似然估计就是把一个类所有的数据 然后对所有的数据取均值，这个值就是均值$\mu$的最大似然估计</p>
+<script type="math/tex; mode=display">
+\Sigma = \frac{1}{n}\sum_{i = 1}^n(x^{(i)} - \mu_{y^{(i)}})(x^{(i)} - \mu_{y^{(i)}})^T</script><p>用这个模型进行预测$arg\max_y\mathcal{P}(y | x)  = arg\max_y \frac{\mathcal{P}(x | y)\mathcal{P}(y)}{\mathcal{P}(x)}$ 相对于$y$ $\mathcal{P}(x)$是个常数</p>
+<p>所以$arg\max_y\mathcal{P}(y | x)  = arg\max_y \mathcal{P}(x | y)\mathcal{P}(y)$</p>
+<p><strong>区别argmax 和 max 两个notation </strong></p>
+<script type="math/tex; mode=display">
+\min_z(z - 5)^2 = 0 \\
+arg\min_z(z - 5)^2 = 5</script><p>[37:20]开始讲用Logistic Regression 和 GDA 来对数据进行分类（如果GDA两个分布的协方差矩阵不相同，那么分界面可能就不是直线了</p>
+<h4 id="与Logistic-Regression进行比较"><a href="#与Logistic-Regression进行比较" class="headerlink" title="与Logistic Regression进行比较"></a>与Logistic Regression进行比较</h4><p>这个部分讲义里面写的非常的详细</p>
+<p>Compared to logistic regression，for a fixed $\phi, \mu_0, \mu_1, \Sigma$, lets plot $\mathcal{P}(y = 1 | x;\phi,\mu_0,\mu_1,\Sigma) $ as a function of x [43:40] 用1维的两个高斯 来举例GDA模型</p>
+<p>核心在于<strong>GDA for a fixed $\phi, \mu_0, \mu_1, \Sigma$, lets plot $\mathcal{P}(y = 1 | x;\phi,\mu_0,\mu_1,\Sigma)$ as a function of x 是一个sigmoid函数，但是与logistic regression的sigmoid函数得到的decision boundary是不同的</strong></p>
+<p>GDA 是一个比logistic regression <strong>更强</strong>的假设</p>
+<p>一般做一个更强的假设，如果假设正确，那么模型就会做的很好$($即使对于非常小的数据集$)$</p>
+<p>如果假设错误$( \mathcal{P}(x|y)$是服从泊松分布，结果得到的也是一个sigmoid函数$)$，那么模型效果就很差；对于弱的假设，模型就会更加稳定，在大数据的时代 数据很多，用logistic regression能克服模型偏弱的缺陷</p>
+<p><strong>老师说他仍然使用GDA之类的算法的原因是 it’s actually quite computationally efficient, 因为求$\mu$就是求个加起来取平均，求个$\Sigma$就是求个矩阵乘法</strong></p>
+<p><strong>老师说判断一个人机器学习能力 是在于对于小样本的数据集能否训练出相当好的模型</strong></p>
+<h3 id="Naive-Bayes"><a href="#Naive-Bayes" class="headerlink" title="Naive Bayes"></a>Naive Bayes</h3><p>naive bayes是适用于$x$离散数据</p>
+<p>naive bayes的核心假设是<strong>Assume $x_i$’s are conditionally independent given y</strong></p>
+<script type="math/tex; mode=display">\mathcal{P}(x_1, \cdots, x_{10000}) = \mathcal{P}(x_1|y)\mathcal{P}(x_2|y) \cdots \mathcal{P}(x_{10000}|y) = \prod_{i = 1}^{10000}\mathcal{P}(x_i | y)</script><p>参数有$\phi_{j|y=1} = \mathcal{P}(x_j = 1| y = 1), \phi_{j|y=0} = \mathcal{P}(x_j = 0| y = 0), \phi_y \quad j = 1, \cdots, n$</p>
+<p>Joint likelihood: $\ell(\phi_j, \phi_{j|y} = \prod_{i = 1}^m \mathcal{P}(x^{(i)}, y^{(i)}; \phi_y, \phi_{j|y}))$</p>
+<p>用MLE 解得</p>
+<script type="math/tex; mode=display">
+\phi_y = \frac{\sum_{i = 1}^m1\{y^{(i)} = 1\}}{m}  \\
+\phi_{j | y = 1} = \frac{\sum_{i = 1}^m1\{x_j^{(i)} = 1,y^{(i)} = 1\}}{\sum_{i = 1}^m1\{y^{(i)} = 1\} }</script><p>老师说对于垃圾邮件分类，logistic regression要做的比这个好，naive bayes的优点是computationally efficient</p>
 
                 
             </div>
@@ -537,7 +568,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://myalos.github.io/2021/05/22/cs229%2015/">http://myalos.github.io/2021/05/22/cs229%2015/</a>
+                    <a href="http://myalos.github.io/2021/06/18/cs229%205/">http://myalos.github.io/2021/06/18/cs229%205/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -805,9 +836,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/06/18/cs229%205/">
                     <div class="card-image">
@@ -825,9 +857,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -840,6 +872,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -862,19 +895,19 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/22/cs229%2014/">
+                <a href="/2021/05/22/cs229%2015/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Expectation-Maximization Algorithms">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="EM Algorithm Factor Analysis">
                         
-                        <span class="card-title">Expectation-Maximization Algorithms</span>
+                        <span class="card-title">EM Algorithm Factor Analysis</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是CS229 第十四课的学习笔记
+                            这是CS229 第十五课的学习笔记
                         
                     </div>
                     <div class="publish-info">
