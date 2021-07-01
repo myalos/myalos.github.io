@@ -4,6 +4,87 @@
   
     
     <entry>
+      <title>Decision Trees and Ensemble Methods</title>
+      <link href="2021/07/01/cs229%2010/"/>
+      <url>2021/07/01/cs229%2010/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Lecture-10-Decision-Trees-and-Ensemble-Methods"><a href="#Lecture-10-Decision-Trees-and-Ensemble-Methods" class="headerlink" title="Lecture 10 Decision Trees and Ensemble Methods"></a>Lecture 10 Decision Trees and Ensemble Methods</h2><h3 id="Decision-Trees"><a href="#Decision-Trees" class="headerlink" title="Decision Trees"></a>Decision Trees</h3><p>[4:00]中的图是数据图</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 机器学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> cs229 </tag>
+            
+            <tag> 机器学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>PCA and ICA</title>
+      <link href="2021/07/01/cs229%20pca/"/>
+      <url>2021/07/01/cs229%20pca/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Lecture-hidden-PCA-and-ICA"><a href="#Lecture-hidden-PCA-and-ICA" class="headerlink" title="Lecture hidden PCA and ICA"></a>Lecture hidden PCA and ICA</h3><p><a href="https://www.bilibili.com/video/BV1JE411w7Ub?p=21">视频链接</a> 因为看Lecture 16的时候 感觉跳了一集，所以找到了这里</p><p><strong>PCA ： Principal Components Analysis</strong></p><p><strong>ICA ：Independent Components Analysis</strong></p><h3 id="motivation-example"><a href="#motivation-example" class="headerlink" title="motivation example:"></a>motivation example:</h3><p>Want measure children’s height in centimeters and also the height in inches</p><p>Because of <strong>round off</strong> to the nearest centimeter or round off to the nearest inch</p><p><strong>The data is almost prefectly correlated but not completely</strong> [7:21]的图</p><p>你知道这其实是一个一维的数据，但是以2维的形式存在；</p><p>另一个例子是 横坐标是pilot skill 纵坐标是pilot enjoyment，从这个2维数据里面得到pilot aptitude</p><p>PCA 就是将高维数据转化成低维数据；实际上 会用PCA 将10000维数据变成100维数据 而非2变1</p><p>在running PCA之前 要做Pre-processing</p><ul><li>$\mu = \frac{1}{m}\sum_{i = 1}^mx^{(i)}$</li><li>$x^{(i)} \leftarrow x^{(i)} - \mu$</li><li><p>$\sigma^2 = \frac{1}{m} \sum_i x_j^{(i)}$</p></li><li><p>$x_j^{(i)} \leftarrow \frac{x_j^{(i)}}{\sigma_j}$</p></li></ul><p>做完之后 features have zero mean， one standardize variance</p><h3 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h3><p>[14:44] 二维的数据 进行1维压缩，有好的subspace 绿色的线， 也有差的subspace 红色的线，对于好的projection， <strong>所有点到subspace的和的总数距离小</strong>，对于PCA 我们就是想要找到绿色的线</p><p>图中绿色的点are spread apart very far from each other，红色的点are close to each other，So if you like to preserve as much of the variability of the data as possible</p><p>对于PCA有两种数学上等价的推导方式 老师介绍的是第二种</p><ul><li>一种是所有点到subspace的距离之和最小</li><li>另一种是所有点到subspace的投影长度之和最大</li></ul><p>A second intuition of PCA : Define PCA is you want ot find a line onto which project the data 使数据尽可能的spread as far as possible</p><p>要找到绿线 即要找到一个和绿线同方向的单位向量$u$  这里绿线就表示subspace</p><p>If $||u|| = 1$, then length of projection of $x^{(i)}$ onto $u$ is $u^Tx^{(i)}$ </p><p>So PCA choose $u$ to maximize:</p><script type="math/tex; mode=display">\max_{u : ||u || = 1} \frac{1}{m}\sum_{i = 1}^m (x^{(i)^T}u)^2 = \frac{1}{m}\sum_{i = 1}^m u^Tx^{(i)}x^{(i)^T}u = u^T(\frac{1}{m}\sum_{i = 1}^mx^{(i)}x^{(i)^T})u</script><p>令$\Sigma = \frac{1}{m}\sum_{i=1}^mx^{(i)}x^{(i)^T}$</p><p>那么就是$\max_{u : ||u|| = 1}u^T\Sigma u$  <strong>那么u就是principal eigenvector of matrix $\Sigma$</strong></p><p>这里的$\Sigma$是covariance matrix，我们做了preprocessing之后的$x^{(i)}$构成的矩阵</p><p>下面是关于上面加粗内容的证明：</p><script type="math/tex; mode=display">\max_{u : ||u|| = 1}u^T\Sigma u \ 构造拉格朗日函数 \\\mathcal{L}(u,\lambda) = u^T\Sigma u - \lambda(u^Tu - 1) \\ \nabla\mathcal{L} = \Sigma u - \lambda u  = 0 \Rightarrow \Sigma u = \lambda u</script><p>General case : If wish to project data to k dimensions</p><p>Set $u_1, u_2, \cdots, u_k$ to be top k eigenvectors of $\Sigma$，$\lambda_1, \lambda_2, \cdots, \lambda_k$ are corresponding eigenvalues</p><p>Have $x^{(i)} \in R^n$ $n = 1000$， 要用PCA降维到10维 $u_1, u_2, \cdots, u_k$ 其中$k = 10$</p><p>我们就有了New Representation $x^{(i)} \rightarrow (u_1^Tx^{(i)}, u_2^Tx^{(i)}, \cdots, u_{10}^Tx^{(i)})  = y^{(i)} \in R^k$</p><p>从$y$得到$x$ $x^{(i)} \approx y_1^{(i)}u_1 + y_2^{(i)}u_2 + \cdots + y_k^{(i)}u_k$ 其中$y_i$是标量</p><p><strong>666</strong></p><p>[33:00]的图 展示了<strong>为什么PCA需要 preprocessing</strong></p><h3 id="Application-of-PCA"><a href="#Application-of-PCA" class="headerlink" title="Application of PCA:"></a>Application of PCA:</h3><ul><li><p>Visualization</p><p>Project from n dimensional to 2 dimensional or 3 dimensional to view</p><p>举了个例子，猴子脑电信号50维 很难visualize</p></li><li><p>Compression for ML efficiency</p></li><li><p>用PCA来reduce overfitting 不是很合适，用正则化更好</p></li><li><p>用PCA来做outlier detection不是很合适</p></li></ul><p>总结一下： 基本上PCA 就是用在可视化</p><p>如果有训练集和测试集，eigenvectors 用训练集的</p><div class="table-container"><table><thead><tr><th>—</th><th>model $p(x)$ e.g. anomaly detection</th><th>Non-probabilistic</th></tr></thead><tbody><tr><td>“Subspaces”</td><td>Factor analysis</td><td>PCA</td></tr><tr><td>“Clusters”</td><td>GMM</td><td>K-means</td></tr></tbody></table></div><p>PS 对于PCA k dimension subspace 比较稳定， 单个eigenvector不怎么稳定 由于数值计算等原因</p><h3 id="如何选择k值"><a href="#如何选择k值" class="headerlink" title="如何选择k值"></a>如何选择k值</h3><p>有一种选择是：$\frac{\lambda_1 + \lambda_2 + \cdots + \lambda_k}{\lambda_1 + \lambda_2 + \cdots + \lambda_n} = 0.9$  人们称这个retain $90\%$ of variance of data</p><h3 id="ICA"><a href="#ICA" class="headerlink" title="ICA"></a>ICA</h3><p>ICA 可以用来解决Cocktail party problem 有点厉害</p><p>问题可以描述为：</p><p>Original source $s \in R$ (n speakers)  $s_j^{(i)} = $ signal from speaker $j$ at time $i$</p><p>在某个时刻$t$ 对于第一个speaker 振幅为 $s_1^{(t)}$ 对于第二speaker 振幅为$s_2^{(t)}$</p><p>我们观察到 $x^{(i)} = As^{(i)}$  其中$x^{(i)} \in R^n$ n microphones</p><p>$x_j^{(i)}$ is recording of microphone $j$ at time $i$  其中$j = 1, \cdots, n$</p><p>即 $x_j^{(i)} = \sum_kA_{jk}s_k^{(i)}$  目标是找到$W = A^{-1}$ so that $s^{(i)} = Wx^{(i)}$</p><p>Notation:</p><script type="math/tex; mode=display">W = \begin{pmatrix} w_1^T \\ w_2^T  \\ \vdots \\  w_n^T  \\\end{pmatrix}</script><p>则 $s_j^{(i)} = w_j^Tx^{(i)}$</p><p>老师讲了个二个 independent source 1 和 source 2 每个source产生random的数据</p><p>对于这个数据有两个ambiguity 一个是不知道which one is S1 and which one is S2</p><p>第二个是 sign ambiguity 我们不知道哪个是 + S1 哪个是 - S1</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 机器学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> cs229 </tag>
+            
+            <tag> 机器学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Independent Component Analysis and RL</title>
+      <link href="2021/07/01/cs229%2016/"/>
+      <url>2021/07/01/cs229%2016/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Lecture-16-Independent-Component-Analysis-and-RL"><a href="#Lecture-16-Independent-Component-Analysis-and-RL" class="headerlink" title="Lecture 16 Independent Component Analysis and RL"></a>Lecture 16 Independent Component Analysis and RL</h2><p><a href="https://www.bilibili.com/video/BV1JE411w7Ub?p=22">视频链接</a></p><h3 id="ICA"><a href="#ICA" class="headerlink" title="ICA"></a>ICA</h3><p>感觉这个有点神奇，不是很懂</p><ul><li>CDFs Cumulative distribution function</li><li>ICA model</li></ul><p>Recap: $S_1^{(t)}$ is the sound emitted by speaker one at time t</p><p>$S_j^{(i)} =  speaker \  j \ at \  time \  i \ ,  \  x^{(i)} = As^{(i)}, x\in\mathcal{R}^n$</p><p>Goal:  Find $W = A^{-1}, S^{(i)} = Wx^{(i)}$ $W = \begin{pmatrix} -w_1^T-  \\  \vdots \\ -w_n^T -\end{pmatrix}$</p><hr><p>PS：如果数据是均匀分布，ICA能分离，如果是高斯分布 ICA不能分离，由两个标准高斯分布组成的二维空间，S1和S2是旋转对称的，就会有旋转的歧义</p><p><strong>ICA  is possible only if  your data is non  Gaussian</strong></p><hr><p>为了使用ICA ，We need to figure out what is the density of S</p><p>我们知道S的概率密度 $P_S(s)$ 因为$x = As = W^{-1}s$ 我们就知道 $s = Wx$</p><p>我们需要计算$x$的概率密度，因为当你得到训练集的时候，只能观察$x$，用到MLE，必须要知道$x$的概率密度是多少</p><p>猜想 $P_X(x) = P_S(Wx)$是否是正确的，  这个对于离散的随机变量是正确的，对于连续的就不正确</p><p>反例：</p><script type="math/tex; mode=display">P_S(s) = 1\{  0  \le s \le 1 \} \quad \quad S \sim  Uniform(0, 1) \\x = 2s \quad  \quad A = 2 \quad  \quad  W = \frac{1}{2}</script><p>那么 x  就应该是0到2上的均匀分布 其概率密度应该为$P_X(x) = \frac{1}{2}1 \{  0 \le x \le 2 \}$</p><p>把$P_X(x)$和$P_S(Wx)$分别带入到等式，发现等式不成立，正确的式子应该是：</p><script type="math/tex; mode=display">P_X(x) = P_S(wx)|w|</script><p>还有一点重要 choose the density of what your speakers’ voices sound like</p><p>如果选择sigmoid函数 作为CDF 其概率密度 有点像 高斯，但是他有fatter tails 因为高斯函数是$e^{-x^2}$衰减的 goes to 0 very quickly, sigmoid的概率密度captures human voice  and many natural phenomena better than a Gaussian density because there are a larger number of extreme outliers that are more than one or two standard deviations away.</p><p>除了 sigmoid还可以有其它的选择  比如 双重指数分布</p><p><strong>因为n个speaker  speak  independently</strong></p><script type="math/tex; mode=display">P(s) = \prod_{i = 1}^n P_S(s_i)</script><script type="math/tex; mode=display">P_X(x) = P_S(wx)|w| = (\prod_{j = 1}^n P_S(w_j^Tx))|w|</script><p><strong>MLE</strong></p><script type="math/tex; mode=display">\ell(w) = \sum_{i = 1}^nlog[(\sum_jP_S(w_j^Tx^{(i)}))|w|]</script><p>求导结果参考讲义</p><p><strong>ICA通常用于清理EEG数据</strong></p><p>如果麦克风的数量少于speaker 那么这是个比较难的问题</p><p><strong>如果有两个麦克风，那么这两个麦克风记录的声音会不会很相似？？ </strong></p><h3 id="RL-666哇"><a href="#RL-666哇" class="headerlink" title="RL 666哇"></a>RL 666哇</h3><p>RL的一个挑战问题是 Credit assignment problem</p><p>play chess 如果是在第50步失败 得到奖励-1</p><p><strong>MDP</strong> Markov decision process</p><p><span style='color:red;font-weight:bold'>下面的内容就是说的如何将问题化为MDP的形式 </span></p><p>MDP是five tuple $(S, A, \{ P_{sa}\},\gamma,R)$</p><p>$S$ 是 set of states; $A$ 是 set of actions; $P_{sa}$ 是 state transition probabilities $\sum_s^\prime P_{sa}(s^\prime) = 1$</p><p>$\gamma$ 是discount factor 取值在0到1之间  $R$ 是 reward function</p><p><img src="https://z3.ax1x.com/2021/07/01/RyCic9.png" alt="RyCic9.png"></p><p><strong>上面这张图是我博客里面的第二张图，这张图是放在图床上面的</strong></p><p>这是一个非常简单的迷宫，这个MDP有11个state 机器人可能处在11个位置</p><p>对于Actions 可能是向北，向东，向南，向西</p><p>如果让人向北走，有可能他脚底一滑，向东走了  实际上课程里面的小人是小车，小车会打滑</p><p>对于$P_{sa}$  具体一点 $P_{(3,1)N}((3,2)) = 0.8$  $P_{(3,1)N}((4, 1)) = 0.1$ 和 $P_{(3,1)N}((2, 1)) = 0.1$ </p><p>假如要机器人走到右上角，那么我们将$(4, 3)$的位置放上奖励 + 1 如果不想让机器人走到哪一个格就在那一格上面放上 -1 比如在$(4, 2)$上面</p><p>还有其它的一些设计方法，一个常见的选择是put a very small penalty $R(s) = -0.02$ 对于其它的state</p><p>举个例： </p><ul><li><p>比如机器人一开始在$S_0$的位置</p></li><li><p>Choose action $a_0$, get to $s_1$  is distributed according to $P_{s_0a_0}$</p></li><li><p>Choose action $a_1$</p></li><li>Get to $s_2$ is distributed according to $P_{s_1a_1}$</li></ul><p>假设机器人的状态序列是$s_0, s_1, s_2, \cdots$ 那么总的收益是 $R(s_0) + \gamma R(s_1) + \gamma^2 R(s_2) + \cdots$</p><p>RL的目标就是Choose actions over time to maximize</p><script type="math/tex; mode=display">E[R(s_0) + \gamma R(s_1) + \gamma^2 R(s_2) + \cdots]</script><p><strong>大多数强化学习算法会提出a policy that maps from states to actions</strong> 即$\pi: S \rightarrow A$</p><p>因此大多数强化学习算法的输出是policy 另一种叫法是controller</p><p>强化学习的问题是给出了MDP的定义，然后<strong>有一个强化学习算法</strong> 找到使期望收益最大化的策略$\pi$</p><p>用强化学习解决chess问题的一个难点在于，一次action是包括自己的一步和对手的一步，但是你不知道对方会走什么 那么这就存在一个概率分布</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 机器学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> cs229 </tag>
+            
+            <tag> 机器学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Project 1 用闲置电脑搭建centos服务器</title>
       <link href="2021/06/30/%E7%94%A8%E9%97%B2%E7%BD%AE%E7%94%B5%E8%84%91%E6%90%AD%E5%BB%BAcentos%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
       <url>2021/06/30/%E7%94%A8%E9%97%B2%E7%BD%AE%E7%94%B5%E8%84%91%E6%90%AD%E5%BB%BAcentos%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
