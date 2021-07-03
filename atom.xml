@@ -6,29 +6,29 @@
   <link href="http://myalos.github.io/atom.xml" rel="self"/>
   
   <link href="http://myalos.github.io/"/>
-  <updated>2021-04-25T07:25:28.532Z</updated>
+  <updated>2021-07-03T15:06:54.634Z</updated>
   <id>http://myalos.github.io/</id>
   
   <author>
-    <name>Myalos</name>
+    <name>myalos</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Decision Trees and Ensemble Methods</title>
-    <link href="http://myalos.github.io/2021/07/01/cs229%2010/"/>
-    <id>http://myalos.github.io/2021/07/01/cs229%2010/</id>
-    <published>2021-07-01T13:57:02.990Z</published>
-    <updated>2021-04-25T07:25:28.532Z</updated>
+    <title>MDPs ValuePolicy Iteration</title>
+    <link href="http://myalos.github.io/2021/07/03/cs229%2017/"/>
+    <id>http://myalos.github.io/2021/07/03/cs229%2017/</id>
+    <published>2021-07-03T15:07:08.291Z</published>
+    <updated>2021-07-03T15:06:54.634Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;Lecture-10-Decision-Trees-and-Ensemble-Methods&quot;&gt;&lt;a href=&quot;#Lecture-10-Decision-Trees-and-Ensemble-Methods&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;Lecture-17-MDPs-ValuePolicy-Iteration&quot;&gt;&lt;a href=&quot;#Lecture-17-MDPs-ValuePolicy-Iteration&quot; class=&quot;headerlink&quot; title=&quot;Lecture 17 MDPs</summary>
         
       
     
@@ -39,7 +39,30 @@
     
     <category term="cs229" scheme="http://myalos.github.io/tags/cs229/"/>
     
-    <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    <category term="RL" scheme="http://myalos.github.io/tags/RL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>message 1</title>
+    <link href="http://myalos.github.io/2021/07/03/zjj1/"/>
+    <id>http://myalos.github.io/2021/07/03/zjj1/</id>
+    <published>2021-07-03T13:52:00.000Z</published>
+    <updated>2021-07-03T15:12:03.785Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;如果你找到这里的话</summary>
+        
+      
+    
+    
+    
+    
+    <category term="消息" scheme="http://myalos.github.io/tags/%E6%B6%88%E6%81%AF/"/>
     
   </entry>
   
@@ -519,35 +542,6 @@
         
         
     <summary type="html">&lt;h2 id=&quot;Lecture-7-Continuous-Time-Fourier-Series&quot;&gt;&lt;a href=&quot;#Lecture-7-Continuous-Time-Fourier-Series&quot; class=&quot;headerlink&quot; title=&quot;Lecture 7</summary>
-        
-      
-    
-    
-    
-    <category term="信号与系统" scheme="http://myalos.github.io/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-    <category term="信号与系统" scheme="http://myalos.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
-    
-    <category term="理论知识" scheme="http://myalos.github.io/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/"/>
-    
-    <category term="数学" scheme="http://myalos.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Systems Represented by Differential and Difference Equations</title>
-    <link href="http://myalos.github.io/2021/03/14/signal%20and%20system%206/"/>
-    <id>http://myalos.github.io/2021/03/14/signal%20and%20system%206/</id>
-    <published>2021-03-14T07:56:14.916Z</published>
-    <updated>2021-03-14T07:55:53.827Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Lecture-6-System-Represented-by-Differential-and-Difference-Equations&quot;&gt;&lt;a</summary>
         
       
     

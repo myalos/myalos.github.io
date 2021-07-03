@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Decision Trees and Ensemble Methods, goon的杂货店">
+    <meta name="keywords" content="MDPs ValuePolicy Iteration, goon的杂货店">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Decision Trees and Ensemble Methods | goon的杂货店</title>
+    <title>MDPs ValuePolicy Iteration | goon的杂货店</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,15 +308,28 @@
 </header>
 
     
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('密码是你2021年7月1日 签名拼音的首字母 全部小写')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Decision Trees and Ensemble Methods</h1>
+                    <h1 class="description center-align post-title">MDPs ValuePolicy Iteration</h1>
                 </div>
             </div>
         </div>
@@ -436,8 +449,8 @@
                                 <span class="chip bg-color">cs229</span>
                             </a>
                         
-                            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                                <span class="chip bg-color">机器学习</span>
+                            <a href="/tags/RL/">
+                                <span class="chip bg-color">RL</span>
                             </a>
                         
                     </div>
@@ -461,7 +474,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-07-01
+                    2021-07-03
                 </div>
                 
 
@@ -485,7 +498,77 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Lecture-10-Decision-Trees-and-Ensemble-Methods"><a href="#Lecture-10-Decision-Trees-and-Ensemble-Methods" class="headerlink" title="Lecture 10 Decision Trees and Ensemble Methods"></a>Lecture 10 Decision Trees and Ensemble Methods</h2><h3 id="Decision-Trees"><a href="#Decision-Trees" class="headerlink" title="Decision Trees"></a>Decision Trees</h3><p>[4:00]中的图是数据图</p>
+                <h2 id="Lecture-17-MDPs-ValuePolicy-Iteration"><a href="#Lecture-17-MDPs-ValuePolicy-Iteration" class="headerlink" title="Lecture 17 MDPs ValuePolicy Iteration"></a>Lecture 17 MDPs ValuePolicy Iteration</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1JE411w7Ub?p=23">视频链接</a></p>
+<p>start to talk about algorithms for solving MDPs</p>
+<p>We need to define sth. called <strong>the value function</strong> which tells you how good it is to be in different states of the MDP and then we’ll define the value function and then talk about an algorithm called value iteration for computing the value function.</p>
+<p>回忆lecture16的内容，为了找到最佳的policy，可能有成千上万的可选择的policies，如果有11个状态，每个状态可采取4个行动，那么可能的策略就有$4^{11}$种</p>
+<h3 id="计算最佳策略"><a href="#计算最佳策略" class="headerlink" title="计算最佳策略"></a>计算最佳策略</h3><p>Define: $V^{\pi}$，$V^<em>$，$\pi^</em>$ ;  based on these definitions we’ll derive that $\pi^*$ is the optimal policy</p>
+<p><span style='color:red;font-weight:bold'>For a policy </span>$\pi$, $V^\pi : S \rightarrow R $<span style='color:red;font-weight:bold'> is s.t.</span> $V^\pi (s)$ <span style='color:red;font-weight:bold'>is to the expected total payoff for starting in state s and executing</span> $\pi$</p>
+<script type="math/tex; mode=display">
+V^\pi (s) = E[R(s_0) + \gamma R(s_1) + \cdots | \pi, s_0 = s]</script><p>$V^\pi$ 被称为value function for policy $\pi$</p>
+<p><img src="https://z3.ax1x.com/2021/07/01/RyQhx1.png" alt="下面的图是某一个策略pi"></p>
+<p><img src="https://z3.ax1x.com/2021/07/01/Ryl0Fe.png" alt="上面的策略对应的value function"></p>
+<h3 id="Bellman-Equation"><a href="#Bellman-Equation" class="headerlink" title="Bellman Equation"></a>Bellman Equation</h3><script type="math/tex; mode=display">
+V^\pi (s) = R(s) + \gamma \sum_{s^\prime}P_{s\pi (s)}(s^\prime)V^\pi (s^\prime) \tag{1}</script><p>假如在$s=s_0$的时候开始，机器人马上获取在$s_0$的收益 即即使奖励$R(s_0)$ </p>
+<script type="math/tex; mode=display">
+V^\pi (s) = E[R(s_0) + \gamma R(s_1) + \gamma^2 R(s_2) + \cdots | \pi, s_0 = s] \\
+= E[R(s_0) + \gamma (R(s_1) + \gamma R(s_2) + \cdots) | \pi, s_0 = s] \\
+= E[R(s_0) + \gamma V^\pi(s_1) | \pi, s_0 = s]</script><p>方程式$(1)$ 的意义在于Given $\pi$, get a linear system of equation in terms of $V^\pi (s)$</p>
+<p>举个例子 之前机器人的例子：</p>
+<script type="math/tex; mode=display">
+V((3, 1)) = R((3, 1)) + \gamma(0.8V^\pi((3, 2)) + 0.1V^\pi((2, 1)) + 0.1V^\pi((4, 1)))</script><p>因为有11个状态 那么就会有11个未知数，和 11个Bellman equations，解线性方程得结果</p>
+<p><img src="https://z3.ax1x.com/2021/07/02/RyyvNQ.png" alt="11个状态组成得线性方程组"></p>
+<p>$V^<em>$ is the optimal value function   $V^</em> (s) = \max_\pi V^\pi (s)$</p>
+<p>下面是关于$V^*$的bellman 方程</p>
+<script type="math/tex; mode=display">
+V^* (s) = R(s) + \max_a \gamma \sum_{s^\prime}P_{sa} (s^\prime)V^*(s^\prime) \tag{2}</script><p>if take action $a$ 那么 $\sum_{s^\prime}P_{sa} (s^\prime)V^*(s^\prime)$ 就是expected future reward</p>
+<p>由方程$(2)$ 就可以推出$\pi^* (s)$ 即</p>
+<script type="math/tex; mode=display">
+\pi^* (s) = argmax_a \sum_{s^\prime}P_{sa}(s^\prime)V^*(s^\prime)</script><p>作个小总结 $V^<em> (s) = V^{\pi^</em>}(s) \ge V^\pi (s) \ for \ every \ \pi, s$ </p>
+<p>我们要做的就是找到$V^<em>$， 使用argmax方程来求得$\pi^</em>$</p>
+<h3 id="Value-iteration"><a href="#Value-iteration" class="headerlink" title="Value iteration"></a>Value iteration</h3><p> 是一个算法来找到$V^*$ </p>
+<ul>
+<li><p>初始化$V(s) := 0$  for every s</p>
+</li>
+<li><p>For every s, repeatedly update:</p>
+<script type="math/tex; mode=display">
+V(s) := R(s) + \max_a \gamma \sum_{s^\prime}P_{sa}(s^\prime)V(s^\prime)</script><p>类似于梯度下降 就是update所有components of V simultaneously，有synchronous update</p>
+<p>就是计算所有状态然后进行同时覆盖。有一种替代方法是异步更新 就是一个一个更新</p>
+<p>一般用synchronous update</p>
+</li>
+</ul>
+<p>用value iteration 计算出的$V^*$ 结果是：</p>
+<p><img src="https://z3.ax1x.com/2021/07/02/R6CEZt.png" alt="R6CEZt.png"></p>
+<p>由这张图 知道处于$(3, 1)$的时候应该向左走</p>
+<h3 id="Policy-Iteration"><a href="#Policy-Iteration" class="headerlink" title="Policy Iteration"></a>Policy Iteration</h3><p>这个用来求解MDP问题</p>
+<ul>
+<li><p>Initialize $\pi$ randomly</p>
+</li>
+<li><p>Repeat until convergence:</p>
+<p>​    Set $V := V^\pi$ i.e. solve Bellman’s equations to get $V^\pi$ </p>
+<p>​    Set $\pi (s) := argmax_a \sum_{s^\prime}P_{sa}(s^\prime)V(s^\prime)$  假设$V$就是optimal value function</p>
+<p>注意$V^\pi$ 是解linear system of equations</p>
+</li>
+</ul>
+<p>对于状态很多的情况，解线性方程就很耗时，用value iteration 会更好一点</p>
+<p>对于value iteration $V \rightarrow V^<em>$ <em>*就将梯度下降，向最优值收敛是越来越靠近最优值，但是永远达不到最优值</em></em></p>
+<h3 id="如果不知道-P-sa"><a href="#如果不知道-P-sa" class="headerlink" title="如果不知道$P_{sa}$"></a>如果不知道$P_{sa}$</h3><p>当state transition probabilities are often not known in advance. And so in many MDP implementations we need to estimate this form data.</p>
+<script type="math/tex; mode=display">
+P_{sa}(s^\prime) = \frac{\# \ times \ took \ action \ "a" \ in \ state \ s \ and \ got \ to \ s^\prime}{\# \ times \ took \ action \ "a" \ in \ state \ s}</script><p>or $\frac{1}{|S|}$  if above is $\frac{“0”}{0}$ </p>
+<p>总结一下：</p>
+<ul>
+<li><p>Repeat {</p>
+<p>​    Take actions w.r.t. $\pi$ to get experience in MDP</p>
+<p>​    Update estimates of $P_{sa}$ and possibly $R$</p>
+<p>​    Solve Bellman’s equation using value iteration to get $V$</p>
+<p>​    Update $\pi (s) = argmax_a \sum_{s^\prime}P_{sa}(s^\prime)V(s^\prime)$</p>
+<p>}</p>
+</li>
+</ul>
+<p>上面这个算法没有exploration</p>
+<p>如果加上exploration的话 那么就不是take actions $\pi$ 而是 0.9 take actions $\pi$ 0.1 take randomly</p>
+<p>这种exploration policy is called $\epsilon$-greedy；在每个时间步长你仍一枚biased coin;</p>
+<p>这里的$\epsilon$ 就是0.1</p>
 
                 
             </div>
@@ -502,7 +585,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Myalos</a>
+                    <a href="/about" rel="external nofollow noreferrer">myalos</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -512,7 +595,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://myalos.github.io/2021/07/01/cs229%2010/">http://myalos.github.io/2021/07/01/cs229%2010/</a>
+                    <a href="http://myalos.github.io/2021/07/03/cs229%2017/">http://myalos.github.io/2021/07/03/cs229%2017/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -525,7 +608,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Myalos</a>
+                    <a href="/about" target="_blank">myalos</a>
                     !
                 </span>
             </div>
@@ -554,8 +637,8 @@
                                     <span class="chip bg-color">cs229</span>
                                 </a>
                             
-                                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                                    <span class="chip bg-color">机器学习</span>
+                                <a href="/tags/RL/">
+                                    <span class="chip bg-color">RL</span>
                                 </a>
                             
                         </div>
@@ -785,24 +868,24 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2021/07/01/cs229%2010/">
+                <a href="/2021/07/03/cs229%2017/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Decision Trees and Ensemble Methods">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="MDPs ValuePolicy Iteration">
                         
-                        <span class="card-title">Decision Trees and Ensemble Methods</span>
+                        <span class="card-title">MDPs ValuePolicy Iteration</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是CS229 第十课的学习笔记
+                            这是CS229 第十七课的学习笔记
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-03
                             </span>
                         <span class="publish-author">
                             
@@ -824,8 +907,8 @@
                         <span class="chip bg-color">cs229</span>
                     </a>
                     
-                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">机器学习</span>
+                    <a href="/tags/RL/">
+                        <span class="chip bg-color">RL</span>
                     </a>
                     
                 </div>
@@ -839,33 +922,29 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/07/01/cs229%20pca/">
+                <a href="/2021/07/03/zjj1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="PCA and ICA">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="message 1">
                         
-                        <span class="card-title">PCA and ICA</span>
+                        <span class="card-title">message 1</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是CS229 第隐藏课的学习笔记
+                            this is test
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-03
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    机器学习
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            myalos
                             
                         </span>
                     </div>
@@ -873,12 +952,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/cs229/">
-                        <span class="chip bg-color">cs229</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">机器学习</span>
+                    <a href="/tags/%E6%B6%88%E6%81%AF/">
+                        <span class="chip bg-color">消息</span>
                     </a>
                     
                 </div>
@@ -1082,7 +1157,7 @@
                 <span id="year">2019-2021</span>
             
             <span id="year">2019</span>
-            <a href="/about" target="_blank">Myalos</a>
+            <a href="/about" target="_blank">myalos</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
