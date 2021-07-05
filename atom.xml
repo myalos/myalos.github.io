@@ -6,7 +6,7 @@
   <link href="http://myalos.github.io/atom.xml" rel="self"/>
   
   <link href="http://myalos.github.io/"/>
-  <updated>2021-07-03T15:06:54.634Z</updated>
+  <updated>2021-07-05T12:30:12.506Z</updated>
   <id>http://myalos.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Deep Reinforcement Learning</title>
+    <link href="http://myalos.github.io/2021/07/05/cs230/"/>
+    <id>http://myalos.github.io/2021/07/05/cs230/</id>
+    <published>2021-07-05T12:26:13.218Z</published>
+    <updated>2021-07-05T12:30:12.506Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Lecture-9-Deep-Reinforcement-Learning&quot;&gt;&lt;a href=&quot;#Lecture-9-Deep-Reinforcement-Learning&quot; class=&quot;headerlink&quot; title=&quot;Lecture 9 Deep</summary>
+        
+      
+    
+    
+    
+    <category term="深度学习" scheme="http://myalos.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="RL" scheme="http://myalos.github.io/tags/RL/"/>
+    
+    <category term="cs230" scheme="http://myalos.github.io/tags/cs230/"/>
+    
+    <category term="深度学习" scheme="http://myalos.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="Q-Learning" scheme="http://myalos.github.io/tags/Q-Learning/"/>
+    
+  </entry>
   
   <entry>
     <title>MDPs ValuePolicy Iteration</title>
@@ -48,21 +79,21 @@
     <link href="http://myalos.github.io/2021/07/03/zjj1/"/>
     <id>http://myalos.github.io/2021/07/03/zjj1/</id>
     <published>2021-07-03T13:52:00.000Z</published>
-    <updated>2021-07-03T15:12:03.785Z</updated>
+    <updated>2021-07-05T12:28:23.508Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;如果你找到这里的话</summary>
+    <summary type="html">&lt;h2 id=&quot;Z-大仙女-能加我好友-能和我说一句话吗&quot;&gt;&lt;a href=&quot;#Z-大仙女-能加我好友-能和我说一句话吗&quot; class=&quot;headerlink&quot; title=&quot;Z 大仙女 能加我好友 能和我说一句话吗&quot;&gt;&lt;/a&gt;Z 大仙女 能加我好友</summary>
         
       
     
     
     
     
-    <category term="消息" scheme="http://myalos.github.io/tags/%E6%B6%88%E6%81%AF/"/>
+    <category term="S.P." scheme="http://myalos.github.io/tags/S-P/"/>
     
   </entry>
   
@@ -526,35 +557,6 @@
     <category term="cs229" scheme="http://myalos.github.io/tags/cs229/"/>
     
     <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Continuous-Time Fourier Series</title>
-    <link href="http://myalos.github.io/2021/03/22/signal%20and%20system%207/"/>
-    <id>http://myalos.github.io/2021/03/22/signal%20and%20system%207/</id>
-    <published>2021-03-22T14:37:01.144Z</published>
-    <updated>2021-03-22T14:36:42.088Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Lecture-7-Continuous-Time-Fourier-Series&quot;&gt;&lt;a href=&quot;#Lecture-7-Continuous-Time-Fourier-Series&quot; class=&quot;headerlink&quot; title=&quot;Lecture 7</summary>
-        
-      
-    
-    
-    
-    <category term="信号与系统" scheme="http://myalos.github.io/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-    <category term="信号与系统" scheme="http://myalos.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
-    
-    <category term="理论知识" scheme="http://myalos.github.io/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/"/>
-    
-    <category term="数学" scheme="http://myalos.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
