@@ -75,29 +75,6 @@
   </entry>
   
   <entry>
-    <title>message 1</title>
-    <link href="http://myalos.github.io/2021/07/03/zjj1/"/>
-    <id>http://myalos.github.io/2021/07/03/zjj1/</id>
-    <published>2021-07-03T13:52:00.000Z</published>
-    <updated>2021-07-05T12:28:23.508Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Z-大仙女-能加我好友-能和我说一句话吗&quot;&gt;&lt;a href=&quot;#Z-大仙女-能加我好友-能和我说一句话吗&quot; class=&quot;headerlink&quot; title=&quot;Z 大仙女 能加我好友 能和我说一句话吗&quot;&gt;&lt;/a&gt;Z 大仙女 能加我好友</summary>
-        
-      
-    
-    
-    
-    
-    <category term="S.P." scheme="http://myalos.github.io/tags/S-P/"/>
-    
-  </entry>
-  
-  <entry>
     <title>PCA and ICA</title>
     <link href="http://myalos.github.io/2021/07/01/cs229%20pca/"/>
     <id>http://myalos.github.io/2021/07/01/cs229%20pca/</id>
@@ -557,6 +534,35 @@
     <category term="cs229" scheme="http://myalos.github.io/tags/cs229/"/>
     
     <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Continuous-Time Fourier Series</title>
+    <link href="http://myalos.github.io/2021/03/22/signal%20and%20system%207/"/>
+    <id>http://myalos.github.io/2021/03/22/signal%20and%20system%207/</id>
+    <published>2021-03-22T14:37:01.144Z</published>
+    <updated>2021-03-22T14:36:42.088Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Lecture-7-Continuous-Time-Fourier-Series&quot;&gt;&lt;a href=&quot;#Lecture-7-Continuous-Time-Fourier-Series&quot; class=&quot;headerlink&quot; title=&quot;Lecture 7</summary>
+        
+      
+    
+    
+    
+    <category term="信号与系统" scheme="http://myalos.github.io/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="信号与系统" scheme="http://myalos.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="理论知识" scheme="http://myalos.github.io/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/"/>
+    
+    <category term="数学" scheme="http://myalos.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
