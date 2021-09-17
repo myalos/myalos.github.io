@@ -6,7 +6,7 @@
   <link href="http://myalos.github.io/atom.xml" rel="self"/>
   
   <link href="http://myalos.github.io/"/>
-  <updated>2021-09-17T13:09:17.048Z</updated>
+  <updated>2021-09-17T14:24:59.185Z</updated>
   <id>http://myalos.github.io/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>nn.Module和AlexNet的创建</title>
+    <title>decision tree</title>
+    <link href="http://myalos.github.io/2021/09/17/decision%20tree/"/>
+    <id>http://myalos.github.io/2021/09/17/decision%20tree/</id>
+    <published>2021-09-17T14:26:02.883Z</published>
+    <updated>2021-09-17T14:24:59.185Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Decision-Tree&quot;&gt;&lt;a href=&quot;#Decision-Tree&quot; class=&quot;headerlink&quot; title=&quot;Decision Tree&quot;&gt;&lt;/a&gt;Decision Tree&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="机器学习" scheme="http://myalos.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="sklearn" scheme="http://myalos.github.io/tags/sklearn/"/>
+    
+    <category term="菜菜" scheme="http://myalos.github.io/tags/%E8%8F%9C%E8%8F%9C/"/>
+    
+    <category term="decision tree" scheme="http://myalos.github.io/tags/decision-tree/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nn.Module和LeNet的创建</title>
     <link href="http://myalos.github.io/2021/09/17/week3/"/>
     <id>http://myalos.github.io/2021/09/17/week3/</id>
     <published>2021-09-17T13:00:00.000Z</published>
-    <updated>2021-09-17T13:09:17.048Z</updated>
+    <updated>2021-09-17T13:34:40.998Z</updated>
     
     
       
@@ -539,33 +570,6 @@
     <category term="理论知识" scheme="http://myalos.github.io/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/"/>
     
     <category term="数学" scheme="http://myalos.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kernels</title>
-    <link href="http://myalos.github.io/2021/03/22/cs229%207/"/>
-    <id>http://myalos.github.io/2021/03/22/cs229%207/</id>
-    <published>2021-03-22T14:37:18.438Z</published>
-    <updated>2021-03-22T14:39:09.638Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Lecture-7-Kernels&quot;&gt;&lt;a href=&quot;#Lecture-7-Kernels&quot; class=&quot;headerlink&quot; title=&quot;Lecture 7 Kernels&quot;&gt;&lt;/a&gt;Lecture 7 Kernels&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="机器学习" scheme="http://myalos.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="cs229" scheme="http://myalos.github.io/tags/cs229/"/>
-    
-    <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
