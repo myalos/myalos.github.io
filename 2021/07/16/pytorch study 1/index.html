@@ -1,0 +1,1622 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="pytorch学习 Part I, goon的杂货店">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>pytorch学习 Part I | goon的杂货店</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="goon的杂货店" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">goon的杂货店</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">goon的杂货店</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/myalos" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/myalos" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('密码是你2021年7月1日 签名拼音的首字母 全部小写')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">pytorch学习 Part I</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/pytorch/">
+                                <span class="chip bg-color">pytorch</span>
+                            </a>
+                        
+                            <a href="/tags/python/">
+                                <span class="chip bg-color">python</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/pytorch/" class="post-category">
+                                pytorch
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-07-16
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="张量的拼接"><a href="#张量的拼接" class="headerlink" title="张量的拼接"></a>张量的拼接</h3><p>torch.cat  将张量按维度dim进行拼接，不会扩张张量的维度，torch.stack  在新创建的维度dim上进行拼接</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">t1 <span class="token operator">=</span> torch<span class="token punctuation">.</span>Tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+t2 <span class="token operator">=</span> torch<span class="token punctuation">.</span>Tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+t3 <span class="token operator">=</span> torch<span class="token punctuation">.</span>cat<span class="token punctuation">(</span><span class="token punctuation">[</span>t1<span class="token punctuation">,</span> t2<span class="token punctuation">]</span><span class="token punctuation">,</span> dim <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+t4 <span class="token operator">=</span> torch<span class="token punctuation">.</span>cat<span class="token punctuation">(</span><span class="token punctuation">[</span>t3<span class="token punctuation">,</span> t4<span class="token punctuation">]</span><span class="token punctuation">,</span> dim <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment"># t3 变成 [1, 2, 3, 4, 5, 6]</span>
+<span class="token comment"># t4 变成 IndexError: Dimension out of range (expected to be in range of [-1, 0], but got 1) 因为原来的t1 t2都是维度1 如果竖着叠 就变成维度2了</span>
+
+t5 <span class="token operator">=</span> torch<span class="token punctuation">.</span>ones<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+t6 <span class="token operator">=</span> torch<span class="token punctuation">.</span>cat<span class="token punctuation">(</span><span class="token punctuation">[</span>t5<span class="token punctuation">,</span> t5<span class="token punctuation">]</span><span class="token punctuation">,</span> dim <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token comment">#在第0维度拼接 所以是 2 + 2 = 4</span>
+t7 <span class="token operator">=</span> torch<span class="token punctuation">.</span>cat<span class="token punctuation">(</span><span class="token punctuation">[</span>t5<span class="token punctuation">,</span> t5<span class="token punctuation">]</span><span class="token punctuation">,</span> dim <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment">#t6 变成 torch.ones((4, 3))</span>
+<span class="token comment">#t7 变成 torch.ones((2, 6))</span>
+t8 <span class="token operator">=</span> torch<span class="token punctuation">.</span>cat<span class="token punctuation">(</span><span class="token punctuation">[</span>t5<span class="token punctuation">,</span> t5<span class="token punctuation">,</span> t5<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">#生成的维度就是(2, 9)</span>
+
+<span class="token comment"># 对于stack</span>
+t <span class="token operator">=</span> torch<span class="token punctuation">.</span>ones<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+t_stack <span class="token operator">=</span> torch<span class="token punctuation">.</span>stack<span class="token punctuation">(</span><span class="token punctuation">[</span>t<span class="token punctuation">,</span> t<span class="token punctuation">]</span><span class="token punctuation">,</span> dim <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token comment">#那么相当于[2, 3, 1] 和 [2, 3, 1] 按第二维度进行拼接，拼接的结果是[2, 3, 2]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="张量的切分"><a href="#张量的切分" class="headerlink" title="张量的切分"></a>张量的切分</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#torch.chunk(input, chunks, dim = 0) 按dim进行平均切分，返回张量列表，若不能整除，最后一份张量小于其他张量 chunks是要切分的份数 dim要切分的维度</span>
+a <span class="token operator">=</span> torch<span class="token punctuation">.</span>ones<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+list_of_tensors <span class="token operator">=</span> torch<span class="token punctuation">.</span>chunk<span class="token punctuation">(</span>a<span class="token punctuation">,</span> dim <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> chunks <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> idx<span class="token punctuation">,</span> t <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>list_of_tensors<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"第&#123;&#125;个张量 &#123;&#125;,shape is &#123;&#125;"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>idx <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> t<span class="token punctuation">,</span> t<span class="token punctuation">.</span>shape<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">#第1个张量 tensor([[1., 1., 1.],</span>
+<span class="token comment">#        [1., 1., 1.]]),shape is torch.Size([2, 3])</span>
+<span class="token comment">#第2个张量 tensor([[1., 1.],</span>
+<span class="token comment">#        [1., 1.]]),shape is torch.Size([2, 2])</span>
+torch<span class="token punctuation">.</span>split<span class="token punctuation">(</span>tensor<span class="token punctuation">,</span> split_size_or_sections<span class="token punctuation">,</span> dim <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token comment">#功能是将张量按维度dim进行切分  返回值  张量列表</span>
+<span class="token comment"># split_size_or_sections 为int 表示每一份的长度， 为list时 按list元素切分</span>
+list_of_tensors  <span class="token operator">=</span> torch<span class="token punctuation">.</span>split<span class="token punctuation">(</span>t<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> dim <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment"># 切出来的 长度是 2, 2, 1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="张量的索引"><a href="#张量的索引" class="headerlink" title="张量的索引"></a>张量的索引</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">torch<span class="token punctuation">.</span>index_select<span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">,</span> dim<span class="token punctuation">,</span> index<span class="token punctuation">,</span> out<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span>
+<span class="token comment"># 在维度dim上，按index索引数据 返回值：依index索引数据拼接的张量</span>
+t <span class="token operator">=</span> torch<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> size<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+idx <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>torch<span class="token punctuation">.</span><span class="token builtin">long</span><span class="token punctuation">)</span>
+t_select <span class="token operator">=</span> torch<span class="token punctuation">.</span>index_select<span class="token punctuation">(</span>t<span class="token punctuation">,</span> dim <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> index <span class="token operator">=</span> idx<span class="token punctuation">)</span>
+<span class="token comment"># t 随机出来的是 [[4, 5, 0], [5, 7, 1], [2, 5, 8]]</span>
+<span class="token comment"># t_select 出来的是 [[4, 5, 8], [2, 5, 8]] 按dim 0进行索引的</span>
+<span class="token comment">#！！！ 注意 index 的数据类型必须是torch.long</span>
+torch<span class="token punctuation">.</span>masked_select<span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">,</span> mask<span class="token punctuation">,</span> out <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">)</span>
+<span class="token comment">#功能：按mask中的True进行索引 返回值：一维张量，mask是与input同形状的布尔类型张量</span>
+t <span class="token operator">=</span> torch<span class="token punctuation">.</span>randin<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> size<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+mask <span class="token operator">=</span> t<span class="token punctuation">.</span>ge<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+t_select <span class="token operator">=</span> torch<span class="token punctuation">.</span>masked_select<span class="token punctuation">(</span>t<span class="token punctuation">,</span> mask<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="张量的变换"><a href="#张量的变换" class="headerlink" title="张量的变换"></a>张量的变换</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 当张量在内存中是连续时，新张量与input共享数据内存</span>
+t <span class="token operator">=</span> torch<span class="token punctuation">.</span>randperm<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span>
+t_reshape <span class="token operator">=</span> torch<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span>t<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">#这句话等价于 t_reshape = torch.reshape(t, (-1, 4))</span>
+<span class="token comment">#查看内存地址 id(t.data)</span>
+torch<span class="token punctuation">.</span>transpose<span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">,</span> dim0<span class="token punctuation">,</span> dim1<span class="token punctuation">)</span> <span class="token comment">#交换张量的两个维度</span>
+torch<span class="token punctuation">.</span>t<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">#等价于 torch.transpose(input, 0, 1)</span>
+torch<span class="token punctuation">.</span>squeeze<span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">)</span> <span class="token comment">#压缩长度为1的维度 dim若为None 移除所有长度为1的轴，也可指定维度</span>
+torch<span class="token punctuation">.</span>unsqueeze<span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">,</span> dim<span class="token punctuation">,</span> out <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">)</span> <span class="token comment">#依据dim扩展维度</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="张量的数学运算"><a href="#张量的数学运算" class="headerlink" title="张量的数学运算"></a>张量的数学运算</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">torch<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">,</span> alpha <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> other<span class="token punctuation">,</span> out <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">)</span> <span class="token comment">#功能 逐元素计算input + alpha * other</span>
+torch<span class="token punctuation">.</span>addcmul<span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">,</span> value <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> tensor1<span class="token punctuation">,</span> tensor2<span class="token punctuation">,</span> out <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">)</span>
+<span class="token comment">#out_i = input_i + value * tensor1_i * tensor2_i</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h3><ul>
+<li>确定模型 Model: $y = wx + b$</li>
+<li><p>选择损失函数 MSE : $\frac{1}{m}\sum_{i = 1}^m (y_i - \hat{y_i})^2$</p>
+</li>
+<li><p>求解梯度并更新$w, b$  $ w = w - LR <em> w.grad \ \ \ b = b - LR </em> w.grad$</p>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">lr <span class="token operator">=</span> <span class="token number">0.1</span>
+torch<span class="token punctuation">.</span>manual_seed<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+x <span class="token operator">=</span> torch<span class="token punctuation">.</span>rand<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">10</span>
+y <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">*</span> x <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token number">5</span> <span class="token operator">+</span> torch<span class="token punctuation">.</span>randn<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+w <span class="token operator">=</span> torch<span class="token punctuation">.</span>randn<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> requires_grad <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+b <span class="token operator">=</span> torch<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> requires_grad <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> iteration <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    wx <span class="token operator">=</span> torch<span class="token punctuation">.</span>mul<span class="token punctuation">(</span>w<span class="token punctuation">,</span> x<span class="token punctuation">)</span>
+    y_pred <span class="token operator">=</span> torch<span class="token punctuation">.</span>add<span class="token punctuation">(</span>wx<span class="token punctuation">,</span> b<span class="token punctuation">)</span>
+    loss <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">0.5</span> <span class="token operator">*</span> <span class="token punctuation">(</span>y <span class="token operator">-</span> y_pred<span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    loss<span class="token punctuation">.</span>backward<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    b<span class="token punctuation">.</span>data<span class="token punctuation">.</span>sub_<span class="token punctuation">(</span>lr <span class="token operator">*</span> b<span class="token punctuation">.</span>grad<span class="token punctuation">)</span>
+    w<span class="token punctuation">.</span>data<span class="token punctuation">.</span>sub_<span class="token punctuation">(</span>lr <span class="token operator">*</span> w<span class="token punctuation">.</span>grad<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> iteration <span class="token operator">%</span> <span class="token number">20</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>x<span class="token punctuation">.</span>data<span class="token punctuation">.</span>numpy<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> y<span class="token punctuation">.</span>data<span class="token punctuation">.</span>numpy<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">.</span>data<span class="token punctuation">.</span>numpy<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> y_pred<span class="token punctuation">.</span>data<span class="token punctuation">.</span>numpy<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"r-"</span><span class="token punctuation">,</span> lw<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span>
+        plt<span class="token punctuation">.</span>text<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token string">"Loss=%.4f"</span> <span class="token operator">%</span> loss<span class="token punctuation">.</span>data<span class="token punctuation">.</span>numpy<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> fontdict<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token string">'size'</span> <span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token string">'color'</span> <span class="token punctuation">:</span> <span class="token string">'red'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+        plt<span class="token punctuation">.</span>xlim<span class="token punctuation">(</span><span class="token number">1.5</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+        plt<span class="token punctuation">.</span>ylim<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">28</span><span class="token punctuation">)</span>
+        plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">"Iteration: &#123;&#125;\nw: &#123;&#125; b: &#123;&#125;"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>iteration<span class="token punctuation">,</span> w<span class="token punctuation">.</span>data<span class="token punctuation">.</span>numpy<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> b<span class="token punctuation">.</span>data<span class="token punctuation">.</span>numpy<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        plt<span class="token punctuation">.</span>pause<span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> loss<span class="token punctuation">.</span>data<span class="token punctuation">.</span>numpy<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            <span class="token keyword">break</span>
+
+<span class="token comment"># 把lr从0.1 改成 0.01 会稳定一些 loss 一直降，而lr 为 0.1时 loss时降时升</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="计算图"><a href="#计算图" class="headerlink" title="计算图"></a>计算图</h3><p>计算图时用来描述运算的有向无环图</p>
+<p>结点表示数据，如向量，矩阵，张量</p>
+<p>边表示运算，如加减乘除卷积等</p>
+<p>用计算图表示： $ y = (x + w) * (x + 1)$ 令中间结点是$a = x + w, b = w + 1, y = a + b$</p>
+<p><img src="https://z3.ax1x.com/2021/07/14/WVAvGQ.png" alt="WVAvGQ.png"></p>
+<p>作用使得梯度计算容易 当$w = 1, x = 2$时</p>
+<script type="math/tex; mode=display">
+\frac{\partial y}{\partial w} = \frac{\partial y}{\partial a}\frac{\partial a}{\partial w} + \frac{\partial y}{\partial b}\frac{\partial b}{\partial w} \\
+\frac{\partial y}{\partial a} = b = w + 1, \frac{\partial y}{\partial b} = a = x + w,\frac{\partial a}{\partial w} = 1, \frac{\partial b}{\partial w} = 1 \\
+\therefore \frac{\partial y}{\partial w} = (w + 1) + (w + x) = 5</script><p>tensor 里面的is_leaf 指示张量是否为叶子结点，非叶子结点 在反向传播结束后会被释放掉</p>
+<p>grad_fn 记录创建该张量时所用的方法 - 函数</p>
+<h3 id="动态图"><a href="#动态图" class="headerlink" title="动态图"></a>动态图</h3><p>动态图 运算与搭建<strong>同时</strong>进行，像自由行；  静态图 先搭建图，后运算，像跟团旅游，优点是高效，缺点是不灵活</p>
+<h3 id="autograd"><a href="#autograd" class="headerlink" title="autograd"></a>autograd</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">torch<span class="token punctuation">.</span>autograd<span class="token punctuation">.</span>backward<span class="token punctuation">(</span>tensors<span class="token punctuation">,</span> grad_tensors<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> retain_graph<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> create_graph<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+<span class="token comment">#功能是 自动求取梯度 tensors是用于求导的张量，retain_graph 保存计算图 create_graph 创建导数计算图，用于高阶求导， grad_tensors 多梯度权重</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>之前在线性回归里面的 $y.backward(…)$ 实际上是调用了$torch.autograd.backward(…)$</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">w <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">,</span> requires_grad <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+x <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">,</span> requires_grad <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+a <span class="token operator">=</span> torch<span class="token punctuation">.</span>add<span class="token punctuation">(</span>w<span class="token punctuation">,</span> x<span class="token punctuation">)</span>
+b <span class="token operator">=</span> torch<span class="token punctuation">.</span>add<span class="token punctuation">(</span>w<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+y0 <span class="token operator">=</span> torch<span class="token punctuation">.</span>mul<span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span>
+y1 <span class="token operator">=</span> torch<span class="token punctuation">.</span>add<span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span>
+loss <span class="token operator">=</span> torch<span class="token punctuation">.</span>cat<span class="token punctuation">(</span><span class="token punctuation">[</span>y0<span class="token punctuation">,</span> y1<span class="token punctuation">]</span><span class="token punctuation">,</span> dim <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+grad_tensors <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+loss<span class="token punctuation">.</span>backward<span class="token punctuation">(</span>gradient<span class="token operator">=</span>grad_tensors<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>w<span class="token punctuation">.</span>grad<span class="token punctuation">)</span>
+<span class="token comment"># 5 + 2 * 2 = 9</span>
+
+torch<span class="token punctuation">.</span>autograd<span class="token punctuation">.</span>grad<span class="token punctuation">(</span>outputs<span class="token punctuation">,</span> inputs<span class="token punctuation">,</span> grad_outputs <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span> retain_graph <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span> create_graph <span class="token operator">=</span> <span class="token boolean">False</span><span class="token punctuation">)</span> <span class="token comment"># 功能 求取梯度</span>
+<span class="token comment"># 下面进行二阶求导</span>
+x <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">,</span> requires_grad <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+y <span class="token operator">=</span> torch<span class="token punctuation">.</span><span class="token builtin">pow</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+grad_1 <span class="token operator">=</span> torch<span class="token punctuation">.</span>autograd<span class="token punctuation">.</span>grad<span class="token punctuation">(</span>y<span class="token punctuation">,</span> x<span class="token punctuation">,</span> create_graph <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>grad_1<span class="token punctuation">)</span>
+grad_2 <span class="token operator">=</span> torch<span class="token punctuation">.</span>autograd<span class="token punctuation">.</span>grad<span class="token punctuation">(</span>grad_1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>grad_2<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>关于autograd 要注意一下：</p>
+<ul>
+<li>梯度不自动清零</li>
+<li>依赖于叶子结点的结点， requires_grad 默认为 True</li>
+<li>叶子结点不可执行 in-place</li>
+</ul>
+<h3 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h3><ul>
+<li>线性回归   $y = WX + b$</li>
+<li>对数几率回归 $ln\frac{y}{1-y} = WX + b \Rightarrow y = \frac{1}{1 + e^{-(WX + b)}}$</li>
+<li>对数回归  $lny = WX + b$</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">torch<span class="token punctuation">.</span>manual_seed<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+sample_nums <span class="token operator">=</span> <span class="token number">100</span>
+mean_value <span class="token operator">=</span> <span class="token number">1.7</span>
+bias <span class="token operator">=</span> <span class="token number">1</span>
+n_data <span class="token operator">=</span> torch<span class="token punctuation">.</span>ones<span class="token punctuation">(</span>sample_nums<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+x0 <span class="token operator">=</span> torch<span class="token punctuation">.</span>normal<span class="token punctuation">(</span>mean_value <span class="token operator">*</span> n_data<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> bias
+y0 <span class="token operator">=</span> torch<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span>sample_nums<span class="token punctuation">)</span>
+x1 <span class="token operator">=</span> torch<span class="token punctuation">.</span>normal<span class="token punctuation">(</span><span class="token operator">-</span>mean_value <span class="token operator">*</span> n_data<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> bias
+y1 <span class="token operator">=</span> torch<span class="token punctuation">.</span>ones<span class="token punctuation">(</span>sample_nums<span class="token punctuation">)</span>
+train_x <span class="token operator">=</span> torch<span class="token punctuation">.</span>cat<span class="token punctuation">(</span><span class="token punctuation">(</span>x0<span class="token punctuation">,</span> x1<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+train_y <span class="token operator">=</span> torch<span class="token punctuation">.</span>cat<span class="token punctuation">(</span><span class="token punctuation">(</span>y0<span class="token punctuation">,</span> y1<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">LR</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Module<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token builtin">super</span><span class="token punctuation">(</span>LR<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>features <span class="token operator">=</span> nn<span class="token punctuation">.</span>Linear<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>sigmoid <span class="token operator">=</span> nn<span class="token punctuation">.</span>Sigmoid<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        
+    <span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        x <span class="token operator">=</span> self<span class="token punctuation">.</span>features<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+        x <span class="token operator">=</span> self<span class="token punctuation">.</span>sigmoid<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> x
+    
+lr_net <span class="token operator">=</span> LR<span class="token punctuation">(</span><span class="token punctuation">)</span>
+loss_fn <span class="token operator">=</span> nn<span class="token punctuation">.</span>BCELoss<span class="token punctuation">(</span><span class="token punctuation">)</span>
+lr <span class="token operator">=</span> <span class="token number">0.01</span>
+optimizer <span class="token operator">=</span> torch<span class="token punctuation">.</span>optim<span class="token punctuation">.</span>SGD<span class="token punctuation">(</span>lr_net<span class="token punctuation">.</span>parameters<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> lr <span class="token operator">=</span> lr<span class="token punctuation">,</span> momentum <span class="token operator">=</span> <span class="token number">0.9</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> iteration <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    y_pred <span class="token operator">=</span> lr_net<span class="token punctuation">(</span>train_x<span class="token punctuation">)</span>
+    loss <span class="token operator">=</span> loss_fn<span class="token punctuation">(</span>y_pred<span class="token punctuation">.</span>squeeze<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> train_y<span class="token punctuation">)</span>
+    loss<span class="token punctuation">.</span>backward<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    optimizer<span class="token punctuation">.</span>step<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> iteration <span class="token operator">%</span> <span class="token number">20</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        mask <span class="token operator">=</span> y_pred<span class="token punctuation">.</span>ge<span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">float</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>squeeze<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        correct <span class="token operator">=</span> <span class="token punctuation">(</span>mask <span class="token operator">==</span> train_y<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        acc <span class="token operator">=</span> correct<span class="token punctuation">.</span>item<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">/</span> train_y<span class="token punctuation">.</span>size<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+        plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>x0<span class="token punctuation">.</span>data<span class="token punctuation">.</span>numpy<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> x0<span class="token punctuation">.</span>data<span class="token punctuation">.</span>numpy<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> c<span class="token operator">=</span><span class="token string">'r'</span><span class="token punctuation">,</span> label <span class="token operator">=</span> <span class="token string">'class 0'</span><span class="token punctuation">)</span>
+        plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>x1<span class="token punctuation">.</span>data<span class="token punctuation">.</span>numpy<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> x1<span class="token punctuation">.</span>data<span class="token punctuation">.</span>numpy<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> c<span class="token operator">=</span><span class="token string">'b'</span><span class="token punctuation">,</span> label <span class="token operator">=</span> <span class="token string">'class 1'</span><span class="token punctuation">)</span>
+        w0<span class="token punctuation">,</span> w1 <span class="token operator">=</span> lr_net<span class="token punctuation">.</span>features<span class="token punctuation">.</span>weight<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+        w0<span class="token punctuation">,</span> w1 <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span>w0<span class="token punctuation">.</span>item<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">float</span><span class="token punctuation">(</span>w1<span class="token punctuation">.</span>item<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        plot_b <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span>lr_net<span class="token punctuation">.</span>features<span class="token punctuation">.</span>bias<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>item<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        plot_x <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">0.1</span><span class="token punctuation">)</span>
+        plot_y <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">-</span>w0 <span class="token operator">*</span> plot_x <span class="token operator">-</span> plot_b<span class="token punctuation">)</span> <span class="token operator">/</span> w1
+        plt<span class="token punctuation">.</span>xlim<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span>
+        plt<span class="token punctuation">.</span>ylim<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span>
+        plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>plot_x<span class="token punctuation">,</span> plot_y<span class="token punctuation">)</span>
+        plt<span class="token punctuation">.</span>text<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token string">'loss=%.4f'</span> <span class="token operator">%</span> loss<span class="token punctuation">.</span>data<span class="token punctuation">.</span>numpy<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> fontdict<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token string">'size'</span> <span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token string">'color'</span> <span class="token punctuation">:</span> <span class="token string">'red'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+        plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">"Iteration: &#123;&#125;\nw0:&#123;:.2f&#125; w1:&#123;:2f&#125; b: &#123;:.2f&#125; accuracy:&#123;:.2%&#125;"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>iteration<span class="token punctuation">,</span> w0<span class="token punctuation">,</span> w1<span class="token punctuation">,</span> plot_b<span class="token punctuation">,</span> acc<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        plt<span class="token punctuation">.</span>pause<span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> acc <span class="token operator">></span> <span class="token number">0.99</span><span class="token punctuation">:</span>
+            <span class="token keyword">break</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="人民币二分类"><a href="#人民币二分类" class="headerlink" title="人民币二分类"></a>人民币二分类</h3><p>DataLoader 有 Sampler 功能是生成索引和 Dataset 是根据索引生成数据和标签两个模块</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">torch<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>data<span class="token punctuation">.</span>DataLoader<span class="token punctuation">(</span>dataset<span class="token punctuation">,</span> batch_size <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> shuffle <span class="token operator">=</span> <span class="token boolean">False</span><span class="token punctuation">,</span> sampler <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span> batch_sampler <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span> num_workers <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> collate_fn <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span> pin_memory <span class="token operator">=</span> <span class="token boolean">False</span><span class="token punctuation">,</span> drop_last <span class="token operator">=</span> <span class="token boolean">False</span><span class="token punctuation">,</span> timeout <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> worker_init_fn <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span> multiprocessing_context <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">)</span>
+<span class="token comment">#为啥我要把这些参数打出来呢？？？ 我是个傻逼</span>
+<span class="token comment">#功能 构建可迭代的数据装载器</span>
+<span class="token comment">#drop_last 当样本数不能被batch_size 整除时 是否舍弃最后一批数据</span>
+<span class="token comment">#shuffle 每个epoch是否乱序</span>
+<span class="token comment">#样本87 batchsize 8</span>
+<span class="token comment"># 1 epoch 10 iteration drop_last = True</span>
+<span class="token comment"># 1 epoch 11 iteration drop_last = False</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="数据预处理transforms模块机制"><a href="#数据预处理transforms模块机制" class="headerlink" title="数据预处理transforms模块机制"></a>数据预处理transforms模块机制</h3><p>transforms.Normalize 功能是 逐channel地对图像进行标准化</p>
+<script type="math/tex; mode=display">
+output = (input - mean) / std</script><h3 id="数据增强"><a href="#数据增强" class="headerlink" title="数据增强"></a>数据增强</h3><p><strong>裁剪</strong></p>
+<ul>
+<li><p>transforms.CenterCrop 从图像中心裁剪图片 </p>
+<ul>
+<li>size 裁剪出来的尺寸</li>
+</ul>
+</li>
+<li><p>transforms.RandomCrop 从图片中随机裁剪出尺寸为size的图片</p>
+<ul>
+<li>size 所需裁剪图片尺寸</li>
+<li>padding 设置填充大小，为a时，上下左右均填充a个像素，$(a, b)$上下a, 左右b，$(a, b, c, d)$ 左，上，右，下分别填充a，b，c，d</li>
+<li>padding_mode 填充模式 4种<ul>
+<li>constant 像素值由fill设定</li>
+<li>edge 像素值由图像边缘像素决定</li>
+<li>reflect 镜像填充，最后一个像素不镜像 $[1, 2, 3, 4] \rightarrow [3, 2, 1, 2, 3, 4, 3, 2]$</li>
+<li>symmetric 镜像填充 最后一个像素镜像 $[1,2,3,4] \rightarrow [2, 1, 1, 2, 3, 4, 4, 3]$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>transforms.RandomResizedCrop 随机大小、长宽比裁剪图片</p>
+<ul>
+<li><p>size 所需裁剪图片尺寸</p>
+</li>
+<li><p>scale 随机裁剪面积比例 默认 0.08到1</p>
+</li>
+<li><p>ratio 随机长宽比 默认 $\frac{3}{4}，\frac{4}{3}$</p>
+</li>
+<li><p>interpolation 插值方法</p>
+<ul>
+<li>NEAREST</li>
+<li>BILINEAR</li>
+<li>BICUBIC</li>
+</ul>
+<p>操作就是首先在0.08到1之间随机选取一个比例，然后根据ratio的长宽比去设定了图像的长和宽，然后去裁剪出来一个图片，然后再resize设定的size</p>
+</li>
+</ul>
+</li>
+<li><p>transform.FiveCrop 在图像上下左右以及中心裁剪出尺寸为size的5张图片，TenCrop对这5张图片进行水平或者垂直镜像获得10张图片 vertical_flip 是否垂直翻转</p>
+</li>
+</ul>
+<p><strong>翻转</strong></p>
+<ul>
+<li>RandomHorizontalFlip，RandomVerticalFlip 依概率水平或垂直翻转图片</li>
+<li>RandomRotation 随机旋转图片<ul>
+<li>degrees 旋转角度 当为a时，在$(-a, a)$之间选择旋转角度 当为$(a, b)$时，在这个范围内选择</li>
+<li>resample 重采样方法</li>
+<li>expand 是否扩大图片 以保持原图信息，因为旋转可能会让图片一部分超出原来图片边界</li>
+<li>center 设置旋转点</li>
+</ul>
+</li>
+</ul>
+<p><strong>其它</strong></p>
+<ul>
+<li><p>transform.Pad 对图片边缘进行填充</p>
+</li>
+<li><p>transform.ColorJitter 调整亮度、对比度、饱和度和色相</p>
+<ul>
+<li>brightness 亮度调整因子 当为a时 从$[max(0, 1-a), 1+ a]$中选择 当为$(a,b)$时从$[a,b]$中选择</li>
+<li>contrast 对比度参数 同brightness</li>
+<li>saturation 饱和度参数，同brightness</li>
+<li>hue 色相参数，当为a时 从$[-a, a]$ 中选择参数</li>
+</ul>
+</li>
+<li><p>RandomGrayscale 依概率将图片转换为灰度图，通道数只能是1或3</p>
+</li>
+<li><p>RandomAffine 对图像进行仿射变换，仿射变换是二维线性变换，由五种基本原子变换构成，分别是旋转、平移、缩放、错切和翻转 — 感觉这个函数比较高级</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">transforms<span class="token punctuation">.</span>RandomAffine<span class="token punctuation">(</span>degrees <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token comment">#在-30 到 30之间随机选一个度数进行旋转</span>
+transforms<span class="token punctuation">.</span>RandomAffine<span class="token punctuation">(</span>degrees <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> translate <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">0.2</span><span class="token punctuation">,</span> <span class="token number">0.2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> fillcolor<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+transforms<span class="token punctuation">.</span>RandomAffine<span class="token punctuation">(</span>degrees <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> shear <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">45</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li><p>RandomErasing 功能 对图像进行随机遮挡，与之前的不同，这个是对张量进行操作的</p>
+<p>有一篇文献 Random Erasing Data Augmentation</p>
+<p>论文推荐p = 1, scale = 0.02, 0.33  ratio = 0.3, 3.3  value = ‘random’</p>
+<ul>
+<li>p 概率值，执行该操作的概率</li>
+<li>scale 遮挡区域的面积</li>
+<li>ratio 遮挡区域的长宽比</li>
+<li>value 设置遮挡区域的像素值 $(R, G, B)$ 或者 $(Gray)$</li>
+</ul>
+</li>
+<li><p>transforms.Lambda  用户自定义lambda方法</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">transforms<span class="token punctuation">.</span>TenCrop<span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> vertical_flip <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+transforms<span class="token punctuation">.</span>Lambda<span class="token punctuation">(</span><span class="token keyword">lambda</span> crops <span class="token punctuation">:</span> torch<span class="token punctuation">.</span>stack<span class="token punctuation">(</span><span class="token punctuation">[</span>transforms<span class="token punctuation">.</span>ToTensor<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">(</span>crop<span class="token punctuation">)</span> <span class="token keyword">for</span> crop <span class="token keyword">in</span> crops<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>Transforms的操作</strong></p>
+</li>
+<li><p>transforms.RandomChoice 从一系列transforms方法中随机挑选一个</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">transforms<span class="token punctuation">.</span>RandomChoice<span class="token punctuation">(</span><span class="token punctuation">[</span>transforms<span class="token punctuation">.</span>RandomVerticalFlip<span class="token punctuation">(</span>p<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> transforms<span class="token punctuation">.</span>RandomHorizontalFlip<span class="token punctuation">(</span>p<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>transforms.RandomApply 依据概率执行一组transforms操作</p>
+</li>
+<li><p>transforms.RandomOrder 对一组transforms操作打乱顺序</p>
+</li>
+</ul>
+<h3 id="自定义transforms"><a href="#自定义transforms" class="headerlink" title="自定义transforms"></a>自定义transforms</h3><p>仅接受一个参数，返回一个参数 注意transform在Compose里面调用的代码：</p>
+<p>注意上下游的输出与输入</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Compose</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__call__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> img<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> t <span class="token keyword">in</span> self<span class="token punctuation">.</span>transforms<span class="token punctuation">:</span>
+            img <span class="token operator">=</span> t<span class="token punctuation">(</span>img<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> img<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>椒盐噪声</strong></p>
+<p>又称为脉冲噪声，是一种随机出现的白点或者黑点，白点称为盐噪声，黑色为椒噪声</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">myalos</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://myalos.github.io/2021/07/16/pytorch%20study%201/">http://myalos.github.io/2021/07/16/pytorch%20study%201/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">myalos</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/pytorch/">
+                                    <span class="chip bg-color">pytorch</span>
+                                </a>
+                            
+                                <a href="/tags/python/">
+                                    <span class="chip bg-color">python</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">如果觉得写的不错的话，欢迎打赏~</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+    <div id="SOHUCS"></div>
+    <script type="text/javascript">
+        window.onload = function () {
+            var loadChangYan = function () {
+                var appid = 'cyvggQN1D';
+                var conf = 'prod_9c755fefb01d91cb12075a46d535e15a';
+                var width = window.innerWidth || document.documentElement.clientWidth;
+                if (width < 960) {
+                    var head = document.getElementsByTagName('head')[0] || document.head || document.documentElement;
+                    var script = document.createElement('script');
+                    script.type = 'text/javascript';
+                    script.charset = 'utf-8';
+                    script.id = 'changyan_mobile_js';
+                    script.src = 'https://cy-cdn.kuaizhan.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid +
+                        '&conf=' + conf;
+                    head.appendChild(script);
+                } else {
+                    var loadJs = function (d, a) {
+                        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+                        var b = document.createElement("script");
+                        b.setAttribute("type", "text/javascript");
+                        b.setAttribute("charset", "UTF-8");
+                        b.setAttribute("src", d);
+                        if (typeof a === "function") {
+                            if (window.attachEvent) {
+                                b.onreadystatechange = function () {
+                                    var e = b.readyState;
+                                    if (e === "loaded" || e === "complete") {
+                                        b.onreadystatechange = null;
+                                        a()
+                                    }
+                                }
+                            } else {
+                                b.onload = a
+                            }
+                        }
+                        c.appendChild(b)
+                    };
+                    loadJs("https://cy-cdn.kuaizhan.com/upload/changyan.js", function () {
+                        window.changyan.api.config({
+                            appid: appid,
+                            conf: conf
+                        })
+                    });
+                }
+            }
+
+            loadChangYan();
+        }
+    </script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/09/17/week3/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="nn.Module和AlexNet的创建">
+                        
+                        <span class="card-title">nn.Module和AlexNet的创建</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            这是深度之眼pytorch 第三周 的学习笔记, 主要是关于pytoch里面nn.Module和LeNet的实现
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-17
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">深度学习</span>
+                    </a>
+                    
+                    <a href="/tags/pytorch/">
+                        <span class="chip bg-color">pytorch</span>
+                    </a>
+                    
+                    <a href="/tags/LeNet/">
+                        <span class="chip bg-color">LeNet</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/07/05/cs230/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Deep Reinforcement Learning">
+                        
+                        <span class="card-title">Deep Reinforcement Learning</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            这是CS230 第九课的学习笔记
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/RL/">
+                        <span class="chip bg-color">RL</span>
+                    </a>
+                    
+                    <a href="/tags/cs230/">
+                        <span class="chip bg-color">cs230</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">深度学习</span>
+                    </a>
+                    
+                    <a href="/tags/Q-Learning/">
+                        <span class="chip bg-color">Q-Learning</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="4937357"
+                   fixed='true'
+                   autoplay='true'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2021</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">myalos</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/myalos" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

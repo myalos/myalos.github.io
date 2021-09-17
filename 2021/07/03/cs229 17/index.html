@@ -502,7 +502,9 @@
 <p>start to talk about algorithms for solving MDPs</p>
 <p>We need to define sth. called <strong>the value function</strong> which tells you how good it is to be in different states of the MDP and then we’ll define the value function and then talk about an algorithm called value iteration for computing the value function.</p>
 <p>回忆lecture16的内容，为了找到最佳的policy，可能有成千上万的可选择的policies，如果有11个状态，每个状态可采取4个行动，那么可能的策略就有$4^{11}$种</p>
-<h3 id="计算最佳策略"><a href="#计算最佳策略" class="headerlink" title="计算最佳策略"></a>计算最佳策略</h3><p>Define: $V^{\pi}$，$V^<em>$，$\pi^</em>$ ;  based on these definitions we’ll derive that $\pi^*$ is the optimal policy</p>
+<h3 id="计算最佳策略"><a href="#计算最佳策略" class="headerlink" title="计算最佳策略"></a>计算最佳策略</h3><script type="math/tex; mode=display">
+* = star</script><p>由于网页渲染星号会出问题，所以文中所有的star 都是*号</p>
+<p>Define: $V^{\pi}$，$V ^ {star}$，$\pi ^ {star}$ ;  based on these definitions we’ll derive that $\pi^{star}$ is the optimal policy</p>
 <p><span style='color:red;font-weight:bold'>For a policy </span>$\pi$, $V^\pi : S \rightarrow R $<span style='color:red;font-weight:bold'> is s.t.</span> $V^\pi (s)$ <span style='color:red;font-weight:bold'>is to the expected total payoff for starting in state s and executing</span> $\pi$</p>
 <script type="math/tex; mode=display">
 V^\pi (s) = E[R(s_0) + \gamma R(s_1) + \cdots | \pi, s_0 = s]</script><p>$V^\pi$ 被称为value function for policy $\pi$</p>
@@ -518,15 +520,15 @@ V^\pi (s) = E[R(s_0) + \gamma R(s_1) + \gamma^2 R(s_2) + \cdots | \pi, s_0 = s] 
 <script type="math/tex; mode=display">
 V((3, 1)) = R((3, 1)) + \gamma(0.8V^\pi((3, 2)) + 0.1V^\pi((2, 1)) + 0.1V^\pi((4, 1)))</script><p>因为有11个状态 那么就会有11个未知数，和 11个Bellman equations，解线性方程得结果</p>
 <p><img src="https://z3.ax1x.com/2021/07/02/RyyvNQ.png" alt="11个状态组成得线性方程组"></p>
-<p>$V^<em>$ is the optimal value function   $V^</em> (s) = \max_\pi V^\pi (s)$</p>
-<p>下面是关于$V^*$的bellman 方程</p>
+<p>$V^{star}$ is the optimal value function   $V ^ {star} (s) = \max_\pi V^\pi (s)$</p>
+<p>下面是关于$V^{star}$的bellman 方程</p>
 <script type="math/tex; mode=display">
-V^* (s) = R(s) + \max_a \gamma \sum_{s^\prime}P_{sa} (s^\prime)V^*(s^\prime) \tag{2}</script><p>if take action $a$ 那么 $\sum_{s^\prime}P_{sa} (s^\prime)V^*(s^\prime)$ 就是expected future reward</p>
-<p>由方程$(2)$ 就可以推出$\pi^* (s)$ 即</p>
+V^* (s) = R(s) + \max_a \gamma \sum_{s^\prime}P_{sa} (s^\prime)V^*(s^\prime) \tag{2}</script><p>if take action $a$ 那么 $\sum_{s^\prime}P_{sa} (s^\prime)V^{star}(s^\prime)$ 就是expected future reward</p>
+<p>由方程$(2)$ 就可以推出$\pi^{star} (s)$ 即</p>
 <script type="math/tex; mode=display">
-\pi^* (s) = argmax_a \sum_{s^\prime}P_{sa}(s^\prime)V^*(s^\prime)</script><p>作个小总结 $V^<em> (s) = V^{\pi^</em>}(s) \ge V^\pi (s) \ for \ every \ \pi, s$ </p>
-<p>我们要做的就是找到$V^<em>$， 使用argmax方程来求得$\pi^</em>$</p>
-<h3 id="Value-iteration"><a href="#Value-iteration" class="headerlink" title="Value iteration"></a>Value iteration</h3><p> 是一个算法来找到$V^*$ </p>
+\pi^* (s) = argmax_a \sum_{s^\prime}P_{sa}(s^\prime)V^*(s^\prime)</script><p>作个小总结 $V^{star} (s) = V^{\pi^{star}}(s) \ge V^\pi (s) \ for \ every \ \pi, s$ </p>
+<p>我们要做的就是找到$V^{star}$， 使用argmax方程来求得$\pi ^ {star}$</p>
+<h3 id="Value-iteration"><a href="#Value-iteration" class="headerlink" title="Value iteration"></a>Value iteration</h3><p> 是一个算法来找到$V ^ {star}$ </p>
 <ul>
 <li><p>初始化$V(s) := 0$  for every s</p>
 </li>
@@ -537,8 +539,8 @@ V(s) := R(s) + \max_a \gamma \sum_{s^\prime}P_{sa}(s^\prime)V(s^\prime)</script>
 <p>一般用synchronous update</p>
 </li>
 </ul>
-<p>用value iteration 计算出的$V^*$ 结果是：</p>
-<p><img src="https://z3.ax1x.com/2021/07/02/R6CEZt.png" alt="R6CEZt.png"></p>
+<p>用value iteration 计算出的$V^{star}$ 结果是：</p>
+<p><img src="https://z3.ax1x.com/2021/07/02/R6CEZt.png" alt="value iteration的结果"></p>
 <p>由这张图 知道处于$(3, 1)$的时候应该向左走</p>
 <h3 id="Policy-Iteration"><a href="#Policy-Iteration" class="headerlink" title="Policy Iteration"></a>Policy Iteration</h3><p>这个用来求解MDP问题</p>
 <ul>
@@ -551,7 +553,7 @@ V(s) := R(s) + \max_a \gamma \sum_{s^\prime}P_{sa}(s^\prime)V(s^\prime)</script>
 </li>
 </ul>
 <p>对于状态很多的情况，解线性方程就很耗时，用value iteration 会更好一点</p>
-<p>对于value iteration $V \rightarrow V^<em>$ <em>*就将梯度下降，向最优值收敛是越来越靠近最优值，但是永远达不到最优值</em></em></p>
+<p>对于value iteration $V \rightarrow V ^ {star}$ <strong>就将梯度下降，向最优值收敛是越来越靠近最优值，但是永远达不到最优值</strong></p>
 <h3 id="如果不知道-P-sa"><a href="#如果不知道-P-sa" class="headerlink" title="如果不知道$P_{sa}$"></a>如果不知道$P_{sa}$</h3><p>当state transition probabilities are often not known in advance. And so in many MDP implementations we need to estimate this form data.</p>
 <script type="math/tex; mode=display">
 P_{sa}(s^\prime) = \frac{\# \ times \ took \ action \ "a" \ in \ state \ s \ and \ got \ to \ s^\prime}{\# \ times \ took \ action \ "a" \ in \ state \ s}</script><p>or $\frac{1}{|S|}$  if above is $\frac{“0”}{0}$ </p>

@@ -6,7 +6,7 @@
   <link href="http://myalos.github.io/atom.xml" rel="self"/>
   
   <link href="http://myalos.github.io/"/>
-  <updated>2021-07-05T12:30:12.506Z</updated>
+  <updated>2021-09-17T13:09:17.048Z</updated>
   <id>http://myalos.github.io/</id>
   
   <author>
@@ -15,6 +15,63 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>nn.Module和AlexNet的创建</title>
+    <link href="http://myalos.github.io/2021/09/17/week3/"/>
+    <id>http://myalos.github.io/2021/09/17/week3/</id>
+    <published>2021-09-17T13:00:00.000Z</published>
+    <updated>2021-09-17T13:09:17.048Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;模型创建步骤&quot;&gt;&lt;a href=&quot;#模型创建步骤&quot; class=&quot;headerlink&quot; title=&quot;模型创建步骤&quot;&gt;&lt;/a&gt;模型创建步骤&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;构建网络层  </summary>
+        
+      
+    
+    
+    
+    <category term="机器学习" scheme="http://myalos.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="深度学习" scheme="http://myalos.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="pytorch" scheme="http://myalos.github.io/tags/pytorch/"/>
+    
+    <category term="LeNet" scheme="http://myalos.github.io/tags/LeNet/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pytorch学习 Part I</title>
+    <link href="http://myalos.github.io/2021/07/16/pytorch%20study%201/"/>
+    <id>http://myalos.github.io/2021/07/16/pytorch%20study%201/</id>
+    <published>2021-07-16T03:25:38.730Z</published>
+    <updated>2021-07-16T03:25:26.068Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;张量的拼接&quot;&gt;&lt;a href=&quot;#张量的拼接&quot; class=&quot;headerlink&quot; title=&quot;张量的拼接&quot;&gt;&lt;/a&gt;张量的拼接&lt;/h3&gt;&lt;p&gt;torch.cat  将张量按维度dim进行拼接，不会扩张张量的维度，torch.stack </summary>
+        
+      
+    
+    
+    
+    <category term="pytorch" scheme="http://myalos.github.io/categories/pytorch/"/>
+    
+    
+    <category term="pytorch" scheme="http://myalos.github.io/tags/pytorch/"/>
+    
+    <category term="python" scheme="http://myalos.github.io/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>Deep Reinforcement Learning</title>
@@ -52,7 +109,7 @@
     <link href="http://myalos.github.io/2021/07/03/cs229%2017/"/>
     <id>http://myalos.github.io/2021/07/03/cs229%2017/</id>
     <published>2021-07-03T15:07:08.291Z</published>
-    <updated>2021-07-03T15:06:54.634Z</updated>
+    <updated>2021-07-11T10:32:56.488Z</updated>
     
     
       
@@ -106,7 +163,7 @@
     <link href="http://myalos.github.io/2021/07/01/cs229%2016/"/>
     <id>http://myalos.github.io/2021/07/01/cs229%2016/</id>
     <published>2021-07-01T13:56:38.721Z</published>
-    <updated>2021-07-01T13:56:08.811Z</updated>
+    <updated>2021-07-11T10:35:33.392Z</updated>
     
     
       
@@ -125,6 +182,8 @@
     <category term="cs229" scheme="http://myalos.github.io/tags/cs229/"/>
     
     <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="RL" scheme="http://myalos.github.io/tags/RL/"/>
     
   </entry>
   
@@ -507,62 +566,6 @@
     <category term="cs229" scheme="http://myalos.github.io/tags/cs229/"/>
     
     <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Support Vector Machine</title>
-    <link href="http://myalos.github.io/2021/03/22/cs229%206/"/>
-    <id>http://myalos.github.io/2021/03/22/cs229%206/</id>
-    <published>2021-03-22T14:37:18.407Z</published>
-    <updated>2021-03-21T03:09:13.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Lecture-6-Support-Vector-Machine&quot;&gt;&lt;a href=&quot;#Lecture-6-Support-Vector-Machine&quot; class=&quot;headerlink&quot; title=&quot;Lecture 6 Support Vector</summary>
-        
-      
-    
-    
-    
-    <category term="机器学习" scheme="http://myalos.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="cs229" scheme="http://myalos.github.io/tags/cs229/"/>
-    
-    <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Continuous-Time Fourier Series</title>
-    <link href="http://myalos.github.io/2021/03/22/signal%20and%20system%207/"/>
-    <id>http://myalos.github.io/2021/03/22/signal%20and%20system%207/</id>
-    <published>2021-03-22T14:37:01.144Z</published>
-    <updated>2021-03-22T14:36:42.088Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Lecture-7-Continuous-Time-Fourier-Series&quot;&gt;&lt;a href=&quot;#Lecture-7-Continuous-Time-Fourier-Series&quot; class=&quot;headerlink&quot; title=&quot;Lecture 7</summary>
-        
-      
-    
-    
-    
-    <category term="信号与系统" scheme="http://myalos.github.io/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-    <category term="信号与系统" scheme="http://myalos.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
-    
-    <category term="理论知识" scheme="http://myalos.github.io/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/"/>
-    
-    <category term="数学" scheme="http://myalos.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
