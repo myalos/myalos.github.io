@@ -6,7 +6,7 @@
   <link href="http://myalos.github.io/atom.xml" rel="self"/>
   
   <link href="http://myalos.github.io/"/>
-  <updated>2021-09-17T14:24:59.185Z</updated>
+  <updated>2021-10-14T10:46:13.786Z</updated>
   <id>http://myalos.github.io/</id>
   
   <author>
@@ -17,11 +17,75 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>深度学习框架pytorch入门与实践 七章</title>
+    <link href="http://myalos.github.io/2021/10/13/ch7/"/>
+    <id>http://myalos.github.io/2021/10/13/ch7/</id>
+    <published>2021-10-13T12:00:00.000Z</published>
+    <updated>2021-10-14T10:46:13.786Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;这是深度学习框架pytorch入门与实践的第七章的内容&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;首先看了一眼main.py</summary>
+        
+      
+    
+    
+    
+    <category term="深度学习" scheme="http://myalos.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="深度学习" scheme="http://myalos.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="pytorch" scheme="http://myalos.github.io/tags/pytorch/"/>
+    
+    <category term="GAN" scheme="http://myalos.github.io/tags/GAN/"/>
+    
+    <category term="CGAN" scheme="http://myalos.github.io/tags/CGAN/"/>
+    
+    <category term="MNIST" scheme="http://myalos.github.io/tags/MNIST/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深度学习框架pytorch入门与实践 五六章</title>
+    <link href="http://myalos.github.io/2021/10/04/ch56/"/>
+    <id>http://myalos.github.io/2021/10/04/ch56/</id>
+    <published>2021-10-04T12:00:00.000Z</published>
+    <updated>2021-10-14T10:46:25.141Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;这本书的代码地址  &lt;a href=&quot;https://www.github.com/chenyuntc/pytorch-book&quot;&gt;链接&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;数据加载&quot;&gt;&lt;a href=&quot;#数据加载&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="深度学习" scheme="http://myalos.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="深度学习" scheme="http://myalos.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="pytorch" scheme="http://myalos.github.io/tags/pytorch/"/>
+    
+    <category term="MNIST" scheme="http://myalos.github.io/tags/MNIST/"/>
+    
+  </entry>
+  
+  <entry>
     <title>decision tree</title>
     <link href="http://myalos.github.io/2021/09/17/decision%20tree/"/>
     <id>http://myalos.github.io/2021/09/17/decision%20tree/</id>
     <published>2021-09-17T14:26:02.883Z</published>
-    <updated>2021-09-17T14:24:59.185Z</updated>
+    <updated>2021-09-23T04:01:37.294Z</updated>
     
     
       
@@ -512,64 +576,6 @@
     
     
     <category term="CSS" scheme="http://myalos.github.io/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Continuous-Time Fourier Transform</title>
-    <link href="http://myalos.github.io/2021/03/29/signal%20and%20system%208/"/>
-    <id>http://myalos.github.io/2021/03/29/signal%20and%20system%208/</id>
-    <published>2021-03-29T02:51:42.941Z</published>
-    <updated>2021-03-27T01:28:43.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Continuous-Time-Fourier-Transform&quot;&gt;&lt;a href=&quot;#Continuous-Time-Fourier-Transform&quot; class=&quot;headerlink&quot; title=&quot;Continuous-Time Fourier</summary>
-        
-      
-    
-    
-    
-    <category term="信号与系统" scheme="http://myalos.github.io/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-    <category term="信号与系统" scheme="http://myalos.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
-    
-    <category term="理论知识" scheme="http://myalos.github.io/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/"/>
-    
-    <category term="数学" scheme="http://myalos.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Fourier Transform Properties</title>
-    <link href="http://myalos.github.io/2021/03/29/signal%20and%20system%209/"/>
-    <id>http://myalos.github.io/2021/03/29/signal%20and%20system%209/</id>
-    <published>2021-03-29T02:51:42.897Z</published>
-    <updated>2021-03-29T02:51:21.871Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Fourier-Transform-Properties&quot;&gt;&lt;a href=&quot;#Fourier-Transform-Properties&quot; class=&quot;headerlink&quot; title=&quot;Fourier Transform</summary>
-        
-      
-    
-    
-    
-    <category term="信号与系统" scheme="http://myalos.github.io/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-    <category term="信号与系统" scheme="http://myalos.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
-    
-    <category term="理论知识" scheme="http://myalos.github.io/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/"/>
-    
-    <category term="数学" scheme="http://myalos.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
