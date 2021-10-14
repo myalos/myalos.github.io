@@ -51,6 +51,40 @@
   </entry>
   
   <entry>
+    <title>random forest</title>
+    <link href="http://myalos.github.io/2021/10/08/random%20forest/"/>
+    <id>http://myalos.github.io/2021/10/08/random%20forest/</id>
+    <published>2021-10-08T12:00:00.000Z</published>
+    <updated>2021-10-14T10:48:22.686Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.bilibili.com/video/BV1MA411J7wm?p=17&quot;&gt;视频链接&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;集成算法概述&quot;&gt;&lt;a href=&quot;#集成算法概述&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="机器学习" scheme="http://myalos.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="sklearn" scheme="http://myalos.github.io/tags/sklearn/"/>
+    
+    <category term="菜菜" scheme="http://myalos.github.io/tags/%E8%8F%9C%E8%8F%9C/"/>
+    
+    <category term="random forest" scheme="http://myalos.github.io/tags/random-forest/"/>
+    
+    <category term="kaggle" scheme="http://myalos.github.io/tags/kaggle/"/>
+    
+  </entry>
+  
+  <entry>
     <title>深度学习框架pytorch入门与实践 五六章</title>
     <link href="http://myalos.github.io/2021/10/04/ch56/"/>
     <id>http://myalos.github.io/2021/10/04/ch56/</id>
@@ -550,32 +584,6 @@
     <category term="cs229" scheme="http://myalos.github.io/tags/cs229/"/>
     
     <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CSS基础</title>
-    <link href="http://myalos.github.io/2021/05/09/css1/"/>
-    <id>http://myalos.github.io/2021/05/09/css1/</id>
-    <published>2021-05-09T12:09:58.746Z</published>
-    <updated>2021-05-09T12:09:20.533Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;这是学堂在线上面的前端课程&lt;a href=&quot;https://www.xuetangx.com/search?query=%E5%89%8D%E7%AB%AF&amp;amp;page=1&quot;&gt;课程链接&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;CSS基础&quot;&gt;&lt;a href=&quot;#CSS基础&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="前端" scheme="http://myalos.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-    <category term="CSS" scheme="http://myalos.github.io/tags/CSS/"/>
     
   </entry>
   

@@ -1,0 +1,1572 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="random forest, goon的杂货店">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>random forest | goon的杂货店</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="goon的杂货店" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">goon的杂货店</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">goon的杂货店</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/myalos" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/myalos" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('密码是你2021年7月1日 签名拼音的首字母 全部小写')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">random forest</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">机器学习</span>
+                            </a>
+                        
+                            <a href="/tags/sklearn/">
+                                <span class="chip bg-color">sklearn</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%8F%9C%E8%8F%9C/">
+                                <span class="chip bg-color">菜菜</span>
+                            </a>
+                        
+                            <a href="/tags/random-forest/">
+                                <span class="chip bg-color">random forest</span>
+                            </a>
+                        
+                            <a href="/tags/kaggle/">
+                                <span class="chip bg-color">kaggle</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                机器学习
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-10-08
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1MA411J7wm?p=17">视频链接</a></p>
+<h3 id="集成算法概述"><a href="#集成算法概述" class="headerlink" title="集成算法概述"></a>集成算法概述</h3><p>随机森林是集成算法中容易入门的</p>
+<p>多个模型集成成为的模型叫做集成评估器 ensemble estimator，组成集成评估器的每个模型都叫做基评估器 base estimator。通常来说  有Bagging，Boosting，Stacking</p>
+<p>Bagging的核心思想是构建多个相互独立的评估器，然后对其预测取平均或者多数表决来决定最终结果</p>
+<p>Boosting中，基评估器是相关的，是按顺序一一构建的。核心思想是结合弱评估器的力量一次次对难以评估的样本进行预测，从而构成一个强评估器，比如对于第一个分类器中分类错误的样本，提高这些样本的权重让第二个分类器进行分类</p>
+<h3 id="RandomForestClassifier"><a href="#RandomForestClassifier" class="headerlink" title="RandomForestClassifier"></a>RandomForestClassifier</h3><p>它的所有基评估器都是决策树</p>
+<p>所在的库 from  sklearn.ensemble import RandomForestClassifier</p>
+<p><strong>n_estimators </strong></p>
+<p>是森林中树木的数量，即基评估器的数量。这个参数对随机森林模型的精确性影响是单调的，n_estimators越大，模型的效果往往越好，n_estimator达到一定程度之后，随着其增大，模型的精确性往往不在上升或开始波动，并且n_estimators越大，需要的计算量和内存也越大，训练的时间也越长，在0.22版本默认值是100</p>
+<p><strong>示例 ： </strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>tree <span class="token keyword">import</span> DecisionTreeClassifier
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>ensemble <span class="token keyword">import</span> RandomForestClassifier
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>model_selection <span class="token keyword">import</span> cross_val_score<span class="token punctuation">,</span> train_test_split
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> load_wine
+dtc <span class="token operator">=</span> DecisionTreeClassifier<span class="token punctuation">(</span>random_state <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">)</span>
+dtc2 <span class="token operator">=</span> DecisionTreeClassifier<span class="token punctuation">(</span>criterion <span class="token operator">=</span> <span class="token string">'entropy'</span><span class="token punctuation">,</span> random_state <span class="token operator">=</span> <span class="token number">27</span><span class="token punctuation">)</span>
+rfc <span class="token operator">=</span> RandomForestClassifier<span class="token punctuation">(</span>random_state <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">)</span>
+wine <span class="token operator">=</span> load_wine<span class="token punctuation">(</span><span class="token punctuation">)</span>
+Xtrain<span class="token punctuation">,</span> Xtest<span class="token punctuation">,</span> Ytrain<span class="token punctuation">,</span> Ytest <span class="token operator">=</span> train_test_split<span class="token punctuation">(</span>wine<span class="token punctuation">.</span>data<span class="token punctuation">,</span> wine<span class="token punctuation">.</span>target<span class="token punctuation">,</span> test_size <span class="token operator">=</span> <span class="token number">0.3</span><span class="token punctuation">)</span>
+dtc<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">,</span> Ytrain<span class="token punctuation">)</span>
+dtc<span class="token punctuation">.</span>score<span class="token punctuation">(</span>Xtest<span class="token punctuation">,</span> Ytest<span class="token punctuation">)</span>
+<span class="token comment"># 打印的值为0.85185</span>
+dtc2<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">,</span> Ytrain<span class="token punctuation">)</span>
+dtc2<span class="token punctuation">.</span>score<span class="token punctuation">(</span>Xtest<span class="token punctuation">,</span> Ytest<span class="token punctuation">)</span>
+<span class="token comment"># 打印的值为0.98148</span>
+rfc<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">,</span> Ytrain<span class="token punctuation">)</span>
+rfc<span class="token punctuation">.</span>score<span class="token punctuation">(</span>Xtest<span class="token punctuation">,</span> Ytest<span class="token punctuation">)</span>
+<span class="token comment"># 打印的值为 1.0   unbelievable</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="下面比较一下dtc-和-rfc-两个分类器的"><a href="#下面比较一下dtc-和-rfc-两个分类器的" class="headerlink" title="下面比较一下dtc 和 rfc 两个分类器的"></a>下面比较一下dtc 和 rfc 两个分类器的</h5><p>用cross_val_score，10次输出用dtc和rfc进行比较，这么做的原因是为了减小训练集和测试集的划分对两者性能比较的影响</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">rfc_s <span class="token operator">=</span> cross_val_score<span class="token punctuation">(</span>rfc<span class="token punctuation">,</span> wine<span class="token punctuation">.</span>data<span class="token punctuation">,</span> wine<span class="token punctuation">.</span>target<span class="token punctuation">,</span> cv <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">)</span>
+dtc_s <span class="token operator">=</span> cross_val_score<span class="token punctuation">(</span>dtc<span class="token punctuation">,</span> wine<span class="token punctuation">.</span>data<span class="token punctuation">,</span> wine<span class="token punctuation">.</span>target<span class="token punctuation">,</span> cv <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rfc_s<span class="token punctuation">,</span> label <span class="token operator">=</span> <span class="token string">"Random Forest"</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">,</span> dtc_s<span class="token punctuation">,</span> label <span class="token operator">=</span> <span class="token string">"Decision Tree"</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://z3.ax1x.com/2021/09/18/4QYzI1.png" alt="4QYzI1.png"></p>
+<p>由上图可见，随机森林的效果要比决策树要好</p>
+<h5 id="下面不设置random-state-来看-两个分类器性能的差异"><a href="#下面不设置random-state-来看-两个分类器性能的差异" class="headerlink" title="下面不设置random_state 来看 两个分类器性能的差异"></a>下面不设置random_state 来看 两个分类器性能的差异</h5><pre class="line-numbers language-python" data-language="python"><code class="language-python">rfc_l <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+clf_l <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    rfc <span class="token operator">=</span> RandomForestClassifier<span class="token punctuation">(</span>n_estimators <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">)</span>
+    rfc_s <span class="token operator">=</span> cross_val_score<span class="token punctuation">(</span>rfc<span class="token punctuation">,</span> wine<span class="token punctuation">.</span>data<span class="token punctuation">,</span> wine<span class="token punctuation">.</span>target<span class="token punctuation">,</span> cv <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    rfc_l<span class="token punctuation">.</span>append<span class="token punctuation">(</span>rfc_s<span class="token punctuation">)</span>
+    clf <span class="token operator">=</span> DecisionTreeClassifier<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    clf_s <span class="token operator">=</span> cross_val_score<span class="token punctuation">(</span>clf<span class="token punctuation">,</span> wine<span class="token punctuation">.</span>data<span class="token punctuation">,</span> wine<span class="token punctuation">.</span>target<span class="token punctuation">,</span> cv <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    clf_l<span class="token punctuation">.</span>append<span class="token punctuation">(</span>clf_s<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">,</span> rfc_l<span class="token punctuation">,</span> label <span class="token operator">=</span> <span class="token string">'Random Forest'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">,</span> clf_l<span class="token punctuation">,</span> label <span class="token operator">=</span> <span class="token string">'Decision Tree'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://z3.ax1x.com/2021/09/18/4QUAUA.png" alt="4QUAUA.png"></p>
+<h5 id="下面是关于n-estimators的学习曲线"><a href="#下面是关于n-estimators的学习曲线" class="headerlink" title="下面是关于n_estimators的学习曲线"></a>下面是关于n_estimators的学习曲线</h5><pre class="line-numbers language-python" data-language="python"><code class="language-python">content <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    rfc <span class="token operator">=</span> RandomForestClassifier<span class="token punctuation">(</span>n_estimators <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> n_jobs <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> random_state <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">)</span>
+    <span class="token comment"># 这里的参数n_jobs告诉引擎有多少处理器是它可以使用。 “-1”意味着没有限制，而“1”值意味着它只能使用一个处理器。</span>
+    rfc_s <span class="token operator">=</span> cross_val_score<span class="token punctuation">(</span>rfc<span class="token punctuation">,</span> wine<span class="token punctuation">.</span>data<span class="token punctuation">,</span> wine<span class="token punctuation">.</span>target<span class="token punctuation">,</span> cv <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    content<span class="token punctuation">.</span>append<span class="token punctuation">(</span>rfc_s<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">max</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">,</span> content<span class="token punctuation">.</span>index<span class="token punctuation">(</span><span class="token builtin">max</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">201</span><span class="token punctuation">)</span><span class="token punctuation">,</span> content<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>savefig<span class="token punctuation">(</span><span class="token string">'result4.png'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># 打印出来的值是0.983333  24</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://z3.ax1x.com/2021/09/18/4QBp0U.png" alt="4QBp0U.png"></p>
+<h5 id="随机森林的Bagging的体现"><a href="#随机森林的Bagging的体现" class="headerlink" title="随机森林的Bagging的体现"></a>随机森林的Bagging的体现</h5><p>在之前的红酒的例子中，我们建立了25棵树，对任何一个样本而言，平均或多数表决原则下，当且仅当有13棵以上的树判断错误的时候，随机森林才会判断错误。单独一棵决策树对红酒数据集的分类准确率在0.85上下浮动，假设一棵树判断错误的可能性为0.2 那么13棵树以上判断错误的可能性：</p>
+<script type="math/tex; mode=display">
+e_{random\_forest} = \sum_{i = 13}^{25} \binom{25}{i}\epsilon^i(1-\epsilon)^{25 - i} = 0.000369</script><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 这是计算上面式子的代码</span>
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">from</span> scipy<span class="token punctuation">.</span>special <span class="token keyword">import</span> comb
+np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span>comb<span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">0.2</span> <span class="token operator">**</span> i<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> <span class="token number">0.2</span><span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token punctuation">(</span><span class="token number">25</span> <span class="token operator">-</span> i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">26</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># 打印出来的值是0.000369   六六六哇</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>RandomForestClassifier 中的random_state控制的是一片森林而非具体的一棵树</p>
+<p>用rfc.estimators_来查看随机森林中的决策树，发现决策树的参数基本相同，唯一不同的是random_state</p>
+<p>type(rfc.estimators_[0]) 返回的值是sklearn.tree.tree.DecisionTreeClassifier</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>rfc<span class="token punctuation">.</span>estimators_<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>rfc<span class="token punctuation">.</span>estimators_<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>random_state<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>这种很多相同的树 在成千上万棵的时候，数据不一定能够提供成千上万的特征来让我们构筑尽量多尽量不同的树，所以除了random_state 以外 我们还需要其他的随机性</p>
+<p>bagging 是通过有放回的随机抽样技术来形成不同的训练数据，bootstrap就是用来控制抽样技术的参数</p>
+<p><strong>有放回的采样n次，最终得到一个和原始训练集一样大的，n个样本组成的自助集，由于是随机采样，这样每次的自助集和原始数据集不同，和其他的采样集也是不同的，用这些基数据集来训练我们的基分类器，我们的基分类器自然也就各不相同了  boostrap默认为True 代表采用有放回的随机抽样技术</strong></p>
+<p>有放回的抽样有自己的问题， 由于是有放回，一些样本可能在同一个自助集中出现多次，而其他一些可能被忽略，一般来说，自助集大约平均会包含63%的原始数据。<strong>因为每一个样本被抽到某个自助集的概率为</strong></p>
+<script type="math/tex; mode=display">
+1 - (1 - \frac{1}{n})^n  收敛于 1 - \frac{1}{e} \approx0.632</script><p>假如原始数据有m个，这就是二项分布m, p  期望是m * p，也就是期望p的原始数据会被抽到</p>
+<p>**会有约37%的训练数据被浪费掉 ，没有参与建模，这些数据被称为带外数据 out of bag data 简写为oob</p>
+<p><strong>也就是说，在使用随机森林时，我们可以不划分测试集和训练集，只用袋外数据来测试我们的模型即可</strong></p>
+<p>但是 这也不是绝对的，当n和n_estimators都不够大的是皇后，很可能就没有数据掉落在袋外 </p>
+<p><strong>如果希望用袋外数据来测试，则 需要在实例化时就将oob_score这个参数调整为True</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">rfc <span class="token operator">=</span> RandomForestClassifier<span class="token punctuation">(</span>n_estimators<span class="token operator">=</span><span class="token number">25</span><span class="token punctuation">,</span> oob_score<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+rfc <span class="token operator">=</span> rfc<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>wine<span class="token punctuation">.</span>data<span class="token punctuation">,</span> wine<span class="token punctuation">.</span>target<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>rfc<span class="token punctuation">.</span>oob_score_<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h5 id="重要属性和接口"><a href="#重要属性和接口" class="headerlink" title="重要属性和接口"></a>重要属性和接口</h5><p>属性.estimators_ .oob_score_ .feature_importances_</p>
+<p>rfc.apply 返回 每一个样本在每一棵树所在的叶子节点的索引  rfc.predict_proba 返回每个样本在每个类的概率</p>
+<p><strong>bagging的一个必要条件:  基分类器的误差率要小于0.5，也就是准确率要大于百分之50</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+x <span class="token operator">=</span> np<span class="token punctuation">.</span>linspace<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span>
+y <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> epsilon <span class="token keyword">in</span> np<span class="token punctuation">.</span>linspace<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    E <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span>comb<span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>epsilon <span class="token operator">**</span> i<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> epsilon<span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token punctuation">(</span><span class="token number">25</span> <span class="token operator">-</span> i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">26</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    y<span class="token punctuation">.</span>append<span class="token punctuation">(</span>E<span class="token punctuation">)</span>
+
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> <span class="token string">"o-"</span><span class="token punctuation">,</span> label <span class="token operator">=</span> <span class="token string">"when estimators are different"</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> x<span class="token punctuation">,</span> <span class="token string">"--"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> color <span class="token operator">=</span> <span class="token string">"red"</span><span class="token punctuation">,</span> label <span class="token operator">=</span> <span class="token string">"if all estimators are same"</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">"individual estimator's error"</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">"RandomForest's error"</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://z3.ax1x.com/2021/09/18/4Q2xXj.png" alt="4Q2xXj.png"></p>
+<h3 id="RandomForestRegressor"><a href="#RandomForestRegressor" class="headerlink" title="RandomForestRegressor"></a>RandomForestRegressor</h3><p>sklearn的评分指标 import sklearn  sklearn.metrics</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token builtin">sorted</span><span class="token punctuation">(</span>sklearn<span class="token punctuation">.</span>metrics<span class="token punctuation">.</span>SCORERS<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="用随机森林回归来填补缺失值"><a href="#用随机森林回归来填补缺失值" class="headerlink" title="用随机森林回归来填补缺失值"></a>用随机森林回归来填补缺失值</h5><p>在sklearn中 可以使用sklearn.impute.SimpleImputer来填充缺失值，一般会用均值、中值、或者其他常用的数值填补到数据中</p>
+<p><strong>PS 今天使用visdom的时候发现一个错误：ERROR:root:Error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:777) while downloading <a target="_blank" rel="noopener" href="https://unpkg.com/jquery@3.1.1/dist/jquery.min.js">https://unpkg.com/jquery@3.1.1/dist/jquery.min.js</a></strong></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Chen_he_Zhang/article/details/105116273">解决方法</a></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">numpy<span class="token punctuation">.</span>randint<span class="token punctuation">(</span>low<span class="token punctuation">,</span> high<span class="token punctuation">,</span> nums<span class="token punctuation">)</span> <span class="token comment">#在[low, high) 中随机生成nums个整数</span>
+missing_samples <span class="token operator">=</span> numpy<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>n_samples<span class="token punctuation">,</span> n_missing_samples<span class="token punctuation">,</span> replace <span class="token operator">=</span> <span class="token boolean">False</span><span class="token punctuation">)</span>
+<span class="token comment"># 在n_samples中不重复地随机抽取n_missing_samples个数据</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>将红酒数据集中随机50%的内容设置成缺失</strong> 这里的50%不是指的行，而是数字</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">dataset <span class="token operator">=</span> load_boston<span class="token punctuation">(</span><span class="token punctuation">)</span>
+X_full<span class="token punctuation">,</span> Y_full <span class="token operator">=</span> dataset<span class="token punctuation">.</span>data<span class="token punctuation">,</span> dataset<span class="token punctuation">.</span>target
+n_samples <span class="token operator">=</span> X_full<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+n_features <span class="token operator">=</span> X_full<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+nums <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>np<span class="token punctuation">.</span>floor<span class="token punctuation">(</span>n_samples <span class="token operator">*</span> n_features <span class="token operator">*</span> <span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+rng <span class="token operator">=</span> np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>RandomState<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+rows <span class="token operator">=</span> rng<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> n_samples<span class="token punctuation">,</span> nums<span class="token punctuation">)</span>
+cols <span class="token operator">=</span> rng<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> n_features<span class="token punctuation">,</span> nums<span class="token punctuation">)</span>
+X_missing<span class="token punctuation">,</span> Y_missing <span class="token operator">=</span> X_full<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Y_full<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+X_missing<span class="token punctuation">[</span>rows<span class="token punctuation">,</span> cols<span class="token punctuation">]</span> <span class="token operator">=</span> np<span class="token punctuation">.</span>nan
+X_missing <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>X_missing<span class="token punctuation">)</span>
+X_missing
+<span class="token comment"># 下面是用Imputer来对缺失值进行填补，一个是用均值来填补，另一个是用0来填补</span>
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>impute <span class="token keyword">import</span> SimpleImputer
+imp_mean <span class="token operator">=</span> SimpleImputer<span class="token punctuation">(</span>missing_values <span class="token operator">=</span> np<span class="token punctuation">.</span>nan<span class="token punctuation">,</span> strategy <span class="token operator">=</span> <span class="token string">'mean'</span><span class="token punctuation">)</span>
+X_missing_mean <span class="token operator">=</span> imp_mean<span class="token punctuation">.</span>fit_transform<span class="token punctuation">(</span>X_missing<span class="token punctuation">)</span>
+
+imp_zero <span class="token operator">=</span> SimpleImputer<span class="token punctuation">(</span>missing_values <span class="token operator">=</span> np<span class="token punctuation">.</span>nan<span class="token punctuation">,</span> strategy <span class="token operator">=</span> <span class="token string">'constant'</span><span class="token punctuation">,</span> fill_value <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+X_missing_zero <span class="token operator">=</span> imp_zero<span class="token punctuation">.</span>fit_transform<span class="token punctuation">(</span>X_missing<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>用回归来填补缺失数据</strong></p>
+<p>其核心思想是 将缺失的列，即要填补的列看作是标签，其余的特征看作是数据，用数据来预测缺失的标签，要填补的列中没有缺失的数据当作是训练集，另外的是测试集；如果有多列都存在缺失，那么依次填补每个列，先填缺失量最小的列，在填充是 将其余列的缺失值填成0  <strong>说实话 感觉这个方法不怎么好</strong></p>
+<p><strong>PS： linux 中  sed -n 是安静模式 这个模式对于p很重要</strong></p>
+<p><strong>pandas 里面 read_csv 的thousands的作用是防止1,000 被读成1 和 000 </strong></p>
+<p>关于read_csv 的na_values的作用 <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44520259/article/details/106053987">参考链接</a>  就是设置除了默认的样子以外 缺失值的样子，<code>na_values</code> = “n/a” 就是设置文件里面的”n/a”  代表的就是缺失值</p>
+<p><strong>np.c_</strong>  就是将两个矩阵 按行进行拼接</p>
+<p><strong>pandas.pivot 数据透视表</strong>   关于透视表，根据维基百科的定义，是用来汇总其它表的数据。首先把源表分组（grouping），然后对各组内数据做汇总操作如排序、平均、累加、计数或字符串连接等。<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/267208129">例子链接</a></p>
+<p><strong>PS: 要使用 sklearn.linear_model.LinearRegression 必须要 import sklearn.linear_model</strong></p>
+<p>使用linear_model里面的LinearRegression 最后计算出来的参数是在model.coef_ 和 model.intercept_ 发现数据越多计算出来的参数越准确</p>
+<p>对于简单的线性回归，除了用sklearn.linear_model 还可以用sklearn.neighbors.KNeighborsRegressor</p>
+<p><strong>linear_model 里面还有Ridge 这个东西</strong></p>
+<p><strong>PS</strong> 用sklearn进行画线的时候，viz.line(X=, Y=) 用这种方式，不要把X，Y给省略掉了；opts参数最好使用dict来写，放大发现viz.line 并非是一条线 而是非常多的点组成</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 关于pandas DataFrame 赋值操作的探索 </span>
+t1 <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># t1 就是一个3x3的DataFrame</span>
+<span class="token comment"># t1.value就是3x3内容构成的ndarray, t1.index返回的是一个RangeIndex(start=0,stop=3,step=1)</span>
+t2 <span class="token operator">=</span> t1 <span class="token comment"># 如果用t2 = t1.copy() 就不会被修改</span>
+t2<span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token comment"># t1 相应位置的数据也会被修改</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 下面的代码就是用随机森林回归来预测值</span>
+X_missing_reg <span class="token operator">=</span> X_missing<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+sortindex <span class="token operator">=</span> np<span class="token punctuation">.</span>argsort<span class="token punctuation">(</span>X_missing_reg<span class="token punctuation">.</span>isnull<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span>axis <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>values
+X_missing_reg<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> sortindex<span class="token punctuation">:</span>
+    df <span class="token operator">=</span> X_missing_reg<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    fillc <span class="token operator">=</span> df<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> i<span class="token punctuation">]</span>
+    df <span class="token operator">=</span> pd<span class="token punctuation">.</span>concat<span class="token punctuation">(</span><span class="token punctuation">[</span>df<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> df<span class="token punctuation">.</span>columns <span class="token operator">!=</span> i<span class="token punctuation">]</span><span class="token punctuation">,</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>Y_full<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> axis <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token comment"># 这里的axis = 1不能省</span>
+    df_0 <span class="token operator">=</span> SimpleImputer<span class="token punctuation">(</span>missing_values <span class="token operator">=</span> np<span class="token punctuation">.</span>nan<span class="token punctuation">,</span> strategy <span class="token operator">=</span> <span class="token string">'constant'</span><span class="token punctuation">,</span> fill_value <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fit_transform<span class="token punctuation">(</span>df<span class="token punctuation">)</span>
+    Ytrain <span class="token operator">=</span> fillc<span class="token punctuation">[</span>fillc<span class="token punctuation">.</span>notnull<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+    Ytest  <span class="token operator">=</span> fillc<span class="token punctuation">[</span>fillc<span class="token punctuation">.</span>isnull<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+    <span class="token comment"># 注意下面的索引方式</span>
+    Xtrain <span class="token operator">=</span> df_0<span class="token punctuation">[</span>Ytrain<span class="token punctuation">.</span>index<span class="token punctuation">,</span> <span class="token punctuation">:</span><span class="token punctuation">]</span>
+    Xtest  <span class="token operator">=</span> df_0<span class="token punctuation">[</span>Ytest<span class="token punctuation">.</span>index<span class="token punctuation">,</span> <span class="token punctuation">:</span><span class="token punctuation">]</span>
+    
+    rfc <span class="token operator">=</span> RandomForestRegressor<span class="token punctuation">(</span>n_estimators<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">)</span>
+    rfc<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">,</span>Ytrain<span class="token punctuation">)</span>
+    Ypredict <span class="token operator">=</span> rfc<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>Xtest<span class="token punctuation">)</span>
+    X_missing_reg<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span>X_missing_reg<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> i<span class="token punctuation">]</span><span class="token punctuation">.</span>isnull<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> i<span class="token punctuation">]</span> <span class="token operator">=</span> Ypredict
+X_missing_reg
+
+<span class="token comment"># 下面是进行测试</span>
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>model_selection <span class="token keyword">import</span> cross_val_score
+estimator <span class="token operator">=</span> RandomForestRegressor<span class="token punctuation">(</span>random_state <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> n_estimators <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">)</span>
+cross_val_score<span class="token punctuation">(</span>estimator<span class="token punctuation">,</span> X_missing_reg<span class="token punctuation">,</span> Y_full<span class="token punctuation">,</span> cv <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span> scoring<span class="token operator">=</span><span class="token string">'neg_mean_squared_error'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token operator">-</span><span class="token number">1</span>
+<span class="token comment"># 随机森林回归得到的结果比原始数据训练出来的结果要好 一脸懵逼</span>
+cross_val_score<span class="token punctuation">(</span>estimator<span class="token punctuation">,</span> X_full<span class="token punctuation">,</span> Y_full<span class="token punctuation">,</span> cv <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span> scoring<span class="token operator">=</span><span class="token string">'neg_mean_squared_error'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token operator">-</span><span class="token number">1</span>
+cross_val_score<span class="token punctuation">(</span>estimator<span class="token punctuation">,</span> X_missing_zero<span class="token punctuation">,</span> Y_full<span class="token punctuation">,</span> cv <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span> scoring<span class="token operator">=</span><span class="token string">'neg_mean_squared_error'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token operator">-</span><span class="token number">1</span>
+cross_val_score<span class="token punctuation">(</span>estimator<span class="token punctuation">,</span> X_missing_mean<span class="token punctuation">,</span> Y_full<span class="token punctuation">,</span> cv <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span> scoring<span class="token operator">=</span><span class="token string">'neg_mean_squared_error'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token operator">-</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>我把缺失数据的比例从0.1 提升到 0.6</p>
+<p>0.1 20.04837391426907 21.571667100368845 28.066649508250816 23.13211544581634</p>
+<p>0.2 21.536820211842358 21.571667100368845 33.45558822704329 26.129517675402816</p>
+<p>0.3 18.24671883651717 21.571667100368845 37.74378466449233 26.406473861638517</p>
+<p>0.4 21.825224720442627 21.571667100368845 34.488255374005035 29.656734659037067</p>
+<p>0.5 15.90757391170646 21.571667100368845 40.857401498854585 42.81797538114929</p>
+<p>0.6 15.015489382488838 21.571667100368845 41.381264106891855 34.721690688817695</p>
+<h3 id="机器学习中调参的基本思想"><a href="#机器学习中调参的基本思想" class="headerlink" title="机器学习中调参的基本思想"></a>机器学习中调参的基本思想</h3><p><img src="https://z3.ax1x.com/2021/09/21/4YXSt1.png" alt="4YXSt1.png"></p>
+<p>模型太复杂，模型就会过拟合，模型太简单，就会欠拟合</p>
+<p>很多情况树模型位于 上面图的右上角，也有出现在左上角的，调参之前，<strong>要先判断，模型在哪一边</strong></p>
+<p>案例 乳腺癌数据</p>
+<p>数据大小为569, 30，从这个数据个数和特征个数的比 可以看出这个容易过拟合</p>
+<p><code>先调n\_estimators</code></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 先跑出一个区间， 然后再细化</span>
+dataset <span class="token operator">=</span> load_breast_cancer<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">%</span><span class="token operator">%</span>time
+scorel <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">302</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    rfc <span class="token operator">=</span> RandomForestClassifier<span class="token punctuation">(</span>random_state <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> n_estimators <span class="token operator">=</span> i<span class="token punctuation">)</span>
+    scorel<span class="token punctuation">.</span>append<span class="token punctuation">(</span>cross_val_score<span class="token punctuation">(</span>rfc<span class="token punctuation">,</span> dataset<span class="token punctuation">.</span>data<span class="token punctuation">,</span> dataset<span class="token punctuation">.</span>target<span class="token punctuation">,</span> cv <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">max</span><span class="token punctuation">(</span>scorel<span class="token punctuation">)</span><span class="token punctuation">,</span> scorel<span class="token punctuation">.</span>index<span class="token punctuation">(</span><span class="token builtin">max</span><span class="token punctuation">(</span>scorel<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+fig <span class="token operator">=</span> plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ax <span class="token operator">=</span> fig<span class="token punctuation">.</span>add_subplot<span class="token punctuation">(</span><span class="token number">111</span><span class="token punctuation">)</span>
+ax<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">202</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> scorel<span class="token punctuation">)</span>
+ax<span class="token punctuation">.</span>set_xlabel<span class="token punctuation">(</span><span class="token string">"number of n_estimators"</span><span class="token punctuation">)</span>
+ax<span class="token punctuation">.</span>set_ylabel<span class="token punctuation">(</span><span class="token string">"accuracy"</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">%</span><span class="token operator">%</span>time
+scorel2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">112</span><span class="token punctuation">,</span> <span class="token number">121</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    rfc <span class="token operator">=</span> RandomForestClassifier<span class="token punctuation">(</span>random_state <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> n_estimators <span class="token operator">=</span> i<span class="token punctuation">)</span>
+    scorel2<span class="token punctuation">.</span>append<span class="token punctuation">(</span>cross_val_score<span class="token punctuation">(</span>rfc<span class="token punctuation">,</span> dataset<span class="token punctuation">.</span>data<span class="token punctuation">,</span> dataset<span class="token punctuation">.</span>target<span class="token punctuation">,</span> cv <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">max</span><span class="token punctuation">(</span>scorel2<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token operator">*</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">112</span><span class="token punctuation">,</span> <span class="token number">121</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">[</span>scorel2<span class="token punctuation">.</span>index<span class="token punctuation">(</span><span class="token builtin">max</span><span class="token punctuation">(</span>scorel2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+fig <span class="token operator">=</span> plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ax <span class="token operator">=</span> fig<span class="token punctuation">.</span>add_subplot<span class="token punctuation">(</span><span class="token number">111</span><span class="token punctuation">)</span>
+ax<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">112</span><span class="token punctuation">,</span> <span class="token number">121</span><span class="token punctuation">)</span><span class="token punctuation">,</span> scorel2<span class="token punctuation">)</span>
+ax<span class="token punctuation">.</span>set_xlabel<span class="token punctuation">(</span><span class="token string">"number of n_estimators"</span><span class="token punctuation">)</span>
+ax<span class="token punctuation">.</span>set_ylabel<span class="token punctuation">(</span><span class="token string">"accuracy"</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">myalos</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://myalos.github.io/2021/10/08/random%20forest/">http://myalos.github.io/2021/10/08/random%20forest/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">myalos</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">机器学习</span>
+                                </a>
+                            
+                                <a href="/tags/sklearn/">
+                                    <span class="chip bg-color">sklearn</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%8F%9C%E8%8F%9C/">
+                                    <span class="chip bg-color">菜菜</span>
+                                </a>
+                            
+                                <a href="/tags/random-forest/">
+                                    <span class="chip bg-color">random forest</span>
+                                </a>
+                            
+                                <a href="/tags/kaggle/">
+                                    <span class="chip bg-color">kaggle</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">如果觉得写的不错的话，欢迎打赏~</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+    <div id="SOHUCS"></div>
+    <script type="text/javascript">
+        window.onload = function () {
+            var loadChangYan = function () {
+                var appid = 'cyvggQN1D';
+                var conf = 'prod_9c755fefb01d91cb12075a46d535e15a';
+                var width = window.innerWidth || document.documentElement.clientWidth;
+                if (width < 960) {
+                    var head = document.getElementsByTagName('head')[0] || document.head || document.documentElement;
+                    var script = document.createElement('script');
+                    script.type = 'text/javascript';
+                    script.charset = 'utf-8';
+                    script.id = 'changyan_mobile_js';
+                    script.src = 'https://cy-cdn.kuaizhan.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid +
+                        '&conf=' + conf;
+                    head.appendChild(script);
+                } else {
+                    var loadJs = function (d, a) {
+                        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+                        var b = document.createElement("script");
+                        b.setAttribute("type", "text/javascript");
+                        b.setAttribute("charset", "UTF-8");
+                        b.setAttribute("src", d);
+                        if (typeof a === "function") {
+                            if (window.attachEvent) {
+                                b.onreadystatechange = function () {
+                                    var e = b.readyState;
+                                    if (e === "loaded" || e === "complete") {
+                                        b.onreadystatechange = null;
+                                        a()
+                                    }
+                                }
+                            } else {
+                                b.onload = a
+                            }
+                        }
+                        c.appendChild(b)
+                    };
+                    loadJs("https://cy-cdn.kuaizhan.com/upload/changyan.js", function () {
+                        window.changyan.api.config({
+                            appid: appid,
+                            conf: conf
+                        })
+                    });
+                }
+            }
+
+            loadChangYan();
+        }
+    </script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/10/13/ch7/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="深度学习框架pytorch入门与实践 七章">
+                        
+                        <span class="card-title">深度学习框架pytorch入门与实践 七章</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            这是pytorch入门与实践 第七章的学习笔记
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-13
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">深度学习</span>
+                    </a>
+                    
+                    <a href="/tags/pytorch/">
+                        <span class="chip bg-color">pytorch</span>
+                    </a>
+                    
+                    <a href="/tags/GAN/">
+                        <span class="chip bg-color">GAN</span>
+                    </a>
+                    
+                    <a href="/tags/CGAN/">
+                        <span class="chip bg-color">CGAN</span>
+                    </a>
+                    
+                    <a href="/tags/MNIST/">
+                        <span class="chip bg-color">MNIST</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/10/04/ch56/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="深度学习框架pytorch入门与实践 五六章">
+                        
+                        <span class="card-title">深度学习框架pytorch入门与实践 五六章</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            这是pytorch入门与实践 第五第六章的学习笔记
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">深度学习</span>
+                    </a>
+                    
+                    <a href="/tags/pytorch/">
+                        <span class="chip bg-color">pytorch</span>
+                    </a>
+                    
+                    <a href="/tags/MNIST/">
+                        <span class="chip bg-color">MNIST</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="4937357"
+                   fixed='true'
+                   autoplay='true'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2021</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">myalos</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/myalos" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
