@@ -6,7 +6,7 @@
   <link href="http://myalos.github.io/atom.xml" rel="self"/>
   
   <link href="http://myalos.github.io/"/>
-  <updated>2021-10-14T10:46:13.786Z</updated>
+  <updated>2021-11-04T01:24:53.121Z</updated>
   <id>http://myalos.github.io/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据预处理和特征选择</title>
+    <link href="http://myalos.github.io/2021/11/01/feature%20engineer/"/>
+    <id>http://myalos.github.io/2021/11/01/feature%20engineer/</id>
+    <published>2021-11-01T12:00:00.000Z</published>
+    <updated>2021-11-04T01:24:53.121Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.bilibili.com/video/BV1MA411J7wm?p=29&quot;&gt;视频链接&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;数据预处理和特征工程的简介&quot;&gt;&lt;a href=&quot;#数据预处理和特征工程的简介&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="机器学习" scheme="http://myalos.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="sklearn" scheme="http://myalos.github.io/tags/sklearn/"/>
+    
+    <category term="菜菜" scheme="http://myalos.github.io/tags/%E8%8F%9C%E8%8F%9C/"/>
+    
+    <category term="数据预处理" scheme="http://myalos.github.io/tags/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/"/>
+    
+    <category term="PCA" scheme="http://myalos.github.io/tags/PCA/"/>
+    
+  </entry>
   
   <entry>
     <title>深度学习框架pytorch入门与实践 七章</title>
@@ -546,33 +580,6 @@
         
         
     <summary type="html">&lt;h2 id=&quot;Lecture-8-Data-Splits-Models-amp-Cross-Validation&quot;&gt;&lt;a href=&quot;#Lecture-8-Data-Splits-Models-amp-Cross-Validation&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="机器学习" scheme="http://myalos.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="cs229" scheme="http://myalos.github.io/tags/cs229/"/>
-    
-    <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Introduction to Neural Networks</title>
-    <link href="http://myalos.github.io/2021/05/09/cs229%2011/"/>
-    <id>http://myalos.github.io/2021/05/09/cs229%2011/</id>
-    <published>2021-05-09T12:10:57.271Z</published>
-    <updated>2021-04-22T09:05:55.883Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Lecture-11-amp-12-Neural-Networks&quot;&gt;&lt;a href=&quot;#Lecture-11-amp-12-Neural-Networks&quot; class=&quot;headerlink&quot; title=&quot;Lecture 11&amp;amp;12 Neural</summary>
         
       
     
