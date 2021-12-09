@@ -6,7 +6,7 @@
   <link href="http://myalos.github.io/atom.xml" rel="self"/>
   
   <link href="http://myalos.github.io/"/>
-  <updated>2021-11-04T01:24:53.121Z</updated>
+  <updated>2021-12-09T13:51:10.606Z</updated>
   <id>http://myalos.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DIY主机安装log</title>
+    <link href="http://myalos.github.io/2021/12/09/computer/"/>
+    <id>http://myalos.github.io/2021/12/09/computer/</id>
+    <published>2021-12-09T13:49:28.843Z</published>
+    <updated>2021-12-09T13:51:10.606Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;DIY主机安装log&quot;&gt;&lt;a href=&quot;#DIY主机安装log&quot; class=&quot;headerlink&quot; title=&quot;DIY主机安装log&quot;&gt;&lt;/a&gt;DIY主机安装log&lt;/h2&gt;&lt;h3 id=&quot;买主机的经历&quot;&gt;&lt;a href=&quot;#买主机的经历&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="日常" scheme="http://myalos.github.io/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+    <category term="认真系列" scheme="http://myalos.github.io/tags/%E8%AE%A4%E7%9C%9F%E7%B3%BB%E5%88%97/"/>
+    
+  </entry>
   
   <entry>
     <title>数据预处理和特征选择</title>
@@ -553,33 +578,6 @@
         
         
     <summary type="html">&lt;h2 id=&quot;Lecture-9-ApproxEstimation-Error&quot;&gt;&lt;a href=&quot;#Lecture-9-ApproxEstimation-Error&quot; class=&quot;headerlink&quot; title=&quot;Lecture 9 ApproxEstimation</summary>
-        
-      
-    
-    
-    
-    <category term="机器学习" scheme="http://myalos.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="cs229" scheme="http://myalos.github.io/tags/cs229/"/>
-    
-    <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Data Splits, Models &amp; Cross-Validation</title>
-    <link href="http://myalos.github.io/2021/05/09/cs229%208/"/>
-    <id>http://myalos.github.io/2021/05/09/cs229%208/</id>
-    <published>2021-05-09T12:10:57.279Z</published>
-    <updated>2021-04-10T03:03:42.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Lecture-8-Data-Splits-Models-amp-Cross-Validation&quot;&gt;&lt;a href=&quot;#Lecture-8-Data-Splits-Models-amp-Cross-Validation&quot; class=&quot;headerlink&quot;</summary>
         
       
     
