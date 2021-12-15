@@ -6,7 +6,7 @@
   <link href="http://myalos.github.io/atom.xml" rel="self"/>
   
   <link href="http://myalos.github.io/"/>
-  <updated>2021-12-09T13:51:10.606Z</updated>
+  <updated>2021-12-15T14:18:31.975Z</updated>
   <id>http://myalos.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>datawhale组队学习 sklearn task01</title>
+    <link href="http://myalos.github.io/2021/12/15/datawhale%20sklearn%201/"/>
+    <id>http://myalos.github.io/2021/12/15/datawhale%20sklearn%201/</id>
+    <published>2021-12-15T12:00:00.000Z</published>
+    <updated>2021-12-15T14:18:31.975Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Task01-线性回归与逻辑回归&quot;&gt;&lt;a href=&quot;#Task01-线性回归与逻辑回归&quot; class=&quot;headerlink&quot; title=&quot;Task01 线性回归与逻辑回归&quot;&gt;&lt;/a&gt;Task01 线性回归与逻辑回归&lt;/h2&gt;&lt;p&gt;线性回归的学习链接 &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="sklearn" scheme="http://myalos.github.io/categories/sklearn/"/>
+    
+    
+    <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="sklearn" scheme="http://myalos.github.io/tags/sklearn/"/>
+    
+    <category term="datawhale" scheme="http://myalos.github.io/tags/datawhale/"/>
+    
+  </entry>
   
   <entry>
     <title>DIY主机安装log</title>
@@ -562,33 +591,6 @@
     
     
     <category term="CSS" scheme="http://myalos.github.io/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ApproxEstimation Error</title>
-    <link href="http://myalos.github.io/2021/05/09/cs229%209/"/>
-    <id>http://myalos.github.io/2021/05/09/cs229%209/</id>
-    <published>2021-05-09T12:10:57.285Z</published>
-    <updated>2021-04-24T14:22:20.078Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Lecture-9-ApproxEstimation-Error&quot;&gt;&lt;a href=&quot;#Lecture-9-ApproxEstimation-Error&quot; class=&quot;headerlink&quot; title=&quot;Lecture 9 ApproxEstimation</summary>
-        
-      
-    
-    
-    
-    <category term="机器学习" scheme="http://myalos.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="cs229" scheme="http://myalos.github.io/tags/cs229/"/>
-    
-    <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
