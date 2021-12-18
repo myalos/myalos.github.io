@@ -6,7 +6,7 @@
   <link href="http://myalos.github.io/atom.xml" rel="self"/>
   
   <link href="http://myalos.github.io/"/>
-  <updated>2021-12-15T14:18:31.975Z</updated>
+  <updated>2021-12-18T13:47:03.576Z</updated>
   <id>http://myalos.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SVM</title>
+    <link href="http://myalos.github.io/2021/12/18/datawhale%20sklearn%202/"/>
+    <id>http://myalos.github.io/2021/12/18/datawhale%20sklearn%202/</id>
+    <published>2021-12-18T12:00:00.000Z</published>
+    <updated>2021-12-18T13:47:03.576Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Task02-SVM&quot;&gt;&lt;a href=&quot;#Task02-SVM&quot; class=&quot;headerlink&quot; title=&quot;Task02 SVM&quot;&gt;&lt;/a&gt;Task02 SVM&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="sklearn" scheme="http://myalos.github.io/categories/sklearn/"/>
+    
+    
+    <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="sklearn" scheme="http://myalos.github.io/tags/sklearn/"/>
+    
+    <category term="datawhale" scheme="http://myalos.github.io/tags/datawhale/"/>
+    
+  </entry>
   
   <entry>
     <title>datawhale组队学习 sklearn task01</title>
@@ -556,32 +585,6 @@
         
     <summary type="html">&lt;p&gt;这是学堂在线上面的前端课程&lt;a href=&quot;https://www.xuetangx.com/search?query=%E5%89%8D%E7%AB%AF&amp;amp;page=1&quot;&gt;课程链接&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;CSS-Transform&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="前端" scheme="http://myalos.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-    <category term="CSS" scheme="http://myalos.github.io/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CSS基础 II</title>
-    <link href="http://myalos.github.io/2021/05/16/css2/"/>
-    <id>http://myalos.github.io/2021/05/16/css2/</id>
-    <published>2021-05-16T11:11:22.884Z</published>
-    <updated>2021-05-16T11:12:45.361Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;这是学堂在线上面的前端课程&lt;a href=&quot;https://www.xuetangx.com/search?query=%E5%89%8D%E7%AB%AF&amp;amp;page=1&quot;&gt;课程链接&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;CSS-布局概述&quot;&gt;&lt;a</summary>
         
       
     

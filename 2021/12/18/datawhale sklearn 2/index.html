@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="datawhale组队学习 sklearn task01, goon的杂货店">
+    <meta name="keywords" content="SVM, goon的杂货店">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>datawhale组队学习 sklearn task01 | goon的杂货店</title>
+    <title>SVM | goon的杂货店</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -329,7 +329,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">datawhale组队学习 sklearn task01</h1>
+                    <h1 class="description center-align post-title">SVM</h1>
                 </div>
             </div>
         </div>
@@ -478,7 +478,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-12-15
+                    2021-12-18
                 </div>
                 
 
@@ -502,101 +502,122 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Task01-线性回归与逻辑回归"><a href="#Task01-线性回归与逻辑回归" class="headerlink" title="Task01 线性回归与逻辑回归"></a>Task01 线性回归与逻辑回归</h2><p>线性回归的学习链接 <a target="_blank" rel="noopener" href="https://github.com/datawhalechina/machine-learning-toy-code/tree/main/ml-with-sklearn/LinearRegression">github链接</a></p>
-<h3 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h3><p>线性回归主要是用于 预测连续值问题的</p>
-<p>线性归回里面的代码主要是用线性回归的方法来预测自定义的曲线</p>
-<p><strong>数据是从自定义曲线加上噪声形成的曲线中30个采样点</strong></p>
-<p>模型预测的效果是通过将采样点 和 自定义曲线 和 预测的曲线 放在一张图中进行显示</p>
-<blockquote>
-<p>关于PolynomialFeatures的用法 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/liweiwei1419/p/9715702.html">参考链接</a></p>
-</blockquote>
-<p>核心在于PolynomialFeatures是一个预处理 对应的接口是 fit  transform</p>
-<p><strong>值得注意的是</strong>  对于两个以上的特征 例如 a b， degree是2的话 新的特征会包含交叉项ab，即特征变成a b ab $a^2$ $b^2$ 1 如果include_bias设置为False 那么1就没有了</p>
-<blockquote>
-<p>关于Pipeline的文档 <a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline">文档链接</a></p>
-</blockquote>
-<p>Pipeline是将多个estimators连接起来，除了最后一个estimator，其余的estimator都要实现transform的方法</p>
-<p>Pipeline是由一个由key value的元组构成的列表来初始化的，其中key的名字是自定义的，可以通过下标或者key来索引到相应的value</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">pipeline <span class="token operator">=</span> Pipeline<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token string">"polynomial_features"</span><span class="token punctuation">,</span> polynomial_features<span class="token punctuation">)</span><span class="token punctuation">,</span>
-                         <span class="token punctuation">(</span><span class="token string">"linear_regression"</span><span class="token punctuation">,</span> linear_regression<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<blockquote>
-<p>关于线性回归的评价指标 neg_mean_squared_error</p>
-</blockquote>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">scores <span class="token operator">=</span> cross_val_score<span class="token punctuation">(</span>pipeline<span class="token punctuation">,</span> X<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> np<span class="token punctuation">.</span>newaxis<span class="token punctuation">]</span><span class="token punctuation">,</span> y<span class="token punctuation">,</span> scoring<span class="token operator">=</span><span class="token string">"neg_mean_squared_error"</span><span class="token punctuation">,</span> cv <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">"Degree &#123;&#125;\nMSE = &#123;:.2e&#125;(+/- &#123;:.2e&#125;)"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>degrees<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token operator">-</span>scores<span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> scores<span class="token punctuation">.</span>std<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>交叉验证 <strong>通过均值和方差来从数值上比较效果</strong></p>
-<h3 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h3><p>逻辑回归主要是用于二分类的</p>
-<p>这个于线性回归的区别是 loss函数不同，预测的形式不同，本质上是一样的都是根据loss算梯度更新参数</p>
-<p>逻辑回归sklearn 部分的代码是用sklearn的LogisticRegression 来预测手写字符，其中数据集是train的前2000，test是测试集的前200</p>
-<p>逻辑回归numpy 部分的代码是用的全数据，分类目标是针对是否是数字0来进行分类</p>
-<p><a target="_blank" rel="noopener" href="https://towardsdatascience.com/logistic-regression-using-python-sklearn-numpy-mnist-handwriting-recognition-matplotlib-a6b31e2b166a">sklearn部分代码上面提供的博客链接</a></p>
-<blockquote>
-<p>首先用sklearn 里面的load_digits 数据集</p>
-</blockquote>
-<p>这个数据集是8 * 8的灰度图像，1797个训练样本，每个样本64个特征</p>
-<p>首先将这个数据集可视化一下 </p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">digits <span class="token operator">=</span> load_digits<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># digits.target 是一个ndarray</span>
+                <h2 id="Task02-SVM"><a href="#Task02-SVM" class="headerlink" title="Task02 SVM"></a>Task02 SVM</h2><p><a target="_blank" rel="noopener" href="https://github.com/datawhalechina/machine-learning-toy-code/blob/main/ml-with-sklearn/SVM/SVM.ipynb">datawhale 学习资料链接</a></p>
+<p>这次学习的内容包括了两个部分，一个部分是在自定义数据集上面分别用线性SVM，多项式SVM，高斯核SVM进行分类，并将分类的结果进行可视化，另一个部分是把这次SVM用在Mnist数据集上面</p>
+<h3 id="线性SVM"><a href="#线性SVM" class="headerlink" title="线性SVM"></a>线性SVM</h3><p><strong>meshgrid函数，<a target="_blank" rel="noopener" href="https://numpy.org/doc/stable/reference/generated/numpy.meshgrid.html">文档链接</a></strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 主要功能就是 根据两个一维向量来构造出一个网格</span>
+x <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+y <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+xx<span class="token punctuation">,</span> yy <span class="token operator">=</span> np<span class="token punctuation">.</span>meshgrid<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+<span class="token comment"># 结果是, 对应位置的两个数拼起来就是一个坐标 </span>
+<span class="token comment"># [array([[1, 2, 3],</span>
+<span class="token comment">#         [1, 2, 3],</span>
+<span class="token comment">#         [1, 2, 3]]),</span>
+<span class="token comment">#  array([[2, 2, 2],</span>
+<span class="token comment">#         [3, 3, 3],</span>
+<span class="token comment">#         [4, 4, 4]])]</span>
 
-unique<span class="token punctuation">,</span> counts <span class="token operator">=</span> np<span class="token punctuation">.</span>unique<span class="token punctuation">(</span>digits<span class="token punctuation">.</span>target<span class="token punctuation">,</span> return_counts <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+<span class="token comment"># 代码中</span>
+<span class="token comment"># xx, yy = np.meshgrid(np.arange(x_min, x_max, 0.002),</span>
+<span class="token comment">#                     np.arange(y_min, y_max, 0.002)) # meshgrid如何生成网格</span>
+<span class="token comment"># 就是将从x_min 到 x_max 和 y_min 到 y_max 组成一个网格</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>np.c_</strong>  是把两个向量按列拼起来， <strong>np.r_</strong>是把两个向量按行进行拼接</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 值得注意的是，下面这个1维的向量 会被当做是列向量</span>
+a <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+b <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+np<span class="token punctuation">.</span>c_<span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">]</span> <span class="token comment"># 注意这不是调用的，而是用符号[]</span>
+<span class="token comment"># 返回结果是[[1., 4.],[2., 5.],[3., 6.]]</span>
+<span class="token comment"># 而np.r_ 返回的结果是[1., 2., 3., 4., 5., 6.] 相当于按行拼接</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>下面是完整代码</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">data <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token number">0.1</span><span class="token punctuation">,</span> <span class="token number">0.7</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">0.3</span><span class="token punctuation">,</span> <span class="token number">0.6</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">0.4</span><span class="token punctuation">,</span> <span class="token number">0.1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.4</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">0.8</span><span class="token punctuation">,</span> <span class="token number">0.04</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">0.42</span><span class="token punctuation">,</span> <span class="token number">0.6</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">0.9</span><span class="token punctuation">,</span> <span class="token number">0.4</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">0.6</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">0.7</span><span class="token punctuation">,</span> <span class="token number">0.2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">0.7</span><span class="token punctuation">,</span> <span class="token number">0.67</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">0.27</span><span class="token punctuation">,</span> <span class="token number">0.8</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.72</span><span class="token punctuation">]</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+label <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">6</span> <span class="token operator">+</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">6</span>
+x_min<span class="token punctuation">,</span> x_max <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">min</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0.2</span><span class="token punctuation">,</span> data<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">max</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">0.2</span>
+y_min<span class="token punctuation">,</span> y_max <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">min</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0.2</span><span class="token punctuation">,</span> data<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">max</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">0.2</span>
+xx<span class="token punctuation">,</span> yy <span class="token operator">=</span> np<span class="token punctuation">.</span>meshgrid<span class="token punctuation">(</span>np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span>x_min<span class="token punctuation">,</span> x_max<span class="token punctuation">,</span> <span class="token number">0.002</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                     np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span>y_min<span class="token punctuation">,</span> y_max<span class="token punctuation">,</span> <span class="token number">0.002</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># meshgrid如何生成网格</span>
+model_linear <span class="token operator">=</span> svm<span class="token punctuation">.</span>SVC<span class="token punctuation">(</span>kernel<span class="token operator">=</span><span class="token string">'linear'</span><span class="token punctuation">,</span> C <span class="token operator">=</span> <span class="token number">0.001</span><span class="token punctuation">)</span>
+model_linear<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>data<span class="token punctuation">,</span> label<span class="token punctuation">)</span> <span class="token comment"># 训练</span>
+Z <span class="token operator">=</span> model_linear<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>np<span class="token punctuation">.</span>c_<span class="token punctuation">[</span>xx<span class="token punctuation">.</span>ravel<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> yy<span class="token punctuation">.</span>ravel<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># 预测</span>
+<span class="token comment"># 上面这个就是把x坐标在x_min 到 x_max, y坐标在y_min 到 y_max 所有点形成一个网格</span>
+<span class="token comment"># 然后用np.c_ ravel() 将网格中所有点变成[点数，2]的ndarray</span>
+<span class="token comment"># 用data label训练出来的SVM 对网格中所有点进行预测</span>
+Z <span class="token operator">=</span> Z<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span>xx<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>contourf<span class="token punctuation">(</span>xx<span class="token punctuation">,</span> yy<span class="token punctuation">,</span> Z<span class="token punctuation">,</span> cmap <span class="token operator">=</span> plt<span class="token punctuation">.</span>cm<span class="token punctuation">.</span>ocean<span class="token punctuation">,</span> alpha<span class="token operator">=</span><span class="token number">0.6</span><span class="token punctuation">)</span>
+<span class="token comment"># 然后把点画出来 xx yy Z 同等大小 相同位置对应x坐标y坐标 高度</span>
+plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> marker<span class="token operator">=</span><span class="token string">'o'</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'r'</span><span class="token punctuation">,</span> s<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">,</span> lw<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span> 
+plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> marker<span class="token operator">=</span><span class="token string">'x'</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'k'</span><span class="token punctuation">,</span> s<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">,</span> lw<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'Linear SVM'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>PS</strong> contour 与 contourf的区别， contourf会填充线等高线之间的轮廓而contour不会</p>
+<h3 id="多项式SVM"><a href="#多项式SVM" class="headerlink" title="多项式SVM"></a>多项式SVM</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ 
+<span class="token keyword">for</span> i<span class="token punctuation">,</span> degree <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># C: 惩罚系数，gamma: 高斯核的系数</span>
+    model_poly <span class="token operator">=</span> svm<span class="token punctuation">.</span>SVC<span class="token punctuation">(</span>C<span class="token operator">=</span><span class="token number">0.0001</span><span class="token punctuation">,</span> kernel<span class="token operator">=</span><span class="token string">'poly'</span><span class="token punctuation">,</span> degree<span class="token operator">=</span>degree<span class="token punctuation">)</span> <span class="token comment"># 多项式核</span>
+    model_poly<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>data<span class="token punctuation">,</span> label<span class="token punctuation">)</span>
+    <span class="token comment"># ravel - flatten</span>
+    <span class="token comment"># c_ - vstack</span>
+    <span class="token comment"># 把后面两个压扁之后变成了x1和x2，然后进行判断，得到结果在压缩成一个矩形</span>
+    Z <span class="token operator">=</span> model_poly<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>np<span class="token punctuation">.</span>c_<span class="token punctuation">[</span>xx<span class="token punctuation">.</span>ravel<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> yy<span class="token punctuation">.</span>ravel<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    Z <span class="token operator">=</span> Z<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span>xx<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
 
-<span class="token keyword">print</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span> <span class="token comment"># 输出是178 182 177 183 181 182 181 179 174 180</span>
-<span class="token comment"># 可以用plt.bar来可视化一下</span>
-plt<span class="token punctuation">.</span>bar<span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> counts<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    plt<span class="token punctuation">.</span>subplot<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>subplots_adjust<span class="token punctuation">(</span>wspace<span class="token operator">=</span><span class="token number">0.4</span><span class="token punctuation">,</span> hspace<span class="token operator">=</span><span class="token number">0.4</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>contourf<span class="token punctuation">(</span>xx<span class="token punctuation">,</span> yy<span class="token punctuation">,</span> Z<span class="token punctuation">,</span> cmap<span class="token operator">=</span>plt<span class="token punctuation">.</span>cm<span class="token punctuation">.</span>ocean<span class="token punctuation">,</span> alpha<span class="token operator">=</span><span class="token number">0.6</span><span class="token punctuation">)</span>
+ 
+    <span class="token comment"># 画出训练点</span>
+    plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> marker<span class="token operator">=</span><span class="token string">'o'</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'r'</span><span class="token punctuation">,</span> s<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">,</span> lw<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> marker<span class="token operator">=</span><span class="token string">'x'</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'k'</span><span class="token punctuation">,</span> s<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">,</span> lw<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'Poly SVM with $\degree=$'</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>degree<span class="token punctuation">)</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>subplots_adjust的作用就是设置多个子图时间的间距，这个语句可以放在plt.show上面，效果一样</p>
+<p><strong>我跑这个代码会出现一个warning，就是要我手动设置gamma</strong> 如果我的gamma设置成scale，那么生成的图就和github链接里面的图一样，如果设成auto的话，图就如下面这个样子</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">FutureWarning: The default value of gamma will change from &#39;auto&#39; to &#39;scale&#39; in version 0.22 to account better for unscaled features. Set gamma explicitly to &#39;auto&#39; or &#39;scale&#39; to avoid this warning<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://s4.ax1x.com/2021/12/18/TVkIsS.png" alt="TVkIsS.png"></p>
+<p><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html">sklearn SVC文档</a></p>
+<p>如果gamma是scale的话  那么gamma的值是 $\frac{1}{n_features \times X.var()}$</p>
+<p>如果设置为auto的话 那么gamma就是 $\frac{1}{n_features}$</p>
+<p>对于gamma的含义 <a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/svm.html#svm-kernels">参考链接 kernel 1.4.6</a></p>
+<p>我把代码中的gamma 设成 <code>1 / 2 / data.var()</code> 画出来的效果和GitHub上的一样，我print出data.var 发现 值是0.05491388888888888，也就是说gamma变大了，我的理解就是gamma大了，非线性就变强了； <strong>ps 这个var的计算是计算所有元素的，然后取平均</strong> </p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">var &#x3D; mean(abs(x-x.mean())** 2)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>下图是github上面的图，也就是gamma是scale的时候</p>
+<p><img src="https://s4.ax1x.com/2021/12/18/TVeSpR.png" alt="TVeSpR.png"></p>
+<h3 id="高斯核SVM"><a href="#高斯核SVM" class="headerlink" title="高斯核SVM"></a>高斯核SVM</h3><p>把kernel从poly 换成 rbf 就是高斯核了，从github上面的图可以看出对于rbf 非线性的程度更强了 </p>
+<h3 id="测试不同SVM在mnist-数据集上的分类情况"><a href="#测试不同SVM在mnist-数据集上的分类情况" class="headerlink" title="测试不同SVM在mnist 数据集上的分类情况"></a>测试不同SVM在mnist 数据集上的分类情况</h3><p>github上面代码 是用了mnist训练集中前2000个样本作为训练集，测试集中前200个样本作为测试</p>
+<p>线性核 C设为100  准确率是0.88 </p>
+<p>多项式核 C设为100 然后degree 1 3 5 7 9 准确率最高的是3 0.935</p>
+<p>高斯核 C为100 然后gamma 0.01 0.03 0.05 0.07 0.09 准确率最高的是</p>
 <blockquote>
-<p>用sklearn里面的logisticregression来训练 load_digits</p>
+<p>关于SVC中 C的取值</p>
+<p>C越大，相当于惩罚松弛变量，希望松弛变量接近0，即对误分类的惩罚增大，趋向于对训练集全分对的情况，这样对训练集测试时准确率很高，但泛化能力弱。C值小，对误分类的惩罚减小，允许容错，将他们当成噪声点，泛化能力较强。</p>
 </blockquote>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">x_train<span class="token punctuation">,</span> x_test<span class="token punctuation">,</span> y_train<span class="token punctuation">,</span> y_test <span class="token operator">=</span> train_test_split<span class="token punctuation">(</span>digits<span class="token punctuation">.</span>data<span class="token punctuation">,</span> digits<span class="token punctuation">.</span>target<span class="token punctuation">,</span> test_size <span class="token operator">=</span> <span class="token number">0.25</span><span class="token punctuation">,</span> random_state <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span>
-<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>linear_model <span class="token keyword">import</span> LogisticRegression
-logistic <span class="token operator">=</span> LogisticRegression<span class="token punctuation">(</span>max_iter <span class="token operator">=</span> <span class="token number">10000</span><span class="token punctuation">,</span> multi_class <span class="token operator">=</span> <span class="token string">'ovr'</span><span class="token punctuation">)</span>
-<span class="token comment"># 如果用默认的max iter的话 那么报错 lbfgs failed to converge</span>
-logistic<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>x_train<span class="token punctuation">,</span> y_train<span class="token punctuation">)</span>
-logistic<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>x_test<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-logistic<span class="token punctuation">.</span>score<span class="token punctuation">(</span>x_test<span class="token punctuation">,</span>y_test<span class="token punctuation">)</span><span class="token comment"># 返回0.951111 如果multi_class用multinomial的话就是0.95333 运行时间要长一些</span>
-<span class="token comment"># 如果用cross_val_score</span>
-cross_val_score<span class="token punctuation">(</span>LogisticRegression<span class="token punctuation">(</span>max_iter <span class="token operator">=</span> <span class="token number">10000</span><span class="token punctuation">,</span> multi_class<span class="token operator">=</span><span class="token string">'multinomial'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> digits<span class="token punctuation">.</span>data<span class="token punctuation">,</span> digits<span class="token punctuation">.</span>target<span class="token punctuation">,</span> cv <span class="token operator">=</span> <span class="token number">10</span> <span class="token punctuation">)</span>
-<span class="token comment"># 输出是  array([0.90555556, 0.95555556, 0.88333333, 0.93333333, 0.93888889,</span>
-<span class="token comment">#       0.95      , 0.95      , 0.93296089, 0.88268156, 0.94413408])</span>
-<span class="token comment"># 平均 0.9276</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>我发现这个里面的logisticregression 是可以处理多分类的，其中的multi_class 就是指定对分类的方法，ovr是one vs rest 一对多的，multinomial是一对一？ 这个知识点先放置</p>
-<blockquote>
-<p>使用confusion matrix 来可视化结果</p>
-</blockquote>
-<p><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion\_matrix.html">sklearn中confusion_matrix的文档链接</a></p>
-<p>第i行 第j列的元素 表示 真值为i 预测为j的个  <strong>这个函数第一个参数是真值 第二个是预测值，都是array_like的，且形状是n_samples, </strong></p>
-<p><strong>666！！！</strong>  confusion_matrix 可以使用 torch的tensor作为输入</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">metrics<span class="token punctuation">.</span>confusion_matrix<span class="token punctuation">(</span>torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>使用sns.heatmap 可以很漂亮的显示出heatmap Pastel1颜色挺好看的</p>
-<blockquote>
-<p>使用mnist数据集</p>
-</blockquote>
-<p>给的链接里面用的是</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> fetch_mldata
-mnist <span class="token operator">=</span> fetch_mldata<span class="token punctuation">(</span><span class="token string">"MNIST original"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>报错cannot import， 网上搜了一下，sklearn 0.20版本之后用的是下面的代码</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> fetch_openml
 mnist <span class="token operator">=</span> fetch_openml<span class="token punctuation">(</span><span class="token string">'mnist_784'</span><span class="token punctuation">)</span>
-<span class="token comment"># type(mnist.data) 是pandas的DataFrame</span>
-<span class="token comment"># 如果要转成numpy的话</span>
-<span class="token comment"># mnist.data.values</span>
-
-<span class="token comment">#对于DataFrame也可以直接split</span>
-train_img<span class="token punctuation">,</span> test_img<span class="token punctuation">,</span> train_lbl<span class="token punctuation">,</span> test_lbl <span class="token operator">=</span> train_test_split<span class="token punctuation">(</span>mnist<span class="token punctuation">.</span>data<span class="token punctuation">,</span> mnist<span class="token punctuation">.</span>target<span class="token punctuation">,</span> test_size <span class="token operator">=</span> <span class="token number">0.25</span><span class="token punctuation">,</span> random_state <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span>
-ll <span class="token operator">=</span> LogisticRegression<span class="token punctuation">(</span>max_iter <span class="token operator">=</span> <span class="token number">10000</span><span class="token punctuation">)</span>
-ll<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>train_img<span class="token punctuation">,</span> train_lbl<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>ll<span class="token punctuation">.</span>score<span class="token punctuation">(</span>test_img<span class="token punctuation">,</span> test_lbl<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>运行时间 18分26秒 lbfgs没有converge</p>
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>model_selection <span class="token keyword">import</span> train_test_split
+Xtrain<span class="token punctuation">,</span> Ytrain<span class="token punctuation">,</span> Xtest<span class="token punctuation">,</span> Ytest <span class="token operator">=</span> train_test_split<span class="token punctuation">(</span>mnist<span class="token punctuation">.</span>data<span class="token punctuation">,</span> mnist<span class="token punctuation">.</span>target<span class="token punctuation">,</span> test_size <span class="token operator">=</span> <span class="token number">0.15</span><span class="token punctuation">,</span> random_state <span class="token operator">=</span> <span class="token number">215</span><span class="token punctuation">)</span>
+<span class="token comment"># 线性核 </span>
+<span class="token comment"># 先取个默认的</span>
+model <span class="token operator">=</span> svm<span class="token punctuation">.</span>SVC<span class="token punctuation">(</span>kernel <span class="token operator">=</span> <span class="token string">'linear'</span><span class="token punctuation">)</span>
+model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">,</span>Ytrain<span class="token punctuation">)</span>
+model<span class="token punctuation">.</span>score<span class="token punctuation">(</span>Xtest<span class="token punctuation">,</span> Ytest<span class="token punctuation">)</span>
+<span class="token comment"># 运行时间太长了 改天用我实验室闲置的电脑去跑</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="我学到了什么"><a href="#我学到了什么" class="headerlink" title="我学到了什么"></a>我学到了什么</h3><ul>
-<li><p>preprocess里面的PolynomialFeatures的用法</p>
-</li>
-<li><p>sklearn的fit函数中 X的shape要大于1  y的shape可以为1</p>
-<p> 如果要把X额外增加一个维度 可以<code>X[:, np.newaxis]</code></p>
-</li>
-<li><p>Pipeline的用法</p>
-</li>
-<li><p>了解了sklearn中load_digits数据集 和 如何使用sklearn的mnist数据集</p>
-</li>
-<li><p>对分类问题 使用confusion matrix来显示出结果，confusion matrix的输入可以是torch的tensor</p>
-</li>
+<li>用plt画多张图，subplot 前两个参数指定行和列 最后一个指定第几张图，索引从1开始</li>
+<li>np.meshgrid  np.c_   np.r_ 函数</li>
+<li>SVC gamma参数的含义，gamma越大 非线性能力越强，C的含义，C越大对松弛变量的惩罚越大</li>
 </ul>
 
                 
@@ -624,7 +645,7 @@ ll<span class="token punctuation">.</span>fit<span class="token punctuation">(</
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://myalos.github.io/2021/12/15/datawhale%20sklearn%201/">http://myalos.github.io/2021/12/15/datawhale%20sklearn%201/</a>
+                    <a href="http://myalos.github.io/2021/12/18/datawhale%20sklearn%202/">http://myalos.github.io/2021/12/18/datawhale%20sklearn%202/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -896,9 +917,10 @@ ll<span class="token punctuation">.</span>fit<span class="token punctuation">(</
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/12/18/datawhale%20sklearn%202/">
                     <div class="card-image">
@@ -916,9 +938,9 @@ ll<span class="token punctuation">.</span>fit<span class="token punctuation">(</
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -931,6 +953,7 @@ ll<span class="token punctuation">.</span>fit<span class="token punctuation">(</
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -957,31 +980,31 @@ ll<span class="token punctuation">.</span>fit<span class="token punctuation">(</
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/12/09/computer/">
+                <a href="/2021/12/15/datawhale%20sklearn%201/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="DIY主机安装log">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="datawhale组队学习 sklearn task01">
                         
-                        <span class="card-title">DIY主机安装log</span>
+                        <span class="card-title">datawhale组队学习 sklearn task01</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是我安装DIY主机的log
+                            这是datawhale组队学习 scikit-learn的学习笔记
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-15
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%97%A5%E5%B8%B8/" class="post-category">
-                                    日常
+                            <a href="/categories/sklearn/" class="post-category">
+                                    sklearn
                                 </a>
                             
                             
@@ -991,8 +1014,16 @@ ll<span class="token punctuation">.</span>fit<span class="token punctuation">(</
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A4%E7%9C%9F%E7%B3%BB%E5%88%97/">
-                        <span class="chip bg-color">认真系列</span>
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
+                    </a>
+                    
+                    <a href="/tags/sklearn/">
+                        <span class="chip bg-color">sklearn</span>
+                    </a>
+                    
+                    <a href="/tags/datawhale/">
+                        <span class="chip bg-color">datawhale</span>
                     </a>
                     
                 </div>
