@@ -614,6 +614,39 @@ model <span class="token operator">=</span> svm<span class="token punctuation">.
 model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">,</span>Ytrain<span class="token punctuation">)</span>
 model<span class="token punctuation">.</span>score<span class="token punctuation">(</span>Xtest<span class="token punctuation">,</span> Ytest<span class="token punctuation">)</span>
 <span class="token comment"># 运行时间太长了 改天用我实验室闲置的电脑去跑</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>补充</strong></p>
+<p>后来发现这个代码的运行时间出奇的慢，我感觉可能代码写的有问题， 网上一搜发现这个代码 可能收敛速度极其之慢，于是我给他设置了一个max_iter = 10000 然后运行 忘记记录时间了 运行出来的准确率是0.80</p>
+<p>不过他提示要我把数据scale一下 我看了一下原数据，发现原数据是0到255的 那我就scale一下 再跑</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 改</span>
+<span class="token operator">%</span><span class="token operator">%</span>time <span class="token comment"># 用这个可以看下面statement的运行时间</span>
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>pipeline <span class="token keyword">import</span> Pipeline
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>preprocessing <span class="token keyword">import</span> StandardScaler
+pipe <span class="token operator">=</span> Pipeline<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token string">'s'</span><span class="token punctuation">,</span> StandardScaler<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token string">'svc'</span><span class="token punctuation">,</span> svm<span class="token punctuation">.</span>SVC<span class="token punctuation">(</span>kernel <span class="token operator">=</span> <span class="token string">'linear'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+pipe<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">,</span> Ytrain<span class="token punctuation">)</span>
+<span class="token comment"># 运行时间7m31s</span>
+<span class="token comment"># 准确率91.57%</span>
+<span class="token comment"># 使用confusion_matrix</span>
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>metrics <span class="token keyword">import</span> confusion_matrix
+mat <span class="token operator">=</span> confusion_matrix<span class="token punctuation">(</span>Ytest<span class="token punctuation">,</span> pipe<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>Xtest<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># array([[ 973,    0,    2,    2,    0,   11,    6,    0,    4,    0],</span>
+<span class="token comment">#       [   0, 1088,    8,    4,    2,    1,    1,    6,   11,    2],</span>
+<span class="token comment">#       [   8,   19,  969,   23,   13,    6,   13,   14,   25,    3],</span>
+<span class="token comment">#       [   2,    4,   21,  979,    1,   30,    0,    5,   21,    9],</span>
+<span class="token comment">#       [   2,    5,   16,    1,  993,    2,    6,    8,    4,   32],</span>
+<span class="token comment">#       [  14,    4,   10,   49,    6,  808,   13,    1,   16,    4],</span>
+<span class="token comment">#       [   9,    3,   21,    1,   11,   18,  934,    0,    3,    0],</span>
+<span class="token comment">#       [   2,    3,   13,   11,   20,    2,    0, 1022,    5,   24],</span>
+<span class="token comment">#       [  11,   17,   21,   27,    6,   30,    3,    7,  917,   12],</span>
+<span class="token comment">#       [   8,    3,    7,   11,   45,    4,    1,   51,    5,  932]],</span>
+<span class="token comment">#      dtype=int64)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">%</span><span class="token operator">%</span>time
+result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> c <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token number">0.001</span><span class="token punctuation">,</span> <span class="token number">0.003</span><span class="token punctuation">,</span> <span class="token number">0.01</span><span class="token punctuation">,</span> <span class="token number">0.03</span><span class="token punctuation">,</span> <span class="token number">0.1</span><span class="token punctuation">,</span> <span class="token number">0.3</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">3.0</span><span class="token punctuation">,</span> <span class="token number">10.0</span><span class="token punctuation">,</span> <span class="token number">30.0</span><span class="token punctuation">,</span> <span class="token number">100.0</span><span class="token punctuation">,</span> <span class="token number">300.0</span><span class="token punctuation">,</span> <span class="token number">1000.0</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+    pipe <span class="token operator">=</span> Pipeline<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token string">'s'</span><span class="token punctuation">,</span> StandardScaler<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token string">'svc'</span><span class="token punctuation">,</span> svm<span class="token punctuation">.</span>SVC<span class="token punctuation">(</span>kernel <span class="token operator">=</span> <span class="token string">'linear'</span><span class="token punctuation">,</span>C <span class="token operator">=</span> c<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    pipe<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">,</span> Ytrain<span class="token punctuation">)</span>
+    result<span class="token punctuation">.</span>append<span class="token punctuation">(</span>pipe<span class="token punctuation">.</span>score<span class="token punctuation">(</span>Xtest<span class="token punctuation">,</span> Ytest<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># 这个代码我从某一天下午开始运行，运行到第二天早上还没有运行完。。。</span>
+<span class="token comment"># 我把程序改成mat_iter为10000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="我学到了什么"><a href="#我学到了什么" class="headerlink" title="我学到了什么"></a>我学到了什么</h3><ul>
 <li>用plt画多张图，subplot 前两个参数指定行和列 最后一个指定第几张图，索引从1开始</li>
 <li>np.meshgrid  np.c_   np.r_ 函数</li>
@@ -917,30 +950,29 @@ model<span class="token punctuation">.</span>score<span class="token punctuation
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/12/18/datawhale%20sklearn%202/">
+                <a href="/2021/12/21/datawhale%20sklearn%203/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="SVM">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="朴素贝叶斯">
                         
-                        <span class="card-title">SVM</span>
+                        <span class="card-title">朴素贝叶斯</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是datawhale组队学习 scikit-learn的task02 学习笔记
+                            这是datawhale组队学习 scikit-learn的task03 学习笔记
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-18
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-21
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -953,7 +985,6 @@ model<span class="token punctuation">.</span>score<span class="token punctuation
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
