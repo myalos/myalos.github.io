@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="朴素贝叶斯, goon的杂货店">
+    <meta name="keywords" content="决策树, goon的杂货店">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>朴素贝叶斯 | goon的杂货店</title>
+    <title>决策树 | goon的杂货店</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -329,7 +329,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">朴素贝叶斯</h1>
+                    <h1 class="description center-align post-title">决策树</h1>
                 </div>
             </div>
         </div>
@@ -478,7 +478,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-12-21
+                    2021-12-24
                 </div>
                 
 
@@ -502,52 +502,116 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Task03-朴素贝叶斯"><a href="#Task03-朴素贝叶斯" class="headerlink" title="Task03 朴素贝叶斯"></a>Task03 朴素贝叶斯</h2><p><a target="_blank" rel="noopener" href="https://github.com/datawhalechina/machine-learning-toy-code/blob/main/ml-with-sklearn/Bayes/NBayes.ipynb">datawhale学习资料链接</a></p>
-<p>感觉这次的学习内容比较少，所以就学的细一点，主要的内容就是用make blobs生成两类数据集，然后用sklearn.naive_bayes中的GaussianNB来进行分类</p>
-<p><strong>sklearn的make_blobs产生数据</strong> <a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html">make blobs的文档</a></p>
-<p>Generate isotropic Gaussian blobs for clustering</p>
-<ul>
-<li><p>n_samples 要么是int 要么是array-like的，对于int 就是make blobs要生成的样本点总数，然后会平均分给每个类。如果是array-like的话 那么列表的每个元素就代表相应类的sample数</p>
-</li>
-<li><p>n_features 每个样本的feature的数目</p>
-</li>
-<li><p>centers  整型或者是形状为(n_centers, n_features)，ndarray</p>
-<p>The number of centers to generate, or the fixed center locations.  代码中用的是2</p>
-<p>！！经测试 这个参数就是指定类别的个数</p>
-</li>
-<li><p>cluster_std</p>
-<p>就是每个类的std</p>
-</li>
-</ul>
-<p>返回值是X和y  还有centers 如果参数中有return_centers 是 True 这个是在0.23版本之后</p>
-<p><strong>sns.set()</strong> 是seaborn设置风格的函数</p>
-<p>！！！ vscode的jupyter 中反撤销的按键是Ctrl z</p>
-<p>对于sklearn中的estimator 除了predict函数以外还有predict_proba 这个会返回每个样本分类到不同类的概率</p>
-<p><strong>下面是完整代码</strong></p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> make_blobs
-<span class="token comment"># make_blobs：为聚类产生数据集</span>
-<span class="token comment"># n_samples：样本点数，n_features：数据的维度，centers:产生数据的中心点，默认值3</span>
-<span class="token comment"># cluster_std：数据集的标准差，浮点数或者浮点数序列，默认值1.0，random_state：随机种子</span>
-X<span class="token punctuation">,</span> y <span class="token operator">=</span> make_blobs<span class="token punctuation">(</span>n_samples <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">,</span> n_features<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> centers<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> random_state<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> cluster_std<span class="token operator">=</span><span class="token number">1.5</span><span class="token punctuation">)</span> 
-plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>X<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> X<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> c<span class="token operator">=</span>y<span class="token punctuation">,</span> s<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">,</span> cmap<span class="token operator">=</span><span class="token string">'RdBu'</span><span class="token punctuation">)</span>
+                <h2 id="Task04-决策树"><a href="#Task04-决策树" class="headerlink" title="Task04 决策树"></a>Task04 决策树</h2><p><a target="_blank" rel="noopener" href="https://github.com/datawhalechina/machine-learning-toy-code/tree/main/ml-with-sklearn/DecisionTree">datawhale学习资料链接</a></p>
+<p>代码主要内容加载sklearn中的鸢尾花数据集，画出violinplot，pointplot，andrew图，然后用sklearn的决策树DecisionTreeClassifier进行分类 以文字图和图片的形式来画出构造出的树</p>
+<p><strong>决策树模型</strong></p>
+<p>决策树模型就是数据结构中的树，根据<strong>特征选择依据</strong>(信息熵)等划分特征，生成决策树，然后<strong>剪枝</strong>提高泛化能力，可分类可回归，代表算法有ID3 信息熵，C4.5 信息增益比和CART 基尼系数</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">优点：计算复杂度不高，输出结果易于理解，对中间值的缺失不敏感，可以处理不相关特征数据。
+缺点：可能会产生过度匹配问题<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>PS</strong> 我用服务器开一个jupyter服务，然后网络连接 第一次显示出要密码</p>
+<blockquote>
+<h3 id="Token-authentication-is-enabled"><a href="#Token-authentication-is-enabled" class="headerlink" title="Token authentication is enabled"></a>Token authentication is enabled</h3><p>If no password has been configured, you need to open the notebook server with its login token in the URL, or paste it above. This requirement will be lifted if you <strong><a target="_blank" rel="noopener" href="https://jupyter-notebook.readthedocs.io/en/stable/public_server.html">enable a password</a></strong>.</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://jupyter-notebook.readthedocs.io/en/stable/public_server.html">相关信息</a></p>
+<p>总的来说就是  使用jupyter lab password 然后对于Enter password 使用空格</p>
+<p>对于Verify password 使用空格，然后就会Wrote hashed password to /home/myalos/.jupyter/jupyter_server_config.json</p>
+<p><strong>小提琴图</strong></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/376055263">关于小提琴图的博客链接</a></p>
+<p>总的来说就是箱型图和密度图的结合，中间的黑色粗条表示四分位数范围，从其延伸的幼细黑线代表 95% 置信区间，而白点则为中位数。</p>
+<p><a target="_blank" rel="noopener" href="https://seaborn.pydata.org/tutorial/categorical.html#categorical-tutorial">关于point plot的内容</a></p>
+<p>上面链接里面给的点图 可以比较清晰的看出不同class survive的情况，图中的bar能显示出均值也能显示吃confidence interval</p>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Andrews_plot">andrews plot的wiki</a></p>
+<p>安德鲁斯图是一种可视化高维数据结构的方法</p>
+<p>对于一个d维的数据$x$，安德鲁斯图画出来的就是一个finite Fourier series</p>
+<script type="math/tex; mode=display">
+f_x(t) = \frac{x_1}{\sqrt{2}} + x_2sin(t) + x_3cos(t) + x_4sin(2t) + x_5cos(2t) + \cdots</script><p>这个函数的自变量取值范围是-pi 到 pi</p>
+<p><strong>If there is structure in the data, it may be visible in the Andrews curves of the data.</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> seaborn <span class="token keyword">as</span> sns
+<span class="token keyword">from</span> pandas <span class="token keyword">import</span> plotting
+<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>tree <span class="token keyword">import</span> DecisionTreeClassifier
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> load_iris
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>model_selection <span class="token keyword">import</span> train_test_split
+<span class="token keyword">from</span> sklearn <span class="token keyword">import</span> tree
+<span class="token comment"># 加载数据集</span>
+data <span class="token operator">=</span> load_iris<span class="token punctuation">(</span><span class="token punctuation">)</span> 
+<span class="token comment"># 转换成.DataFrame形式</span>
+df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>data<span class="token punctuation">.</span>data<span class="token punctuation">,</span> columns <span class="token operator">=</span> data<span class="token punctuation">.</span>feature_names<span class="token punctuation">)</span>
+<span class="token comment"># 添加品种列</span>
+df<span class="token punctuation">[</span><span class="token string">'Species'</span><span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">.</span>target
+<span class="token comment"># 查看数据集信息</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"数据集信息：\n</span><span class="token interpolation"><span class="token punctuation">&#123;</span>df<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+<span class="token comment"># 查看前5条数据</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"前5条数据：\n</span><span class="token interpolation"><span class="token punctuation">&#123;</span>df<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+<span class="token comment"># 查看各特征列的摘要信息</span>
+df<span class="token punctuation">.</span>describe<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># 设置颜色主题</span>
+antV <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'#1890FF'</span><span class="token punctuation">,</span> <span class="token string">'#2FC25B'</span><span class="token punctuation">,</span> <span class="token string">'#FACC14'</span><span class="token punctuation">,</span> <span class="token string">'#223273'</span><span class="token punctuation">,</span> <span class="token string">'#8543E0'</span><span class="token punctuation">,</span> <span class="token string">'#13C2C2'</span><span class="token punctuation">,</span> <span class="token string">'#3436c7'</span><span class="token punctuation">,</span> <span class="token string">'#F04864'</span><span class="token punctuation">]</span> 
+<span class="token comment"># 绘制violinplot</span>
+f<span class="token punctuation">,</span> axes <span class="token operator">=</span> plt<span class="token punctuation">.</span>subplots<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">,</span> sharex<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+sns<span class="token punctuation">.</span>despine<span class="token punctuation">(</span>left<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span> <span class="token comment"># 删除上方和右方坐标轴上不需要的边框，这在matplotlib中是无法通过参数实现的</span>
+sns<span class="token punctuation">.</span>violinplot<span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token string">'Species'</span><span class="token punctuation">,</span> y<span class="token operator">=</span>df<span class="token punctuation">.</span>columns<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token operator">=</span>df<span class="token punctuation">,</span> palette<span class="token operator">=</span>antV<span class="token punctuation">,</span> ax<span class="token operator">=</span>axes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+sns<span class="token punctuation">.</span>violinplot<span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token string">'Species'</span><span class="token punctuation">,</span> y<span class="token operator">=</span>df<span class="token punctuation">.</span>columns<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token operator">=</span>df<span class="token punctuation">,</span> palette<span class="token operator">=</span>antV<span class="token punctuation">,</span> ax<span class="token operator">=</span>axes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+sns<span class="token punctuation">.</span>violinplot<span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token string">'Species'</span><span class="token punctuation">,</span> y<span class="token operator">=</span>df<span class="token punctuation">.</span>columns<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token operator">=</span>df<span class="token punctuation">,</span> palette<span class="token operator">=</span>antV<span class="token punctuation">,</span> ax<span class="token operator">=</span>axes<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+sns<span class="token punctuation">.</span>violinplot<span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token string">'Species'</span><span class="token punctuation">,</span> y<span class="token operator">=</span>df<span class="token punctuation">.</span>columns<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token operator">=</span>df<span class="token punctuation">,</span> palette<span class="token operator">=</span>antV<span class="token punctuation">,</span> ax<span class="token operator">=</span>axes<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># 绘制pointplot</span>
+f<span class="token punctuation">,</span> axes <span class="token operator">=</span> plt<span class="token punctuation">.</span>subplots<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">,</span> sharex<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+sns<span class="token punctuation">.</span>despine<span class="token punctuation">(</span>left<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+sns<span class="token punctuation">.</span>pointplot<span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token string">'Species'</span><span class="token punctuation">,</span> y<span class="token operator">=</span>df<span class="token punctuation">.</span>columns<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token operator">=</span>df<span class="token punctuation">,</span> color<span class="token operator">=</span>antV<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> ax<span class="token operator">=</span>axes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+sns<span class="token punctuation">.</span>pointplot<span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token string">'Species'</span><span class="token punctuation">,</span> y<span class="token operator">=</span>df<span class="token punctuation">.</span>columns<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token operator">=</span>df<span class="token punctuation">,</span> color<span class="token operator">=</span>antV<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> ax<span class="token operator">=</span>axes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+sns<span class="token punctuation">.</span>pointplot<span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token string">'Species'</span><span class="token punctuation">,</span> y<span class="token operator">=</span>df<span class="token punctuation">.</span>columns<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token operator">=</span>df<span class="token punctuation">,</span> color<span class="token operator">=</span>antV<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> ax<span class="token operator">=</span>axes<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+sns<span class="token punctuation">.</span>pointplot<span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token string">'Species'</span><span class="token punctuation">,</span> y<span class="token operator">=</span>df<span class="token punctuation">.</span>columns<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token operator">=</span>df<span class="token punctuation">,</span> color<span class="token operator">=</span>antV<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> ax<span class="token operator">=</span>axes<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># g = sns.pairplot(data=df, palette=antV, hue= 'Species')</span>
+
+plt<span class="token punctuation">.</span>subplots<span class="token punctuation">(</span>figsize <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+plotting<span class="token punctuation">.</span>andrews_curves<span class="token punctuation">(</span>df<span class="token punctuation">,</span> <span class="token string">'Species'</span><span class="token punctuation">,</span> colormap<span class="token operator">=</span><span class="token string">'cool'</span><span class="token punctuation">)</span>
+
 plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>naive_bayes <span class="token keyword">import</span> GaussianNB
-model <span class="token operator">=</span> GaussianNB<span class="token punctuation">(</span><span class="token punctuation">)</span>
-model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>X<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
-rng <span class="token operator">=</span> np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>RandomState<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
-X_test <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">14</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token punctuation">[</span><span class="token number">14</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">]</span> <span class="token operator">*</span> rng<span class="token punctuation">.</span>rand<span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
-y_pred <span class="token operator">=</span> model<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>X_test<span class="token punctuation">)</span>
+<span class="token comment"># 加载数据集</span>
+data <span class="token operator">=</span> load_iris<span class="token punctuation">(</span><span class="token punctuation">)</span> 
+<span class="token comment"># 转换成.DataFrame形式</span>
+df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>data<span class="token punctuation">.</span>data<span class="token punctuation">,</span> columns <span class="token operator">=</span> data<span class="token punctuation">.</span>feature_names<span class="token punctuation">)</span>
+<span class="token comment"># 添加品种列</span>
+df<span class="token punctuation">[</span><span class="token string">'Species'</span><span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">.</span>target
 
-plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>X<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> X<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> c<span class="token operator">=</span>y<span class="token punctuation">,</span> s<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">,</span> cmap<span class="token operator">=</span><span class="token string">'RdBu'</span><span class="token punctuation">)</span>
-lim <span class="token operator">=</span> plt<span class="token punctuation">.</span>axis<span class="token punctuation">(</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>X_test<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> X_test<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> c<span class="token operator">=</span>y_pred<span class="token punctuation">,</span> s<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span> cmap<span class="token operator">=</span><span class="token string">'RdBu'</span><span class="token punctuation">,</span> alpha<span class="token operator">=</span><span class="token number">0.1</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>axis<span class="token punctuation">(</span>lim<span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="我学到什么"><a href="#我学到什么" class="headerlink" title="我学到什么"></a>我学到什么</h3><ul>
-<li>感觉到seaborn这个库的牛逼，以后有时间就去学一下</li>
-<li>sklearn的make blobs函数</li>
-<li>sklearn的朴素贝叶斯分类器 使用</li>
+<span class="token comment"># 用数值替代品种名作为标签</span>
+target <span class="token operator">=</span> np<span class="token punctuation">.</span>unique<span class="token punctuation">(</span>data<span class="token punctuation">.</span>target<span class="token punctuation">)</span>
+target_names <span class="token operator">=</span> np<span class="token punctuation">.</span>unique<span class="token punctuation">(</span>data<span class="token punctuation">.</span>target_names<span class="token punctuation">)</span>
+targets <span class="token operator">=</span> <span class="token builtin">dict</span><span class="token punctuation">(</span><span class="token builtin">zip</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> target_names<span class="token punctuation">)</span><span class="token punctuation">)</span>
+df<span class="token punctuation">[</span><span class="token string">'Species'</span><span class="token punctuation">]</span> <span class="token operator">=</span> df<span class="token punctuation">[</span><span class="token string">'Species'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span>targets<span class="token punctuation">)</span>
+
+<span class="token comment"># 提取数据和标签</span>
+X <span class="token operator">=</span> df<span class="token punctuation">.</span>drop<span class="token punctuation">(</span>columns<span class="token operator">=</span><span class="token string">"Species"</span><span class="token punctuation">)</span>
+y <span class="token operator">=</span> df<span class="token punctuation">[</span><span class="token string">"Species"</span><span class="token punctuation">]</span>
+feature_names <span class="token operator">=</span> X<span class="token punctuation">.</span>columns
+labels <span class="token operator">=</span> y<span class="token punctuation">.</span>unique<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+X_train<span class="token punctuation">,</span> test_x<span class="token punctuation">,</span> y_train<span class="token punctuation">,</span> test_lab <span class="token operator">=</span> train_test_split<span class="token punctuation">(</span>X<span class="token punctuation">,</span>y<span class="token punctuation">,</span>
+                                                 test_size <span class="token operator">=</span> <span class="token number">0.4</span><span class="token punctuation">,</span>
+                                                 random_state <span class="token operator">=</span> <span class="token number">42</span><span class="token punctuation">)</span>
+model <span class="token operator">=</span> DecisionTreeClassifier<span class="token punctuation">(</span>max_depth <span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> random_state <span class="token operator">=</span> <span class="token number">42</span><span class="token punctuation">)</span>
+model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>X_train<span class="token punctuation">,</span> y_train<span class="token punctuation">)</span> 
+<span class="token comment"># 以文字形式输出树     </span>
+text_representation <span class="token operator">=</span> tree<span class="token punctuation">.</span>export_text<span class="token punctuation">(</span>model<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>text_representation<span class="token punctuation">)</span>
+<span class="token comment"># 用图片画出</span>
+plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> facecolor <span class="token operator">=</span><span class="token string">'g'</span><span class="token punctuation">)</span> <span class="token comment">#</span>
+a <span class="token operator">=</span> tree<span class="token punctuation">.</span>plot_tree<span class="token punctuation">(</span>model<span class="token punctuation">,</span>
+                   feature_names <span class="token operator">=</span> feature_names<span class="token punctuation">,</span>
+                   class_names <span class="token operator">=</span> labels<span class="token punctuation">,</span>
+                   rounded <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">,</span> <span class="token comment"># 图片的方框周边是圆角</span>
+                   filled <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">,</span> <span class="token comment"># 是将图片填充颜色</span>
+                   fontsize<span class="token operator">=</span><span class="token number">14</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>                                 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>训练出来的决策树的准确率维98.3%</p>
+<h3 id="我学到了什么"><a href="#我学到了什么" class="headerlink" title="我学到了什么"></a>我学到了什么</h3><ul>
+<li>小提琴图，点图，安德鲁斯图来可视化数据</li>
+<li>sklearn的决策树用法 以及用两种方式来可视化决策树</li>
 </ul>
 
                 
@@ -575,7 +639,7 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://myalos.github.io/2021/12/21/datawhale%20sklearn%203/">http://myalos.github.io/2021/12/21/datawhale%20sklearn%203/</a>
+                    <a href="http://myalos.github.io/2021/12/24/datawhale%20sklearn%204/">http://myalos.github.io/2021/12/24/datawhale%20sklearn%204/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -847,9 +911,10 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/12/24/datawhale%20sklearn%204/">
                     <div class="card-image">
@@ -867,9 +932,9 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -882,6 +947,7 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -908,24 +974,24 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/12/18/datawhale%20sklearn%202/">
+                <a href="/2021/12/21/datawhale%20sklearn%203/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="SVM">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="朴素贝叶斯">
                         
-                        <span class="card-title">SVM</span>
+                        <span class="card-title">朴素贝叶斯</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是datawhale组队学习 scikit-learn的task02 学习笔记
+                            这是datawhale组队学习 scikit-learn的task03 学习笔记
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-21
                             </span>
                         <span class="publish-author">
                             

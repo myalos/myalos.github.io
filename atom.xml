@@ -6,7 +6,7 @@
   <link href="http://myalos.github.io/atom.xml" rel="self"/>
   
   <link href="http://myalos.github.io/"/>
-  <updated>2021-12-21T14:04:13.190Z</updated>
+  <updated>2021-12-23T16:02:38.290Z</updated>
   <id>http://myalos.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>决策树</title>
+    <link href="http://myalos.github.io/2021/12/24/datawhale%20sklearn%204/"/>
+    <id>http://myalos.github.io/2021/12/24/datawhale%20sklearn%204/</id>
+    <published>2021-12-24T12:00:00.000Z</published>
+    <updated>2021-12-23T16:02:38.290Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Task04-决策树&quot;&gt;&lt;a href=&quot;#Task04-决策树&quot; class=&quot;headerlink&quot; title=&quot;Task04 决策树&quot;&gt;&lt;/a&gt;Task04 决策树&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="sklearn" scheme="http://myalos.github.io/categories/sklearn/"/>
+    
+    
+    <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="sklearn" scheme="http://myalos.github.io/tags/sklearn/"/>
+    
+    <category term="datawhale" scheme="http://myalos.github.io/tags/datawhale/"/>
+    
+  </entry>
   
   <entry>
     <title>朴素贝叶斯</title>
@@ -50,7 +79,7 @@
     <link href="http://myalos.github.io/2021/12/18/datawhale%20sklearn%202/"/>
     <id>http://myalos.github.io/2021/12/18/datawhale%20sklearn%202/</id>
     <published>2021-12-18T12:00:00.000Z</published>
-    <updated>2021-12-21T14:00:39.850Z</updated>
+    <updated>2021-12-23T16:04:38.257Z</updated>
     
     
       
@@ -559,33 +588,6 @@
         
     <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.bilibili.com/video/BV1JE411w7Ub?p=19&quot;&gt;视频链接&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;Lecture-14-Expectation-Maximization-Algorithms&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="机器学习" scheme="http://myalos.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="cs229" scheme="http://myalos.github.io/tags/cs229/"/>
-    
-    <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Debug ML Models and Error Analysis</title>
-    <link href="http://myalos.github.io/2021/05/22/cs229%2013/"/>
-    <id>http://myalos.github.io/2021/05/22/cs229%2013/</id>
-    <published>2021-05-22T12:32:36.256Z</published>
-    <updated>2021-05-21T00:30:18.229Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Lecture-13-Debug-ML-Models-and-Error-Analysis&quot;&gt;&lt;a href=&quot;#Lecture-13-Debug-ML-Models-and-Error-Analysis&quot; class=&quot;headerlink&quot;</summary>
         
       
     
