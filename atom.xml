@@ -6,7 +6,7 @@
   <link href="http://myalos.github.io/atom.xml" rel="self"/>
   
   <link href="http://myalos.github.io/"/>
-  <updated>2021-12-27T14:26:58.842Z</updated>
+  <updated>2022-01-14T13:40:23.356Z</updated>
   <id>http://myalos.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows Terminal + oh my zsh + oh my posh</title>
+    <link href="http://myalos.github.io/2022/01/13/windows%20terminal/"/>
+    <id>http://myalos.github.io/2022/01/13/windows%20terminal/</id>
+    <published>2022-01-13T12:00:00.000Z</published>
+    <updated>2022-01-14T13:40:23.356Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Windows-Terminal-oh-my-zsh-oh-my-posh&quot;&gt;&lt;a href=&quot;#Windows-Terminal-oh-my-zsh-oh-my-posh&quot; class=&quot;headerlink&quot; title=&quot;Windows Terminal</summary>
+        
+      
+    
+    
+    
+    <category term="工作环境" scheme="http://myalos.github.io/categories/%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83/"/>
+    
+    
+    <category term="wsl" scheme="http://myalos.github.io/tags/wsl/"/>
+    
+    <category term="windows terminal" scheme="http://myalos.github.io/tags/windows-terminal/"/>
+    
+    <category term="工作环境" scheme="http://myalos.github.io/tags/%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83/"/>
+    
+  </entry>
   
   <entry>
     <title>KMeans</title>
@@ -562,33 +591,6 @@
         
         
     <summary type="html">&lt;h2 id=&quot;Lecture-5-GDA-Naive-Bayes&quot;&gt;&lt;a href=&quot;#Lecture-5-GDA-Naive-Bayes&quot; class=&quot;headerlink&quot; title=&quot;Lecture 5 GDA Naive Bayes&quot;&gt;&lt;/a&gt;Lecture 5</summary>
-        
-      
-    
-    
-    
-    <category term="机器学习" scheme="http://myalos.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="cs229" scheme="http://myalos.github.io/tags/cs229/"/>
-    
-    <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>EM Algorithm Factor Analysis</title>
-    <link href="http://myalos.github.io/2021/05/22/cs229%2015/"/>
-    <id>http://myalos.github.io/2021/05/22/cs229%2015/</id>
-    <published>2021-05-22T12:32:36.278Z</published>
-    <updated>2021-05-22T12:32:13.175Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Lecture-15-EM-Algorithm-Factor-Analysis&quot;&gt;&lt;a href=&quot;#Lecture-15-EM-Algorithm-Factor-Analysis&quot; class=&quot;headerlink&quot; title=&quot;Lecture 15 EM</summary>
         
       
     
