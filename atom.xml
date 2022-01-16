@@ -6,7 +6,7 @@
   <link href="http://myalos.github.io/atom.xml" rel="self"/>
   
   <link href="http://myalos.github.io/"/>
-  <updated>2022-01-14T13:40:23.356Z</updated>
+  <updated>2022-01-16T15:11:06.240Z</updated>
   <id>http://myalos.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>搭建ubuntu 工作环境</title>
+    <link href="http://myalos.github.io/2022/01/16/ubuntu_essential/"/>
+    <id>http://myalos.github.io/2022/01/16/ubuntu_essential/</id>
+    <published>2022-01-16T12:00:00.000Z</published>
+    <updated>2022-01-16T15:11:06.240Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;搭建ubuntu-工作环境&quot;&gt;&lt;a href=&quot;#搭建ubuntu-工作环境&quot; class=&quot;headerlink&quot; title=&quot;搭建ubuntu 工作环境&quot;&gt;&lt;/a&gt;搭建ubuntu</summary>
+        
+      
+    
+    
+    
+    <category term="工作环境" scheme="http://myalos.github.io/categories/%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83/"/>
+    
+    
+    <category term="深度学习" scheme="http://myalos.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="工作环境" scheme="http://myalos.github.io/tags/%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83/"/>
+    
+    <category term="ubuntu" scheme="http://myalos.github.io/tags/ubuntu/"/>
+    
+  </entry>
   
   <entry>
     <title>Windows Terminal + oh my zsh + oh my posh</title>
@@ -575,33 +604,6 @@
     <category term="centos" scheme="http://myalos.github.io/tags/centos/"/>
     
     <category term="认真系列" scheme="http://myalos.github.io/tags/%E8%AE%A4%E7%9C%9F%E7%B3%BB%E5%88%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GDA Naive Bayes</title>
-    <link href="http://myalos.github.io/2021/06/18/cs229%205/"/>
-    <id>http://myalos.github.io/2021/06/18/cs229%205/</id>
-    <published>2021-06-17T23:50:15.689Z</published>
-    <updated>2021-03-16T01:12:08.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Lecture-5-GDA-Naive-Bayes&quot;&gt;&lt;a href=&quot;#Lecture-5-GDA-Naive-Bayes&quot; class=&quot;headerlink&quot; title=&quot;Lecture 5 GDA Naive Bayes&quot;&gt;&lt;/a&gt;Lecture 5</summary>
-        
-      
-    
-    
-    
-    <category term="机器学习" scheme="http://myalos.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="cs229" scheme="http://myalos.github.io/tags/cs229/"/>
-    
-    <category term="机器学习" scheme="http://myalos.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Windows Terminal + oh my zsh + oh my posh, goon的杂货店">
+    <meta name="keywords" content="搭建ubuntu 工作环境, goon的杂货店">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Windows Terminal + oh my zsh + oh my posh | goon的杂货店</title>
+    <title>搭建ubuntu 工作环境 | goon的杂货店</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -324,12 +324,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Windows Terminal + oh my zsh + oh my posh</h1>
+                    <h1 class="description center-align post-title">搭建ubuntu 工作环境</h1>
                 </div>
             </div>
         </div>
@@ -445,16 +445,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/wsl/">
-                                <span class="chip bg-color">wsl</span>
-                            </a>
-                        
-                            <a href="/tags/windows-terminal/">
-                                <span class="chip bg-color">windows terminal</span>
+                            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">深度学习</span>
                             </a>
                         
                             <a href="/tags/%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83/">
                                 <span class="chip bg-color">工作环境</span>
+                            </a>
+                        
+                            <a href="/tags/ubuntu/">
+                                <span class="chip bg-color">ubuntu</span>
                             </a>
                         
                     </div>
@@ -478,7 +478,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-01-13
+                    2022-01-16
                 </div>
                 
 
@@ -502,93 +502,196 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Windows-Terminal-oh-my-zsh-oh-my-posh"><a href="#Windows-Terminal-oh-my-zsh-oh-my-posh" class="headerlink" title="Windows Terminal + oh my zsh + oh my posh"></a>Windows Terminal + oh my zsh + oh my posh</h2><h3 id="Ubuntu-20-04-子系统-oh-my-zsh"><a href="#Ubuntu-20-04-子系统-oh-my-zsh" class="headerlink" title="Ubuntu 20.04 子系统 oh my zsh"></a>Ubuntu 20.04 子系统 oh my zsh</h3><p>每次打开ubuntu子系统的时候发现/etc/resolv.conf 被重置了</p>
-<p>即使在/etc/wsl.conf 里面加上 也不行</p>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">[network]
-generateResolvConf &#x3D; false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><a target="_blank" rel="noopener" href="https://github.com/microsoft/WSL/issues/5611">问题链接</a>   <strong>发现在大宿主机里面使用wsl.exe —shutdown 然后就好了</strong></p>
-<p>每次打开windows terminal的时候 会默认是打开windows  powershell ，可以在设置里面修改 默认打开ubuntu子系统。PS：在当前目录下打开Windows Terminal 鼠标右键就可以了</p>
-<p>安装zsh sudo apt-get install zsh 然后 chsh -s /bin/zsh 设置当前用户使用zsh 并重启wsl，重启wsl  就是在外面的大宿主机上面使用wsl.exe —shutdown</p>
-<p>Q 如何查看当前用的什么是什么shell  A: echo $SHELL</p>
-<p>安装oh-my-zsh，发现超时，搜了一下 wsl2是通过虚拟机方式实现的，没有与windows共享，变成了一个新的网段，所以默认是没有用宿主机的VPN的</p>
-<pre class="line-numbers language-zsh" data-language="zsh"><code class="language-zsh">sh -c &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;robbyrussell&#x2F;oh-my-zsh&#x2F;master&#x2F;tools&#x2F;install.sh)&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><a target="_blank" rel="noopener" href="https://zinglix.xyz/2020/04/18/wsl2-proxy/">解决方式的链接</a>   还有一篇利用WSL打造Arch开发环境的文章 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/51270874#%E4%B8%89%E3%80%81%E4%BD%BF%E7%94%A8%E4%BC%98%E5%8C%96%E9%85%8D%E7%BD%AE">链接</a></p>
-<p><a target="_blank" rel="noopener" href="https://lengthmin.me/posts/wsl2-network-tricks/">WSL2的一些网络访问的问题</a></p>
-<hr>
-
-<p>在v2rayN里面 设置 参数设置 v2rayN设置里面 开启 允许来自局域网的连接</p>
-<p>感觉有了这个功能就可以使我的linux电脑也能翻墙了</p>
-<hr>
-
-<p>然后在powershell里面查看ipconfig 记住ip地址</p>
-<p>在~/.zshrc 中 export http_proxy=’http://<Windows IP>:<Port>‘ 和 export https_proxy=’http://<Windows IP>:<Port>‘</p>
-<p>ZSH_THEME有很多 网站 <a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
-<p>将zsh的主题更换之后 ZSH_THEME=”agnoster”  发现会出现一点乱码</p>
-<p>要下载Powerline Fonts 这个要在windows10里面安装 WSL2 默认使用的字体是Cascadia Mono</p>
-<p>然后使用</p>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">git clone https:&#x2F;&#x2F;github.com&#x2F;powerline&#x2F;fonts.git --depth&#x3D;1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>克隆下来后打开文件夹，有一个 ps1 的 powershell 文件以管理员打开就能自动安装字体。再次打开 wsl 发现乱码还在此时需要修改 wsl 字体 然后修改ubuntu的字体</p>
-<p>搞好之后 发现路径是有蓝色的特效 路径前面还是原始的样子，我想进一步修改</p>
-<p>在 ~/.oh-my-zsh/themes/agnoster.zsh-theme里面 将第92行进行修改</p>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">原来是 prompt_segment black default &quot;%(!.%&#123;%F&#123;yellow&#125;%&#125;.)%n@%m&quot;
-改成   prompt_segment green black &quot;%(!.%&#123;%F&#123;yellow&#125;%&#125;.)%n&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><strong>挺好挺好！！！</strong></p>
-<p>再配置一下vim</p>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">curl -fLo ~&#x2F;.vim&#x2F;autoload&#x2F;plug.vim --create-dirs \
-    https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;junegunn&#x2F;vim-plug&#x2F;master&#x2F;plug.vim<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>想要运行python的时候发现zsh: permission denied: python 我感觉是宿主机的python是针对windows的</p>
-<p>我发现/bin里面 有python  设个软连接就行了 ln -s 源文件 链接文件</p>
-<p>安装YouCompleteMe的时候 要安装cmake 然后在~/.vim/plugged/YouCompleteMe 里面python install.py</p>
-<p><strong>发现错误</strong> ERROR: Python headers are missing in /usr/include/python3.8</p>
-<p><strong>解决方法</strong> sudo apt-get install python3-dev</p>
-<p>python install.py的时候 可以python install.py -h 来查看各个参数的含义</p>
-<p><strong>又发现问题</strong>：No CMAKE_CXX_COMPILER could be found.</p>
-<p>我发现子系统里面是有gcc的 gcc的版本是9.3.0</p>
-<p><strong>解决方法</strong>  sudo apt-get install -y build-essential</p>
-<p>又有新错 ERROR: Unable to find executable ‘go’. go is required to build gopls.</p>
-<p>想装go的completer 看来不行，装js的也不行 都是缺东西</p>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">安装完后要设置一下
-let g:ycm_global_ycm_extra_conf&#x3D;&#39;~&#x2F;.vim&#x2F;plugged&#x2F;YouCompleteMe&#x2F;.ycm_extra_conf.py&#39;
-let g:ycm_confirm_extra_conf&#x3D;0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>又报错AttributeError: module ‘xuvenakrnflxlyo’ has no attribute ‘FlagsForFile’</p>
-<p>用vim-plug安装powerline</p>
-<p>Basic powerline configuration is done via JSON files located at .config/powerline/. It is a good idea to start by copying the default configuration located at powerline_root/powerline/config_files/ to .config/powerline/.</p>
-<p>要在vimrc中加上 set laststatus=2 和 set t_Co=256</p>
-<h4 id="666-Tmux-里面-也可以用powerline"><a href="#666-Tmux-里面-也可以用powerline" class="headerlink" title="666 Tmux  里面 也可以用powerline"></a>666 Tmux  里面 也可以用powerline</h4><p>在~/.tmux.conf 里面   source “~/.vim/plugged/powerline/powerline/bindings/tmux/powerline.conf”</p>
-<p><strong>PS： 当我在WSL2里面source ~/.zshrc的时候报了个错</strong></p>
-<p>compinit:503: no such file or directory: /usr/share/zsh/vendor-completions/_docker</p>
-<p>原因是docker 没开，右键点windows docker图标然后点 Restart Docker</p>
-<h4 id="666-Windows-Terminal里面也可以进行窗格操作"><a href="#666-Windows-Terminal里面也可以进行窗格操作" class="headerlink" title="666 Windows Terminal里面也可以进行窗格操作"></a>666 Windows Terminal里面也可以进行窗格操作</h4><p>ctrl + shift + w 关闭窗格</p>
-<p>alt + shift + d 复制窗格</p>
-<p>alt + 方向键 移动焦点</p>
-<p>alt + shift + + 或者 - 两种不同的拆分窗格</p>
-<p>alt + shift + 方向键 调整窗格大小</p>
-<h3 id="POWERSHELL-安装powerline"><a href="#POWERSHELL-安装powerline" class="headerlink" title="POWERSHELL 安装powerline"></a>POWERSHELL 安装powerline</h3><p>Install-Module posh-git -Scope CurrentUser</p>
-<p>全选yes</p>
-<p>Install-Module oh-my-posh -Scope CurrentUser</p>
-<p>全选yes</p>
-<p><a target="_blank" rel="noopener" href="https://www.cxyzjd.com/article/qq_34193883/115296048">如果oh my posh下的很慢的话</a></p>
-<p>Import-Module oh-my-posh</p>
-<p><strong>出现错误</strong> Import-Module : 无法加载文件 C:\Users\Dell\Documents\WindowsPowerShell\Modules\oh-my-posh\5.12.1\oh-my-posh.psm1，因为在此系统上禁止运行脚本</p>
-<p><strong>解决方法</strong> Set-ExecutionPolicy -Scope CurrentUser Bypass</p>
-<p>Set-PoshPrompt Agnoster  </p>
-<p>高级操作 <a target="_blank" rel="noopener" href="https://www.codenong.com/cs106424405/">链接</a></p>
-<p>使用$host 可以查看PowerShell的版本 我的版本是5.1</p>
-<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.1">升级PowerShell的方法</a></p>
-<p>升级成7.1.5 然后在设置里面打开json文件</p>
-<p>！！！<a target="_blank" rel="noopener" href="https://www.nerdfonts.com/">https://www.nerdfonts.com/</a> 这个网站可以的</p>
-<p>下载里面的 <strong>CodeNewRoman Nerd Font</strong> 字体  下完后 解压 里面全是OpenType的字体，安装字体 就在控制面板里点开字体 然后把这些otf字体拖到里面去</p>
-<p>选张图 然后设置不透明度为27%</p>
-<p>换了个powershell前面的操作要再来一遍 最后的效果图如下</p>
-<p><img src="https://z3.ax1x.com/2021/10/24/5Wj9xK.md.png" alt="Powershell.png"></p>
-<p><img src="https://z3.ax1x.com/2021/10/24/5WjmGt.md.png" alt="Ubuntu20.04.png"></p>
-<p>Powershell每次开启的时候要手动 Import-Module oh-my-posh</p>
-<h4 id="启动powershell时，自动加载对应配置"><a href="#启动powershell时，自动加载对应配置" class="headerlink" title="启动powershell时，自动加载对应配置"></a>启动powershell时，自动加载对应配置</h4><ul>
-<li>查看是否有powershell配置文件 Test-path $profile </li>
-<li>如果显示为false，手动创建一个，如果为true，则修改对应文件 New-item –type file –force $profile</li>
-<li>编辑配置 notepad $profile</li>
+                <h2 id="搭建ubuntu-工作环境"><a href="#搭建ubuntu-工作环境" class="headerlink" title="搭建ubuntu 工作环境"></a>搭建ubuntu 工作环境</h2><p>决定用ubuntu系统炼丹，搭个炼丹的环境</p>
+<h3 id="将桌面内容放大"><a href="#将桌面内容放大" class="headerlink" title="将桌面内容放大"></a>将桌面内容放大</h3><p>默认的桌面字比较小，由于我是4k的屏，右键桌面然后选择Display setting 把Scale从100% 调到 200%</p>
+<h3 id="安装中文输入法"><a href="#安装中文输入法" class="headerlink" title="安装中文输入法"></a>安装中文输入法</h3><p>搜索搜狗输入法，进入官网，下载linux版本，会下载一个deb，下到了Downloads里面</p>
+<p>在setting里面 找到Region &amp; Language 然后点开 Manage Installed Languages 然后点开Install/Remove Languages 如果Chinese(simplified) 没有勾中 就勾中然后apply 然后选择Keyboard input method system 选fcitx如果没有这个 就sudo apt-get install fcitx 然后点击Apply System-Wide 然后重启电脑</p>
+<p>然后通过命令行安装下好的搜过deb</p>
+<p>sudo dpkg -i 文件</p>
+<p><strong>如果安装过程中缺少依赖就使用sudo apt -f install </strong></p>
+<h3 id="删掉firefox-安装-chrome"><a href="#删掉firefox-安装-chrome" class="headerlink" title="删掉firefox 安装 chrome"></a>删掉firefox 安装 chrome</h3><p>之前看到一个文章里面是用 dpkg -L ｜ grep firefox 报错 error: —listfiles needs at least one package name argument 换了篇文章 <a target="_blank" rel="noopener" href="https://blog.csdn.net/bingxinyang123/article/details/112172782">文章链接</a></p>
+<p>使用dpkg —get-selections ｜ grep firefox 就显示出了firefox，firefox-locale-en firefox-locale-zh-hans</p>
+<p>之前的那篇文章是用</p>
+<blockquote>
+<p>sudo dpkg -P firefox firefox-locale-en firefox-locale-zh-hans</p>
+</blockquote>
+<p>sudo apt-get purge firefox firefox-locale-en firefox-locale-zh-hans</p>
+<p>对于之前的命令 如果改成dpkg -L firefox | grep firefox 有输出，但是都是关于firefox的路径 其中就有/usr/bin/firefox <strong>我在终端里面输入firefox 就能直接打开浏览器</strong></p>
+<blockquote>
+<p>apt-get remove 和 apt-get purge的区别</p>
+<p>apt-get remove 会删除软件包而保留软件的配置文件</p>
+<p>apt-get purge 会同时清除软件包和软件的配置文件</p>
+</blockquote>
+<p><a href="bencane.com/2014/08/18/removing-packages-and-configurations-with-apt-get">关于remove和purge案例的链接</a></p>
+<p>就是用remove卸载 手动把配置文件删了，重新install 会出问题，remove之后 dpkg —list 包名 会显示</p>
+<p>rc 包名 。。。 r表示remove了 c表示configuration files 还在</p>
+<p><strong>最终使用了dpkg -P 来删除包</strong></p>
+<p>下载chrome deb安装包</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">wget https:&#x2F;&#x2F;dl.google.com&#x2F;linux&#x2F;direct&#x2F;google-chrome-stable_current_amd64.deb<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>看到这个google 没有翻墙软件居然也能下，666</p>
+<p>下完之后sudo dpkg -i deb文件 在桌面界面点击左下方的9个正方形的图标 然后把chrome 给拖到菜单栏里面去</p>
+<p><strong>PS</strong> 我在/usr/bin 里面发现 google-chrome 和 google-chrome-stable 随便用哪个都可以打开chrome</p>
+<p>我打开github 然后点最大化 结果发现浏览器卡了一会儿 才把页面弄成最大化 郁闷！！</p>
+<h3 id="安装nvim"><a href="#安装nvim" class="headerlink" title="安装nvim"></a>安装nvim</h3><p>使用vim 发现没有vim 不过会有友好的提示 可以sudo apt install 啥啥啥 而且会告诉install的版本是啥</p>
+<p>然后输入vi 结果发现进入的界面居然是vim 有点神奇</p>
+<p><strong>PS：发现系统里面有python3 没有python 也没有python2 python3的版本是3.8.10</strong></p>
+<p><strong>PS: 发现系统里面有openssl 版本是 1.1.1  31 Mar 2020</strong></p>
+<p>听说neovim0.5 是2021年7月份发布的，带来了treesitter和LSP client，0.6是对0.5的一些bug修复</p>
+<p>我在github上面的neovim的release中下载nvim.appimage </p>
+<p>然后chmod u+x nvim.appimage 然后 ./nvim.appimage 就直接进入nvim的开始界面了</p>
+<p>我把这个mv到/usr/bin里面去了，然后sudo ln -s /usr/bin/nvim.appimage /usr/bin/vim</p>
+<p><strong>PS</strong> 我在这里面发现有nvidia-detector</p>
+<p>neovim的官网 neovim.io</p>
+<h3 id="安装okular"><a href="#安装okular" class="headerlink" title="安装okular"></a>安装okular</h3><p>听说okular是linux下最好的pdf阅读器？</p>
+<p>sudo apt-get install okular</p>
+<p>进行注释的时候 按下F6 然后再按下数字4就行了 取消注释模式 就是按F6</p>
+<p>右键要打开的pdf 选择properties 然后在里面修改默认打开程序</p>
+<p><strong>用Ctrl+Shift+，打开Configure Okular 选择Annotations的标签 然后设置Annotation tools</strong></p>
+<p>设置不同的highlighter 然后把这些移到最上面 就能方便的使用快捷键来切换使用了</p>
+<h3 id="安装一些基本shell软件"><a href="#安装一些基本shell软件" class="headerlink" title="安装一些基本shell软件"></a>安装一些基本shell软件</h3><p>sudo apt install htop  sudo apt install net-tools 使用htop的时候就能看到和实验室服务器一样的界面了</p>
+<p>sudo apt install unzip</p>
+<h3 id="安装炼丹套装"><a href="#安装炼丹套装" class="headerlink" title="安装炼丹套装"></a>安装炼丹套装</h3><ul>
+<li><p>安装anaconda 在<a target="_blank" rel="noopener" href="https://www.anaconda.com/download/#linux">https://www.anaconda.com/download/#linux</a> 中下载</p>
+<p>上面写着python3.9 64-Bit(x86) Installer 581MB 下载了一个sh文件 下完后bash sh文件</p>
+<p>搞完后的anaconda 里面的base环境 内容贼多，有python3.9.7 我的anaconda3 放在了我的主文件夹下</p>
+<p>然后source ~/.bashrc 郁闷的是base环境内容太多 我之前用conda的时候基本不用base base占了4G空间 有点郁闷</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">conda config --show | grep auto_activate_base
+会显示出 auto_activate_base: True
+使用conda config --set auto_activate_base False 就OK了<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
-<p><strong>这个是我几个月前写的文章，现在的我用的是ubuntu，不怎么用windows，所以这么折腾其实只能算体验一下，对我的生产力提升作用不大，如果以后公司里面用的是windows就把这个弄上，wsl还是很香的</strong></p>
+<ul>
+<li><p>sudo apt install nvidia-utils-470</p>
+<p>使用nvidia-smi 报错 nvidia-smi has failed because it couldn’t communicate with the nvidia driver</p>
+</li>
+<li><p><strong>在官网上面搜索GeForce 相应型号显卡的驱动</strong> 然后下载</p>
+<p>下载完后 chmod u+x 文件 然后sudo bash 文件 </p>
+<p>里面出现一个信息 An alternate method of installing the NVIDIA driver was detected</p>
+<p>我就改用 sudo apt install nvidia-driver-470了</p>
+<p>重启之后 nvidia-smi就ok了 不过cuda version 上面显示的是11.4</p>
+<p>此时nvcc 显示 nvcc not found</p>
+</li>
+<li><p>在nvidia官网上面搜cuda toolkit 11.1 因为pytorch 官网上面安装pytorch1.8lts 需要的是cudatoolkit 11.1</p>
+<p>然后下载cuda11.1update1 cuda 11.1.1.455.32.00 这个大小是3G</p>
+<p>显示existing package manager installation of the driver found</p>
+<p>继续continue。在installer里面的Driver项 用回车去掉前面的X也就是不安装 因为之前已经安装了 然后install</p>
+</li>
+<li><p>然后vim ~/.bashrc</p>
+<p>写这篇文章的时候 之前有几天连续头疼 记忆力down down 打vim的时候 忘记后面该打bashrc了</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">export PATH&#x3D;&quot;&#x2F;usr&#x2F;local&#x2F;cuda-11.1&#x2F;bin:$PATH&quot;
+export LD_LIBRARY_PATH&#x3D;&quot;&#x2F;usr&#x2F;local&#x2F;cuda-11.1&#x2F;lib64:$LD_LIBRARY_PATH&quot;
+export CUDA_HOME&#x3D;&quot;&#x2F;usr&#x2F;local&#x2F;cuda&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>然后source ~/.bashrc</p>
+</li>
+<li><p>然后developer.nvidia.com/rdp/cudnn-archive 里面安装相应的cudnn</p>
+<p>下载相应的三个包 我是runtime library for ubuntu20.04 x86_64 (Deb) Developer Library for Ubuntu 20.04 x86_64 (Deb) Code Samples… 下这个要login</p>
+<p>下完之后检测cudnn是否安装成功 cp -r /usr/src/cudnn_samples_v8 到主目录</p>
+<p>然后cd到mnistCUDNN 然后make clean 然后make 可能会报错 FreeImage.h找不到</p>
+<p>sudo apt install libfreeimage3 libfreeimage-dev</p>
+<p>然后./mnistCUDNN 出现Test passed 就成功了</p>
+</li>
+<li><p>创建conda 环境 我conda create -n myalos python=3.9 发现download的包只有ncurses 说明base里面有的会被我的新环境共享 创建完后使用pytorch 官网提供的命令</p>
+<p>出现conflict了</p>
+<p>我先添加一下清华源</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;pkgs&#x2F;free&#x2F;
+conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;pkgs&#x2F;main&#x2F;
+conda config --set show_channel_urls yes
+conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;pytorch&#x2F;
+conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;conda-forge&#x2F;
+conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;msys2&#x2F;
+conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;bioconda&#x2F;
+conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;menpo&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>我把官网给的命令中的-c去掉 结果找不到包 我按官网的命令来 就找到包了 但是安装pytorch 1.8.2的时候非常卡，我以为是因为没有梯子所以我去装梯子了 刚装好 回头一看 pytorch装好了，然后我python</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> torch
+torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>is_available<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># 返回的是True！！！</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+<h3 id="linux梯子"><a href="#linux梯子" class="headerlink" title="linux梯子"></a>linux梯子</h3><p>要下一个客户端和一个核心</p>
+<p>我该了端口 socks 10808 http 10809 然后填地址 设置正确的core的路径 就OK了</p>
+<p>到此为止我消耗了硬盘空间为42G</p>
+<h3 id="连接实验室服务器"><a href="#连接实验室服务器" class="headerlink" title="连接实验室服务器"></a>连接实验室服务器</h3><p>直接用终端进行连接</p>
+<p>如果要将服务器里面的数据拷贝到我这里的话 用scp -r -P 端口号 用户名@主机ip:文件夹路径 本地文件夹路径</p>
+<p>在实验室的服务器上面跑 一个简单的word2vector 需要3个小时 在我原来的dell电脑上是3天，在新电脑上是1个小时</p>
+<h3 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh-my-zsh"></a>安装oh-my-zsh</h3><p>首先安装zshell sudo apt install zsh</p>
+<p>在oh-my-zsh的主页上有推荐的两种方法</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">sh -c &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.github.com&#x2F;ohmyzsh&#x2F;ohmyzsh&#x2F;master&#x2F;tools&#x2F;install.sh)&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>要先安装git 我用sudo apt install git 安装的是2.25版的，我在git官网上面看到的是2.34版的</p>
+<p>下了一个tarball git 2.34.1.tar.gz 然后</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">tar -zxf git.tar.gz
+cd git-*
+make prefix&#x3D;&#x2F;usr&#x2F;local all
+sudo make prefix&#x3D;&#x2F;usr&#x2F;local install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>报错 make: curl-config: Command not found 安装libcurl4-gnutls-dev</p>
+<p>报错 git-compat-util.h:309:10: fatal error: openssl/ssl.h 安装libssl-dev</p>
+<p>报错 cache.h:21:10: fatal error: zlib.h: No such file or directory 安装libz-dev</p>
+<p>报错 http-push.c:22:10: fatal error: expat.h: No such file or directory 安装libexpat1-dev</p>
+<p>报错 * tclsh failed; using unoptimized loading 安装gettext</p>
+<p>然后sudo make prefix=/usr/local install</p>
+<p>然后执行上面安装oh-my-zsh的命令就OK了</p>
+<p><strong>chsh -s /bin/zsh</strong>  需要重启才能看到chsh的效果</p>
+<h3 id="安装powerlevel-10k"><a href="#安装powerlevel-10k" class="headerlink" title="安装powerlevel 10k"></a>安装powerlevel 10k</h3><p>按照github上面的安装教程来，configure font的时候选GNOME Terminal</p>
+<p>选择样式的话就按照p10k configure的来就行了</p>
+<p>安装autojump 和 zsh-syntax-highlighting 和zsh-syntax-autosuggestions</p>
+<p>修改zshrc</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">plugins&#x3D;(
+	git autojump zsh-autosuggestions zsh-syntax-highlighting
+)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>PS</strong> 装完zshell之后 发现conda不能用了 这个时候将bashrc里面关于conda的内容拷贝到zshrc里面去！！</p>
+<h3 id="一套键鼠控制一切"><a href="#一套键鼠控制一切" class="headerlink" title="一套键鼠控制一切"></a>一套键鼠控制一切</h3><p>淘宝上面买了Synergy，按照教程操作就行了</p>
+<h3 id="安装steam"><a href="#安装steam" class="headerlink" title="安装steam"></a>安装steam</h3><p>在steam官网上 下载deb文件</p>
+<h3 id="查看cpu温度"><a href="#查看cpu温度" class="headerlink" title="查看cpu温度"></a>查看cpu温度</h3><p>sudo apt install lm-sensors hddtemp</p>
+<p>sudo sensors-detect 一路yes之后 sensors命令查看温度</p>
+<p>k10temp-pci 就是cpu。我的是60多度 可以watch -n 1 sensors来查看动态变化</p>
+<h3 id="安装一个硬盘"><a href="#安装一个硬盘" class="headerlink" title="安装一个硬盘"></a>安装一个硬盘</h3><p>硬盘里面会附带一根要插在主板上的数据线 和 4个螺丝，有点郁闷的是这4个螺丝不适合我的机箱</p>
+<p>换成机箱自带的螺丝 然后装上之后 </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> mkfs.ext4 /dev/sda
+<span class="token function">sudo</span> <span class="token function">mount</span> /dev/sda 要挂载的目录
+<span class="token function">sudo</span> <span class="token function">chown</span> 用户名 挂载的目录<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>装完之后还是挺开心的 ～ </p>
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><p>输入登录密码之后 黑屏</p>
+<p>按Ctrl + alt + f3进入tty3 进行操作</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/mudooo/article/details/97102716">参考了一个博客链接</a></p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">sudo dpkg --configure -a
+sudo apt update
+sudo apt upgrade -y
+sudo apt install ubuntu-desktop#实际上这条命令没啥反应
+sudo apt install lightdm # 更改display manager到lightdm
+没有reboot ctrl alt f1到之前的界面还是不行<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>su密码变了 我把我用户的密码改成原来的su的密码就好了</p>
+<p><strong>发现安装的torchvision版本是0.2.2</strong></p>
+<p>又发现我的cudnn 好像没有安对， 清华源里面的cudnn的版本是8.0.5 我之前按的是8.2.1 换成8.0.5</p>
+<p>用dpkg —list ｜ grep cudnn 发现之前安的包 然后dpkg -P 干掉</p>
+<p>下载8.0.5 然后安装 conda install PyTorch torch vision=0.9.2 torchaudio cudatoolkit=11.1 -c PyTorch-lts -c Nvidia</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#检查炼丹ok的代码</span>
+<span class="token keyword">import</span> pytorch
+a <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
+a<span class="token punctuation">.</span>cuda<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">from</span> torch<span class="token punctuation">.</span>backends <span class="token keyword">import</span> cudnn
+cudnn<span class="token punctuation">.</span>is_available<span class="token punctuation">(</span><span class="token punctuation">)</span>
+cudnn<span class="token punctuation">.</span>is_acceptable<span class="token punctuation">(</span>a<span class="token punctuation">.</span>cuda<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>ps cudnn的头文件在usr include里面 查看版本查看cudnn version</p>
+<p>搞定</p>
+<p>然后pip install graphviz 和 tensorwatch</p>
+<p>tensorwatch的版本是0.9.1 还要安装sklearn 我手动pip install sklearn  然后conda install ipykernel 还要conda install pandas； 然后用代码</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">alexnet_model <span class="token operator">=</span> torchvision<span class="token punctuation">.</span>models<span class="token punctuation">.</span>alexnet<span class="token punctuation">(</span><span class="token punctuation">)</span>
+tw<span class="token punctuation">.</span>draw_model<span class="token punctuation">(</span>alexnet_model<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">224</span><span class="token punctuation">,</span> <span class="token number">224</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment"># 报错 AttributeError module torch.onnx has no attribute set_training</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>tensorwatch 凉凉</strong></p>
+<p>使用torchviz</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">net <span class="token operator">=</span> models<span class="token punctuation">.</span>AlexNet<span class="token punctuation">(</span><span class="token punctuation">)</span>
+x <span class="token operator">=</span> torch<span class="token punctuation">.</span>randn<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">224</span><span class="token punctuation">,</span> <span class="token number">224</span><span class="token punctuation">)</span>
+x<span class="token punctuation">.</span>requires_grad_<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+y <span class="token operator">=</span> net<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+vis <span class="token operator">=</span> make_dot<span class="token punctuation">(</span>y<span class="token punctuation">,</span> params <span class="token operator">=</span> <span class="token builtin">dict</span><span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">(</span>net<span class="token punctuation">.</span>named_parameters<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token string">'x'</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+vis<span class="token punctuation">.</span><span class="token builtin">format</span> <span class="token operator">=</span> <span class="token string">'png'</span>
+vis<span class="token punctuation">.</span>view<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>报错graphviz没装 我发现这个要apt install graphviz</strong></p>
+<h3 id="安装python-pip"><a href="#安装python-pip" class="headerlink" title="安装python pip"></a>安装python pip</h3><p>sudo apt install python3-pip</p>
+<p><strong>PS</strong> 让nvim有python3，可以在vim中使用:echo has(‘python3’)来查看是否有python3 如果没有的话就 pip3 install —user pynvim</p>
+<p>对于安装defx.nvim的时候，如果之前没有安装pynvim的话，安装完后:UpdateRemotePlugins</p>
+<h3 id="改键"><a href="#改键" class="headerlink" title="改键"></a>改键</h3><p>将Caps键映射到Ctrl键 </p>
+<p>安装gnome-tweak-tool  在这个里面有个键盘设置 将Caps映射为Ctrl键</p>
 
                 
             </div>
@@ -615,7 +718,7 @@ let g:ycm_confirm_extra_conf&#x3D;0<span aria-hidden="true" class="line-numbers-
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://myalos.github.io/2022/01/13/windows%20terminal/">http://myalos.github.io/2022/01/13/windows%20terminal/</a>
+                    <a href="http://myalos.github.io/2022/01/16/ubuntu_essential/">http://myalos.github.io/2022/01/16/ubuntu_essential/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -653,16 +756,16 @@ let g:ycm_confirm_extra_conf&#x3D;0<span aria-hidden="true" class="line-numbers-
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/wsl/">
-                                    <span class="chip bg-color">wsl</span>
-                                </a>
-                            
-                                <a href="/tags/windows-terminal/">
-                                    <span class="chip bg-color">windows terminal</span>
+                                <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">深度学习</span>
                                 </a>
                             
                                 <a href="/tags/%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83/">
                                     <span class="chip bg-color">工作环境</span>
+                                </a>
+                            
+                                <a href="/tags/ubuntu/">
+                                    <span class="chip bg-color">ubuntu</span>
                                 </a>
                             
                         </div>
@@ -887,9 +990,10 @@ let g:ycm_confirm_extra_conf&#x3D;0<span aria-hidden="true" class="line-numbers-
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/01/16/ubuntu_essential/">
                     <div class="card-image">
@@ -907,9 +1011,9 @@ let g:ycm_confirm_extra_conf&#x3D;0<span aria-hidden="true" class="line-numbers-
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -922,6 +1026,7 @@ let g:ycm_confirm_extra_conf&#x3D;0<span aria-hidden="true" class="line-numbers-
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -948,31 +1053,31 @@ let g:ycm_confirm_extra_conf&#x3D;0<span aria-hidden="true" class="line-numbers-
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/12/27/datawhale%20sklearn%205/">
+                <a href="/2022/01/13/windows%20terminal/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="KMeans">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Windows Terminal + oh my zsh + oh my posh">
                         
-                        <span class="card-title">KMeans</span>
+                        <span class="card-title">Windows Terminal + oh my zsh + oh my posh</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是datawhale组队学习 scikit-learn的task05 学习笔记
+                            这是我安装windows terminal 美化工作环境的log
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-13
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/sklearn/" class="post-category">
-                                    sklearn
+                            <a href="/categories/%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83/" class="post-category">
+                                    工作环境
                                 </a>
                             
                             
@@ -982,16 +1087,16 @@ let g:ycm_confirm_extra_conf&#x3D;0<span aria-hidden="true" class="line-numbers-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">机器学习</span>
+                    <a href="/tags/wsl/">
+                        <span class="chip bg-color">wsl</span>
                     </a>
                     
-                    <a href="/tags/sklearn/">
-                        <span class="chip bg-color">sklearn</span>
+                    <a href="/tags/windows-terminal/">
+                        <span class="chip bg-color">windows terminal</span>
                     </a>
                     
-                    <a href="/tags/datawhale/">
-                        <span class="chip bg-color">datawhale</span>
+                    <a href="/tags/%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83/">
+                        <span class="chip bg-color">工作环境</span>
                     </a>
                     
                 </div>
@@ -1122,6 +1227,13 @@ let g:ycm_confirm_extra_conf&#x3D;0<span aria-hidden="true" class="line-numbers-
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 
